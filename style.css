@@ -23,3 +23,6 @@ td {
 th:first-child, td:first-child {
     text-align: left;
 }
+button {
+    margin: 10px 10px 10px 10px;
+}
