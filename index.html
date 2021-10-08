@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Утка по сопроматски</title>
+    <link rel="icon" href="icon.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="tbl">
+    <table id="mytbl">
+        <caption style="color: cornflowerblue; padding-bottom: 10px; padding-left: 40px" ><strong>Входные данные для стержней</strong></caption>
+        <thead>
+        <tr>
+            <th>L стержня</th>
+            <th>Допускаемое напряжение Е</th>
+            <th>Площадь сечения A</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr id="2">
+            <td><form><input type="number"></form></td>
+            <td><input type="number"></td>
+            <td><input type="number"></td>
+        </tr>
+        <tr id="77">
+            <td><form><input type="number"></form></td>
+            <td><input type="number"></td>
+            <td><input type="number"></td>
+        </tr>
+        <tr id="3">
+            <td><form><input type="number"></form></td>
+            <td><input type="number"></td>
+            <td><input type="number"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<script type="text/javascript">
+    function addRow(id){
+        let tbody = document.getElementById(id).getElementsByTagName("TBODY")[0];
+        let row = document.createElement("TR")
+        let td1 = document.createElement("TD")
+        let cellnum = document.createElement("input");
+        td1.appendChild(document.createElement("input"))
+        //td1.setAttribute('type', 'number');
+        let td2 = document.createElement("TD")
+        td2.appendChild (document.createElement("input"))
+        let td3 = document.createElement("TD")
+        td3.appendChild (document.createElement("input"))
+        row.appendChild(td1);
+        row.appendChild(td2);
+        row.appendChild(td3);
+        tbody.appendChild(row);
+    }
+</script>
+
+<!--<a href="javascript://" onclick="addRow('mytbl');return false;">Добавить строку</a> -->
+<div>
+<button onclick="addRow('mytbl')" name="add" value="add">Добавить стержень</button>
+<button onclick="saveClick()" name="save" value="save">Сохранить введенные стержни</button>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
