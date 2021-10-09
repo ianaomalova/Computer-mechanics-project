@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div id="tbl">
+<div style="margin-left: 320px" id="tbl">
     <p><strong style="color: #0000FF">Кто введет букву, с того утка</strong></p>
     <table id="mytbl">
         <caption style="color: mediumblue; padding-bottom: 10px; padding-left: 40px; font-size: 25px" ><strong>Входные данные для стержней</strong></caption>
@@ -60,13 +60,54 @@
 
 <!--<a href="javascript://" onclick="addRow('mytbl');return false;">Добавить строку</a> -->
 <div>
-    <a href="javascript://" onclick="addRow('mytbl')" class="gradient-button">Добавить стержень</a>
+    <a href="javascript://" onclick="addRow('mytbl')" style="margin-left: 490px" class="gradient-button">Добавить стержень</a>
     <!--<button onclick="addRow('mytbl')" name="add" value="add">Добавить стержень</button> -->
     <a href="#" onclick="saveClick()" class="gradient-button">Сохранить введенные стержни</a>
    <!-- <button onclick="saveClick()" name="save" value="save">Сохранить введенные стержни</button> -->
 </div>
+<br>
+<br>
+<hr>
+<br>
+<a style="float: right;" href="output1.html"><img src="https://sun9-11.userapi.com/impg/N88B3oEP-q1AVFyI5JgyHSLMvy7et1LLKk_t1Q/YHTCQ0V1bmI.jpg?size=2162x2160&quality=96&sign=91aea2d51aaf404e2b4f71d2eb44eea8&type=album" alt="Утка" width="210px" height="210px"></a>
+<div>
+<table id="table2">
+    <thead>
+        <tr>
+            <th>Номер стержня</th>
+            <th>Распределенная нагрузка</th>
+        </tr>
+    </thead>
+    <tbody>
 
-<form id="choose_rake">
+    </tbody>
+</table>
+</div>
+<a href="#" style="float: right;" onclick="createTable('table2', 'table3')" class="gradient-button">Создать таблицы</a>
+<br>
+<br>
+<hr>
+<br>
+<table id="table3">
+    <thead>
+        <tr>
+            <th>Номер узла</th>
+            <th>Сосредоточенная нагрузка</th>
+        </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+</table>
+
+<!--<button onclick="createTable('table2', 'table3')">Создать таблицы</button>-->
+<!--<a href="#" onclick="createTable('table2', 'table3')" class="gradient-button">Создать таблицы</a>-->
+<br>
+<br>
+<br>
+<br>
+<hr>
+<form id="choose_rake" style="margin-left: 700px">
     <p style="color: blue; font-size: 26px;"><strong>Выберите тип заделок: </strong> </p>
     <div style="background-color: cornflowerblue" id="radiobtn">
         <input type="radio" id="left_rake"
@@ -87,37 +128,6 @@
 </form>
 <pre id="log">
 </pre>
-<br>
-<hr>
-
-<a href="#" onclick="createTable('table2', 'table3')" class="gradient-button">Создать таблицы</a>
-<table id="table2">
-    <thead>
-        <tr>
-            <th>Номер стержня</th>
-            <th>Распределенная нагрузка</th>
-        </tr>
-    </thead>
-    <tbody>
-
-    </tbody>
-</table>
-
-<table id="table3">
-    <thead>
-        <tr>
-            <th>Номер узла</th>
-            <th>Сосредоточенная нагрузка</th>
-        </tr>
-    </thead>
-    <tbody>
-
-    </tbody>
-</table>
-<!--<button onclick="createTable('table2', 'table3')">Создать таблицы</button>-->
-<!--<a href="#" onclick="createTable('table2', 'table3')" class="gradient-button">Создать таблицы</a>-->
-
-<a href="output1.html">Отрисовка стержней</a>
 <script src="app.js"></script>
 </body>
 </html>

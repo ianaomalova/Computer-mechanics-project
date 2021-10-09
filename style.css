@@ -81,12 +81,16 @@ body {
     margin: 5px;
 }
 
-#choose_rake {
-    position: fixed;
-    right: 500px;
-    top: 30px;
-}
+/*#choose_rake {*/
+/*    position: fixed;*/
+/*    right: 500px;*/
+/*    top: 30px;*/
+/*}*/
 
 #radiobtn {
     background-image: url("https://image.freepik.com/free-vector/duck-seamless-pattern-background_42349-10.jpg");
+}
+
+hr {
+    color: #0000FF;
 }

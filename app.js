@@ -2,10 +2,8 @@ function saveClick() {
     let rowCount = document.getElementById('mytbl').rows.length - 1; //получение количества строк
     //console.log(rowCount)
     //получение кол-ва ячеек(дырок куда вводятся цифры без учета статических данных)
-    let x = new Array(rowCount);
     let count = rowCount;
     for (let i = 0; i < rowCount; i++) {
-        x[i] = new Array(4);
         count+=3;
     }
     //console.log(count)
@@ -48,6 +46,11 @@ function saveClick() {
             console.log(bigArr[i])
         }
     }
+
+    //console.log(document.getElementsByTagName("input")[7].value)
+    console.log(document.getElementsByTagName("input")[8].value)
+    console.log(document.getElementsByTagName("input")[9].value)
+    console.log(document.getElementsByTagName("input")[10].value)
 }
 
 let form = document.querySelector("form");
@@ -77,7 +80,15 @@ form.addEventListener("submit", function(event) {
 }, false);
 
 function createTable(id, id2) {
+    let arrQ = new Array();
+    let arrF = new Array();
     let rowCount = document.getElementById('mytbl').rows.length - 1;
+    let count = rowCount;
+    for (let i = 0; i < rowCount; i++) {
+        count+=3;
+    }
+    count+=3;
+   // console.log(count)
     let nodeCount = rowCount - 1;
     let tbody = document.getElementById(id).getElementsByTagName("TBODY")[0];
     let tbody2 = document.getElementById(id2).getElementsByTagName("TBODY")[0];
@@ -101,6 +112,12 @@ function createTable(id, id2) {
         row.appendChild(td1);
         tbody2.appendChild(row);
     }
+    // console.log(document.getElementsByTagName("input")[10].value)
+    // console.log(document.getElementsByTagName("input")[11].value)
+    // for(let i = count; i < count+rowCount; i++) {
+    //     arrQ[0] = document.getElementsByTagName("input")[i].value;
+    //     console.log(arrQ[0]);
+    // }
 }
 
 
