@@ -38,4 +38,30 @@ function saveClick() {
     }
 }
 
+let form = document.querySelector("form");
+let log = document.querySelector("#log");
+
+let flagRake = 0; //переменная отвечающая за заделки
+form.addEventListener("submit", function(event) {
+    let data = new FormData(form);
+    let output = "";
+    for (const entry of data) {
+        output = entry[0] + " = " + entry[1] + "\r";
+        if(entry[1]==='left rake') {
+            alert("111111111111")
+            flagRake = 1;
+        }
+        else if(entry[1] === 'right rake') {
+            flagRake = 2;
+            alert("22222")
+        }
+        else if(entry[1] === 'both rake'){
+            flagRake = 3;
+            alert("33333")
+        }
+    };
+    //log.innerText = output;
+    event.preventDefault();
+}, false);
+
 

@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="Permissions-Policy" content="interest-cohort=()"/>
     <title>Утка по сопроматски</title>
-    <link rel="icon" type="image.png" href="/1012677.png">
+    <link rel="icon" type="image/png" href="/1012677.png">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div id="tbl">
     <p><strong>Кто введет букву, с того утка</strong></p>
     <table id="mytbl">
-        <caption style="color: mediumblue; padding-bottom: 10px; padding-left: 40px" ><strong>Входные данные для стержней</strong></caption>
+        <caption style="color: mediumblue; padding-bottom: 10px; padding-left: 40px; font-size: 25px" ><strong>Входные данные для стержней</strong></caption>
         <thead>
         <tr>
             <th>Номер стержня</th>
@@ -66,25 +66,27 @@
    <!-- <button onclick="saveClick()" name="save" value="save">Сохранить введенные стержни</button> -->
 </div>
 
-<form>
-    <p>Выберите тип заделок: </p>
+<form id="choose_rake">
+    <p style="color: blue; font-size: 26px"><strong>Выберите тип заделок: </strong> </p>
     <div>
         <input type="radio" id="left_rake"
-               name="contact" value="email">
-        <label for="left_rake">1 грабля слева</label>
-
+               name="rake" value="left rake">
+        <label style="font-size: 22px" for="left_rake">1 грабля слева</label>
+        <br>
         <input type="radio" id="right_rake"
-               name="contact" value="phone">
-        <label for="right_rake">1 грабля справа</label>
-
+               name="rake" value="right rake">
+        <label style="font-size: 22px" for="right_rake">1 грабля справа</label>
+        <br>
         <input type="radio" id="two_rake"
-               name="contact" value="mail">
-        <label for="two_rake">2 грабли</label>
+               name="rake" value="both rake">
+        <label style="font-size: 22px" for="two_rake">2 грабли</label>
     </div>
     <div>
-        <button type="submit">Submit</button>
+        <button style="margin-top: 10px" class="button" type="submit">Выбрать</button>
     </div>
 </form>
+<pre id="log">
+</pre>
 
 <script src="app.js"></script>
 </body>
