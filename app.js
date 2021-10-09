@@ -34,6 +34,10 @@ function saveClick() {
     let bigArr = new Array()
     for(let i = 0; i < count; i++) {
         bigArr[i] = document.getElementsByTagName("input")[i].value;document.getElementsByTagName("input")[i].value
+        if(!Number.isInteger(bigArr[i])) {
+            alert("Владислав Александрович, это безобразие. И кстати с вас утка:)")
+            document.write('<img src="https://pbs.twimg.com/profile_images/1021724681752256513/WM5yxh86_400x400.jpg">');
+        }
         console.log(bigArr[i])
     }
 }
