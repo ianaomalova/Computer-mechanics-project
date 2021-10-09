@@ -8,7 +8,7 @@ table {
     margin-top: 15px;
 }
 th, td:first-child {
-    background: #AFCDE7;
+    background: cornflowerblue;
     color: white;
     padding: 10px 20px;
 }
@@ -18,7 +18,7 @@ th, td {
     border-color: white;
 }
 td {
-    background: #D8E6F3;
+    background: lightcyan;
 }
 th:first-child, td:first-child {
     text-align: left;
@@ -49,7 +49,8 @@ body {
     display: inline-block;
     color: white;
     padding: 10px 17px;
-    margin: 10px 20px;
+    /*margin: 10px 20px;*/
+    margin: 20px 10px 20px 30px;
     border-radius: 10px;
     font-family: 'Montserrat', sans-serif;
     font-size: small;
