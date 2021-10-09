@@ -76,16 +76,33 @@ form.addEventListener("submit", function(event) {
     event.preventDefault();
 }, false);
 
-// function createTable() {
-//     let rowCount = document.getElementById('mytbl').rows.length - 1;
-//     let count_node = rowCount - 1;
-//     let tbody1 = document.getElementById(table2).getElementsByTagName("TBODY")[0];
-//     let tbody2 = document.getElementById(table3).getElementsByTagName("TBODY")[0];
-//     let row1 = document.createElement("TR")
-//     let td1 = document.createElement("TD")
-//     td1.appendChild(document.createElement("input"))
-//     row1.appendChild(td1);
-//     tbody1.appendChild(row1);
-// }
+function createTable(id, id2) {
+    let rowCount = document.getElementById('mytbl').rows.length - 1;
+    let nodeCount = rowCount - 1;
+    let tbody = document.getElementById(id).getElementsByTagName("TBODY")[0];
+    let tbody2 = document.getElementById(id2).getElementsByTagName("TBODY")[0];
+    for(let i = 0; i < rowCount; i++) {
+        let row = document.createElement("TR")
+        let td0 = document.createElement("TD")
+        td0.appendChild(document.createTextNode(''))
+        let td1 = document.createElement("TD")
+        td1.appendChild(document.createElement("input"))
+        row.appendChild(td0);
+        row.appendChild(td1);
+        tbody.appendChild(row);
+    }
+    for(let i = 0; i < nodeCount; i++) {
+        let row = document.createElement("TR")
+        let td0 = document.createElement("TD")
+        td0.appendChild(document.createTextNode(''))
+        let td1 = document.createElement("TD")
+        td1.appendChild(document.createElement("input"))
+        row.appendChild(td0);
+        row.appendChild(td1);
+        tbody2.appendChild(row);
+    }
+}
+
+
 
 
