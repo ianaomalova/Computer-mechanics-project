@@ -81,5 +81,7 @@ body {
 }
 
 #choose_rake {
-    transform: translate(1050px,-210px);
+    position: absolute;
+    right: 500px;
+    top: 0;
 }
