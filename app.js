@@ -33,12 +33,20 @@ function saveClick() {
     // }
     let bigArr = new Array()
     for(let i = 0; i < count; i++) {
-        bigArr[i] = document.getElementsByTagName("input")[i].value;document.getElementsByTagName("input")[i].value
-        if(!Number.isInteger(bigArr[i])) {
+        bigArr[i] = document.getElementsByTagName("input")[i].value;
+    }
+
+    for(let i = 0; i < bigArr.length; i++) {
+        let temp = parseInt(bigArr[i])
+        if(Number.isNaN(temp)) {
             alert("Владислав Александрович, это безобразие. И кстати с вас утка:)")
             document.write('<img src="https://pbs.twimg.com/profile_images/1021724681752256513/WM5yxh86_400x400.jpg">');
+            break
         }
-        console.log(bigArr[i])
+        else {
+            bigArr[i] = temp;
+            console.log(bigArr[i])
+        }
     }
 }
 
@@ -68,8 +76,16 @@ form.addEventListener("submit", function(event) {
     event.preventDefault();
 }, false);
 
-function createTable() {
-    let rowCount = document.getElementById('mytbl').rows.length - 1;
-}
+// function createTable() {
+//     let rowCount = document.getElementById('mytbl').rows.length - 1;
+//     let count_node = rowCount - 1;
+//     let tbody1 = document.getElementById(table2).getElementsByTagName("TBODY")[0];
+//     let tbody2 = document.getElementById(table3).getElementsByTagName("TBODY")[0];
+//     let row1 = document.createElement("TR")
+//     let td1 = document.createElement("TD")
+//     td1.appendChild(document.createElement("input"))
+//     row1.appendChild(td1);
+//     tbody1.appendChild(row1);
+// }
 
 
