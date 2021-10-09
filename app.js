@@ -38,18 +38,4 @@ function saveClick() {
     }
 }
 
-function start() {
-    // let arr = addRow('mytbl');
-    // document.getElementById(`mytbl`).addEventListener(`input`, e => {
-    //     let tempValue
-    //     if (e.target.tagName === `INPUT`) {
-    //         tempValue = e.target.value;
-    //     } //console.log(e.target.value);
-    //     console.log(tempValue);
-    // });
-    //
-    // for(let i = 0; i < 3; i++) {
-    //     console.log(arr[i])
-    // }
-}
 

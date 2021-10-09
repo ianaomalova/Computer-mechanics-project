@@ -59,10 +59,32 @@
 
 <!--<a href="javascript://" onclick="addRow('mytbl');return false;">Добавить строку</a> -->
 <div>
-    <button onclick="addRow('mytbl')" name="add" value="add">Добавить стержень</button>
-    <button onclick="saveClick()" name="save" value="save">Сохранить введенные стержни</button>
-    <button onclick="start()" name = "start" value="start">Начать ввод</button>
+    <a href="javascript://" onclick="addRow('mytbl')" class="gradient-button">Добавить стержень</a>
+    <!--<button onclick="addRow('mytbl')" name="add" value="add">Добавить стержень</button> -->
+    <a href="#" onclick="saveClick()" class="gradient-button">Сохранить введенные стержни</a>
+   <!-- <button onclick="saveClick()" name="save" value="save">Сохранить введенные стержни</button> -->
 </div>
+
+<form>
+    <p>Выберите тип заделок: </p>
+    <div>
+        <input type="radio" id="left_rake"
+               name="contact" value="email">
+        <label for="left_rake">1 грабля слева</label>
+
+        <input type="radio" id="right_rake"
+               name="contact" value="phone">
+        <label for="right_rake">1 грабля справа</label>
+
+        <input type="radio" id="two_rake"
+               name="contact" value="mail">
+        <label for="two_rake">2 грабли</label>
+    </div>
+    <div>
+        <button type="submit">Submit</button>
+    </div>
+</form>
+
 <script src="app.js"></script>
 </body>
 </html>
