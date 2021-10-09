@@ -9,7 +9,7 @@
 </head>
 <body>
 <div id="tbl">
-    <p><strong>Кто введет букву, с того утка</strong></p>
+    <p><strong style="color: #0000FF">Кто введет букву, с того утка</strong></p>
     <table id="mytbl">
         <caption style="color: mediumblue; padding-bottom: 10px; padding-left: 40px; font-size: 25px" ><strong>Входные данные для стержней</strong></caption>
         <thead>
@@ -67,19 +67,19 @@
 </div>
 
 <form id="choose_rake">
-    <p style="color: blue; font-size: 26px"><strong>Выберите тип заделок: </strong> </p>
-    <div>
+    <p style="color: blue; font-size: 26px;"><strong>Выберите тип заделок: </strong> </p>
+    <div style="background-color: cornflowerblue" id="radiobtn">
         <input type="radio" id="left_rake"
                name="rake" value="left rake">
-        <label style="font-size: 22px" for="left_rake">1 грабля слева</label>
+        <label style="font-size: 22px; color: black" for="left_rake">1 грабля слева</label>
         <br>
         <input type="radio" id="right_rake"
                name="rake" value="right rake">
-        <label style="font-size: 22px" for="right_rake">1 грабля справа</label>
+        <label style="font-size: 22px; color: black" for="right_rake">1 грабля справа</label>
         <br>
         <input type="radio" id="two_rake"
                name="rake" value="both rake">
-        <label style="font-size: 22px" for="two_rake">2 грабли</label>
+        <label style="font-size: 22px; color: black" for="two_rake">2 грабли</label>
     </div>
     <div>
         <button style="margin-top: 10px" class="button" type="submit">Выбрать</button>
@@ -87,12 +87,6 @@
 </form>
 <pre id="log">
 </pre>
-<table>
-    <tr>
-        <td>123</td>
-        <td>43242323</td>
-    </tr>
-</table>
 <script src="app.js"></script>
 </body>
 </html>

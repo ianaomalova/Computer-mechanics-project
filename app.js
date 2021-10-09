@@ -68,4 +68,8 @@ form.addEventListener("submit", function(event) {
     event.preventDefault();
 }, false);
 
+function createTable() {
+    let rowCount = document.getElementById('mytbl').rows.length - 1;
+}
+
 
