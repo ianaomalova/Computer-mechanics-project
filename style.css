@@ -43,6 +43,7 @@ table tr td:first-child::before {
 
 body {
     /*background: #d6eaf8;*/
+    background-image: url("https://image.freepik.com/free-vector/duck-seamless-pattern-background_42349-10.jpg");
 }
 .gradient-button {
     text-decoration: none;
