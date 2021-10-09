@@ -8,6 +8,7 @@
 </head>
 <body>
 <div id="tbl">
+    <p><strong>Кто введет букву, с того утка</strong></p>
     <table id="mytbl">
         <caption style="color: cornflowerblue; padding-bottom: 10px; padding-left: 40px" ><strong>Входные данные для стержней</strong></caption>
         <thead>
@@ -21,9 +22,9 @@
         <tbody>
         <tr id="2">
             <td></td>
-            <td><form><input type="number"></form></td>
-            <td><input type="number"></td>
-            <td><input type="number"></td>
+            <td><input></td>
+            <td><input></td>
+            <td><input></td>
         </tr>
         </tbody>
 
@@ -53,8 +54,9 @@
 
 <!--<a href="javascript://" onclick="addRow('mytbl');return false;">Добавить строку</a> -->
 <div>
-<button onclick="addRow('mytbl')" name="add" value="add">Добавить стержень</button>
-<button onclick="saveClick()" name="save" value="save">Сохранить введенные стержни</button>
+    <button onclick="addRow('mytbl')" name="add" value="add">Добавить стержень</button>
+    <button onclick="saveClick()" name="save" value="save">Сохранить введенные стержни</button>
+    <button onclick="start()" name = "start" value="start">Начать ввод</button>
 </div>
 <script src="app.js"></script>
 </body>
