@@ -1,6 +1,9 @@
-let bigArr = new Array()
+var bigArr = [];
 let arrQ = new Array()
 let arrF = new Array()
+
+Arr = [1, 2, 3];
+
 function saveClick() {
     let rowCount = document.getElementById('mytbl').rows.length - 1; //получение количества строк
     //console.log(rowCount)
@@ -11,18 +14,19 @@ function saveClick() {
     }
     // bigArr = new Array()
     for(let i = 0; i < count; i++) {
-        bigArr[i] = document.getElementsByTagName("input")[i].value;
+        //bigArr[i] = document.getElementsByTagName("input")[i].value;
+        window.bigArr.push(document.getElementsByTagName("input")[i].value);
     }
 
     for(let i = 0; i < bigArr.length; i++) {
         let temp = parseInt(bigArr[i])
         if(Number.isNaN(temp)) {
-            alert("Владислав Александрович, это безобразие. И кстати с вас утка:)")
+            alert("Владислав Александрович, это безобразие!:)")
             document.write('<img src="https://pbs.twimg.com/profile_images/1021724681752256513/WM5yxh86_400x400.jpg">');
             break
         }
         else {
-            bigArr[i] = temp;
+            window.bigArr[i] = temp;
             console.log(bigArr[i])
         }
     }
@@ -38,7 +42,7 @@ function saveClick() {
     for(let i = 0; i < rowCount; i++) {
         let temp = parseInt(arrQ[i]);
         if(Number.isNaN(temp)) {
-            alert("Владислав Александрович, это безобразие. И кстати с вас утка:)")
+            alert("Владислав Александрович, это безобразие! :)")
             document.write('<img src="https://pbs.twimg.com/profile_images/1021724681752256513/WM5yxh86_400x400.jpg">');
             break
         }
@@ -57,7 +61,7 @@ function saveClick() {
     for(let i = 0; i < arrF.length; i++) {
         let temp = parseInt(arrF[i])
         if(Number.isNaN(temp)) {
-            alert("Владислав Александрович, это безобразие. И кстати с вас утка:)")
+            alert("Владислав Александрович, это безобразие! :)")
             document.write('<img src="https://pbs.twimg.com/profile_images/1021724681752256513/WM5yxh86_400x400.jpg">');
             break
         }
@@ -65,10 +69,9 @@ function saveClick() {
             arrF[i] = temp;
         }
         console.log(arrF[i])
+        draw1(bigArr, arrQ, arrF);
     }
-
 }
-
 
 let form = document.querySelector("form");
 let log = document.querySelector("#log");
@@ -85,11 +88,11 @@ form.addEventListener("submit", function(event) {
         }
         else if(entry[1] === 'right rake') {
             flagRake = 2;
-            console.log("Выбрана 1")
+            console.log("Выбрана 2")
         }
         else if(entry[1] === 'both rake'){
             flagRake = 3;
-            console.log("Выбрана 1")
+            console.log("Выбрана 3")
         }
     };
     //log.innerText = output;
@@ -124,14 +127,28 @@ function createTable(id, id2) {
 
 }
 
-function draw1() {
+function draw1(arr1, arr2, arr3) {
     let canvas = document.getElementById("canvas");
     if (canvas.getContext) {
         let ctx = canvas.getContext('2d');
 
-        ctx.fillRect(25,25,100,100);
-        ctx.clearRect(45,45,60,60);
-        ctx.strokeRect(50,50,50,50);
+        ctx.strokeRect(50,50,100,60);
+        ctx.fillStyle = "rgb(200,0,0)";
+        ctx.fillRect (10, 10, 55, 50);
+
+        ctx.fillStyle = "rgba(0, 0, 200, 0.5)";
+        ctx.fillRect (30, 30, 55, 50);
+
+        let coefficientL = 0;
+        let length = 0;
+        for(let i = 0; i < bigArr.length; i++) {
+            let count = 0;
+            length += bigArr[count];
+            //console.log(arr1[4]);
+            count +=4;
+        }
+        //console.log(length);
+        console.log(arr1[0])
     }
 }
 
