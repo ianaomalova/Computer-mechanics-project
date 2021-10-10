@@ -1,3 +1,6 @@
+let bigArr = new Array()
+let arrQ = new Array()
+let arrF = new Array()
 function saveClick() {
     let rowCount = document.getElementById('mytbl').rows.length - 1; //получение количества строк
     //console.log(rowCount)
@@ -6,7 +9,7 @@ function saveClick() {
     for (let i = 0; i < rowCount; i++) {
         count+=3;
     }
-    let bigArr = new Array()
+    // bigArr = new Array()
     for(let i = 0; i < count; i++) {
         bigArr[i] = document.getElementsByTagName("input")[i].value;
     }
@@ -24,8 +27,7 @@ function saveClick() {
         }
     }
 
-    let arrQ = new Array()
-    let arrF = new Array()
+
     //parse the Q array from strings to numbers
     let j = 0; //счетчик для массива
     for(let i = count; i < count+rowCount; i++) {
@@ -64,6 +66,7 @@ function saveClick() {
         }
         console.log(arrF[i])
     }
+
 }
 
 
@@ -77,16 +80,16 @@ form.addEventListener("submit", function(event) {
     for (const entry of data) {
         output = entry[0] + " = " + entry[1] + "\r";
         if(entry[1]==='left rake') {
-            alert("111111111111")
+            console.log("Выбрана 1")
             flagRake = 1;
         }
         else if(entry[1] === 'right rake') {
             flagRake = 2;
-            alert("22222")
+            console.log("Выбрана 1")
         }
         else if(entry[1] === 'both rake'){
             flagRake = 3;
-            alert("33333")
+            console.log("Выбрана 1")
         }
     };
     //log.innerText = output;
@@ -118,7 +121,21 @@ function createTable(id, id2) {
         row.appendChild(td1);
         tbody2.appendChild(row);
     }
+
 }
+
+function draw1() {
+    let canvas = document.getElementById("canvas");
+    if (canvas.getContext) {
+        let ctx = canvas.getContext('2d');
+
+        ctx.fillRect(25,25,100,100);
+        ctx.clearRect(45,45,60,60);
+        ctx.strokeRect(50,50,50,50);
+    }
+}
+
+
 
 
 
