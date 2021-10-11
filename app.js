@@ -96,13 +96,16 @@ form.addEventListener("submit", function(event) {
         if(entry[1]==='left rake') {
             console.log("Выбрана 1")
             flagRake = 1;
+            console.log(flagRake)
         }
         else if(entry[1] === 'right rake') {
             flagRake = 2;
+            console.log(flagRake)
             console.log("Выбрана 2")
         }
         else if(entry[1] === 'both rake'){
             flagRake = 3;
+            console.log(flagRake)
             console.log("Выбрана 3")
         }
     };
@@ -142,9 +145,9 @@ function draw1() {
     let canvas = document.getElementById("ochko");
     if (canvas.getContext) {
         let ctx = canvas.getContext('2d');
-       // ctx.strokeRect(50, 50, 100, 50);
+        let cnv = canvas.getContext('2d');
+        let cnv2 = canvas.getContext('2d');
         const amountSterjney = document.getElementById('mytbl').rows.length - 1;
-        //console.log(amountSterjney)
         let coefficientL = 0;
         let coefficientA = 0;
         let lengthL = 0;
@@ -162,24 +165,78 @@ function draw1() {
 
         coefficientA = 300 / lengthA;
         coefficientL = 1600 / lengthL;
-        //console.log(coefficientL)
         let counter = 0;
         let counter2 = 2;
+        let startX = 0;
+        let endX = 0;
+        let startY = 0;
+        let endY = 0;
         let X = 90;
         let Y = 90;
+        startX = X - 20;
+        startY = Y;
+        let width = 0;
+        let maxHigth = 0;
+        let currentHeigth = 0;
+        let polovina_pervogo = 0;
+        let polovina_poslednego = 0;
         for(let i = 0; i < amountSterjney; i++) {
-            let width = bigArr[counter] * coefficientL;
-            let currentHeigth = bigArr[counter2] * coefficientA;
-            ctx.lineWidth = 4;
-            ctx.strokeRect(X, Y, width, currentHeigth);
-            X += width;
-            let temp = Y + currentHeigth / 2;
-            counter +=4;
+            width = bigArr[counter] * coefficientL; //получаем масштабируемую ширину
+            currentHeigth = bigArr[counter2] * coefficientA; //получаем масштабируемую высоту
+            if(currentHeigth > maxHigth) {
+                maxHigth = currentHeigth;
+            }
+            if(i === 0) {
+                polovina_pervogo = currentHeigth / 2;
+            }
+            else {
+                polovina_poslednego = currentHeigth / 2;
+            }
+            ctx.lineWidth = 4; //ширина линии
+            cnv.lineWidth = 3;
+            let x = X;
+            let y = Y + currentHeigth / 2;
+            ctx.strokeRect(X, Y, width, currentHeigth); //рисуем прямоугольник
+            X += width; //передвигаем координату Х
+            endX = X;
+            endY = Y;
+            let temp = Y + currentHeigth / 2; //передвигаем координату на середину стержня
+            console.log("ArrQ[0]");
+            console.log(arrQ[0]);
+            if(arrQ[i] !== 0) {
+                cnv.moveTo(x, y);
+                cnv.lineTo(X, temp);
+                cnv.stroke();
+            }
+            counter +=4; //получаем параметры второго стержня
             counter2 +=4;
-            let temp2 = bigArr[counter2]*coefficientA / 2;
-            Y = temp - temp2;
+            let temp2 = bigArr[counter2]*coefficientA / 2; //получчаем кол-во пикселей половины второго стержня
+            Y = temp - temp2; //перемещаем ввод вверх от половины первого стержня на половину второго стержня
 
+            // console.log("X" + endX);
+            // console.log("Y" + endY);
+            //ctx.strokeRect(endX, endY, 20, 20);
         }
+        var img3=document.getElementById('lr');
+        var img4=document.getElementById('rr');
+        let temp = startY + polovina_pervogo;
+        let temp2 = endY + polovina_poslednego;
+        temp -= maxHigth/2;
+        temp2 -= maxHigth / 2;
+        if(flagRake === 1) {
+            console.log("Выбрана 1")
+            cnv2.drawImage(img3, startX, temp, 20, maxHigth);
+        }
+        else if(flagRake === 2) {
+            console.log("Выбрана 2")
+            cnv2.drawImage(img4, endX, temp2, 20, maxHigth);
+        }
+        else {
+            console.log("Выбрана 3")
+            cnv2.drawImage(img3, startX, temp, 20, maxHigth);
+            cnv2.drawImage(img4, endX, temp2, 20, maxHigth);
+        }
+
     }
 }
 
