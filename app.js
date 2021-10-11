@@ -1,9 +1,8 @@
 var bigArr = [];
-let arrQ = new Array()
-let arrF = new Array()
+var arrQ = []
+var arrF = []
 
 Arr = [1, 2, 3];
-
 function saveClick() {
     let rowCount = document.getElementById('mytbl').rows.length - 1; //получение количества строк
     //console.log(rowCount)
@@ -69,7 +68,7 @@ function saveClick() {
             arrF[i] = temp;
         }
         console.log(arrF[i])
-        draw1(bigArr, arrQ, arrF);
+        //draw1(bigArr, arrQ, arrF);
     }
 }
 
@@ -127,28 +126,31 @@ function createTable(id, id2) {
 
 }
 
-function draw1(arr1, arr2, arr3) {
-    let canvas = document.getElementById("canvas");
+function draw1() {
+    let canvas = document.getElementById("ochko");
     if (canvas.getContext) {
         let ctx = canvas.getContext('2d');
-
-        ctx.strokeRect(50,50,100,60);
-        ctx.fillStyle = "rgb(200,0,0)";
-        ctx.fillRect (10, 10, 55, 50);
-
-        ctx.fillStyle = "rgba(0, 0, 200, 0.5)";
-        ctx.fillRect (30, 30, 55, 50);
-
+        let amountSterjney = document.getElementById('mytbl').rows.length - 1;
+        //console.log(amountSterjney)
         let coefficientL = 0;
-        let length = 0;
-        for(let i = 0; i < bigArr.length; i++) {
-            let count = 0;
-            length += bigArr[count];
-            //console.log(arr1[4]);
+        let lengthL = 0;
+        let count = 0;
+        for(let i = 0; i < bigArr.length; i+= 4) {
+            lengthL += bigArr[count];
             count +=4;
         }
-        //console.log(length);
-        console.log(arr1[0])
+
+        coefficientL = 1600 / lengthL;
+        console.log(coefficientL)
+        let counter = 0;
+        let X = 100;
+        let Y = 100;
+        for(let i = 0; i < amountSterjney; i++) {
+            let width = bigArr[counter] * coefficientL;
+            ctx.strokeRect(X, 50, width, 50);
+            counter +=4;
+            X += width;
+        }
     }
 }
 

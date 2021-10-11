@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div style="margin-left: 320px" id="tbl">
+<div style="margin-left: 410px" id="tbl">
     <p><strong style="color: #0000FF">Кто введет букву, с того утка</strong></p>
     <table id="mytbl">
         <caption style="color: mediumblue; padding-bottom: 10px; padding-left: 40px; font-size: 25px" ><strong>Входные данные для стержней</strong></caption>
@@ -60,7 +60,7 @@
 
 <!--<a href="javascript://" onclick="addRow('mytbl');return false;">Добавить строку</a> -->
 <div>
-    <a href="javascript://" onclick="addRow('mytbl')" style="margin-left: 490px" class="gradient-button">Добавить стержень</a>
+    <a href="javascript://" onclick="addRow('mytbl')" style="margin-left: 690px" class="gradient-button">Добавить стержень</a>
     <!--<button onclick="addRow('mytbl')" name="add" value="add">Добавить стержень</button> -->
     <a href="#" onclick="saveClick()" class="gradient-button">Сохранить введенные стержни</a>
    <!-- <button onclick="saveClick()" name="save" value="save">Сохранить введенные стержни</button> -->
@@ -69,10 +69,10 @@
 <br>
 <hr>
 <br>
-<a style="float: right;" href="output1.html" target="_blank"><img src="https://sun9-11.userapi.com/impg/N88B3oEP-q1AVFyI5JgyHSLMvy7et1LLKk_t1Q/YHTCQ0V1bmI.jpg?size=2162x2160&quality=96&sign=91aea2d51aaf404e2b4f71d2eb44eea8&type=album" alt="Утка" width="210px" height="210px"></a>
+<a style="float: right;" href="#" onclick="draw1()" ><img src="https://sun9-11.userapi.com/impg/N88B3oEP-q1AVFyI5JgyHSLMvy7et1LLKk_t1Q/YHTCQ0V1bmI.jpg?size=2162x2160&quality=96&sign=91aea2d51aaf404e2b4f71d2eb44eea8&type=album" alt="Утка" width="210px" height="210px"></a>
 
 <div>
-<table id="table2">
+<table id="table2" style="margin-left: 720px">
     <thead>
         <tr>
             <th>Номер стержня</th>
@@ -89,7 +89,7 @@
 <br>
 <hr>
 <br>
-<table id="table3">
+<table id="table3" style="margin-left: 720px">
     <thead>
         <tr>
             <th>Номер узла</th>
@@ -127,10 +127,17 @@
         <button style="margin-top: 10px" class="button" type="submit">Выбрать</button>
     </div>
 </form>
+<br>
+<hr>
 <pre id="log">
 </pre>
 
 <script src="app.js"></script>
+<div >
+    <canvas id="ochko" width="1800" height="600">
+
+    </canvas>
+</div>
 
 </body>
 </html>
