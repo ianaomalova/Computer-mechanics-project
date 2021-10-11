@@ -130,26 +130,42 @@ function draw1() {
     let canvas = document.getElementById("ochko");
     if (canvas.getContext) {
         let ctx = canvas.getContext('2d');
-        let amountSterjney = document.getElementById('mytbl').rows.length - 1;
+       // ctx.strokeRect(50, 50, 100, 50);
+        const amountSterjney = document.getElementById('mytbl').rows.length - 1;
         //console.log(amountSterjney)
         let coefficientL = 0;
+        let coefficientA = 0;
         let lengthL = 0;
+        let lengthA = 0;
         let count = 0;
+        let count2 = 2;
         for(let i = 0; i < bigArr.length; i+= 4) {
             lengthL += bigArr[count];
             count +=4;
         }
+        for(let i = 0; i < bigArr.length; i+=4) {
+            lengthA += bigArr[count2];
+            count2+=4;
+        }
 
+        coefficientA = 300 / lengthA;
         coefficientL = 1600 / lengthL;
-        console.log(coefficientL)
+        //console.log(coefficientL)
         let counter = 0;
-        let X = 100;
-        let Y = 100;
+        let counter2 = 2;
+        let X = 50;
+        let Y = 50;
         for(let i = 0; i < amountSterjney; i++) {
             let width = bigArr[counter] * coefficientL;
-            ctx.strokeRect(X, 50, width, 50);
-            counter +=4;
+            let currentHeigth = bigArr[counter2] * coefficientA;
+            ctx.strokeRect(X, Y, width, currentHeigth);
             X += width;
+            let temp = Y + currentHeigth / 2;
+            counter +=4;
+            counter2 +=4;
+            let temp2 = bigArr[counter2]*coefficientA / 2;
+            Y = temp - temp2;
+
         }
     }
 }
