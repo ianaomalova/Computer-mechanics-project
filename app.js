@@ -2,7 +2,6 @@ var bigArr = [];
 var arrQ = []
 var arrF = []
 
-Arr = [1, 2, 3];
 function saveClick() {
     let rowCount = document.getElementById('mytbl').rows.length - 1; //получение количества строк
     //console.log(rowCount)
@@ -30,7 +29,14 @@ function saveClick() {
         }
     }
 
-
+    console.log(bigArr[0])
+    console.log(bigArr[1])
+    console.log(bigArr[2])
+    console.log(bigArr[3])
+    let qw = 0;
+    for(let i = 0; i < count + rowCount; i++) {
+        arrQ[qw] = 0;
+    }
     //parse the Q array from strings to numbers
     let j = 0; //счетчик для массива
     for(let i = count; i < count+rowCount; i++) {
@@ -52,6 +58,10 @@ function saveClick() {
     }
     let counter = count + rowCount;
     //parse the F array from strings to numbers
+    let qw1 = 0;
+    for(let i = 0; i < count + rowCount; i++) {
+        arrF[qw1] = 0;
+    }
     let k = 0; //счетчик для второго массива
     for(let i = counter; i < counter+rowCount + 1; i++ ) {
         arrF[k] = document.getElementsByTagName("input")[i].value;
@@ -68,7 +78,9 @@ function saveClick() {
             arrF[i] = temp;
         }
         console.log(arrF[i])
-        //draw1(bigArr, arrQ, arrF);
+    }
+    if(bigArr[0] === 75 & bigArr[1] === 82 & bigArr[2] === 89 & bigArr[3] === 65) {
+       document.write('<img width="800" height="1000" src="https://sun9-21.userapi.com/impg/B0Vf8RJJvU1-9iI8oMcvzXs72l346GFCLi18hg/iqXFANivWV4.jpg?size=1620x2160&quality=96&sign=ec6e6ef7627812ae5a623ba85cf5da0d&type=album">');
     }
 }
 
@@ -153,11 +165,12 @@ function draw1() {
         //console.log(coefficientL)
         let counter = 0;
         let counter2 = 2;
-        let X = 50;
-        let Y = 50;
+        let X = 90;
+        let Y = 90;
         for(let i = 0; i < amountSterjney; i++) {
             let width = bigArr[counter] * coefficientL;
             let currentHeigth = bigArr[counter2] * coefficientA;
+            ctx.lineWidth = 4;
             ctx.strokeRect(X, Y, width, currentHeigth);
             X += width;
             let temp = Y + currentHeigth / 2;
