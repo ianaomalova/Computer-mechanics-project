@@ -1,19 +1,141 @@
 var bigArr = [];
 var arrQ = []
 var arrF = []
+var counter = 0;
+var counter2 = 1;
+var counter3 = 0;
+function AddRow() {
+
+    const $tbl = document.getElementById("maintabl");
+    $tbl.insertAdjacentHTML("beforeend", "<tr></tr>");
+    const $access = document.getElementsByTagName("tr")[counter2];
+    $access.insertAdjacentHTML("beforeend", "<td><text></text></td>")
+    $access.insertAdjacentHTML("beforeend", "<td><input type='number' step=any></td>")
+    $access.insertAdjacentHTML("beforeend", "<td><input type='number' step=any></td>")
+    $access.insertAdjacentHTML("beforeend", "<td><input type='number' step=any></td>")
+    $access.insertAdjacentHTML("beforeend", "<td><input type='number' step=any></td>")
+    counter2++;
+    $access.onchange = function () {
+        let temp = document.getElementsByTagName("input")[counter3].value;
+        temp = parseFloat(temp)
+        console.log(temp);
+        counter3++;
+    }
+}
+
+// function addRow1(id){
+//     let tbody = document.getElementById(id).getElementsByTagName("TBODY")[0];
+//     let row = document.createElement("TR")
+//     let td0 = document.createElement("TD")
+//     td0.appendChild(document.createTextNode(''))
+//     let td1 = document.createElement("TD")
+//     td1.appendChild(document.createElement("input"))
+//     td1.setAttribute("type", "number");
+//     let td2 = document.createElement("TD")
+//     td2.appendChild (document.createElement("input"))
+//     let td3 = document.createElement("TD")
+//     td3.appendChild (document.createElement("input"))
+//     let td4 = document.createElement("TD")
+//     td4.appendChild (document.createElement("input"))
+//     row.appendChild(td0);
+//     row.appendChild(td1);
+//     row.appendChild(td2);
+//     row.appendChild(td3);
+//     row.appendChild(td4);
+//     tbody.appendChild(row);
+//     td1.onchange = function () {
+//         //console.log(counter)
+//         let temp = document.getElementsByTagName("input")[counter].value;
+//         //console.log(temp)
+//         //console.log(document.getElementsByTagName("input")[window.counter].value)
+//         temp = parseFloat(temp)
+//         //console.log(temp)
+//         let out = counter;
+//         counter++;
+//         if(isNumber(temp)) {
+//             bigArr[out] = temp;
+//             console.log(bigArr[out])
+//         }
+//         else {
+//             alert("За буквы по жопе")
+//         }
+//     }
+//
+//     td2.onchange = function () {
+//         //console.log(counter)
+//         let temp = document.getElementsByTagName("input")[counter].value;
+//         //console.log(temp)
+//         //console.log(document.getElementsByTagName("input")[window.counter].value)
+//         temp = parseFloat(temp)
+//         //console.log(temp)
+//         let out = counter;
+//         counter++;
+//         if(isNumber(temp)) {
+//             bigArr[out] = temp;
+//             console.log(bigArr[out])
+//         }
+//         else {
+//             alert("За буквы по жопе")
+//         }
+//     }
+//     td3.onchange = function () {
+//         //console.log(counter)
+//         let temp = document.getElementsByTagName("input")[counter].value;
+//         //console.log(temp)
+//         //console.log(document.getElementsByTagName("input")[window.counter].value)
+//         temp = parseFloat(temp)
+//         //console.log(temp)
+//         let out = counter;
+//         counter++;
+//         if(isNumber(temp)) {
+//             bigArr[out] = temp;
+//             console.log(bigArr[out])
+//         }
+//         else {
+//             alert("За буквы по жопе")
+//         }
+//     }
+//     td4.onchange = function () {
+//         //console.log(counter)
+//         let temp = document.getElementsByTagName("input")[counter].value;
+//         //console.log(temp)
+//         //console.log(document.getElementsByTagName("input")[window.counter].value)
+//         //console.log(temp)
+//         temp = parseFloat(temp)
+//         let out = counter;
+//         counter++;
+//         if(isNumber(temp)) {
+//             bigArr[out] = temp;
+//             console.log(bigArr[out])
+//         }
+//         else {
+//             alert("За буквы по жопе")
+//         }
+//     }
+//     //saveElement();
+// }
+// function isNumber(num) {
+//     return typeof num === 'number' && !Number.isNaN(num);
+// }
+function saveElement() {
+    for(let i = count; i < count+4; i++) {
+        bigArr[i] = document.getElementsByTagName("input")[i].value;
+        console.log(bigArr[i])
+    }
+    count+=4;
+}
 
 function saveClick() {
     let rowCount = document.getElementById('mytbl').rows.length - 1; //получение количества строк
-    //console.log(rowCount)
     //получение кол-ва ячеек(дырок куда вводятся цифры без учета статических данных)
     let count = rowCount;
     for (let i = 0; i < rowCount; i++) {
         count+=3;
     }
-    // bigArr = new Array()
+
     for(let i = 0; i < count; i++) {
-        //bigArr[i] = document.getElementsByTagName("input")[i].value;
-        window.bigArr.push(document.getElementsByTagName("input")[i].value);
+        bigArr[i] = document.getElementsByTagName("input")[i].value;
+        //window.bigArr.push(document.getElementsByTagName("input")[i].value);
     }
 
     for(let i = 0; i < bigArr.length; i++) {
@@ -80,7 +202,7 @@ function saveClick() {
         console.log(arrF[i])
     }
     if(bigArr[0] === 75 & bigArr[1] === 82 & bigArr[2] === 89 & bigArr[3] === 65) {
-       document.write('<img width="800" height="1000" src="https://sun9-21.userapi.com/impg/B0Vf8RJJvU1-9iI8oMcvzXs72l346GFCLi18hg/iqXFANivWV4.jpg?size=1620x2160&quality=96&sign=ec6e6ef7627812ae5a623ba85cf5da0d&type=album">');
+        document.write('<img width="800" height="1000" src="https://sun9-21.userapi.com/impg/B0Vf8RJJvU1-9iI8oMcvzXs72l346GFCLi18hg/iqXFANivWV4.jpg?size=1620x2160&quality=96&sign=ec6e6ef7627812ae5a623ba85cf5da0d&type=album">');
     }
 }
 
