@@ -2,13 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Permissions-Policy" content="interest-cohort=()"/>
     <title>Утиное безобразие</title>
     <link rel="icon" type="image/png" href="/1012677.png">
     <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
+
 <blockquote><p id="rules"><strong style="color: black">Первое правило утиного клуба: <s>никому не гов..</s> не вводить буквы<br>Второе правило утиного клуба: не вводить буквы.<br>P.S я ни на что не намекаю, но если перевести KRYA в ASCII, то получится 75 82 89 65</strong></p></blockquote>
+<div class="result">
+
+</div>
 <div  id="tbl">
     <table id="mytbl" style="margin-left: 410px">
         <caption style="color: mediumblue; padding-bottom: 10px; padding-left: 40px; font-size: 25px; font-style: oblique" ><strong><u>Входные данные для стержней</u></strong></caption>
@@ -25,13 +29,16 @@
 
         </tbody>
     </table>
+    <a href="javascript://" onclick="AddRow()" style="margin-left: 790px" class="gradient-button">Добавить стержень</a>
 </div>
 
 <!--<a href="javascript://" onclick="addRow('mytbl');return false;">Добавить строку</a> -->
 <div>
-    <a href="javascript://" onclick="AddRow()" style="margin-left: 690px" class="gradient-button">Добавить стержень</a>
+
+    <button onclick="inputForces()" style="margin-left: 190px" class="gradient-button">Input Forces</button>
+    <a href="javascript://" onclick="inputForces()"></a>
     <!--<button onclick="addRow('mytbl')" name="add" value="add">Добавить стержень</button> -->
-    <a href="#" onclick="saveClick()" class="gradient-button">Сохранить введенные стержни</a>
+<!--    <a href="#" onclick="saveClick()" class="gradient-button">Сохранить введенные стержни</a>-->
     <!-- <button onclick="saveClick()" name="save" value="save">Сохранить введенные стержни</button> -->
 </div>
 <br>
@@ -48,7 +55,7 @@
             <th>Распределенная нагрузка</th>
         </tr>
         </thead>
-        <tbody>
+        <tbody id="tb2">
 
         </tbody>
     </table>
@@ -111,5 +118,6 @@
 <img id='image2' src='right_duck.png' style='display:none;'/>
 <img id='lr' src='leftRake%20(2).png' style='display:none;'/>
 <img id='rr' src='rightRake%20(2).png' style='display:none;'/>
+
 </body>
 </html>
