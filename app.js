@@ -1,28 +1,59 @@
 var bigArr = [];
 var arrQ = []
 var arrF = []
+let bum = 0;
 var counter = 0;
 var counter2 = 1;
 var counter3 = 0;
 function AddRow() {
-
     const $tbl = document.getElementById("maintabl");
     $tbl.insertAdjacentHTML("beforeend", "<tr></tr>");
-    const $access = document.getElementsByTagName("tr")[counter2];
+    var $access = document.getElementsByTagName("tr")[counter2];
     $access.insertAdjacentHTML("beforeend", "<td><text></text></td>")
-    $access.insertAdjacentHTML("beforeend", "<td><input type='number' step=any></td>")
-    $access.insertAdjacentHTML("beforeend", "<td><input type='number' step=any></td>")
-    $access.insertAdjacentHTML("beforeend", "<td><input type='number' step=any></td>")
-    $access.insertAdjacentHTML("beforeend", "<td><input type='number' step=any></td>")
+    $access.insertAdjacentHTML("beforeend", "<td><input type='number' value=0 min='0' step=any></td>")
+    $access.insertAdjacentHTML("beforeend", "<td><input type='number' value=0 min='0' step=any></td>")
+    $access.insertAdjacentHTML("beforeend", "<td><input type='number' value=0 min='0' step=any></td>")
+    $access.insertAdjacentHTML("beforeend", "<td><input type='number' value=0 min='0' step=any></td>")
     counter2++;
     $access.onchange = function () {
         let temp = document.getElementsByTagName("input")[counter3].value;
         temp = parseFloat(temp)
-        console.log(temp);
-        counter3++;
+            if (Number.isNaN(temp)) {
+                bum++;
+                if(bum < 3) {
+                    alert("Владислав Александрович, это безобразие. Введите число")
+                    console.log(bum)
+                }
+            }
+            console.log(temp);
+            counter3++;
+            if (temp < 0) {
+                bum++;
+                if(bum < 3) {
+                    alert("Владислав Александрович, это безобразие. Введите положительное число")
+                    console.log(bum)
+                }
+            }
+        if(bum === 3) {
+            alert("Безобразие..Еще одна попытка")
+        }
+        if(bum === 4) {
+            document.write('<img width="700" height="700" src="RRR.jpg">');
+        }
     }
 }
 
+function saveData() {
+    let rowCount = document.getElementById('mytbl').rows.length - 1;
+    let count = rowCount;
+    for (let i = 0; i < rowCount; i++) {
+        count+=3;
+    }
+    for(let i = 0; i < count; i++) {
+        bigArr[i] = document.getElementsByTagName("input")[i].value;
+        //window.bigArr.push(document.getElementsByTagName("input")[i].value);
+    }
+}
 // function addRow1(id){
 //     let tbody = document.getElementById(id).getElementsByTagName("TBODY")[0];
 //     let row = document.createElement("TR")
@@ -117,13 +148,6 @@ function AddRow() {
 // function isNumber(num) {
 //     return typeof num === 'number' && !Number.isNaN(num);
 // }
-function saveElement() {
-    for(let i = count; i < count+4; i++) {
-        bigArr[i] = document.getElementsByTagName("input")[i].value;
-        console.log(bigArr[i])
-    }
-    count+=4;
-}
 
 function saveClick() {
     let rowCount = document.getElementById('mytbl').rows.length - 1; //получение количества строк
