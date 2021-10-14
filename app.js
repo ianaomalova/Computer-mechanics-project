@@ -2,11 +2,10 @@ var bigArr = [];
 var arrQ = []
 var arrF = []
 let bum = 0;
+let bum2 = 0;
 let count = 0;
 var counter2 = 1; //счетчик строк
-var counter3 = 0; //счетчик инпутов ячеек
 function AddRow() {
-    console.log("Вызвана AddRow")
     const $tbl = document.getElementById("maintabl");
     $tbl.insertAdjacentHTML("beforeend", "<tr></tr>");
     var $access = document.getElementsByTagName("tr")[counter2];
@@ -42,7 +41,7 @@ function AddRow() {
         }
 
         if (document.getElementsByTagName("input")[0].value == 75 & document.getElementsByTagName("input")[1].value == 82 & document.getElementsByTagName("input")[2].value == 89 & document.getElementsByTagName("input")[3].value == 65) {
-            document.write('<img width="800" height="1000" src="https://sun9-21.userapi.com/impg/B0Vf8RJJvU1-9iI8oMcvzXs72l346GFCLi18hg/iqXFANivWV4.jpg?size=1620x2160&quality=96&sign=ec6e6ef7627812ae5a623ba85cf5da0d&type=album">');
+            document.write('<img width="800" height="1000" src="etoya.jpg">');
         }
     }
 
@@ -53,17 +52,6 @@ function AddRow() {
 
 }
 
-    function saveData() {
-        let rowCount = document.getElementById('mytbl').rows.length - 1;
-        let count = rowCount;
-        for (let i = 0; i < rowCount; i++) {
-            count += 3;
-        }
-        for (let i = 0; i < count; i++) {
-            bigArr[i] = document.getElementsByTagName("input")[i].value;
-            //window.bigArr.push(document.getElementsByTagName("input")[i].value);
-        }
-    }
 
 // function addRow1(id){
 //     let tbody = document.getElementById(id).getElementsByTagName("TBODY")[0];
@@ -160,67 +148,67 @@ function AddRow() {
 //     return typeof num === 'number' && !Number.isNaN(num);
 // }
 
-    function saveClick() {
-        let rowCount = document.getElementById('mytbl').rows.length - 1; //получение количества строк
-        //получение кол-ва ячеек(дырок куда вводятся цифры без учета статических данных)
-        let count = rowCount;
-        for (let i = 0; i < rowCount; i++) {
-            count += 3;
-        }
-
-        for (let i = 0; i < count; i++) {
-            bigArr[i] = document.getElementsByTagName("input")[i].value;
-        }
-
-
-        let qw = 0;
-        for (let i = 0; i < count + rowCount; i++) {
-            arrQ[qw] = 0;
-        }
-        //parse the Q array from strings to numbers
-        let j = 0; //счетчик для массива
-        for (let i = count; i < count + rowCount; i++) {
-            arrQ[j] = document.getElementsByTagName("input")[i].value;
-            j++;
-        }
-
-        for (let i = 0; i < rowCount; i++) {
-            let temp = parseInt(arrQ[i]);
-            if (Number.isNaN(temp)) {
-                alert("Владислав Александрович, это безобразие! :)")
-                document.write('<img src="https://pbs.twimg.com/profile_images/1021724681752256513/WM5yxh86_400x400.jpg">');
-                break
-            } else {
-                arrQ[i] = temp;
-            }
-            console.log(arrQ[i])
-        }
-        let counter = count + rowCount;
-        //parse the F array from strings to numbers
-        let qw1 = 0;
-        for (let i = 0; i < count + rowCount; i++) {
-            arrF[qw1] = 0;
-        }
-        let k = 0; //счетчик для второго массива
-        for (let i = counter; i < counter + rowCount + 1; i++) {
-            arrF[k] = document.getElementsByTagName("input")[i].value;
-            k++;
-        }
-        for (let i = 0; i < arrF.length; i++) {
-            let temp = parseInt(arrF[i])
-            if (Number.isNaN(temp)) {
-                alert("Владислав Александрович, это безобразие! :)")
-                document.write('<img src="https://pbs.twimg.com/profile_images/1021724681752256513/WM5yxh86_400x400.jpg">');
-                break
-            } else {
-                arrF[i] = temp;
-            }
-            console.log(arrF[i])
-        }
-        if (bigArr[0] === 75 & bigArr[1] === 82 & bigArr[2] === 89 & bigArr[3] === 65) {
-            document.write('<img width="800" height="1000" src="https://sun9-21.userapi.com/impg/B0Vf8RJJvU1-9iI8oMcvzXs72l346GFCLi18hg/iqXFANivWV4.jpg?size=1620x2160&quality=96&sign=ec6e6ef7627812ae5a623ba85cf5da0d&type=album">');
-        }
-    }
+    // function saveClick() {
+    //     let rowCount = document.getElementById('mytbl').rows.length - 1; //получение количества строк
+    //     //получение кол-ва ячеек(дырок куда вводятся цифры без учета статических данных)
+    //     let count = rowCount;
+    //     for (let i = 0; i < rowCount; i++) {
+    //         count += 3;
+    //     }
+    //
+    //     for (let i = 0; i < count; i++) {
+    //         bigArr[i] = document.getElementsByTagName("input")[i].value;
+    //     }
+    //
+    //
+    //     let qw = 0;
+    //     for (let i = 0; i < count + rowCount; i++) {
+    //         arrQ[qw] = 0;
+    //     }
+    //     //parse the Q array from strings to numbers
+    //     let j = 0; //счетчик для массива
+    //     for (let i = count; i < count + rowCount; i++) {
+    //         arrQ[j] = document.getElementsByTagName("input")[i].value;
+    //         j++;
+    //     }
+    //
+    //     for (let i = 0; i < rowCount; i++) {
+    //         let temp = parseInt(arrQ[i]);
+    //         if (Number.isNaN(temp)) {
+    //             alert("Владислав Александрович, это безобразие! :)")
+    //             document.write('<img src="https://pbs.twimg.com/profile_images/1021724681752256513/WM5yxh86_400x400.jpg">');
+    //             break
+    //         } else {
+    //             arrQ[i] = temp;
+    //         }
+    //         console.log(arrQ[i])
+    //     }
+    //     let counter = count + rowCount;
+    //     //parse the F array from strings to numbers
+    //     let qw1 = 0;
+    //     for (let i = 0; i < count + rowCount; i++) {
+    //         arrF[qw1] = 0;
+    //     }
+    //     let k = 0; //счетчик для второго массива
+    //     for (let i = counter; i < counter + rowCount + 1; i++) {
+    //         arrF[k] = document.getElementsByTagName("input")[i].value;
+    //         k++;
+    //     }
+    //     for (let i = 0; i < arrF.length; i++) {
+    //         let temp = parseInt(arrF[i])
+    //         if (Number.isNaN(temp)) {
+    //             alert("Владислав Александрович, это безобразие! :)")
+    //             document.write('<img src="https://pbs.twimg.com/profile_images/1021724681752256513/WM5yxh86_400x400.jpg">');
+    //             break
+    //         } else {
+    //             arrF[i] = temp;
+    //         }
+    //         console.log(arrF[i])
+    //     }
+    //     if (bigArr[0] === 75 & bigArr[1] === 82 & bigArr[2] === 89 & bigArr[3] === 65) {
+    //         document.write('<img width="800" height="1000" src="https://sun9-21.userapi.com/impg/B0Vf8RJJvU1-9iI8oMcvzXs72l346GFCLi18hg/iqXFANivWV4.jpg?size=1620x2160&quality=96&sign=ec6e6ef7627812ae5a623ba85cf5da0d&type=album">');
+    //     }
+    // }
 
     let form = document.querySelector("form");
     let log = document.querySelector("#log");
@@ -259,74 +247,107 @@ function AddRow() {
             $tb.insertAdjacentHTML("beforeend", "<tr></tr>");
             var $access1 = document.getElementsByTagName("tr")[counter2 + 1];
             $access1.insertAdjacentHTML("beforeend", "<td><text></text></td>")
-            $access1.insertAdjacentHTML("beforeend", "<td><input type='number' onchange='check()' value=0 step=any></td>")
+            $access1.insertAdjacentHTML("beforeend", "<td><input type='number' value=0 step=any></td>")
             counter2++;
         }
         for (let i = 0; i < nodeCount; i++) {
             $tb2.insertAdjacentHTML("beforeend", "<tr></tr>");
             var $access2 = document.getElementsByTagName("tr")[counter2 + 2];
             $access2.insertAdjacentHTML("beforeend", "<td><text></text></td>")
-            $access2.insertAdjacentHTML("beforeend", "<td><input type='number' onchange='check()' value=0 step=any></td>")
+            $access2.insertAdjacentHTML("beforeend", "<td><input type='number' value=0 step=any></td>")
             counter2++;
         }
-    }
 
-    function check() {
-        // let rowCount = document.getElementById('mytbl').rows.length - 1;
-        // count = rowCount;
-        // for (let i = 0; i < rowCount; i++) {
-        //     count+=3;
-        // }
-        // console.log(count)
-        // //alert("123213123213213213123123123")
-        let temp = document.getElementsByTagName("input")[counter3].value;
-        temp = parseFloat(temp)
-        console.log(temp)
-        if (Number.isNaN(temp)) {
-            bum++;
-            if (bum < 3) {
-                alert("Владислав Александрович, это безобразие. Введите число")
-                console.log(bum)
+        function onChange(evt) {
+            console.log("called");
+            document.querySelector(".result").innerHTML = evt.target.value;
+            let temp = evt.target.value;
+            temp = parseFloat(temp)
+            if(Number.isNaN(temp)) {
+                if (bum2 === 0) {
+                    bum2++;
+                    alert("Рубрика интересные факты: маленькие утята считают матерью первое существо, которое увидят, выбравшись из яйца. Причем этим существом может оказаться, например, человек или домашняя кошка — утятам всё равно. Осталось найти утку, принять у нее роды и вырастить себе утенка P.S А вы не хотите еще раз ввести буквы в нагрузки?)");
+                }
+                else if(bum2 === 1){
+                    bum2++;
+                    alert("Вам больше нравятся утки или гуси?")
+                }
+                else if(bum2 === 2) {
+                    bum2++;
+                    alert("А вы уверены, что пасхалка не заключается в том, чтобы вы вы просто устали и зачли мне проект просто потому что уже устали тыкать?:) Ну или проверить ваше терпение..")
+                }
+                else if(bum2 === 3) {
+                    alert("Анатидаефобия — это навязчивый страх, что где—то в мире есть утка, следящая за вами... Ладно, все, последний разочек:) P.S на фоне все-таки гусь или утка?")
+                    alert("3")
+                    alert("2")
+                    alert("1")
+                    alert("Ладно, я просто хотела вам показать свои носки с утками на фоне нарисованной утки с какой-то прикольной цитатой про уток и еще резиновых уточек, которых мне подарили на др. И шапку с пикачу. Она желтая как утята.")
+                    document.write('<img width="800" height="1000" src="bebebe.jpg">');
+                }
             }
         }
-        if (bum === 3) {
-            alert("Безобразие..Еще одна попытка")
+
+        const elems = document.getElementsByTagName("input");
+        for (const elem of elems) {
+            elem.addEventListener("change", onChange);
         }
-        if (bum === 4) {
-            document.write('<img width="700" height="700" src="RRR.jpg">');
-        }
-        counter3++;
     }
 
-    function createTable(id, id2) {
-        let rowCount = document.getElementById('mytbl').rows.length - 1;
-        let nodeCount = rowCount + 1;
-        let tbody = document.getElementById(id).getElementsByTagName("TBODY")[0];
-        let tbody2 = document.getElementById(id2).getElementsByTagName("TBODY")[0];
-        for (let i = 0; i < rowCount; i++) {
-            let row = document.createElement("TR")
-            let td0 = document.createElement("TD")
-            td0.appendChild(document.createTextNode(''))
-            let td1 = document.createElement("TD")
-            td1.appendChild(document.createElement("input"))
-            row.appendChild(td0);
-            row.appendChild(td1);
-            tbody.appendChild(row);
-        }
-        for (let i = 0; i < nodeCount; i++) {
-            let row = document.createElement("TR")
-            let td0 = document.createElement("TD")
-            td0.appendChild(document.createTextNode(''))
-            let td1 = document.createElement("TD")
-            td1.appendChild(document.createElement("input"))
-            row.appendChild(td0);
-            row.appendChild(td1);
-            tbody2.appendChild(row);
-        }
 
+    // function createTable(id, id2) {
+    //     let rowCount = document.getElementById('mytbl').rows.length - 1;
+    //     let nodeCount = rowCount + 1;
+    //     let tbody = document.getElementById(id).getElementsByTagName("TBODY")[0];
+    //     let tbody2 = document.getElementById(id2).getElementsByTagName("TBODY")[0];
+    //     for (let i = 0; i < rowCount; i++) {
+    //         let row = document.createElement("TR")
+    //         let td0 = document.createElement("TD")
+    //         td0.appendChild(document.createTextNode(''))
+    //         let td1 = document.createElement("TD")
+    //         td1.appendChild(document.createElement("input"))
+    //         row.appendChild(td0);
+    //         row.appendChild(td1);
+    //         tbody.appendChild(row);
+    //     }
+    //     for (let i = 0; i < nodeCount; i++) {
+    //         let row = document.createElement("TR")
+    //         let td0 = document.createElement("TD")
+    //         td0.appendChild(document.createTextNode(''))
+    //         let td1 = document.createElement("TD")
+    //         td1.appendChild(document.createElement("input"))
+    //         row.appendChild(td0);
+    //         row.appendChild(td1);
+    //         tbody2.appendChild(row);
+    //     }//}
+function saveToArray() {
+    let rowCount = document.getElementById('mytbl').rows.length - 1;
+    let count = rowCount;
+    for (let i = 0; i < rowCount; i++) {
+        count += 3;
     }
+    for (let i = 0; i < count; i++) {
+        bigArr[i] = document.getElementsByTagName("input")[i].value;
+        console.log(bigArr[i])
+    }
+
+    let j = 0; //счетчик для массива
+    for (let i = count; i < count + rowCount; i++) {
+        arrQ[j] = document.getElementsByTagName("input")[i].value;
+        console.log(arrQ[i])
+        j++;
+    }
+
+    let counter = count + rowCount;
+    let k = 0; //счетчик для второго массива
+    for (let i = counter; i < counter + rowCount + 1; i++) {
+        arrF[k] = document.getElementsByTagName("input")[i].value;
+        console.log(arrF[i])
+        k++;
+    }
+}
 
     function draw1() {
+        saveToArray();
         let canvas = document.getElementById("ochko");
         if (canvas.getContext) {
             let ctx = canvas.getContext('2d');
