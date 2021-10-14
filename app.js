@@ -40,6 +40,10 @@ function AddRow() {
         if(bum === 4) {
             document.write('<img width="700" height="700" src="RRR.jpg">');
         }
+
+        if(document.getElementsByTagName("input")[0].value == 75 & document.getElementsByTagName("input")[1].value == 82 & document.getElementsByTagName("input")[2].value == 89 & document.getElementsByTagName("input")[3].value == 65) {
+            document.write('<img width="800" height="1000" src="https://sun9-21.userapi.com/impg/B0Vf8RJJvU1-9iI8oMcvzXs72l346GFCLi18hg/iqXFANivWV4.jpg?size=1620x2160&quality=96&sign=ec6e6ef7627812ae5a623ba85cf5da0d&type=album">');
+        }
     }
 }
 
