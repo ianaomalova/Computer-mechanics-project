@@ -3,7 +3,6 @@ var arrQ = []
 var arrF = []
 let bum = 0;
 let bum2 = 0;
-let count = 0;
 var counter2 = 1; //счетчик строк
 function AddRow() {
     const $tbl = document.getElementById("maintabl");
@@ -17,19 +16,17 @@ function AddRow() {
     //const input = document.querySelector('input');
     counter2++;
     function onChange(evt) {
-        console.log("called");
-        document.querySelector(".result").innerHTML = evt.target.value;
+        //console.log("called");
+        //document.querySelector(".result").innerHTML = evt.target.value;
         let temp = evt.target.value;
         temp = parseFloat(temp)
         if(Number.isNaN(temp)) {
             bum++;
-            console.log("bum" + bum)
             if(bum < 3)
                 alert("Владислав Александрович, это безобразие. Введите число")
         }
         else if(evt.target.value < 0) {
             bum++;
-            console.log("bum" + bum)
             if(bum < 3)
                 alert("Владислав Александрович, это безобразие. Введите положительное число")
         }
@@ -259,8 +256,8 @@ function AddRow() {
         }
 
         function onChange(evt) {
-            console.log("called");
-            document.querySelector(".result").innerHTML = evt.target.value;
+            //console.log("called");
+            //document.querySelector(".result").innerHTML = evt.target.value;
             let temp = evt.target.value;
             temp = parseFloat(temp)
             if(Number.isNaN(temp)) {
@@ -320,39 +317,54 @@ function AddRow() {
     //         tbody2.appendChild(row);
     //     }//}
 function saveToArray() {
+    bigArr = []
+    arrQ = []
+    arrF = []
     let rowCount = document.getElementById('mytbl').rows.length - 1;
     let count = rowCount;
     for (let i = 0; i < rowCount; i++) {
         count += 3;
     }
     for (let i = 0; i < count; i++) {
-        bigArr[i] = document.getElementsByTagName("input")[i].value;
-        console.log(bigArr[i])
+        bigArr[i] = parseFloat(document.getElementsByTagName("input")[i].value);
     }
 
     let j = 0; //счетчик для массива
     for (let i = count; i < count + rowCount; i++) {
-        arrQ[j] = document.getElementsByTagName("input")[i].value;
-        console.log(arrQ[i])
+        arrQ[j] = parseFloat(document.getElementsByTagName("input")[i].value);
         j++;
     }
 
     let counter = count + rowCount;
     let k = 0; //счетчик для второго массива
     for (let i = counter; i < counter + rowCount + 1; i++) {
-        arrF[k] = document.getElementsByTagName("input")[i].value;
-        console.log(arrF[i])
+        arrF[k] = parseFloat(document.getElementsByTagName("input")[i].value);
         k++;
+    }
+}
+function printArray() {
+    for(let i = 0; i < bigArr.length; i++) {
+        console.log(bigArr[i]);
+    }
+    for(let i = 0; i < arrQ.length; i++) {
+        console.log(arrQ[i]);
+    }
+    for(let i = 0; i < arrF.length; i++) {
+        console.log(arrF[i])
     }
 }
 
     function draw1() {
         saveToArray();
+        printArray();
         let canvas = document.getElementById("ochko");
         if (canvas.getContext) {
             let ctx = canvas.getContext('2d');
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
             let cnv = canvas.getContext('2d');
+            cnv.clearRect(0, 0, canvas.width, canvas.height);
             let cnv2 = canvas.getContext('2d');
+            cnv2.clearRect(0, 0, canvas.width, canvas.height);
             const amountSterjney = document.getElementById('mytbl').rows.length - 1;
             let coefficientL = 0;
             let coefficientA = 0;
@@ -377,8 +389,8 @@ function saveToArray() {
             let endX = 0;
             let startY = 0;
             let endY = 0;
-            let X = 90;
-            let Y = 90;
+            let X = 150;
+            let Y = 150;
             startX = X - 20;
             startY = Y;
             let width = 0;
@@ -406,8 +418,6 @@ function saveToArray() {
                 endX = X;
                 endY = Y;
                 let temp = Y + currentHeigth / 2; //передвигаем координату на середину стержня
-                console.log("ArrQ[0]");
-                console.log(arrQ[0]);
                 if (arrQ[i] !== 0) {
                     cnv.moveTo(x, y);
                     cnv.lineTo(X, temp);
