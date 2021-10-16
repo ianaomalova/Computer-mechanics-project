@@ -238,8 +238,8 @@ function AddRow() {
     function inputForces() {
         let rowCount = document.getElementById('mytbl').rows.length - 1;
         let nodeCount = rowCount + 1;
-        const $tb = document.getElementById("table2");
-        const $tb2 = document.getElementById("table3");
+        const $tb = document.getElementById("tb2");
+        const $tb2 = document.getElementById("tb3");
         for (let i = 0; i < rowCount; i++) {
             $tb.insertAdjacentHTML("beforeend", "<tr></tr>");
             var $access1 = document.getElementsByTagName("tr")[counter2 + 1];
@@ -357,6 +357,7 @@ function printArray() {
     function draw1() {
         saveToArray();
         printArray();
+        //counter2 = document.getElementById('mytbl').rows.length - 1;
         let canvas = document.getElementById("ochko");
         if (canvas.getContext) {
             let ctx = canvas.getContext('2d');
