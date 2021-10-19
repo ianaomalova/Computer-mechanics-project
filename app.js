@@ -356,8 +356,9 @@ function printArray() {
 }
 
 
-let choose = 0;
+let choose = -1;
 function fun1() {
+    //alert("Внутри функи=ции 12321321")
     var rad=document.getElementsByName('r1');
     for (var i=0;i<rad.length; i++) {
         if (rad[i].checked) {
