@@ -207,33 +207,34 @@ function AddRow() {
     //     }
     // }
 
-    let form = document.querySelector("form");
-    let log = document.querySelector("#log");
 
-    let flagRake = 0; //переменная отвечающая за заделки
-    form.addEventListener("submit", function (event) {
-        let data = new FormData(form);
-        let output = "";
-        for (const entry of data) {
-            output = entry[0] + " = " + entry[1] + "\r";
-            if (entry[1] === 'left rake') {
-                console.log("Выбрана 1")
-                flagRake = 1;
-                console.log(flagRake)
-            } else if (entry[1] === 'right rake') {
-                flagRake = 2;
-                console.log(flagRake)
-                console.log("Выбрана 2")
-            } else if (entry[1] === 'both rake') {
-                flagRake = 3;
-                console.log(flagRake)
-                console.log("Выбрана 3")
-            }
-        }
-        ;
-        //log.innerText = output;
-        event.preventDefault();
-    }, false);
+    // let form = document.querySelector("form");
+    // let log = document.querySelector("#log");
+    //
+    // let flagRake = 0; //переменная отвечающая за заделки
+    // form.addEventListener("submit", function (event) {
+    //     let data = new FormData(form);
+    //     let output = "";
+    //     for (const entry of data) {
+    //         output = entry[0] + " = " + entry[1] + "\r";
+    //         if (entry[1] === 'left rake') {
+    //             console.log("Выбрана 1")
+    //             flagRake = 1;
+    //             console.log(flagRake)
+    //         } else if (entry[1] === 'right rake') {
+    //             flagRake = 2;
+    //             console.log(flagRake)
+    //             console.log("Выбрана 2")
+    //         } else if (entry[1] === 'both rake') {
+    //             flagRake = 3;
+    //             console.log(flagRake)
+    //             console.log("Выбрана 3")
+    //         }
+    //     }
+    //     ;
+    //     //log.innerText = output;
+    //     event.preventDefault();
+    // }, false);
 
     function inputForces() {
         let rowCount = document.getElementById('mytbl').rows.length - 1;
@@ -354,7 +355,20 @@ function printArray() {
     }
 }
 
-    function draw1() {
+
+let choose = 0;
+function fun1() {
+    var rad=document.getElementsByName('r1');
+    for (var i=0;i<rad.length; i++) {
+        if (rad[i].checked) {
+            choose = i;
+            //alert('Выбран '+i+' radiobutton');
+        }
+    }
+}
+
+
+function draw1() {
         saveToArray();
         printArray();
         //counter2 = document.getElementById('mytbl').rows.length - 1;
@@ -439,10 +453,10 @@ function printArray() {
             let temp2 = endY + polovina_poslednego;
             temp -= maxHigth / 2;
             temp2 -= maxHigth / 2;
-            if (flagRake === 1) {
+            if (choose === 0) {
                 console.log("Выбрана 1")
                 cnv2.drawImage(img3, startX, temp, 20, maxHigth);
-            } else if (flagRake === 2) {
+            } else if (choose === 1) {
                 console.log("Выбрана 2")
                 cnv2.drawImage(img4, endX, temp2, 20, maxHigth);
             } else {

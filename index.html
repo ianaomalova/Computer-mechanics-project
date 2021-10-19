@@ -36,7 +36,7 @@
 <div>
 
 <!--    <button onclick="inputForces()" style="margin-left: 190px" class="gradient-button">Input Forces</button>-->
-    <a href="javascript://" onclick="inputForces()" class="gradient-button">3435432542353425</a>
+    <a href="javascript://" onclick="inputForces()" class="gradient-button">Создать таблицы</a>
     <!--<button onclick="addRow('mytbl')" name="add" value="add">Добавить стержень</button> -->
 <!--    <a href="#" onclick="saveClick()" class="gradient-button">Сохранить введенные стержни</a>-->
     <!-- <button onclick="saveClick()" name="save" value="save">Сохранить введенные стержни</button> -->
@@ -60,7 +60,7 @@
         </tbody>
     </table>
 </div>
-<a href="#" style="float: right;" onclick="createTable('table2', 'table3')" class="gradient-button">Создать таблицы</a>
+<!--<a href="#" style="float: right;" onclick="createTable('table2', 'table3')" class="gradient-button">Создать таблицы</a>-->
 <br>
 <br>
 <hr>
@@ -84,25 +84,34 @@
 <br>
 <br>
 <hr>
-<form id="choose_rake" style="margin-left: 700px">
-    <p style="color: blue; font-size: 26px;"><strong>Выберите тип заделок: </strong> </p>
-    <div style="background-color: cornflowerblue" id="radiobtn">
-        <input type="radio" id="left_rake"
-               name="rake" value="left rake">
-        <label style="font-size: 22px; color: black" for="left_rake">1 грабля слева</label>
-        <br>
-        <input type="radio" id="right_rake"
-               name="rake" value="right rake">
-        <label style="font-size: 22px; color: black" for="right_rake">1 грабля справа</label>
-        <br>
-        <input type="radio" id="two_rake"
-               name="rake" value="both rake">
-        <label style="font-size: 22px; color: black" for="two_rake">2 грабли</label>
-    </div>
-    <div>
-        <button style="margin-top: 10px" class="button" type="submit">Выбрать</button>
-    </div>
-</form>
+<!--<form id="choose_rake" action="#" method="POST" novalidate style="margin-left: 700px">-->
+<!--    <p style="color: blue; font-size: 26px;"><strong>Выберите тип заделок: </strong> </p>-->
+<!--    <div style="background-color: cornflowerblue" id="radiobtn">-->
+<!--        <input type="radio" id="left_rake"-->
+<!--               name="rake" value="left rake">-->
+<!--        <label style="font-size: 22px; color: black" for="left_rake">1 грабля слева</label>-->
+<!--        <br>-->
+<!--        <input type="radio" id="right_rake"-->
+<!--               name="rake" value="right rake">-->
+<!--        <label style="font-size: 22px; color: black" for="right_rake">1 грабля справа</label>-->
+<!--        <br>-->
+<!--        <input type="radio" id="two_rake"-->
+<!--               name="rake" value="both rake">-->
+<!--        <label style="font-size: 22px; color: black" for="two_rake">2 грабли</label>-->
+<!--    </div>-->
+<!--    <div>-->
+<!--        <button style="margin-top: 10px" class="button" type="submit">Выбрать</button>-->
+<!--    </div>-->
+<!--</form>-->
+<div id="radio">
+    <input name="r1" type="radio" value="5"> Грабля слева
+    <br>
+    <input name="r1" type="radio" value="13"> Грабля справа
+    <br>
+    <input name="r1" type="radio" value="53"> Обе граблины
+    <br>
+    <button onclick="fun1()">Выбрать</button>
+</div>
 <br>
 <hr>
 <pre id="log">
