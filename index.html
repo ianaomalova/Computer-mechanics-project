@@ -36,7 +36,7 @@
 <div>
 
 <!--    <button onclick="inputForces()" style="margin-left: 190px" class="gradient-button">Input Forces</button>-->
-    <a href="javascript://" onclick="inputForces()" class="gradient-button">Создать таблицы</a>
+    <a href="javascript://" onclick="inputForces()" style="margin-left: 795px" class="gradient-button">Ввести нагрузки</a>
     <!--<button onclick="addRow('mytbl')" name="add" value="add">Добавить стержень</button> -->
 <!--    <a href="#" onclick="saveClick()" class="gradient-button">Сохранить введенные стержни</a>-->
     <!-- <button onclick="saveClick()" name="save" value="save">Сохранить введенные стержни</button> -->
@@ -48,7 +48,7 @@
 <a style="float: right;" href="#" onclick="draw1()" ><img src="https://sun9-11.userapi.com/impg/N88B3oEP-q1AVFyI5JgyHSLMvy7et1LLKk_t1Q/YHTCQ0V1bmI.jpg?size=2162x2160&quality=96&sign=91aea2d51aaf404e2b4f71d2eb44eea8&type=album" alt="Утка" width="210px" height="210px"></a>
 
 <div>
-    <table id="table2" style="margin-left: 520px">
+    <table id="table2" style="margin-left: 700px">
         <thead>
         <tr>
             <th>Номер стержня</th>
@@ -65,7 +65,7 @@
 <br>
 <hr>
 <br>
-<table id="table3" style="margin-left: 520px">
+<table id="table3" style="margin-left: 700px">
     <thead>
     <tr>
         <th>Номер узла</th>
@@ -103,14 +103,15 @@
 <!--        <button style="margin-top: 10px" class="button" type="submit">Выбрать</button>-->
 <!--    </div>-->
 <!--</form>-->
-<div id="radio">
-    <input name="r1" type="radio" value="5"> Грабля слева
+<div id="radio" style="margin-left: 45%">
+    <input class="rd" name="r1" type="radio" value="5"> Грабля слева
     <br>
-    <input name="r1" type="radio" value="13"> Грабля справа
+    <input class="rd" name="r1" type="radio" value="13"> Грабля справа
     <br>
-    <input name="r1" type="radio" value="53"> Обе граблины
+    <input class="rd" name="r1" type="radio" value="53"> Обе граблины
     <br>
-    <button onclick="fun1()">Выбрать</button>
+<!--    <button onclick="fun1()">Выбрать</button>-->
+    <a href="javascript://" onclick="fun1()" class="gradient-button">Кря</a>
 </div>
 <br>
 <hr>
@@ -119,7 +120,7 @@
 
 <script src="app.js"></script>
 <div >
-    <canvas id="ochko" width="1900" height="400">
+    <canvas id="ochko" width="1900" height="700">
 
     </canvas>
 </div>
@@ -127,6 +128,10 @@
 <img id='image2' src='right_duck.png' style='display:none;'/>
 <img id='lr' src='1.png' style='display:none;'/>
 <img id='rr' src='2.png' style='display:none;'/>
+<img id="arrQ" src="PUPA.png" style="display: none">
+<img id="arrF" src="LUPA.png" style="display: none">
+<img id="arrQL" src="PUPA_LEFT.png" style="display: none">
+<img id="arrFL" src="LUPA_LEFT.png" style="display: none">
 
 </body>
 </html>

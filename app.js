@@ -381,6 +381,8 @@ function draw1() {
             cnv.clearRect(0, 0, canvas.width, canvas.height);
             let cnv2 = canvas.getContext('2d');
             cnv2.clearRect(0, 0, canvas.width, canvas.height);
+            let arrows = canvas.getContext('2d')
+            arrows.clearRect(0, 0, canvas.width, canvas.height)
             const amountSterjney = document.getElementById('mytbl').rows.length - 1;
             let coefficientL = 0;
             let coefficientA = 0;
@@ -425,16 +427,37 @@ function draw1() {
                 } else {
                     polovina_poslednego = currentHeigth / 2;
                 }
-                ctx.lineWidth = 4; //ширина линии
-                cnv.lineWidth = 3;
+                ctx.lineWidth = 7000; //ширина линии
+                cnv.lineWidth = 2;
                 let x = X;
                 let y = Y + currentHeigth / 2;
                 ctx.strokeRect(X, Y, width, currentHeigth); //рисуем прямоугольник
                 X += width; //передвигаем координату Х
                 endX = X;
                 endY = Y;
+                var img5 = document.getElementById('arrQ');
+                var img6 = document.getElementById('arrF');
                 let temp = Y + currentHeigth / 2; //передвигаем координату на середину стержня
                 if (arrQ[i] !== 0) {
+                    // cnv.moveTo(x, y);
+                    // cnv.lineTo(X, temp);
+                    // cnv.stroke();
+                    // while(new_x < X) {
+                    //     arrows.moveTo(new_x + arrW, y - arrH);
+                    //     arrows.lineTo(new_x + (arrW+arrW), y);
+                    //     arrows.stroke();
+                    // }
+                }
+                if(arrQ[i] !== 0) {
+                    let new_x = x;
+                    let new_y = y;
+                    while (true) {
+                        arrows.drawImage(img5, new_x, new_y - 15, 50, 30);
+                        new_x += 50;
+                        if(new_x + 50 > X) {
+                            break;
+                        }
+                    }
                     cnv.moveTo(x, y);
                     cnv.lineTo(X, temp);
                     cnv.stroke();
@@ -448,6 +471,13 @@ function draw1() {
                 // console.log("Y" + endY);
                 //ctx.strokeRect(endX, endY, 20, 20);
             }
+            for(let i = 0; i < amountSterjney + 1; i++) {
+                if(arrF[i] !== 0) {
+                    let new_x = x;
+                    let new_y = y;
+                    arrows.drawImage(img6, new_x, new_y - 15, 50, 30);
+                }
+            }
             var img3 = document.getElementById('lr');
             var img4 = document.getElementById('rr');
             let temp = startY + polovina_pervogo;
@@ -460,10 +490,13 @@ function draw1() {
             } else if (choose === 1) {
                 console.log("Выбрана 2")
                 cnv2.drawImage(img4, endX, temp2, 20, maxHigth);
-            } else {
+            } else if(choose === 2){
                 console.log("Выбрана 3")
                 cnv2.drawImage(img3, startX, temp, 20, maxHigth);
                 cnv2.drawImage(img4, endX, temp2, 20, maxHigth);
+            }
+            else {
+                alert("Грабли - это важно")
             }
 
         }
