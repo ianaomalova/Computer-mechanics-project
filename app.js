@@ -383,6 +383,8 @@ function draw1() {
             cnv2.clearRect(0, 0, canvas.width, canvas.height);
             let arrows = canvas.getContext('2d')
             arrows.clearRect(0, 0, canvas.width, canvas.height)
+            let arrows2 = canvas.getContext('2d')
+            arrows2.clearRect(0, 0, canvas.width, canvas.height)
             const amountSterjney = document.getElementById('mytbl').rows.length - 1;
             let coefficientL = 0;
             let coefficientA = 0;
@@ -427,7 +429,7 @@ function draw1() {
                 } else {
                     polovina_poslednego = currentHeigth / 2;
                 }
-                ctx.lineWidth = 7000; //ширина линии
+                ctx.lineWidth = 700000000; //ширина линии
                 cnv.lineWidth = 2;
                 let x = X;
                 let y = Y + currentHeigth / 2;
@@ -438,58 +440,65 @@ function draw1() {
                 var img5 = document.getElementById('arrQ');
                 var img5_1 = document.getElementById('arrQL')
                 var img6 = document.getElementById('arrF');
+                var img6_1 = document.getElementById("arrFL")
                 let temp = Y + currentHeigth / 2; //передвигаем координату на середину стержня
+                // cnv.moveTo(x, y);
+                // cnv.lineTo(X, temp);
+                // cnv.stroke();
                 if (arrQ[i] !== 0) {
-                    // cnv.moveTo(x, y);
-                    // cnv.lineTo(X, temp);
-                    // cnv.stroke();
-                    // while(new_x < X) {
-                    //     arrows.moveTo(new_x + arrW, y - arrH);
-                    //     arrows.lineTo(new_x + (arrW+arrW), y);
-                    //     arrows.stroke();
-                    // }
-                }
-                if(arrQ[i] !== 0) {
                     let new_x = x;
                     let new_y = y;
-                    if(arrQ[i] > 0) {
+                    if (arrQ[i] > 0) {
                         while (true) {
-                            arrows.drawImage(img5, new_x, new_y - 15, 50, 30);
+                            arrows.drawImage(img5, new_x, new_y - 10, 50, 20);
                             new_x += 50;
-                            if(new_x + 50 > X) {
+                            if (new_x + 50 > X) {
+                                break;
+                            }
+                        }
+                    } else if (arrQ[i] < 0) {
+                        while (true) {
+                            arrows.drawImage(img5_1, new_x, new_y - 10, 50, 20);
+                            new_x += 50;
+                            if (new_x + 50 > X) {
                                 break;
                             }
                         }
                     }
-                    else if(arrQ[i] < 0) {
-                        while (true) {
-                            arrows.drawImage(img5_1, new_x, new_y - 15, 50, 30);
-                            new_x += 50;
-                            if(new_x + 50 > X) {
-                                break;
-                            }
-                        }
-                    }
-                    cnv.moveTo(x, y);
-                    cnv.lineTo(X, temp);
-                    cnv.stroke();
+
                 }
                 counter += 4; //получаем параметры второго стержня
                 counter2 += 4;
                 let temp2 = bigArr[counter2] * coefficientA / 2; //получчаем кол-во пикселей половины второго стержня
                 Y = temp - temp2; //перемещаем ввод вверх от половины первого стержня на половину второго стержня
+                if (i === 0) {
+                    //мы находимся в первом стержне
+                    if (arrF[i] !== 0) {
+                            arrows2.drawImage(img6, x, y - 25, 55, 50);
+                    }
+                    // if (arrF[i + 1] !== 0) {
+                    //         arrows2.drawImage(img6, X, temp - 25, 55, 50);
+                    // }
+                } else if (i === amountSterjney - 1) {
+                    //мы находимся в последнем стержне
+                    // if (arrF[i] !== 0) {
+                    //     arrows2.drawImage(img6, x, y - 25, 55, 50);
 
-                // console.log("X" + endX);
-                // console.log("Y" + endY);
-                //ctx.strokeRect(endX, endY, 20, 20);
-            }
-            for(let i = 0; i < amountSterjney + 1; i++) {
-                if(arrF[i] !== 0) {
-                    let new_x = x;
-                    let new_y = y;
-                    arrows.drawImage(img6, new_x, new_y - 15, 50, 30);
+                        if (arrF[i + 1] !== 0) {
+                                arrows2.drawImage(img6, X, temp - 25, 55, 50);
+                        }
+
+                    } else {
+                        //мы находимся в средних стержнях
+                        if (arrF[i] !== 0) {
+                            arrows2.drawImage(img6, x, y - 25, 55, 50);
+                        }
+                        if (arrF[i + 1] !== 0) {
+                            arrows2.drawImage(img6, X, temp - 25, 55, 50);
+                        }
+                    }
                 }
-            }
+
             var img3 = document.getElementById('lr');
             var img4 = document.getElementById('rr');
             let temp = startY + polovina_pervogo;
