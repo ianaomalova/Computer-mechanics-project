@@ -436,6 +436,7 @@ function draw1() {
                 endX = X;
                 endY = Y;
                 var img5 = document.getElementById('arrQ');
+                var img5_1 = document.getElementById('arrQL')
                 var img6 = document.getElementById('arrF');
                 let temp = Y + currentHeigth / 2; //передвигаем координату на середину стержня
                 if (arrQ[i] !== 0) {
@@ -451,11 +452,22 @@ function draw1() {
                 if(arrQ[i] !== 0) {
                     let new_x = x;
                     let new_y = y;
-                    while (true) {
-                        arrows.drawImage(img5, new_x, new_y - 15, 50, 30);
-                        new_x += 50;
-                        if(new_x + 50 > X) {
-                            break;
+                    if(arrQ[i] > 0) {
+                        while (true) {
+                            arrows.drawImage(img5, new_x, new_y - 15, 50, 30);
+                            new_x += 50;
+                            if(new_x + 50 > X) {
+                                break;
+                            }
+                        }
+                    }
+                    else if(arrQ[i] < 0) {
+                        while (true) {
+                            arrows.drawImage(img5_1, new_x, new_y - 15, 50, 30);
+                            new_x += 50;
+                            if(new_x + 50 > X) {
+                                break;
+                            }
                         }
                     }
                     cnv.moveTo(x, y);
