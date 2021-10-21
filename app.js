@@ -471,33 +471,93 @@ function draw1() {
                 counter2 += 4;
                 let temp2 = bigArr[counter2] * coefficientA / 2; //получчаем кол-во пикселей половины второго стержня
                 Y = temp - temp2; //перемещаем ввод вверх от половины первого стержня на половину второго стержня
-                if (i === 0) {
-                    //мы находимся в первом стержне
-                    if (arrF[i] !== 0) {
-                            arrows2.drawImage(img6, x, y - 25, 55, 50);
+                if(amountSterjney === 2) {
+                    if(i ===0) {
+                        //находимся в первом стержне
+                        if(choose === 1 && arrF[0] !== 0) {
+                            if(arrF[0] > 0) {
+                                arrows2.drawImage(img6, x, y - 25, 55, 50);
+                            }
+                            else if(arrF[i] < 0) {
+                                //тут потом будет код для отрисовки отрицательного
+                                //arrows2.drawImage(img6_1, x, y - 25, 55, 50);
+                            }
+                        }
                     }
-                    // if (arrF[i + 1] !== 0) {
-                    //         arrows2.drawImage(img6, X, temp - 25, 55, 50);
-                    // }
-                } else if (i === amountSterjney - 1) {
-                    //мы находимся в последнем стержне
-                    // if (arrF[i] !== 0) {
-                    //     arrows2.drawImage(img6, x, y - 25, 55, 50);
-
-                        if (arrF[i + 1] !== 0) {
+                    //находимся во втором стержне
+                    else if(i === 1) {
+                        if(choose === 0 && arrF[2] !== 0) {
+                            if(arrF[2] > 0) {
                                 arrows2.drawImage(img6, X, temp - 25, 55, 50);
+                            }
+                            else if(arrF[2] < 0) {
+                                //arrows2.drawImage(img6_1, X, temp - 25, 55, 50);
+                            }
                         }
-
-                    } else {
-                        //мы находимся в средних стержнях
-                        if (arrF[i] !== 0) {
-                            arrows2.drawImage(img6, x, y - 25, 55, 50);
-                        }
-                        if (arrF[i + 1] !== 0) {
-                            arrows2.drawImage(img6, X, temp - 25, 55, 50);
+                        if(arrF[1] !== 0) {
+                            if(arrF[1] > 0) {
+                                arrows2.drawImage(img6, x, y - 25, 55, 50);
+                            }
+                            else if(arrF[i] < 0) {
+                                //arrows2.drawImage(img6_1, x, y - 25, 55, 50);
+                            }
                         }
                     }
                 }
+                else if(amountSterjney > 2) {
+                    //находимся в первом стержне
+                    if(i ===0) {
+                        //находимся в первом стержне
+                        if(choose === 1 && arrF[0] !== 0) {
+                            if(arrF[0] > 0) {
+                                arrows2.drawImage(img6, x, y - 25, 55, 50);
+                            }
+                            else if(arrF[i] < 0) {
+                                //тут потом будет код для отрисовки отрицательного
+                                //arrows2.drawImage(img6_1, x, y - 25, 55, 50);
+                            }
+                        }
+                    }
+                    //находимся в последнм стержне
+                    else if(i === amountSterjney - 1) {
+                        if(choose === 0 && arrF[amountSterjney] !== 0) {
+                            if(arrF[amountSterjney] > 0) {
+                                arrows2.drawImage(img6, X, temp - 25, 55, 50);
+                            }
+                            else if(arrF[amountSterjney] < 0) {
+                                //arrows2.drawImage(img6_1, X, temp - 25, 55, 50);
+                            }
+                        }
+                    }
+                    //тут будет код если мы находимся в средних стержнях
+                }
+                // if (i === 0) {
+                //     //мы находимся в первом стержне
+                //     if (arrF[i] !== 0) {
+                //             arrows2.drawImage(img6, x, y - 25, 55, 50);
+                //     }
+                //     // if (arrF[i + 1] !== 0) {
+                //     //         arrows2.drawImage(img6, X, temp - 25, 55, 50);
+                //     // }
+                // }
+                // else if (i === amountSterjney - 1) {
+                //     //мы находимся в последнем стержне
+                //     // if (arrF[i] !== 0) {
+                //     //     arrows2.drawImage(img6, x, y - 25, 55, 50);
+                //
+                //         if (arrF[i + 1] !== 0) {
+                //                 arrows2.drawImage(img6, X, temp - 25, 55, 50);
+                //         }
+                //
+                //     } else {
+                //мы находимся в средних стержнях
+                // if (arrF[i] !== 0) {
+                //     arrows2.drawImage(img6, x, y - 25, 55, 50);
+                // }
+                // if (arrF[i + 1] !== 0) {
+                //     arrows2.drawImage(img6, X, temp - 25, 55, 50);
+                // }
+            }
 
             var img3 = document.getElementById('lr');
             var img4 = document.getElementById('rr');
@@ -511,17 +571,16 @@ function draw1() {
             } else if (choose === 1) {
                 console.log("Выбрана 2")
                 cnv2.drawImage(img4, endX, temp2, 20, maxHigth);
-            } else if(choose === 2){
+            } else if (choose === 2) {
                 console.log("Выбрана 3")
                 cnv2.drawImage(img3, startX, temp, 20, maxHigth);
                 cnv2.drawImage(img4, endX, temp2, 20, maxHigth);
-            }
-            else {
+            } else {
                 alert("Грабли - это важно")
             }
-
         }
-    }
+
+}
 
 
 
