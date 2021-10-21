@@ -480,7 +480,7 @@ function draw1() {
                             }
                             else if(arrF[i] < 0) {
                                 //тут потом будет код для отрисовки отрицательного
-                                //arrows2.drawImage(img6_1, x, y - 25, 55, 50);
+                                arrows2.drawImage(img6_1, x-55, y - 25, 55, 50);
                             }
                         }
                     }
@@ -491,7 +491,7 @@ function draw1() {
                                 arrows2.drawImage(img6, X, temp - 25, 55, 50);
                             }
                             else if(arrF[2] < 0) {
-                                //arrows2.drawImage(img6_1, X, temp - 25, 55, 50);
+                                arrows2.drawImage(img6_1, X-55, temp - 25, 55, 50);
                             }
                         }
                         if(arrF[1] !== 0) {
@@ -499,7 +499,7 @@ function draw1() {
                                 arrows2.drawImage(img6, x, y - 25, 55, 50);
                             }
                             else if(arrF[i] < 0) {
-                                //arrows2.drawImage(img6_1, x, y - 25, 55, 50);
+                                arrows2.drawImage(img6_1, x-55, y - 25, 55, 50);
                             }
                         }
                     }
@@ -514,7 +514,7 @@ function draw1() {
                             }
                             else if(arrF[i] < 0) {
                                 //тут потом будет код для отрисовки отрицательного
-                                //arrows2.drawImage(img6_1, x, y - 25, 55, 50);
+                                arrows2.drawImage(img6_1, x-55, y - 25, 55, 50);
                             }
                         }
                     }
@@ -525,11 +525,40 @@ function draw1() {
                                 arrows2.drawImage(img6, X, temp - 25, 55, 50);
                             }
                             else if(arrF[amountSterjney] < 0) {
-                                //arrows2.drawImage(img6_1, X, temp - 25, 55, 50);
+                                arrows2.drawImage(img6_1, X-55, temp - 25, 55, 50);
                             }
                         }
                     }
-                    //тут будет код если мы находимся в средних стержнях
+                    //тут будет код если мы находимся в средних стержня
+                        //если мы находимся в предпоследнем стержне
+                    else if(i === amountSterjney - 2){
+                        if(arrF[i] !== 0) {
+                            if(arrF[i] > 0) {
+                                arrows2.drawImage(img6, x, y - 25, 55, 50);
+                            }
+                            else if(arrF[i] < 0) {
+                                arrows2.drawImage(img6_1, x-55, y - 25, 55, 50);
+                            }
+                        }
+                        if(arrF[i+1] !== 0) {
+                            if(arrF[i+1] > 0) {
+                                arrows2.drawImage(img6, X, temp - 25, 55, 50);
+                            }
+                            else if(arrF[i+1] < 0) {
+                                arrows2.drawImage(img6_1, X-55, temp - 25, 55, 50);
+                            }
+                        }
+                    }
+                    else {
+                        if(arrF[i] !== 0) {
+                            if(arrF[i] > 0) {
+                                arrows2.drawImage(img6, x, y - 25, 55, 50);
+                            }
+                            else if(arrF[i] < 0) {
+                                arrows2.drawImage(img6_1, x-55, y - 25, 55, 50);
+                            }
+                        }
+                    }
                 }
                 // if (i === 0) {
                 //     //мы находимся в первом стержне
