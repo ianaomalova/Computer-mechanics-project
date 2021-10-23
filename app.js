@@ -18,6 +18,7 @@ function AddRow() {
     function onChange(evt) {
         //console.log("called");
         //document.querySelector(".result").innerHTML = evt.target.value;
+        //alert("called")
         let temp = evt.target.value;
         temp = parseFloat(temp)
         if(Number.isNaN(temp)) {
@@ -48,6 +49,7 @@ function AddRow() {
     }
 
 }
+
 
 
 // function addRow1(id){
