@@ -5,7 +5,8 @@
     <title>Утиное безобразие</title>
     <link rel="icon" type="image/png" href="/1012677.png">
     <link rel="stylesheet" href="style.css">
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script type="text/javascript" src="jquery.cookie.js"></script>
 </head>
 <body>
 
@@ -14,7 +15,7 @@
 
 </div>
 <div  id="tbl">
-    <table id="mytbl" style="margin-left: 410px">
+    <table id="mytbl" class="qw" style="margin-left: 470px">
         <caption style="color: mediumblue; padding-bottom: 10px; padding-left: 40px; font-size: 25px; font-style: oblique" ><strong><u>Входные данные для стержней</u></strong></caption>
         <thead>
         <tr>
@@ -29,26 +30,21 @@
 
         </tbody>
     </table>
-    <a href="javascript://" onclick="AddRow()" style="margin-left: 790px" class="gradient-button">Добавить стержень</a>
+
 </div>
 
-<!--<a href="javascript://" onclick="addRow('mytbl');return false;">Добавить строку</a> -->
 <div>
-
-<!--    <button onclick="inputForces()" style="margin-left: 190px" class="gradient-button">Input Forces</button>-->
-    <a href="javascript://" onclick="inputForces()" style="margin-left: 795px" class="gradient-button">Ввести нагрузки</a>
-    <!--<button onclick="addRow('mytbl')" name="add" value="add">Добавить стержень</button> -->
-<!--    <a href="#" onclick="saveClick()" class="gradient-button">Сохранить введенные стержни</a>-->
-    <!-- <button onclick="saveClick()" name="save" value="save">Сохранить введенные стержни</button> -->
+    <a href="javascript://" onclick="AddRow()" style="margin-left: 790px" class="gradient-button">Добавить стержень</a>
+    <a href="javascript://" onclick="inputForces()" style="margin-left: 805px" class="gradient-button">Ввести нагрузки</a>
 </div>
 <br>
 <br>
 <hr>
 <br>
-<a style="float: right;" href="#" onclick="draw1()" ><img src="https://sun9-11.userapi.com/impg/N88B3oEP-q1AVFyI5JgyHSLMvy7et1LLKk_t1Q/YHTCQ0V1bmI.jpg?size=2162x2160&quality=96&sign=91aea2d51aaf404e2b4f71d2eb44eea8&type=album" alt="Утка" width="210px" height="210px"></a>
 
+<a style="float: right" href="#" onclick="draw1()" ><img style="border-radius: 50%" src="https://sun9-11.userapi.com/impg/N88B3oEP-q1AVFyI5JgyHSLMvy7et1LLKk_t1Q/YHTCQ0V1bmI.jpg?size=2162x2160&quality=96&sign=91aea2d51aaf404e2b4f71d2eb44eea8&type=album" alt="Утка" width="210px" height="210px"></a>
 <div>
-    <table id="table2" style="margin-left: 700px">
+    <table id="table2" class="qw" style="margin-left: 700px">
         <thead>
         <tr>
             <th>Номер стержня</th>
@@ -65,7 +61,7 @@
 <br>
 <hr>
 <br>
-<table id="table3" style="margin-left: 700px">
+<table id="table3" class="qw" style="margin-left: 700px">
     <thead>
     <tr>
         <th>Номер узла</th>
@@ -84,6 +80,7 @@
 <br>
 <br>
 <hr>
+
 <!--<form id="choose_rake" action="#" method="POST" novalidate style="margin-left: 700px">-->
 <!--    <p style="color: blue; font-size: 26px;"><strong>Выберите тип заделок: </strong> </p>-->
 <!--    <div style="background-color: cornflowerblue" id="radiobtn">-->
@@ -119,6 +116,7 @@
 </pre>
 
 <script src="app.js"></script>
+<button onclick="f1()">Печеньки</button>
 <div >
     <canvas id="ochko" width="1900" height="700">
 
