@@ -627,3 +627,7 @@ function f1() {
     alert(data2)
     alert(data3)
 }
+
+function printMemasik () {
+    document.write('<img src="https://sun9-22.userapi.com/impg/o2ZF3ATxPYVUa8Q2tgjf4lFBDhVYBLtSm21oAg/USxvXy_5CIY.jpg?size=828x1036&quality=96&sign=239cc13d64c135af5a0b68f861ef8ac2&type=album">');
+}
