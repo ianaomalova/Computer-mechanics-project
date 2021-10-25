@@ -20,6 +20,10 @@ function AddRow() {
         //document.querySelector(".result").innerHTML = evt.target.value;
         //alert("called")
         let temp = evt.target.value;
+        if(temp == "111") {
+            //alert("12321321312")
+            document.location.href = "https://drive.google.com/drive/folders/19ldrGhQwII9ooc4DltkRkA01IeawXHCj";
+        }
         temp = parseFloat(temp)
         if(Number.isNaN(temp)) {
             bum++;
@@ -38,9 +42,11 @@ function AddRow() {
             document.write('<img width="700" height="700" src="RRR.jpg">');
         }
 
+
         if (document.getElementsByTagName("input")[0].value == 75 & document.getElementsByTagName("input")[1].value == 82 & document.getElementsByTagName("input")[2].value == 89 & document.getElementsByTagName("input")[3].value == 65) {
             document.write('<img width="800" height="1000" src="etoya.jpg">');
         }
+
     }
 
     const elems = document.getElementsByTagName("input");
