@@ -9,10 +9,10 @@ function AddRow() {
     $tbl.insertAdjacentHTML("beforeend", "<tr></tr>");
     var $access = document.getElementsByTagName("tr")[counter2];
     $access.insertAdjacentHTML("beforeend", "<td><text></text></td>")
-    $access.insertAdjacentHTML("beforeend", "<td><input type='number' value=0 min='0' step=any></td>")
-    $access.insertAdjacentHTML("beforeend", "<td><input type='number' value=0 min='0' step=any></td>")
-    $access.insertAdjacentHTML("beforeend", "<td><input type='number' value=0 min='0' step=any></td>")
-    $access.insertAdjacentHTML("beforeend", "<td><input type='number' value=0 min='0' step=any></td>")
+    $access.insertAdjacentHTML("beforeend", "<td><input type='number' value=1 min='0' step=any></td>")
+    $access.insertAdjacentHTML("beforeend", "<td><input type='number' value=1 min='0' step=any></td>")
+    $access.insertAdjacentHTML("beforeend", "<td><input type='number' value=1 min='0' step=any></td>")
+    $access.insertAdjacentHTML("beforeend", "<td><input type='number' value=1 min='0' step=any></td>")
     //const input = document.querySelector('input');
     counter2++;
     function onChange(evt) {
@@ -20,32 +20,34 @@ function AddRow() {
         //document.querySelector(".result").innerHTML = evt.target.value;
         //alert("called")
         let temp = evt.target.value;
-        if(temp == "111") {
-            //alert("12321321312")
-            document.location.href = "https://drive.google.com/drive/folders/19ldrGhQwII9ooc4DltkRkA01IeawXHCj";
-        }
+        // if(temp == "111") {
+        //     //alert("12321321312")
+        //     document.location.href = "https://drive.google.com/drive/folders/19ldrGhQwII9ooc4DltkRkA01IeawXHCj";
+        // }
         temp = parseFloat(temp)
         if(Number.isNaN(temp)) {
-            bum++;
-            if(bum < 3)
-                alert("Владислав Александрович, это безобразие. Введите число")
+            // bum++;
+            // if(bum < 3)
+            //     alert("Владислав Александрович, это безобразие. Введите число")
+            alert("Введите число")
         }
         else if(evt.target.value < 0) {
-            bum++;
-            if(bum < 3)
-                alert("Владислав Александрович, это безобразие. Введите положительное число")
+            // bum++;
+            // if(bum < 3)
+            //     alert("Владислав Александрович, это безобразие. Введите положительное число")
+            alert("Введено отрицательное число. Введите положительное")
         }
-        if (bum === 3) {
-            alert("Безобразие..Еще одна попытка")
-        }
-        if (bum === 4) {
-            document.write('<img width="700" height="700" src="RRR.jpg">');
-        }
+        // if (bum === 3) {
+        //     alert("Безобразие..Еще одна попытка")
+        // }
+        // if (bum === 4) {
+        //     document.write('<img width="700" height="700" src="RRR.jpg">');
+        // }
 
 
-        if (document.getElementsByTagName("input")[0].value == 75 & document.getElementsByTagName("input")[1].value == 82 & document.getElementsByTagName("input")[2].value == 89 & document.getElementsByTagName("input")[3].value == 65) {
-            document.write('<img width="800" height="1000" src="etoya.jpg">');
-        }
+        //if (document.getElementsByTagName("input")[0].value == 75 & document.getElementsByTagName("input")[1].value == 82 & document.getElementsByTagName("input")[2].value == 89 & document.getElementsByTagName("input")[3].value == 65) {
+           // document.write('<img width="800" height="1000" src="etoya.jpg">');
+       // }
 
     }
 
@@ -270,25 +272,26 @@ function inputForces() {
         let temp = evt.target.value;
         temp = parseFloat(temp)
         if(Number.isNaN(temp)) {
-            if (bum2 === 0) {
-                bum2++;
-                alert("Рубрика интересные факты: маленькие утята считают матерью первое существо, которое увидят, выбравшись из яйца. Причем этим существом может оказаться, например, человек или домашняя кошка — утятам всё равно. Осталось найти утку, принять у нее роды и вырастить себе утенка P.S А вы не хотите еще раз ввести буквы в нагрузки?)");
-            }
-            else if(bum2 === 1){
-                bum2++;
-                alert("Вам больше нравятся утки или гуси?")
-            }
-            else if(bum2 === 2) {
-                bum2++;
-                alert("А вы уверены, что пасхалка не заключается в том, чтобы вы вы просто устали и зачли мне проект просто потому что уже устали тыкать?:) Ну или проверить ваше терпение..")
-            }
-            else if(bum2 === 3) {
-                alert("Анатидаефобия — это навязчивый страх, что где—то в мире есть утка, следящая за вами... Ладно, все, последний разочек:) P.S на фоне все-таки гусь или утка?")
-                alert("3")
-                alert("2")
-                alert("1")
-                document.location.href = "https://drive.google.com/drive/folders/13UTZfPWXSPKrxk5hhLvxCBr44Cyimzhc";
-            }
+            // if (bum2 === 0) {
+            //     bum2++;
+            //     alert("Рубрика интересные факты: маленькие утята считают матерью первое существо, которое увидят, выбравшись из яйца. Причем этим существом может оказаться, например, человек или домашняя кошка — утятам всё равно. Осталось найти утку, принять у нее роды и вырастить себе утенка P.S А вы не хотите еще раз ввести буквы в нагрузки?)");
+            // }
+            // else if(bum2 === 1){
+            //     bum2++;
+            //     alert("Вам больше нравятся утки или гуси?")
+            // }
+            // else if(bum2 === 2) {
+            //     bum2++;
+            //     alert("А вы уверены, что пасхалка не заключается в том, чтобы вы вы просто устали и зачли мне проект просто потому что уже устали тыкать?:) Ну или проверить ваше терпение..")
+            // }
+            // else if(bum2 === 3) {
+            //     alert("Анатидаефобия — это навязчивый страх, что где—то в мире есть утка, следящая за вами... Ладно, все, последний разочек:) P.S на фоне все-таки гусь или утка?")
+            //     alert("3")
+            //     alert("2")
+            //     alert("1")
+            //     document.location.href = "https://drive.google.com/drive/folders/13UTZfPWXSPKrxk5hhLvxCBr44Cyimzhc";
+            // }
+            alert("Введено не число")
         }
     }
 
@@ -433,6 +436,7 @@ function draw1() {
             }
             if (i === 0) {
                 polovina_pervogo = currentHeigth / 2;
+                polovina_poslednego = currentHeigth / 2;
             } else {
                 polovina_poslednego = currentHeigth / 2;
             }
@@ -478,6 +482,24 @@ function draw1() {
             counter2 += 4;
             let temp2 = bigArr[counter2] * coefficientA / 2; //получчаем кол-во пикселей половины второго стержня
             Y = temp - temp2; //перемещаем ввод вверх от половины первого стержня на половину второго стержня
+            if(amountSterjney === 1) {
+                if(arrF[0] !== 0 && choose === 1) {
+                    if(arrF[0] < 0) {
+                        arrows2.drawImage(img6_1, x-55, y - 25, 55, 50);
+                    }
+                    else if(arrF[i] > 0) {
+                        arrows2.drawImage(img6, x, y - 25, 55, 50);
+                    }
+                }
+                if(arrF[1] !== 0 && choose === 0) {
+                    if(arrF[1] > 0) {
+                        arrows2.drawImage(img6, X, temp - 25, 55, 50);
+                    }
+                    else if(arrF[1] < 0) {
+                        arrows2.drawImage(img6_1, X-55, temp - 25, 55, 50);
+                    }
+                }
+            }
             if(amountSterjney === 2) {
                 if(i ===0) {
                     //находимся в первом стержне
