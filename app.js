@@ -4,21 +4,19 @@ var arrF = []
 let bum = 0;
 let bum2 = 0;
 var counter2 = 1; //счетчик строк
+
 function AddRow() {
     const $tbl = document.getElementById("maintabl");
     $tbl.insertAdjacentHTML("beforeend", "<tr></tr>");
     var $access = document.getElementsByTagName("tr")[counter2];
     $access.insertAdjacentHTML("beforeend", "<td><text></text></td>")
-    $access.insertAdjacentHTML("beforeend", "<td><input type='number' value=1 min='0' step=any></td>")
-    $access.insertAdjacentHTML("beforeend", "<td><input type='number' value=1 min='0' step=any></td>")
-    $access.insertAdjacentHTML("beforeend", "<td><input type='number' value=1 min='0' step=any></td>")
-    $access.insertAdjacentHTML("beforeend", "<td><input type='number' value=1 min='0' step=any></td>")
-    //const input = document.querySelector('input');
+    $access.insertAdjacentHTML("beforeend", "<td><input value=1 min='0' step=any></td>")
+    $access.insertAdjacentHTML("beforeend", "<td><input value=1 min='0' step=any></td>")
+    $access.insertAdjacentHTML("beforeend", "<td><input value=1 min='0' step=any></td>")
+    $access.insertAdjacentHTML("beforeend", "<td><input value=1 min='0' step=any></td>")
     counter2++;
     function onChange(evt) {
-        //console.log("called");
         //document.querySelector(".result").innerHTML = evt.target.value;
-        //alert("called")
         let temp = evt.target.value;
         // if(temp == "111") {
         //     //alert("12321321312")
@@ -642,8 +640,9 @@ function draw1() {
 
 function f1() {
     saveToArray();
+
     var bA = JSON.stringify(bigArr)
-    $.cookie('bigArr', bA);
+    $.cookie('bigArr', bA, { expires: 7 });
     var q = JSON.stringify(arrQ)
     $.cookie('arrQ', q);
     var f = JSON.stringify(arrF)
@@ -651,9 +650,10 @@ function f1() {
     var data1=JSON.parse($.cookie("bigArr"))
     var data2=JSON.parse($.cookie("arrQ"))
     var data3=JSON.parse($.cookie("arrF"))
-    alert(data1)
-    alert(data2)
-    alert(data3)
+    //alert(document.cookie)
+    // alert(data1)
+    // alert(data2)
+    // alert(data3)
 }
 
 function printMemasik () {
