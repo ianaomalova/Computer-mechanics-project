@@ -275,7 +275,7 @@ function printArray() {
 }
 
 
-let choose = -1;
+let choose = 2;
 function fun1() {
     //alert("Внутри функи=ции 12321321")
     var rad=document.getElementsByName('r1');
@@ -285,6 +285,8 @@ function fun1() {
             //alert('Выбран '+i+' radiobutton');
         }
     }
+
+    draw1();
 }
 
 
