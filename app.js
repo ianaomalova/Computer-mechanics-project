@@ -18,22 +18,28 @@ function AddRow() {
     function onChange(evt) {
         //document.querySelector(".result").innerHTML = evt.target.value;
         let temp = evt.target.value;
+        //console.log(temp)
         // if(temp == "111") {
         //     //alert("12321321312")
         //     document.location.href = "https://drive.google.com/drive/folders/19ldrGhQwII9ooc4DltkRkA01IeawXHCj";
         // }
+        // let reg = new RegExp()
+        // if(!reg.test(evt.target.value)) {
+        //     alert("Соответсвует")
+        // }
         temp = parseFloat(temp)
+        console.log(temp)
         if(Number.isNaN(temp)) {
             // bum++;
             // if(bum < 3)
             //     alert("Владислав Александрович, это безобразие. Введите число")
-            alert("Введите число")
+            alert("Рррр")
         }
         else if(evt.target.value < 0) {
             // bum++;
             // if(bum < 3)
             //     alert("Владислав Александрович, это безобразие. Введите положительное число")
-            alert("Введено отрицательное число. Введите положительное")
+            alert("Рррр")
         }
         // if (bum === 3) {
         //     alert("Безобразие..Еще одна попытка")
