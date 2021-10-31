@@ -304,6 +304,8 @@ function draw1() {
         arrows.clearRect(0, 0, canvas.width, canvas.height)
         let arrows2 = canvas.getContext('2d')
         arrows2.clearRect(0, 0, canvas.width, canvas.height)
+        let txt = canvas.getContext("2d");
+        txt.clearRect(0, 0, canvas.width, canvas.height)
         const amountSterjney = document.getElementById('mytbl').rows.length - 1;
         let coefficientL = 0;
         let coefficientA = 0;
@@ -329,7 +331,7 @@ function draw1() {
         let startY = 0;
         let endY = 0;
         let X = 150;
-        let Y = 150;
+        let Y = 200;
         startX = X - 20;
         startY = Y;
         let width = 0;
@@ -354,7 +356,15 @@ function draw1() {
             let x = X;
             let y = Y + currentHeigth / 2;
             ctx.strokeRect(X, Y, width, currentHeigth); //рисуем прямоугольник
+            let xForTextQ = X+width/3;
+            let xForTextF = X;
+            let yForTextF = Y-5;
             X += width; //передвигаем координату Х
+            let yForTextQ = Y-5;
+            txt.font = "30px Comic Sans MS";
+            if(arrQ[i] !== 0) {
+                txt.fillText("q="+ arrQ[i],xForTextQ,yForTextQ)
+            }
             endX = X;
             endY = Y;
             var img5 = document.getElementById('arrQ');
@@ -393,6 +403,7 @@ function draw1() {
             Y = temp - temp2; //перемещаем ввод вверх от половины первого стержня на половину второго стержня
             if(amountSterjney === 1) {
                 if(arrF[0] !== 0 && choose === 1) {
+                    txt.fillText("F="+ arrF[0], xForTextF, yForTextF);
                     if(arrF[0] < 0) {
                         arrows2.drawImage(img6_1, x-55, y - 25, 55, 50);
                     }
@@ -401,6 +412,7 @@ function draw1() {
                     }
                 }
                 if(arrF[1] !== 0 && choose === 0) {
+                    txt.fillText("F="+ arrF[1], xForTextF, yForTextF);
                     if(arrF[1] > 0) {
                         arrows2.drawImage(img6, X, temp - 25, 55, 50);
                     }
@@ -413,6 +425,7 @@ function draw1() {
                 if(i ===0) {
                     //находимся в первом стержне
                     if(choose === 1 && arrF[0] !== 0) {
+                        txt.fillText("F="+ arrF[0], xForTextF, yForTextF);
                         if(arrF[0] > 0) {
                             arrows2.drawImage(img6, x, y - 25, 55, 50);
                         }
@@ -425,6 +438,7 @@ function draw1() {
                 //находимся во втором стержне
                 else if(i === 1) {
                     if(choose === 0 && arrF[2] !== 0) {
+                        txt.fillText("F="+ arrF[2], X, yForTextF);
                         if(arrF[2] > 0) {
                             arrows2.drawImage(img6, X, temp - 25, 55, 50);
                         }
@@ -433,6 +447,7 @@ function draw1() {
                         }
                     }
                     if(arrF[1] !== 0) {
+                        txt.fillText("F="+ arrF[1], xForTextF, yForTextF);
                         if(arrF[1] > 0) {
                             arrows2.drawImage(img6, x, y - 25, 55, 50);
                         }
@@ -447,6 +462,7 @@ function draw1() {
                 if(i ===0) {
                     //находимся в первом стержне
                     if(choose === 1 && arrF[0] !== 0) {
+                        txt.fillText("F="+ arrF[0], xForTextF, yForTextF);
                         if(arrF[0] > 0) {
                             arrows2.drawImage(img6, x, y - 25, 55, 50);
                         }
@@ -459,6 +475,7 @@ function draw1() {
                 //находимся в последнм стержне
                 else if(i === amountSterjney - 1) {
                     if(choose === 0 && arrF[amountSterjney] !== 0) {
+                        txt.fillText("F="+ arrF[amountSterjney], X, yForTextF);
                         if(arrF[amountSterjney] > 0) {
                             arrows2.drawImage(img6, X, temp - 25, 55, 50);
                         }
@@ -471,6 +488,7 @@ function draw1() {
                 //если мы находимся в предпоследнем стержне
                 else if(i === amountSterjney - 2){
                     if(arrF[i] !== 0) {
+                        txt.fillText("F="+ arrF[i], x, yForTextF);
                         if(arrF[i] > 0) {
                             arrows2.drawImage(img6, x, y - 25, 55, 50);
                         }
@@ -479,6 +497,7 @@ function draw1() {
                         }
                     }
                     if(arrF[i+1] !== 0) {
+                        txt.fillText("F="+ arrF[i+1], X, yForTextF);
                         if(arrF[i+1] > 0) {
                             arrows2.drawImage(img6, X, temp - 25, 55, 50);
                         }
@@ -489,6 +508,7 @@ function draw1() {
                 }
                 else {
                     if(arrF[i] !== 0) {
+                        txt.fillText("F="+ arrF[i], xForTextF, yForTextF);
                         if(arrF[i] > 0) {
                             arrows2.drawImage(img6, x, y - 25, 55, 50);
                         }
