@@ -342,7 +342,7 @@ function draw1() {
         let polovina_pervogo = 0;
         let polovina_poslednego = 0;
         let maxH = 0;
-        if(bigArr[bigArr.length-1] > bigArr[bigArr.length-5]) {
+        if(bigArr[bigArr.length-2] > bigArr[bigArr.length-6]) {
             maxH = amountSterjney - 1;
         }
         else {
@@ -493,7 +493,7 @@ function draw1() {
                         }
                     }
                     if(amountSterjney-1 === maxH) {
-
+                        txt.fillText("F="+ arrF[amountSterjney-1], x, yForTextF);
                     }
                 }
                     //тут будет код если мы находимся в средних стержня
@@ -509,7 +509,10 @@ function draw1() {
                         }
                     }
                     if(arrF[i+1] !== 0) {
-                        txt.fillText("F="+ arrF[i+1], X-55, yForTextF);
+                        if(amountSterjney - 2 === maxH) {
+                            txt.fillText("F="+ arrF[i+1], X, yForTextF);
+                        }
+                        //txt.fillText("F="+ arrF[i+1], X-55, yForTextF);
                         if(arrF[i+1] > 0) {
                             arrows2.drawImage(img6, X, temp - 25, 55, 50);
                         }
