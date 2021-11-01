@@ -341,6 +341,13 @@ function draw1() {
         let currentHeigth = 0;
         let polovina_pervogo = 0;
         let polovina_poslednego = 0;
+        let maxH = 0;
+        if(bigArr[bigArr.length-1] > bigArr[bigArr.length-5]) {
+            maxH = amountSterjney - 1;
+        }
+        else {
+            maxH = amountSterjney - 2;
+        }
         for (let i = 0; i < amountSterjney; i++) {
             width = bigArr[counter] * coefficientL; //получаем масштабируемую ширину
             currentHeigth = bigArr[counter2] * coefficientA; //получаем масштабируемую высоту
@@ -360,9 +367,9 @@ function draw1() {
             ctx.strokeRect(X, Y, width, currentHeigth); //рисуем прямоугольник
             let xForTextQ = X+width/3;
             let xForTextF = X;
-            let yForTextF = Y-5;
+            let yForTextF = Y-15;
             X += width; //передвигаем координату Х
-            let yForTextQ = Y-5;
+            let yForTextQ = Y+30+currentHeigth;
             txt.font = "30px Comic Sans MS";
             if(arrQ[i] !== 0) {
                 txt.fillText("q="+ arrQ[i],xForTextQ,yForTextQ)
@@ -485,6 +492,9 @@ function draw1() {
                             arrows2.drawImage(img6_1, X-55, temp - 25, 55, 50);
                         }
                     }
+                    if(amountSterjney-1 === maxH) {
+
+                    }
                 }
                     //тут будет код если мы находимся в средних стержня
                 //если мы находимся в предпоследнем стержне
@@ -499,7 +509,7 @@ function draw1() {
                         }
                     }
                     if(arrF[i+1] !== 0) {
-                        txt.fillText("F="+ arrF[i+1], X, yForTextF);
+                        txt.fillText("F="+ arrF[i+1], X-55, yForTextF);
                         if(arrF[i+1] > 0) {
                             arrows2.drawImage(img6, X, temp - 25, 55, 50);
                         }
