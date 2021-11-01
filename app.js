@@ -247,11 +247,17 @@ function saveToArray() {
     }
     for (let i = 0; i < count; i++) {
         bigArr[i] = parseFloat(document.getElementsByTagName("input")[i].value);
+        if(isNaN(bigArr[i])) {
+            bigArr[i] = 1;
+        }
     }
 
     let j = 0; //счетчик для массива
     for (let i = count; i < count + rowCount; i++) {
         arrQ[j] = parseFloat(document.getElementsByTagName("input")[i].value);
+        if(isNaN(arrQ[j])) {
+            arrQ[j] = 0;
+        }
         j++;
     }
 
@@ -259,6 +265,9 @@ function saveToArray() {
     let k = 0; //счетчик для второго массива
     for (let i = counter; i < counter + rowCount + 1; i++) {
         arrF[k] = parseFloat(document.getElementsByTagName("input")[i].value);
+        if(isNaN(arrF[k])) {
+            arrF[k] = 0;
+        }
         k++;
     }
 }
@@ -365,7 +374,7 @@ function draw1() {
             let x = X;
             let y = Y + currentHeigth / 2;
             ctx.strokeRect(X, Y, width, currentHeigth); //рисуем прямоугольник
-            let xForTextQ = X+width/3;
+            let xForTextQ = X+width/2;
             let xForTextF = X;
             let yForTextF = Y-15;
             X += width; //передвигаем координату Х
