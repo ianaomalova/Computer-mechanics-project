@@ -435,7 +435,6 @@ function fun1() {
             //alert('Выбран '+i+' radiobutton');
         }
     }
-
     draw1();
 }
 
