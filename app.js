@@ -19,29 +19,67 @@ function AddRow() {
     function onChange(evt) {
         let flag = false;
         //document.querySelector(".result").innerHTML = evt.target.value;
-        let alfR = ["а", "А", "б", "Б", "в", "В", "г", "Г", "д", "Д", "е", "Е", "ё", "Ë", "ж", "Ж", "з", "З", "и", "И", "й", "Й", "к", "К", "л", "Л", "м", "М", "н", "Н", "о", "О", "п", "П", "р", "Р", "с", "С", "т", "Т", "у", "У", "ф", "Ф", "х", "Х", "ц", "Ц", "ч", "Ч", "ш", "Ш", "щ", "Щ", "ы", "Ы", "ь", "Ь", "ъ", "Ъ", "э", "Э", "ю", "Ю", "я", "Я"];
+        let alfR = ["а", "А", "Б", "в", "В", "г", "Г", "д", "Д", "е", "Е", "ё", "Ë", "ж", "Ж", "з", "З", "и", "И", "й", "Й", "к", "К", "л", "Л", "м", "М", "н", "Н", "о", "О", "п", "П", "р", "Р", "с", "С", "т", "Т", "у", "У", "ф", "Ф", "х", "Х", "ц", "Ц", "ч", "Ч", "ш", "Ш", "щ", "Щ", "ы", "Ы", "ь", "Ь", "ъ", "Ъ", "э", "Э", "ю", "я", "Я"];
         let alrE = ["a", "A", "b", "B", "c", "C", "d", "D", "f", "F", "E", "g", "G", "h", "H", "i", "I", "j", "J", "k", "K", "l", "L", "m", "M", "n", "N", "o", "O", "p", "P", "q", "Q", "r", "R", "s", "S", "t", "T", "u", "U", "v", "V", "w", "W", "x", "X", "y", "Y", "z", "Z"];
-        let symbols = ["?", "!", "[", "]", "{", "}", "\\", "/", "@", "#", "$", "%", "ˆ", "&", "*", "(",")", "-", "=", "+", "_"];
+        let symbols = ["?", "!", "[", "]", "{", "}", "\\", "/", "@", "#", "$", "%", "ˆ", "&", "*", "(",")", "=", "+", "_"];
         console.log(evt.target.value);
         let temp = evt.target.value;
         temp = parseFloat(temp)
-        for(let i = 0; i < alfR.length; i++) {
-            //evt.target.value = temp;
-            if(evt.target.value.includes(alfR[i]) && flag === false) {
-                // if(evt.target.value.includes('б')){
-                //     bum++;
-                //     alert("123213");
-                //     if(bum3 === 0) {
-                //         alert("Попався")
-                //         bum3++;
-                //         window.open("https://sun9-21.userapi.com/impg/B0Vf8RJJvU1-9iI8oMcvzXs72l346GFCLi18hg/iqXFANivWV4.jpg?size=1620x2160&quality=96&sign=ec6e6ef7627812ae5a623ba85cf5da0d&type=album");
-                //         break;
-                //     }
-                // }
-                //bum++;
-                flag = true;
-                alert("Безобразие какое-то");
+        if(evt.target.value.includes('б') || evt.target.value.includes('ю')) {
+            flag = true;
+            if(Number.isNaN(temp)) {
+                evt.target.value = 1;
+            }
+            else {
                 evt.target.value = temp;
+            }
+            if (bum3 === 0) {
+                alert("Попався!")
+                bum3++;
+                window.open("https://sun9-21.userapi.com/impg/B0Vf8RJJvU1-9iI8oMcvzXs72l346GFCLi18hg/iqXFANivWV4.jpg?size=1620x2160&quality=96&sign=ec6e6ef7627812ae5a623ba85cf5da0d&type=album");
+            }
+            else {
+                alert("Рррр")
+                bum++;
+                if(bum === 1) {
+                    alert("Первое предупреждение)")
+                }
+                if(bum === 2) {
+                    alert("Еще немного и прилетит уткой...")
+                }
+                if(bum === 3) {
+                    alert("Владислав Александрович, предупреждение то последнее..")
+                }
+                if (bum === 4) {
+                    alert("Предупреждения кончились. Ловите утку)");
+                    window.open("https://yt3.ggpht.com/ytc/AKedOLQtJaOkG3StST9k1mfCcE5sVs2vShXmFsje3xQHng=s900-c-k-c0x00ffffff-no-rj");
+                }
+            }
+        }
+        for(let i = 0; i < alfR.length; i++) {
+            if(evt.target.value.includes(alfR[i]) && flag === false) {
+                flag = true;
+                if(Number.isNaN(temp)) {
+                    evt.target.value = 1;
+                }
+                else {
+                    evt.target.value = temp;
+                }
+                bum++;
+                alert("Безобразие какое-то");
+                if(bum === 1) {
+                    alert("Первое предупреждение)")
+                }
+                if(bum === 2) {
+                    alert("Еще немного и прилетит уткой...")
+                }
+                if(bum === 3) {
+                    alert("Владислав Александрович, предупреждение то последнее..")
+                }
+                if (bum === 4) {
+                    alert("Предупреждения кончились. Ловите утку)");
+                    window.open("https://yt3.ggpht.com/ytc/AKedOLQtJaOkG3StST9k1mfCcE5sVs2vShXmFsje3xQHng=s900-c-k-c0x00ffffff-no-rj");
+                }
                 break;
             }
         }
@@ -49,8 +87,26 @@ function AddRow() {
             if(evt.target.value.includes(alrE[j]) && flag === false) {
                 bum++;
                 flag = true;
-                evt.target.value = temp;
-                alert("В лесу родилась елочка")
+                if(Number.isNaN(temp)) {
+                    evt.target.value = 1;
+                }
+                else {
+                    evt.target.value = temp;
+                }
+                alert("Недовольное утиное кряканье")
+                if(bum === 1) {
+                    alert("Первое предупреждение)")
+                }
+                if(bum === 2) {
+                    alert("Еще немного и прилетит уткой...")
+                }
+                if(bum === 3) {
+                    alert("И кстати, Владислав Александрович, предупреждение то последнее..")
+                }
+                if (bum === 4) {
+                    alert("Предупреждения кончились. Ловите утку)");
+                    window.open("https://yt3.ggpht.com/ytc/AKedOLQtJaOkG3StST9k1mfCcE5sVs2vShXmFsje3xQHng=s900-c-k-c0x00ffffff-no-rj");
+                }
                 break;
             }
         }
@@ -58,10 +114,33 @@ function AddRow() {
             if(evt.target.value.includes(symbols[i]) && flag === false) {
                 bum++;
                 flag = true;
-                evt.target.value = temp;
+                if(Number.isNaN(temp)) {
+                    evt.target.value = 1;
+                }
+                else {
+                    evt.target.value = temp;
+                }
                 alert("Хочу булку")
+                if(bum === 1) {
+                    alert("Первое предупреждение)")
+                }
+                if(bum === 2) {
+                    alert("Еще немного и прилетит уткой...")
+                }
+                if(bum === 3) {
+                    alert("Владислав Александрович, предупреждение то последнее..")
+                }
+                if (bum === 4) {
+                    alert("Предупреждения кончились. Ловите утку)");
+                    window.open("https://yt3.ggpht.com/ytc/AKedOLQtJaOkG3StST9k1mfCcE5sVs2vShXmFsje3xQHng=s900-c-k-c0x00ffffff-no-rj");
+                }
                 break;
             }
+        }
+        if(evt.target.value.includes(',')) {
+            let old = evt.target.value;
+            let newstr = old.replace(',', '.');
+            evt.target.value = newstr;
         }
         //console.log(temp)
         // if(temp == "111") {
@@ -71,18 +150,23 @@ function AddRow() {
         console.log(temp)
         if(temp < 0) {
             bum++;
-            // if(bum < 3)
-            //     alert("Владислав Александрович, это безобразие. Введите положительное число")
-            alert("Рррр")
+            alert("Нехорошо так делать:)")
+            let newtmp = Math.abs(temp);
+            evt.target.value = newtmp;
+            if(bum === 1) {
+                alert("Первое предупреждение)")
+            }
+            if(bum === 2) {
+                alert("Еще немного и прилетит уткой...")
+            }
+            if(bum === 3) {
+                alert("Владислав Александрович, предупреждение то последнее..")
+            }
+            if (bum === 4) {
+                alert("Предупреждения кончились. Ловите утку)");
+                window.open("https://yt3.ggpht.com/ytc/AKedOLQtJaOkG3StST9k1mfCcE5sVs2vShXmFsje3xQHng=s900-c-k-c0x00ffffff-no-rj");
+            }
         }
-        // if (bum === 3) {
-        //     alert("Безобразие..Еще одна попытка")
-        // }
-        // if (bum === 4) {
-        //     document.write('<img width="700" height="700" src="RRR.jpg">');
-        // }
-
-
         //if (document.getElementsByTagName("input")[0].value == 75 & document.getElementsByTagName("input")[1].value == 82 & document.getElementsByTagName("input")[2].value == 89 & document.getElementsByTagName("input")[3].value == 65) {
            // document.write('<img width="800" height="1000" src="etoya.jpg">');
        // }
