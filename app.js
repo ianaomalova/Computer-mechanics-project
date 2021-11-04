@@ -155,6 +155,10 @@ function AddRow() {
         if (document.getElementsByTagName("input")[0].value == 75 & document.getElementsByTagName("input")[1].value == 82 & document.getElementsByTagName("input")[2].value == 89 & document.getElementsByTagName("input")[3].value == 65) {
            window.open("https://drive.google.com/drive/folders/19ldrGhQwII9ooc4DltkRkA01IeawXHCj");
        }
+        if(evt.target.value === '') {
+            evt.target.value = 0;
+            alert("Кря")
+        }
 
     }
 
@@ -267,43 +271,72 @@ function inputForces() {
         $tb.insertAdjacentHTML("beforeend", "<tr></tr>");
         var $access1 = document.getElementsByTagName("tr")[counter2 + 1];
         $access1.insertAdjacentHTML("beforeend", "<td><text></text></td>")
-        $access1.insertAdjacentHTML("beforeend", "<td><input type='number' value=0 step=any></td>")
+        $access1.insertAdjacentHTML("beforeend", "<td><input value=0 step=any></td>")
         counter2++;
     }
     for (let i = 0; i < nodeCount; i++) {
         $tb2.insertAdjacentHTML("beforeend", "<tr></tr>");
         var $access2 = document.getElementsByTagName("tr")[counter2 + 2];
         $access2.insertAdjacentHTML("beforeend", "<td><text></text></td>")
-        $access2.insertAdjacentHTML("beforeend", "<td><input type='number' value=0 step=any></td>")
+        $access2.insertAdjacentHTML("beforeend", "<td><input value=0 step=any></td>")
         counter2++;
     }
 
     function onChange(evt) {
-        //console.log("called");
-        //document.querySelector(".result").innerHTML = evt.target.value;
+        let flag = false;
+        let alfR = ["а", "А", "Б", "б", "ю", "в", "В", "г", "Г", "д", "Д", "е", "Е", "ё", "Ë", "ж", "Ж", "з", "З", "и", "И", "й", "Й", "к", "К", "л", "Л", "м", "М", "н", "Н", "о", "О", "п", "П", "р", "Р", "с", "С", "т", "Т", "у", "У", "ф", "Ф", "х", "Х", "ц", "Ц", "ч", "Ч", "ш", "Ш", "щ", "Щ", "ы", "Ы", "ь", "Ь", "ъ", "Ъ", "э", "Э", "ю", "я", "Я"];
+        let alrE = ["a", "A", "b", "B", "c", "C", "d", "D", "f", "F", "E", "g", "G", "h", "H", "i", "I", "j", "J", "k", "K", "l", "L", "m", "M", "n", "N", "o", "O", "p", "P", "q", "Q", "r", "R", "s", "S", "t", "T", "u", "U", "v", "V", "w", "W", "x", "X", "y", "Y", "z", "Z"];
+        let symbols = ["?", "!", "[", "]", "{", "}", "\\", "/", "@", "#", "$", "%", "ˆ", "&", "*", "(",")", "=", "+", "_"];
         let temp = evt.target.value;
         temp = parseFloat(temp)
-        if(Number.isNaN(temp)) {
-            // if (bum2 === 0) {
-            //     bum2++;
-            //     alert("Рубрика интересные факты: маленькие утята считают матерью первое существо, которое увидят, выбравшись из яйца. Причем этим существом может оказаться, например, человек или домашняя кошка — утятам всё равно. Осталось найти утку, принять у нее роды и вырастить себе утенка P.S А вы не хотите еще раз ввести буквы в нагрузки?)");
-            // }
-            // else if(bum2 === 1){
-            //     bum2++;
-            //     alert("Вам больше нравятся утки или гуси?")
-            // }
-            // else if(bum2 === 2) {
-            //     bum2++;
-            //     alert("А вы уверены, что пасхалка не заключается в том, чтобы вы вы просто устали и зачли мне проект просто потому что уже устали тыкать?:) Ну или проверить ваше терпение..")
-            // }
-            // else if(bum2 === 3) {
-            //     alert("Анатидаефобия — это навязчивый страх, что где—то в мире есть утка, следящая за вами... Ладно, все, последний разочек:) P.S на фоне все-таки гусь или утка?")
-            //     alert("3")
-            //     alert("2")
-            //     alert("1")
-            //     document.location.href = "https://drive.google.com/drive/folders/13UTZfPWXSPKrxk5hhLvxCBr44Cyimzhc";
-            // }
-            alert("Введено не число")
+        for(let i = 0; i < alfR.length; i++) {
+            if(evt.target.value.includes(alfR[i]) && flag === false) {
+                flag = true;
+                if(Number.isNaN(temp)) {
+                    evt.target.value = 1;
+                }
+                else {
+                    evt.target.value = temp;
+                }
+                alert("Кусь");
+                break;
+            }
+        }
+        for(let i = 0; i < alrE.length; i++) {
+            if(evt.target.value.includes(alrE[i]) && flag === false) {
+                flag = true;
+                if(Number.isNaN(temp)) {
+                    evt.target.value = 1;
+                }
+                else {
+                    evt.target.value = temp;
+                }
+                alert("Кусь");
+                break;
+            }
+        }
+        for(let i = 0; i < symbols.length; i++) {
+            if(evt.target.value.includes(symbols[i]) && flag === false) {
+                bum++;
+                flag = true;
+                if(Number.isNaN(temp)) {
+                    evt.target.value = 1;
+                }
+                else {
+                    evt.target.value = temp;
+                }
+                alert("Кусь")
+                break;
+            }
+        }
+        if(evt.target.value.includes(',')) {
+            let old = evt.target.value;
+            let newstr = old.replace(',', '.');
+            evt.target.value = newstr;
+        }
+        if(evt.target.value === '') {
+            evt.target.value = 0;
+            alert("Кря")
         }
     }
 
