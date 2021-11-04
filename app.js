@@ -12,9 +12,9 @@ function AddRow() {
     var $access = document.getElementsByTagName("tr")[counter2];
     $access.insertAdjacentHTML("beforeend", "<td><text></text></td>")
     $access.insertAdjacentHTML("beforeend", "<td><input value=1 min='0' step=any></td>")
-    $access.insertAdjacentHTML("beforeend", "<td><input type='number' value=1 min='0' step=any></td>")
-    $access.insertAdjacentHTML("beforeend", "<td><input type='number' value=1 min='0' step=any></td>")
-    $access.insertAdjacentHTML("beforeend", "<td><input type='number' value=1 min='0' step=any></td>")
+    $access.insertAdjacentHTML("beforeend", "<td><input value=1 min='0' step=any></td>")
+    $access.insertAdjacentHTML("beforeend", "<td><input value=1 min='0' step=any></td>")
+    $access.insertAdjacentHTML("beforeend", "<td><input value=1 min='0' step=any></td>")
     counter2++;
     function onChange(evt) {
         let flag = false;
@@ -49,9 +49,6 @@ function AddRow() {
                 }
                 if(bum === 3) {
                     alert("Владислав Александрович, предупреждение то последнее..")
-                }
-                if (bum === 4) {
-                    alert("Предупреждения кончились. Ловите утку)");
                     window.open("https://yt3.ggpht.com/ytc/AKedOLQtJaOkG3StST9k1mfCcE5sVs2vShXmFsje3xQHng=s900-c-k-c0x00ffffff-no-rj");
                 }
             }
@@ -75,9 +72,6 @@ function AddRow() {
                 }
                 if(bum === 3) {
                     alert("Владислав Александрович, предупреждение то последнее..")
-                }
-                if (bum === 4) {
-                    alert("Предупреждения кончились. Ловите утку)");
                     window.open("https://yt3.ggpht.com/ytc/AKedOLQtJaOkG3StST9k1mfCcE5sVs2vShXmFsje3xQHng=s900-c-k-c0x00ffffff-no-rj");
                 }
                 break;
@@ -102,9 +96,6 @@ function AddRow() {
                 }
                 if(bum === 3) {
                     alert("И кстати, Владислав Александрович, предупреждение то последнее..")
-                }
-                if (bum === 4) {
-                    alert("Предупреждения кончились. Ловите утку)");
                     window.open("https://yt3.ggpht.com/ytc/AKedOLQtJaOkG3StST9k1mfCcE5sVs2vShXmFsje3xQHng=s900-c-k-c0x00ffffff-no-rj");
                 }
                 break;
@@ -129,9 +120,6 @@ function AddRow() {
                 }
                 if(bum === 3) {
                     alert("Владислав Александрович, предупреждение то последнее..")
-                }
-                if (bum === 4) {
-                    alert("Предупреждения кончились. Ловите утку)");
                     window.open("https://yt3.ggpht.com/ytc/AKedOLQtJaOkG3StST9k1mfCcE5sVs2vShXmFsje3xQHng=s900-c-k-c0x00ffffff-no-rj");
                 }
                 break;
@@ -161,15 +149,12 @@ function AddRow() {
             }
             if(bum === 3) {
                 alert("Владислав Александрович, предупреждение то последнее..")
-            }
-            if (bum === 4) {
-                alert("Предупреждения кончились. Ловите утку)");
                 window.open("https://yt3.ggpht.com/ytc/AKedOLQtJaOkG3StST9k1mfCcE5sVs2vShXmFsje3xQHng=s900-c-k-c0x00ffffff-no-rj");
             }
         }
-        //if (document.getElementsByTagName("input")[0].value == 75 & document.getElementsByTagName("input")[1].value == 82 & document.getElementsByTagName("input")[2].value == 89 & document.getElementsByTagName("input")[3].value == 65) {
-           // document.write('<img width="800" height="1000" src="etoya.jpg">');
-       // }
+        if (document.getElementsByTagName("input")[0].value == 75 & document.getElementsByTagName("input")[1].value == 82 & document.getElementsByTagName("input")[2].value == 89 & document.getElementsByTagName("input")[3].value == 65) {
+           window.open("https://drive.google.com/drive/folders/19ldrGhQwII9ooc4DltkRkA01IeawXHCj");
+       }
 
     }
 
