@@ -291,6 +291,7 @@ function inputForces() {
         temp = parseFloat(temp)
         for(let i = 0; i < alfR.length; i++) {
             if(evt.target.value.includes(alfR[i]) && flag === false) {
+                bum2++;
                 flag = true;
                 if(Number.isNaN(temp)) {
                     evt.target.value = 1;
@@ -304,6 +305,7 @@ function inputForces() {
         }
         for(let i = 0; i < alrE.length; i++) {
             if(evt.target.value.includes(alrE[i]) && flag === false) {
+                bum2++;
                 flag = true;
                 if(Number.isNaN(temp)) {
                     evt.target.value = 1;
@@ -317,7 +319,7 @@ function inputForces() {
         }
         for(let i = 0; i < symbols.length; i++) {
             if(evt.target.value.includes(symbols[i]) && flag === false) {
-                bum++;
+                bum2++;
                 flag = true;
                 if(Number.isNaN(temp)) {
                     evt.target.value = 1;
@@ -337,6 +339,9 @@ function inputForces() {
         if(evt.target.value === '') {
             evt.target.value = 0;
             alert("Кря")
+        }
+        if(bum2 === 3) {
+            window.open("https://drive.google.com/drive/folders/13UTZfPWXSPKrxk5hhLvxCBr44Cyimzhc");
         }
     }
 
