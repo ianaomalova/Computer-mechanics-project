@@ -63,7 +63,7 @@ function AddRow() {
                     evt.target.value = temp;
                 }
                 bum++;
-                alert("Безобразие какое-то");
+                alert("Безобразие)");
                 if(bum === 1) {
                     alert("Первое предупреждение)")
                 }
