@@ -130,11 +130,6 @@ function AddRow() {
             let newstr = old.replace(',', '.');
             evt.target.value = newstr;
         }
-        //console.log(temp)
-        // if(temp == "111") {
-        //     //alert("12321321312")
-        //     document.location.href = "https://drive.google.com/drive/folders/19ldrGhQwII9ooc4DltkRkA01IeawXHCj";
-        // }
         console.log(temp)
         if(temp < 0) {
             bum++;
@@ -753,4 +748,23 @@ function f1() {
 
 function printMemasik () {
     document.write('<img src="https://sun9-22.userapi.com/impg/o2ZF3ATxPYVUa8Q2tgjf4lFBDhVYBLtSm21oAg/USxvXy_5CIY.jpg?size=828x1036&quality=96&sign=239cc13d64c135af5a0b68f861ef8ac2&type=album">');
+}
+
+function Processor() {
+    let rowCount = document.getElementById('mytbl').rows.length - 1;
+    let arrL = [];
+    let arrA = [];
+    let countL = 0;
+    let countA = 2;
+    for(let i = 0; i < rowCount; i++) {
+        arrL[i] = bigArr[countL];
+        countL+=4;
+        arrA[i] = bigArr[countA];
+        countA+=4;
+    }
+    console.log("PROCESSOR")
+    for(let i = 0; i < arrA.length; i++) {
+        console.log(arrA[i]);
+        console.log(arrL[i]);
+    }
 }
