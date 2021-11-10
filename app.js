@@ -751,20 +751,297 @@ function printMemasik () {
 }
 
 function Processor() {
+    console.log("!#@!#@!#@!#@!#@!#@!#@!#@!#@!#!@#@!#@!#@!")
+    console.log(choose);
+    saveToArray();
     let rowCount = document.getElementById('mytbl').rows.length - 1;
     let arrL = [];
     let arrA = [];
+    let arrE = [];
     let countL = 0;
     let countA = 2;
+    let countE = 1;
     for(let i = 0; i < rowCount; i++) {
         arrL[i] = bigArr[countL];
         countL+=4;
         arrA[i] = bigArr[countA];
         countA+=4;
+        arrE[i] = bigArr[countE];
+        countE+=4;
     }
     console.log("PROCESSOR")
     for(let i = 0; i < arrA.length; i++) {
         console.log(arrA[i]);
         console.log(arrL[i]);
+        console.log(arrE[i]);
+    }
+
+    const choose1 = choose;
+    let amountNodes = document.getElementById('mytbl').rows.length ;
+    let counterDown = 1; //счетчик для определения + или -
+    let counterUp = 0; //итерация по массиву К
+    let sign = -1;
+    let arrDelta = new Array(amountNodes);
+    let arrB = new Array(amountNodes);
+    let arrK = new Array(amountNodes-1);
+    let arrmatrix = new Array(amountNodes);
+    for(let i = 0; i < amountNodes; i++) {
+        arrmatrix[i] = new Array(amountNodes);
+    }
+    console.log("РРРРРРРРРР")
+    for(let i = 0; i < amountNodes; i++) {
+        for(let j = 0; j < amountNodes; j++) {
+            arrmatrix[i][j] = -999
+        }
+    }
+    for(let i = 0; i < amountNodes; i++) {
+        for(let j = 0; j < amountNodes; j++) {
+            console.log(arrmatrix[i][j]);
+        }
+    }
+
+    for(let i = 0; i < amountNodes - 1; i++) {
+        arrK[i] = (arrE[i] * arrA[i] / arrL[i]);
+    }
+
+    for(let i = 0; i < amountNodes; i++) {
+        if(i === 0) {
+            arrmatrix[0][0] = arrK[0];
+            arrmatrix[0][1] = arrK[0] * -1;
+            counterDown +=2;
+            continue;
+        }
+        if(i === amountNodes-1) {
+            arrmatrix[amountNodes-1][amountNodes-1] = arrK[amountNodes-2];
+            arrmatrix[amountNodes-1][amountNodes-2] = arrK[amountNodes-2] * -1;
+        }
+        else {
+            for(let j = 0; j < amountNodes; j++) {
+                if(j === i - 1) {
+                    //тут всегда элемент с нижним индексом 3 и он никогда не суммируется
+                    sign = -1;
+                    arrmatrix[i][j] = arrK[counterUp] * sign;
+                    counterDown = (counterDown%4) + 1;
+                    continue;
+                }
+                else if(j === i) {
+                    sign = 1;
+                    //тут всегда суммируются 2 элемента: с индексом 4 и след К с индексом 1
+                    //counterUp сменяется только здесь
+                    let temp1 = arrK[counterUp];
+                    counterUp++;
+                    counterDown = (counterDown%4) + 1;
+                    let temp2 = arrK[counterUp];
+                    arrmatrix[i][j] = temp1 + temp2;
+                    counterDown = (counterDown%4) + 1;
+                    continue;
+                }
+                else if(j === i + 1) {
+                    sign = -1;
+                    //тут всегда элемент с нижним индексом 2
+                    arrmatrix[i][j] = arrK[counterUp] * sign;
+                    counterDown = (counterDown%4) + 1;
+                    continue;
+                }
+            }
+        }
+    }
+
+    for(let i = 0; i < amountNodes; i++) {
+        for(let j = 0; j < amountNodes; j++) {
+            if(arrmatrix[i][j] === -999) {
+                arrmatrix[i][j] = 0;
+            }
+        }
+    }
+
+    for(let i = 0; i < amountNodes; i++) {
+        if(i === 0) {
+            arrB[i] = arrQ[i]*arrL[i]/2 + arrF[i];
+        }
+        else if(i === amountNodes - 1) {
+            arrB[i] = arrQ[i-1] * arrL[i-1]/2 + arrF[i];
+        }
+        else {
+            arrB[i] = arrQ[i-1]*arrL[i-1]/2 + arrQ[i]*arrL[i]/2 + arrF[i];
+        }
+    }
+
+    //учитываем кинематические граничные условия
+    //если choose = 0 -> грабля слева, choose = 1 -> грабля спрва, если choose = 2 -> грабля и слева, и справа
+    if(choose === 2) {
+        arrDelta[0] = 0;
+        arrDelta[amountNodes-1] = 0;
+        arrmatrix[0][0] = 1;
+        for(let i = 1; i < arrmatrix.length; i++) {
+            arrmatrix[0][i] = 0;
+        }
+        arrmatrix[amountNodes-1][amountNodes-1] = 1;
+        for(let i = 0; i < amountNodes-1; i++) {
+            arrmatrix[amountNodes-1][i] = 0;
+        }
+        arrB[amountNodes-1] = 0;
+        arrB[0] = 0;
+    }
+    else if(choose === 0) {
+        arrDelta[0] = 0;
+        arrmatrix[0][0] = 1;
+        for(let i = 1; i < arrmatrix.length; i++) {
+            arrmatrix[0][i] = 0;
+            arrB[0] = 0;
+        }
+    }
+    else if(choose === 1) {
+        arrDelta[amountNodes-1] = 0;
+        arrmatrix[amountNodes-1][amountNodes-1] = 1;
+        for(let i = 0; i < amountNodes-2; i++) {
+            arrmatrix[amountNodes-1][i] = 0;
+        }
+        arrB[amountNodes-1] = 0;
+    }
+
+    //составление системы уравнений
+    //создание новой версии матрицы А с учетом граблей
+    let newMatrixA = new Array();
+    for(let i = 0; i < amountNodes; i++) {
+        newMatrixA[i] = new Array();
+    }
+    if(choose === 2) {
+        let k = 0;
+        let m = 0;
+        let b = 1;
+        newMatrixA = new Array(amountNodes-2);
+        for(let i = 0; i < newMatrixA.length; i++) {
+            newMatrixA[i] = new Array(amountNodes - 1);
+        }
+        //newMatrixA = newMatrixA[amountNodes-2][amountNodes-1];
+        for(let i = 1; i < amountNodes-1; i++) {
+            for(let j = 1; j < amountNodes-1; j++) {
+                newMatrixA[k][m] = arrmatrix[i][j];
+                m++;
+            }
+            newMatrixA[k][amountNodes-2] = arrB[b];
+            b++;
+            m = 0;
+            k++;
+        }
+    }
+    else if(choose === 0) {
+        newMatrixA = new Array(amountNodes-1);
+        for(let i = 0; i < newMatrixA.length; i++) {
+            newMatrixA[i] = new Array(amountNodes);
+        }
+        //newMatrixA = newMatrixA[amountNodes-2][amountNodes-1];
+        let k = 0;
+        let m = 0;
+        let b = 1;
+        for(let i = 1; i < amountNodes; i++) {
+            for(let j = 1; j < amountNodes; j++) {
+                newMatrixA[k][m] = arrmatrix[i][j];
+                m++;
+            }
+            newMatrixA[k][amountNodes-1] = arrB[b];
+            b++;
+            m = 0;
+            k++;
+        }
+    }
+    else if(choose === 1) {
+        newMatrixA = new Array(amountNodes-1);
+        for(let i = 0; i < newMatrixA.length; i++) {
+            newMatrixA[i] = new Array(amountNodes);
+        }
+        //newMatrixA = newMatrixA[amountNodes-2][amountNodes-1];
+        let k = 0;
+        let m = 0;
+        let b = 0;
+        for(let i = 0; i < amountNodes-1; i++) {
+            for(let j = 0; j < amountNodes-1; j++) {
+                newMatrixA[k][m] = arrmatrix[i][j];
+                m++;
+            }
+            newMatrixA[k][amountNodes-1] = arrB[b];
+            b++;
+            m = 0;
+            k++;
+        }
+    }
+
+    if(newMatrixA.length !== 0) {
+        let m = newMatrixA[0].length;
+        //Метод Гаусса
+        //Прямой ход, приведение к верхнетреугольному виду
+        let tmp;
+        let xx = new Array(m);
+        let k;
+
+        for (let i = 0; i < newMatrixA.length; i++) {
+            tmp = newMatrixA[i][i];
+            for (let j = newMatrixA.length; j >= i; j--)
+            newMatrixA[i][j] /= tmp;
+            for (let j = i + 1; j < newMatrixA.length; j++) {
+                tmp = newMatrixA[j][i];
+                for (k = newMatrixA.length; k >= i; k--)
+                    newMatrixA[j][k] -= tmp * newMatrixA[i][k];
+            }
+        }
+        /*обратный ход*/
+        xx[newMatrixA.length - 1] = newMatrixA[newMatrixA.length - 1][newMatrixA.length];
+        for (let i = newMatrixA.length - 2; i >= 0; i--) {
+            xx[i] = newMatrixA[i][newMatrixA.length];
+            for (let j = i + 1; j < newMatrixA.length; j++) xx[i] -= newMatrixA[i][j] * xx[j];
+        }
+
+        if (choose === 2) {
+            let j = 0;
+            arrDelta[0] = 0;
+            arrDelta[amountNodes - 1] = 0;
+            for (let i = 1; i < arrDelta.length - 1; i++) {
+                arrDelta[i] = xx[j];
+                j++;
+            }
+        } else if (choose === 0) {
+            let j = 0;
+            arrDelta[0] = 0;
+            for (let i = 1; i < arrDelta.length; i++) {
+                arrDelta[i] = xx[j];
+                j++;
+            }
+        }
+        else if (choose === 1) {
+            let j = 0;
+            arrDelta[amountNodes - 1] = 0;
+            for (let i = 0; i < arrDelta.length - 1; i++) {
+                arrDelta[i] = xx[j];
+                j++;
+            }
+        }
+    }
+
+    let counterdelta = 1;
+    let arrU = new Array(amountNodes-1);
+    for(let i = 0; i < arrU.length; i++) {
+        arrU[i] = new Array(2);
+    }
+    arrU[0][0] = arrDelta[0];
+    arrU[amountNodes-2][1] = arrDelta[arrDelta.length-1];
+    for(let i = 0; i < amountNodes-2; i++) {
+        arrU[i][1] = arrDelta[counterdelta];
+        counterdelta++;
+    }
+    counterdelta=1;
+    for(let i = 1; i < amountNodes-1; i++) {
+        arrU[i][0] = arrDelta[counterdelta];
+        counterdelta++;
+    }
+    console.log("ДЕЛЬТЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫ")
+    for(let i = 0; i < arrDelta.length; i++) {
+        console.log(arrDelta[i]);
+    }
+    console.log("УШКИИИИИИИИИИИИИИИИИИИ")
+    for(let i = 0; i < amountNodes -1; i++) {
+        for(let j = 0; j < 2; j++) {
+            console.log(arrU[i][j]);
+        }
     }
 }
