@@ -750,7 +750,21 @@ function printMemasik () {
     document.write('<img src="https://sun9-22.userapi.com/impg/o2ZF3ATxPYVUa8Q2tgjf4lFBDhVYBLtSm21oAg/USxvXy_5CIY.jpg?size=828x1036&quality=96&sign=239cc13d64c135af5a0b68f861ef8ac2&type=album">');
 }
 
+
+let amountSt = document.getElementById('mytbl').rows.length -1 ;
+let arrNx = [];
+for(let i = 0; i < arrNx.length; i++) {
+    for(let j = 0; j < 2; j++) {
+        arrNx[i][j] = 0;
+    }
+}
+
 function Processor() {
+    let amountNodes = document.getElementById('mytbl').rows.length ;
+    arrNx = new Array(amountNodes - 1);
+    for(let i = 0; i < arrNx.length; i++) {
+        arrNx[i] = new Array(2);
+    }
     console.log("!#@!#@!#@!#@!#@!#@!#@!#@!#@!#!@#@!#@!#@!")
     console.log(choose);
     saveToArray();
@@ -777,7 +791,6 @@ function Processor() {
     }
 
     const choose1 = choose;
-    let amountNodes = document.getElementById('mytbl').rows.length ;
     let counterDown = 1; //счетчик для определения + или -
     let counterUp = 0; //итерация по массиву К
     let sign = -1;
@@ -1044,4 +1057,20 @@ function Processor() {
             console.log(arrU[i][j]);
         }
     }
+    console.log("Nx blat'")
+    for(let i = 0; i < arrNx.length; i++) {
+        let x = 0;
+        for(let j = 0; j < 2; j++) {
+            arrNx[i][j] = arrE[i]*arrA[i]/ arrL[i] * (arrU[i][1] - arrU[i][0]) + (arrQ[i]*arrL[i]/2) * (1 - 2 * x/arrL[i]);
+            x += arrL[i];
+        }
+    }
+
+    for(let i = 0; i < arrNx.length; i++) {
+        for(let j = 0; j < 2; j++) {
+            console.log(arrNx[i][j]);
+        }
+    }
+    console.log(arrNx.length);
+    console.log("Nx blyaaaaaaaaaat'");
 }
