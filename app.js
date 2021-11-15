@@ -111,7 +111,7 @@ function AddRow() {
                 else {
                     evt.target.value = temp;
                 }
-                alert("Хочу булку")
+                alert("Булка")
                 if(bum === 1) {
                     alert("Первое предупреждение)")
                 }
@@ -151,8 +151,12 @@ function AddRow() {
            window.open("https://drive.google.com/drive/folders/19ldrGhQwII9ooc4DltkRkA01IeawXHCj");
        }
         if(evt.target.value === '') {
-            evt.target.value = 0;
+            evt.target.value = 1;
             alert("Кря")
+        }
+        if(evt.target.value === '0') {
+            evt.target.value = 1;
+            alert("Низя так")
         }
 
     }
@@ -198,7 +202,7 @@ function AddRow() {
 //             console.log(bigArr[out])
 //         }
 //         else {
-//             alert("За буквы по жопе")
+//
 //         }
 //     }
 //
@@ -216,7 +220,7 @@ function AddRow() {
 //             console.log(bigArr[out])
 //         }
 //         else {
-//             alert("За буквы по жопе")
+//
 //         }
 //     }
 //     td3.onchange = function () {
@@ -233,7 +237,7 @@ function AddRow() {
 //             console.log(bigArr[out])
 //         }
 //         else {
-//             alert("За буквы по жопе")
+//
 //         }
 //     }
 //     td4.onchange = function () {
@@ -250,7 +254,7 @@ function AddRow() {
 //             console.log(bigArr[out])
 //         }
 //         else {
-//             alert("За буквы по жопе")
+//
 //         }
 //     }
 //     //saveElement();
@@ -758,6 +762,8 @@ for(let i = 0; i < arrNx.length; i++) {
         arrNx[i][j] = 0;
     }
 }
+let arrUx = [];
+
 
 function Processor() {
     let amountNodes = document.getElementById('mytbl').rows.length ;
@@ -765,6 +771,7 @@ function Processor() {
     for(let i = 0; i < arrNx.length; i++) {
         arrNx[i] = new Array(2);
     }
+    arrUx = new Array(amountNodes);
     console.log("!#@!#@!#@!#@!#@!#@!#@!#@!#@!#!@#@!#@!#@!")
     console.log(choose);
     saveToArray();
@@ -1071,6 +1078,27 @@ function Processor() {
             console.log(arrNx[i][j]);
         }
     }
-    console.log(arrNx.length);
-    console.log("Nx blyaaaaaaaaaat'");
+
+    console.log("КУКУСИКИ БЛЯТЬ")
+    for(let i = 0; i < arrUx.length; i++) {
+        let x = 0;
+        if(i === arrUx.length-1) {
+            console.log("Я посчиталь")
+            arrUx[i] = arrU[i-1][0] + x/arrL[i-1]*(arrU[i-1][1] - arrU[i-1][0]) + (arrQ[i-1]*arrL[i-1]*arrL[i-1]/2*arrE[i-1]*arrA[i-1] * x/arrL[i-1]) * (1 - x/arrL[i-1]);
+            console.log(arrUx[i]);
+        }
+        else {
+            arrUx[i] = arrU[i][0] + x / arrL[i] * (arrU[i][1] - arrU[i][0]) + (arrQ[i] * arrL[i] * arrL[i] / 2 * arrE[i] * arrA[i] * x / arrL[i]) * (1 - x / arrL[i]);
+            x += arrL[i];
+            //console.log(arrUx[i]);
+        }
+    }
+
+    console.log(arrUx.length);
+    for(let i = 0; i < arrUx.length; i++) {
+        console.log("i= " + i);
+        console.log(arrUx[i]);
+    }
+    // console.log(arrNx.length);
+
 }
