@@ -734,7 +734,8 @@ function draw1() {
 
 function f1() {
     saveToArray();
-
+    let text = document.getElementById("coockies");
+    const $feechkaWinxBlin = document.getElementById("coockies").value;
     var bA = JSON.stringify(bigArr)
     $.cookie('bigArr', bA, { expires: 7 });
     var q = JSON.stringify(arrQ)
@@ -744,10 +745,12 @@ function f1() {
     var data1=JSON.parse($.cookie("bigArr"))
     var data2=JSON.parse($.cookie("arrQ"))
     var data3=JSON.parse($.cookie("arrF"))
+    $.cookie($feechkaWinxBlin, bA, { expires: 7 });
     //alert(document.cookie)
-    alert(data1)
-    alert(data2)
-    alert(data3)
+    // alert(data1)
+    // alert(data2)
+    // alert(data3)
+
 }
 
 function printMemasik () {
@@ -763,13 +766,17 @@ for(let i = 0; i < arrNx.length; i++) {
     }
 }
 let arrUx = [];
-
+let Sigma = [];
 
 function Processor() {
     let amountNodes = document.getElementById('mytbl').rows.length ;
     arrNx = new Array(amountNodes - 1);
     for(let i = 0; i < arrNx.length; i++) {
         arrNx[i] = new Array(2);
+    }
+    Sigma = new Array(amountNodes - 1);
+    for(let i = 0; i < Sigma.length; i++) {
+        Sigma[i] = new Array(2);
     }
     arrUx = new Array(amountNodes);
     console.log("!#@!#@!#@!#@!#@!#@!#@!#@!#@!#!@#@!#@!#@!")
@@ -1054,17 +1061,22 @@ function Processor() {
         arrU[i][0] = arrDelta[counterdelta];
         counterdelta++;
     }
+    let strDlt = '';
     console.log("ДЕЛЬТЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫ")
     for(let i = 0; i < arrDelta.length; i++) {
         console.log(arrDelta[i]);
+        strDlt+=arrDelta[i].toFixed(3);
+        strDlt+=';'
     }
+    let strDlt2 = strDlt.slice(0, -1);
     console.log("УШКИИИИИИИИИИИИИИИИИИИ")
     for(let i = 0; i < amountNodes -1; i++) {
         for(let j = 0; j < 2; j++) {
             console.log(arrU[i][j]);
         }
     }
-    console.log("Nx blat'")
+    let strNx = '';
+    console.log("Nx")
     for(let i = 0; i < arrNx.length; i++) {
         let x = 0;
         for(let j = 0; j < 2; j++) {
@@ -1076,29 +1088,50 @@ function Processor() {
     for(let i = 0; i < arrNx.length; i++) {
         for(let j = 0; j < 2; j++) {
             console.log(arrNx[i][j]);
+            strNx+=arrNx[i][j].toFixed(3);
+            strNx+= ';';
         }
     }
-
-    console.log("КУКУСИКИ БЛЯТЬ")
-    for(let i = 0; i < arrUx.length; i++) {
+    let strNx2 = strNx.slice(0, -1);
+    document.getElementById('res1').innerHTML = strNx2;
+    document.getElementById('res2').innerHTML = strDlt2;
+    let strSgm = '';
+    for (let i = 0; i < Sigma.length; i++) { //считаем sigma
         let x = 0;
-        if(i === arrUx.length-1) {
-            console.log("Я посчиталь")
-            arrUx[i] = arrU[i-1][0] + x/arrL[i-1]*(arrU[i-1][1] - arrU[i-1][0]) + (arrQ[i-1]*arrL[i-1]*arrL[i-1]/2*arrE[i-1]*arrA[i-1] * x/arrL[i-1]) * (1 - x/arrL[i-1]);
-            console.log(arrUx[i]);
-        }
-        else {
-            arrUx[i] = arrU[i][0] + x / arrL[i] * (arrU[i][1] - arrU[i][0]) + (arrQ[i] * arrL[i] * arrL[i] / 2 * arrE[i] * arrA[i] * x / arrL[i]) * (1 - x / arrL[i]);
+        for (let j = 0; j < 2; j++) {
+            Sigma[i][j] = arrNx[i][j]/arrA[i];
             x += arrL[i];
-            //console.log(arrUx[i]);
         }
     }
-
-    console.log(arrUx.length);
-    for(let i = 0; i < arrUx.length; i++) {
-        console.log("i= " + i);
-        console.log(arrUx[i]);
+    for(let i = 0; i < Sigma.length; i++) {
+        for(let j = 0; j < 2; j++) {
+            console.log(Sigma[i][j]);
+            strSgm+=Sigma[i][j].toFixed(3);
+            strSgm+= ';';
+        }
     }
+    let strSgm2 = strSgm.slice(0, -1);
+    document.getElementById('res3').innerHTML = strSgm2;
+    // console.log("Кукусики, товарисчи")
+    // for(let i = 0; i < arrUx.length; i++) {
+    //     let x = 0;
+    //     if(i === arrUx.length-1) {
+    //         console.log("Я посчиталь")
+    //         arrUx[i] = arrU[i-1][0] + x/arrL[i-1]*(arrU[i-1][1] - arrU[i-1][0]) + (arrQ[i-1]*arrL[i-1]*arrL[i-1]/2*arrE[i-1]*arrA[i-1] * x/arrL[i-1]) * (1 - x/arrL[i-1]);
+    //         console.log(arrUx[i]);
+    //     }
+    //     else {
+    //         arrUx[i] = arrU[i][0] + x / arrL[i] * (arrU[i][1] - arrU[i][0]) + (arrQ[i] * arrL[i] * arrL[i] / 2 * arrE[i] * arrA[i] * x / arrL[i]) * (1 - x / arrL[i]);
+    //         x += arrL[i];
+    //         //console.log(arrUx[i]);
+    //     }
+    // }
+    //
+    // console.log(arrUx.length);
+    // for(let i = 0; i < arrUx.length; i++) {
+    //     console.log("i= " + i);
+    //     console.log(arrUx[i]);
+    // }
     // console.log(arrNx.length);
 
 }
