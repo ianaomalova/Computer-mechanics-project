@@ -508,7 +508,7 @@ function draw1() {
             } else {
                 polovina_poslednego = currentHeigth / 2;
             }
-            ctx.lineWidth = 700000000; //ширина линии
+            ctx.lineWidth = 99999999999999999999; //ширина линии
             cnv.lineWidth = 2;
             let x = X;
             let y = Y + currentHeigth / 2;
@@ -707,6 +707,7 @@ function draw1() {
             // if (arrF[i + 1] !== 0) {
             //     arrows2.drawImage(img6, X, temp - 25, 55, 50);
             // }
+            Processor();
         }
 
         var img3 = document.getElementById('lr');
@@ -1065,7 +1066,7 @@ function Processor() {
     console.log("ДЕЛЬТЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫ")
     for(let i = 0; i < arrDelta.length; i++) {
         console.log(arrDelta[i]);
-        strDlt+=arrDelta[i].toFixed(3);
+        strDlt+=arrDelta[i].toFixed(2);
         strDlt+=';'
     }
     let strDlt2 = strDlt.slice(0, -1);
@@ -1088,7 +1089,7 @@ function Processor() {
     for(let i = 0; i < arrNx.length; i++) {
         for(let j = 0; j < 2; j++) {
             console.log(arrNx[i][j]);
-            strNx+=arrNx[i][j].toFixed(3);
+            strNx+=arrNx[i][j].toFixed(2);
             strNx+= ';';
         }
     }
@@ -1106,7 +1107,7 @@ function Processor() {
     for(let i = 0; i < Sigma.length; i++) {
         for(let j = 0; j < 2; j++) {
             console.log(Sigma[i][j]);
-            strSgm+=Sigma[i][j].toFixed(3);
+            strSgm+=Sigma[i][j].toFixed(2);
             strSgm+= ';';
         }
     }
@@ -1133,5 +1134,78 @@ function Processor() {
     //     console.log(arrUx[i]);
     // }
     // console.log(arrNx.length);
+    let canvas = document.getElementById("nx");
+    // let rowCount = document.getElementById('mytbl').rows.length - 1;
+    if (canvas.getContext) {
+        let ctx = canvas.getContext('2d');
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.lineWidth = 2;
+        ctx.strokeRect(150, 50, 1600, canvas.height-50); //рисуем прямоугольник
+        let lengthL=0;
+        for (let i = 0; i < arrL.length; i++) {
+            lengthL += arrL[i];
+        }
+        console.log(lengthL);
+        let coefficientL = 1600 / lengthL;
+        console.log(coefficientL);
+        let X = 150;
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(X, 250);
+        ctx.lineTo(1750, 250);
+        ctx.stroke();
+        let maxNx = Number.MIN_SAFE_INTEGER;
+        let minNx = Number.MAX_SAFE_INTEGER;
+        for(let i = 0; i < arrNx.length; i++) {
+            for (let j = 0; j < 2; j++) {
+                if(arrNx[i][j] > maxNx) {
+                    maxNx = arrNx[i][j];
+                }
+            }
+        }
+        for(let i = 0; i < arrNx.length; i++) {
+            for (let j = 0; j < 2; j++) {
+                if(arrNx[i][j] < minNx) {
+                    minNx = arrNx[i][j];
+                }
+            }
+        }
 
+        console.log(maxNx)
+        console.log(minNx)
+        let sizeChart = Math.abs(maxNx) + Math.abs(minNx);
+        let KNx = 150 / sizeChart;
+        let x = 150;
+        let y;
+        for(let i = 0; i < rowCount-1; i++) {
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            ctx.moveTo(X+arrL[i]*coefficientL, 50);
+            ctx.lineTo(X+arrL[i]*coefficientL, canvas.height);
+            ctx.stroke();
+            X+=arrL[i]*coefficientL;
+        }
+        for(let i = 0; i < rowCount; i++) {
+            ctx.lineWidth = 5;
+            ctx.beginPath();
+            if(arrNx[i][0] > 0) {
+                console.log("Больше")
+                ctx.moveTo(x, 250 - KNx * arrNx[i][0]);
+            }
+            else {
+                console.log("Меньше")
+                ctx.moveTo(x, 250 - KNx * arrNx[i][0]);
+            }
+            if(arrNx[i][1] > 0) {
+                console.log("Больше")
+                ctx.lineTo(x + arrL[i]*coefficientL, 250 - KNx * arrNx[i][1]);
+            }
+            else {
+                console.log("Меньше")
+                ctx.lineTo(x + arrL[i]*coefficientL, 250 - KNx * arrNx[i][1]);
+            }
+            ctx.stroke();
+            x+=arrL[i]*coefficientL;
+        }
+    }
 }
