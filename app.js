@@ -569,7 +569,7 @@ function draw1() {
                     }
                 }
                 if(arrF[1] !== 0 && choose === 0) {
-                    txt.fillText("F="+ arrF[1], xForTextF, yForTextF);
+                    txt.fillText("F="+ arrF[1], X, temp-30);
                     if(arrF[1] > 0) {
                         arrows2.drawImage(img6, X, temp - 25, 55, 50);
                     }
@@ -707,7 +707,7 @@ function draw1() {
             // if (arrF[i + 1] !== 0) {
             //     arrows2.drawImage(img6, X, temp - 25, 55, 50);
             // }
-            Processor();
+           Processor();
         }
 
         var img3 = document.getElementById('lr');
@@ -1076,13 +1076,16 @@ function Processor() {
             console.log(arrU[i][j]);
         }
     }
+    let NxChanges = new Array();
     let strNx = '';
     console.log("Nx")
     for(let i = 0; i < arrNx.length; i++) {
         let x = 0;
+        let tmp = 0;
         for(let j = 0; j < 2; j++) {
             arrNx[i][j] = arrE[i]*arrA[i]/ arrL[i] * (arrU[i][1] - arrU[i][0]) + (arrQ[i]*arrL[i]/2) * (1 - 2 * x/arrL[i]);
             x += arrL[i];
+
         }
     }
 
@@ -1138,6 +1141,7 @@ function Processor() {
     // let rowCount = document.getElementById('mytbl').rows.length - 1;
     if (canvas.getContext) {
         let ctx = canvas.getContext('2d');
+        let txt = canvas.getContext('2d');
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.lineWidth = 2;
         ctx.strokeRect(150, 50, 1600, canvas.height-50); //рисуем прямоугольник
@@ -1190,18 +1194,26 @@ function Processor() {
             ctx.beginPath();
             if(arrNx[i][0] > 0) {
                 console.log("Больше")
+                // txt.font = "20px Arial"
+                // txt.fillText(arrNx[i][0].toFixed(2), x+5, 250 - KNx * arrNx[i][0] - 5);
                 ctx.moveTo(x, 250 - KNx * arrNx[i][0]);
             }
             else {
                 console.log("Меньше")
+                // txt.font = "20px Arial"
+                // txt.fillText(arrNx[i][0].toFixed(2), x+5, 250 - KNx * arrNx[i][0] + 17);
                 ctx.moveTo(x, 250 - KNx * arrNx[i][0]);
             }
             if(arrNx[i][1] > 0) {
                 console.log("Больше")
+                // txt.font = "20px Arial"
+                // txt.fillText(arrNx[i][1].toFixed(2), x + arrL[i]*coefficientL+5, 250 - KNx * arrNx[i][1] - 3);
                 ctx.lineTo(x + arrL[i]*coefficientL, 250 - KNx * arrNx[i][1]);
             }
             else {
                 console.log("Меньше")
+                // txt.font = "20px Arial"
+                // txt.fillText(arrNx[i][1].toFixed(2), x + arrL[i]*coefficientL+5, 250 - KNx * arrNx[i][1] + 5);
                 ctx.lineTo(x + arrL[i]*coefficientL, 250 - KNx * arrNx[i][1]);
             }
             ctx.stroke();
