@@ -1077,18 +1077,34 @@ function Processor() {
         }
     }
     let NxChanges = new Array();
+    for(let i = 0; i < rowCount; i++) {
+        NxChanges[i] = new Array(10);
+    }
     let strNx = '';
     console.log("Nx")
     for(let i = 0; i < arrNx.length; i++) {
         let x = 0;
-        let tmp = 0;
         for(let j = 0; j < 2; j++) {
             arrNx[i][j] = arrE[i]*arrA[i]/ arrL[i] * (arrU[i][1] - arrU[i][0]) + (arrQ[i]*arrL[i]/2) * (1 - 2 * x/arrL[i]);
             x += arrL[i];
-
         }
     }
-
+    let stp = 100;
+    for(let i = 0; i < NxChanges.length; i++) {
+        let increment = 0;
+        let step = arrL[i] / stp;
+        for(let j = 0; j < stp; j++) {
+            NxChanges[i][j] = arrE[i]*arrA[i]/ arrL[i] * (arrU[i][1] - arrU[i][0]) + (arrQ[i]*arrL[i]/2) * (1 - 2 * increment/arrL[i]);
+            increment += step;
+        }
+    }
+    console.log("В ЛЕСУ РОДИЛАСЬ ЕЛОЧКА")
+    for(let i = 0; i < NxChanges.length; i++) {
+        for(let j = 0; j < stp; j++) {
+            console.log("NxChanges = " + i + j + " " + NxChanges[i][j]);
+        }
+    }
+    console.log("КОНЕЦ ЕЛОЧКИ")
     for(let i = 0; i < arrNx.length; i++) {
         for(let j = 0; j < 2; j++) {
             console.log(arrNx[i][j]);
@@ -1144,6 +1160,8 @@ function Processor() {
         let txt = canvas.getContext('2d');
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.lineWidth = 2;
+        txt.font = "35px Arial"
+        txt.fillText("Эпюра Nx", 900, 33);
         ctx.strokeRect(150, 50, 1600, canvas.height-50); //рисуем прямоугольник
         let lengthL=0;
         for (let i = 0; i < arrL.length; i++) {
@@ -1218,6 +1236,28 @@ function Processor() {
             }
             ctx.stroke();
             x+=arrL[i]*coefficientL;
+        }
+        x = 150;
+        for(let i = 0; i < rowCount; i++) {
+            for(let j = 0; j < stp; j++) {
+                let step = arrL[i] / stp;
+                if(NxChanges[i][j] > 0) {
+                    ctx.lineWidth = 2;
+                    ctx.beginPath();
+                    ctx.moveTo(x, 250 - KNx * NxChanges[i][j]);
+                    ctx.lineTo(x, 250);
+                    ctx.stroke();
+                    x+=step*coefficientL;
+                }
+                if(NxChanges[i][j] < 0) {
+                    ctx.lineWidth = 2;
+                    ctx.beginPath();
+                    ctx.moveTo(x, 250 - KNx * NxChanges[i][j]);
+                    ctx.lineTo(x, 250);
+                    ctx.stroke();
+                    x+=step*coefficientL;
+                }
+            }
         }
     }
 }
