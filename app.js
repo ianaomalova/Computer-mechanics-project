@@ -779,7 +779,10 @@ function Processor() {
     for(let i = 0; i < Sigma.length; i++) {
         Sigma[i] = new Array(2);
     }
-    arrUx = new Array(amountNodes);
+    arrUx = new Array(amountNodes-1);
+    for(let i = 0; i < arrUx.length; i++) {
+        arrUx[i] = new Array(1000);
+    }
     console.log("!#@!#@!#@!#@!#@!#@!#@!#@!#@!#!@#@!#@!#@!")
     console.log(choose);
     saveToArray();
@@ -1089,6 +1092,22 @@ function Processor() {
             x += arrL[i];
         }
     }
+    console.log("Ux")
+    for(let i = 0; i < arrUx.length; i++) {
+        let x = 0;
+        let step = arrL[i] / 1000;
+        for(let j = 0; j < 1000; j++) {
+            arrUx[i][j] = arrU[i][0] + x / arrL[i] * (arrU[i][1] - arrU[i][0]) + (arrQ[i] * arrL[i] * arrL[i] / 2 * arrE[i] * arrA[i] * x / arrL[i]) * (1 - x / arrL[i]);
+            x+=step;
+        }
+    }
+    console.log("окей гугл как не выпилиться онлайн без смс и регистрации")
+    // for(let i = 0; i < arrUx.length; i++) {
+    //     for(let j = 0; j < 1000; j++) {
+    //         console.log(arrUx[i][j]);
+    //     }
+    // }
+    console.log("трам пам пам")
     let stp = 100;
     for(let i = 0; i < NxChanges.length; i++) {
         let increment = 0;
@@ -1237,6 +1256,7 @@ function Processor() {
             ctx.stroke();
             x+=arrL[i]*coefficientL;
         }
+        //штриховка
         x = 150;
         for(let i = 0; i < rowCount; i++) {
             for(let j = 0; j < stp; j++) {
@@ -1261,6 +1281,15 @@ function Processor() {
         }
         let canvas2 = document.getElementById("ux");
         if (canvas2.getContext) {
+            let max = Number.MIN_SAFE_INTEGER;
+            for(let i = 0; i < arrU.length; i++) {
+                for(let j = 0; j < 2; j++) {
+                    if(arrU[i][j] > max) {
+                        max = arrU[i][j];
+                    }
+                }
+            }
+            let KUx = 150 / max;
             let txt = canvas2.getContext('2d');
             let ctx = canvas2.getContext('2d');
             ctx.clearRect(0, 0, canvas2.width, canvas2.height);
@@ -1268,6 +1297,36 @@ function Processor() {
             txt.font = "35px Arial"
             txt.fillText("Эпюра Ux", 900, 33);
             ctx.strokeRect(150, 50, 1600, canvas2.height-50); //рисуем прямоугольник
+            let lengthL=0;
+            for (let i = 0; i < arrL.length; i++) {
+                lengthL += arrL[i];
+            }
+            let coefficientL = 1600 / lengthL;
+            console.log(coefficientL);
+            let X = 150;
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(X, 250);
+            ctx.lineTo(1750, 250);
+            ctx.stroke();
+            for(let i = 0; i < rowCount-1; i++) {
+                ctx.lineWidth = 3;
+                ctx.beginPath();
+                ctx.moveTo(X+arrL[i]*coefficientL, 50);
+                ctx.lineTo(X+arrL[i]*coefficientL, canvas.height);
+                ctx.stroke();
+                X+=arrL[i]*coefficientL;
+            }
+            let x = 150;
+            for(let i = 0; i < rowCount; i++) {
+                for(let j = 0; j < 1000; j++) {
+                    let step = arrL[i] / 1000;
+                    ctx.beginPath();
+                    ctx.arcTo(x, 250 - arrUx[i][j]*KUx, x+1, 250 - arrUx[i][j]*KUx+1, 1);
+                    ctx.stroke();
+                    x+=step*coefficientL;
+                }
+            }
         }
     }
 }
