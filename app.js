@@ -1259,5 +1259,15 @@ function Processor() {
                 }
             }
         }
+        let canvas2 = document.getElementById("ux");
+        if (canvas2.getContext) {
+            let txt = canvas2.getContext('2d');
+            let ctx = canvas2.getContext('2d');
+            ctx.clearRect(0, 0, canvas2.width, canvas2.height);
+            ctx.lineWidth = 2;
+            txt.font = "35px Arial"
+            txt.fillText("Эпюра Ux", 900, 33);
+            ctx.strokeRect(150, 50, 1600, canvas2.height-50); //рисуем прямоугольник
+        }
     }
 }
