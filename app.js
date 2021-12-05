@@ -1371,4 +1371,33 @@ function Processor() {
             }
         }
     }
+    let canvas3 = document.getElementById("sigma");
+    if (canvas3.getContext) {
+        let ctx = canvas3.getContext('2d');
+        let txt = canvas3.getContext('2d');
+        ctx.clearRect(0, 0, canvas3.width, canvas3.height);
+        ctx.lineWidth = 2;
+        txt.font = "35px Arial"
+        txt.fillText("Эпюра Sigma", 900, 33);
+        ctx.strokeRect(150, 50, 1600, canvas3.height-50); //рисуем прямоугольник
+        let lengthL=0;
+        for (let i = 0; i < arrL.length; i++) {
+            lengthL += arrL[i];
+        }
+        let coefficientL = 1600 / lengthL;
+        let X = 150;
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(X, 250);
+        ctx.lineTo(1750, 250);
+        ctx.stroke();
+        for(let i = 0; i < rowCount-1; i++) {
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            ctx.moveTo(X+arrL[i]*coefficientL, 50);
+            ctx.lineTo(X+arrL[i]*coefficientL, canvas3.height);
+            ctx.stroke();
+            X+=arrL[i]*coefficientL;
+        }
+    }
 }
