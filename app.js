@@ -1087,6 +1087,10 @@ function Processor() {
     for(let i = 0; i < rowCount; i++) {
         UxChanges[i] = new Array(10);
     }
+    let SigmaChanges = new Array();
+    for(let i = 0; i < rowCount; i++) {
+        SigmaChanges[i] = new Array(10);
+    }
     let strNx = '';
     console.log("Nx")
     for(let i = 0; i < arrNx.length; i++) {
@@ -1130,6 +1134,14 @@ function Processor() {
             increment+=step;
         }
     }
+    for(let i = 0; i < SigmaChanges.length; i++) {
+        let increment = 0;
+        let step = arrL[i] / stp;
+        for(let j = 0; j < stp; j++) {
+            SigmaChanges[i][j] = NxChanges[i][j]/arrA[i];
+            increment += step;
+        }
+    }
     console.log("В ЛЕСУ РОДИЛАСЬ ЕЛОЧКА")
     for(let i = 0; i < NxChanges.length; i++) {
         for(let j = 0; j < stp; j++) {
@@ -1153,6 +1165,11 @@ function Processor() {
         for (let j = 0; j < 2; j++) {
             Sigma[i][j] = arrNx[i][j]/arrA[i];
             x += arrL[i];
+        }
+    }
+    for(let i = 0; i < SigmaChanges.length; i++) {
+        for(let j = 0; j < SigmaChanges[i].length; j++) {
+            console.log("Sigma= " + i + j + " " + SigmaChanges[i][j]);
         }
     }
     for(let i = 0; i < Sigma.length; i++) {
@@ -1436,18 +1453,18 @@ function Processor() {
         for(let i = 0; i < rowCount; i++) {
             for(let j = 0; j < stp; j++) {
                 let step = arrL[i] / stp;
-                if(NxChanges[i][j] > 0) {
+                if(SigmaChanges[i][j] > 0) {
                     ctx.lineWidth = 2;
                     ctx.beginPath();
-                    ctx.moveTo(x, 250 - KSigma * NxChanges[i][j]);
+                    ctx.moveTo(x, 250 - KSigma * SigmaChanges[i][j]);
                     ctx.lineTo(x, 250);
                     ctx.stroke();
                     x+=step*coefficientL;
                 }
-                if(NxChanges[i][j] < 0) {
+                if(SigmaChanges[i][j] < 0) {
                     ctx.lineWidth = 2;
                     ctx.beginPath();
-                    ctx.moveTo(x, 250 - KSigma * NxChanges[i][j]);
+                    ctx.moveTo(x, 250 - KSigma * SigmaChanges[i][j]);
                     ctx.lineTo(x, 250);
                     ctx.stroke();
                     x+=step*coefficientL;
