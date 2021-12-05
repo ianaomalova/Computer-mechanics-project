@@ -1083,6 +1083,10 @@ function Processor() {
     for(let i = 0; i < rowCount; i++) {
         NxChanges[i] = new Array(10);
     }
+    let UxChanges = new Array();
+    for(let i = 0; i < rowCount; i++) {
+        UxChanges[i] = new Array(10);
+    }
     let strNx = '';
     console.log("Nx")
     for(let i = 0; i < arrNx.length; i++) {
@@ -1116,6 +1120,14 @@ function Processor() {
         for(let j = 0; j < stp; j++) {
             NxChanges[i][j] = arrE[i]*arrA[i]/ arrL[i] * (arrU[i][1] - arrU[i][0]) + (arrQ[i]*arrL[i]/2) * (1 - 2 * increment/arrL[i]);
             increment += step;
+        }
+    }
+    for(let i = 0; i < UxChanges.length; i++) {
+        let increment = 0;
+        let step = arrL[i] / stp;
+        for(let j = 0; j < stp; j++) {
+            UxChanges[i][j] = arrU[i][0] + (increment / arrL[i]) * (arrU[i][1] - arrU[i][0]) + (arrQ[i] * arrL[i] * arrL[i] * increment * (1-increment/arrL[i]) / (2 * arrE[i] * arrA[i] * arrL[i]));
+            increment+=step;
         }
     }
     console.log("В ЛЕСУ РОДИЛАСЬ ЕЛОЧКА")
@@ -1283,6 +1295,7 @@ function Processor() {
         let canvas2 = document.getElementById("ux");
         if (canvas2.getContext) {
             let max = Number.MIN_SAFE_INTEGER;
+            let min = Number.MAX_SAFE_INTEGER;
             let ii = 0;
             let jj = 0;
             for(let i = 0; i < arrUx.length; i++) {
@@ -1292,10 +1305,15 @@ function Processor() {
                         ii = i;
                         jj = j;
                     }
+                    if(arrUx[i][j] < min) {
+                        min = arrUx[i][j];
+                    }
                 }
             }
             console.log("MAX= " + max);
-            let KUx = 150 / max;
+            console.log("MIN= " + min);
+            let sizeChart = Math.abs(max) + Math.abs(min);
+            let KUx = 150 / sizeChart;
             let txt = canvas2.getContext('2d');
             let ctx = canvas2.getContext('2d');
             ctx.clearRect(0, 0, canvas2.width, canvas2.height);
@@ -1337,6 +1355,18 @@ function Processor() {
                     ctx.lineTo(x+1, 250 - arrUx[i][j]*KUx+0.1);
                     ctx.stroke();
                     x+=step*coefficientL;
+                }
+            }
+            x = 150;
+            for(let i = 0; i < rowCount; i++) {
+                for(let j = 0; j < stp; j++) {
+                    let step = arrL[i] / stp;
+                        ctx.lineWidth = 2;
+                        ctx.beginPath();
+                        ctx.moveTo(x, 250 - KUx * UxChanges[i][j]);
+                        ctx.lineTo(x, 250);
+                        ctx.stroke();
+                        x+=step*coefficientL;
                 }
             }
         }
