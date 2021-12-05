@@ -1399,5 +1399,61 @@ function Processor() {
             ctx.stroke();
             X+=arrL[i]*coefficientL;
         }
+        let maxSigma = Number.MIN_SAFE_INTEGER;
+        let minSigma = Number.MAX_SAFE_INTEGER;
+        for(let i = 0; i < Sigma.length; i++) {
+            for (let j = 0; j < 2; j++) {
+                if(Sigma[i][j] > maxSigma) {
+                    maxSigma = Sigma[i][j];
+                }
+                if(Sigma[i][j] < minSigma) {
+                    minSigma = Sigma[i][j];
+                }
+            }
+        }
+        let sizeChart = Math.abs(maxSigma) + Math.abs(minSigma);
+        let KSigma = 150 / sizeChart;
+        let x = 150;
+        for(let i = 0; i < rowCount; i++) {
+            ctx.lineWidth = 5;
+            ctx.beginPath();
+            if(Sigma[i][0] > 0) {
+                ctx.moveTo(x, 250 - KSigma * Sigma[i][0]);
+            }
+            else {
+                ctx.moveTo(x, 250 - KSigma * Sigma[i][0]);
+            }
+            if(Sigma[i][1] > 0) {
+                ctx.lineTo(x + arrL[i]*coefficientL, 250 - KSigma * Sigma[i][1]);
+            }
+            else {
+                ctx.lineTo(x + arrL[i]*coefficientL, 250 - KSigma * Sigma[i][1]);
+            }
+            ctx.stroke();
+            x+=arrL[i]*coefficientL;
+        }
+        x = 150;
+        for(let i = 0; i < rowCount; i++) {
+            for(let j = 0; j < stp; j++) {
+                let step = arrL[i] / stp;
+                if(NxChanges[i][j] > 0) {
+                    ctx.lineWidth = 2;
+                    ctx.beginPath();
+                    ctx.moveTo(x, 250 - KSigma * NxChanges[i][j]);
+                    ctx.lineTo(x, 250);
+                    ctx.stroke();
+                    x+=step*coefficientL;
+                }
+                if(NxChanges[i][j] < 0) {
+                    ctx.lineWidth = 2;
+                    ctx.beginPath();
+                    ctx.moveTo(x, 250 - KSigma * NxChanges[i][j]);
+                    ctx.lineTo(x, 250);
+                    ctx.stroke();
+                    x+=step*coefficientL;
+                }
+            }
+        }
+
     }
 }
