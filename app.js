@@ -1369,7 +1369,7 @@ function Processor() {
                     ctx.beginPath();
                     //ctx.arcTo(x, 250 - KUx*arrUx[i][j], x, 250 - KUx*arrUx[i][j]+0.1, 1);
                     ctx.moveTo(x, 250- arrUx[i][j]*KUx);
-                    ctx.lineTo(x+1, 250 - arrUx[i][j]*KUx+0.1);
+                    ctx.lineTo(x+1, 250 - arrUx[i][j]*KUx+0.001);
                     ctx.stroke();
                     x+=step*coefficientL;
                 }
@@ -1473,4 +1473,49 @@ function Processor() {
         }
 
     }
+}
+let feeachkawinxblin = 0;
+function AddItem() {
+    let rowCount = document.getElementById('mytbl').rows.length - 1;
+    let arrL = [];
+    let select = document.getElementById("chooseSt");
+    for(let i = 0; i < rowCount; i++) {
+        let option = document.createElement('option');
+        option.value = (i+1).toString();
+        option.text = option.value;
+        select.add(option);
+    }
+    let d1 = document.getElementById('chooseL');
+    d1.insertAdjacentHTML('beforeend', '<input id="info" placeholder="Введите длину">');
+    function onChange(evt) {
+        let countL = 0;
+        for(let i = 0; i < rowCount; i++) {
+            arrL[i] = bigArr[countL];
+            countL+=4;
+        }
+        feeachkawinxblin = evt.target.value;
+        // alert(select.value);
+        // alert(arrL[select.value - 1]);
+        if(feeachkawinxblin > arrL[select.value - 1]) {
+            alert("Введено значение больше допустимого. Кусь")
+        }
+        if(feeachkawinxblin < 0) {
+            alert("Кукусики")
+        }
+    }
+    const elems = document.getElementsByTagName("input");
+    for (const elem of elems) {
+        elem.addEventListener("change", onChange);
+    }
+}
+let numberSt = 0;
+function Count() {
+    //alert("куку")
+    let select = document.getElementById("chooseSt");
+    numberSt = select.value;
+    //alert(select.value);
+    //alert(feeachkawinxblin);
+}
+function Calculation() {
+
 }
