@@ -1097,16 +1097,17 @@ function Processor() {
         let x = 0;
         let step = arrL[i] / 1000;
         for(let j = 0; j < 1000; j++) {
-            arrUx[i][j] = arrU[i][0] + x / arrL[i] * (arrU[i][1] - arrU[i][0]) + (arrQ[i] * arrL[i] * arrL[i] / 2 * arrE[i] * arrA[i] * x / arrL[i]) * (1 - x / arrL[i]);
+            //arrUx[i][j] = arrU[i][0] + (x / arrL[i]) * (arrU[i][1] - arrU[i][0]) + (arrQ[i] * arrL[i] * arrL[i] / 2 * arrE[i] * arrA[i] * x / arrL[i]) * (1 - x / arrL[i]);
+            arrUx[i][j] = arrU[i][0] + (x / arrL[i]) * (arrU[i][1] - arrU[i][0]) + (arrQ[i] * arrL[i] * arrL[i] * x * (1-x/arrL[i]) / (2 * arrE[i] * arrA[i] * arrL[i]));
             x+=step;
         }
     }
     console.log("окей гугл как не выпилиться онлайн без смс и регистрации")
-    // for(let i = 0; i < arrUx.length; i++) {
-    //     for(let j = 0; j < 1000; j++) {
-    //         console.log(arrUx[i][j]);
-    //     }
-    // }
+    for(let i = 0; i < arrUx.length; i++) {
+        for(let j = 0; j < 1000; j++) {
+            console.log("Ux= " + i + j + " " + arrUx[i][j]);
+        }
+    }
     console.log("трам пам пам")
     let stp = 100;
     for(let i = 0; i < NxChanges.length; i++) {
@@ -1282,13 +1283,18 @@ function Processor() {
         let canvas2 = document.getElementById("ux");
         if (canvas2.getContext) {
             let max = Number.MIN_SAFE_INTEGER;
-            for(let i = 0; i < arrU.length; i++) {
-                for(let j = 0; j < 2; j++) {
-                    if(arrU[i][j] > max) {
-                        max = arrU[i][j];
+            let ii = 0;
+            let jj = 0;
+            for(let i = 0; i < arrUx.length; i++) {
+                for(let j = 0; j < arrUx[i].length; j++) {
+                    if(arrUx[i][j] > max) {
+                        max = arrUx[i][j];
+                        ii = i;
+                        jj = j;
                     }
                 }
             }
+            console.log("MAX= " + max);
             let KUx = 150 / max;
             let txt = canvas2.getContext('2d');
             let ctx = canvas2.getContext('2d');
@@ -1318,11 +1324,17 @@ function Processor() {
                 X+=arrL[i]*coefficientL;
             }
             let x = 150;
+            let tmp = 250 - KUx * arrUx[ii][jj];
+            console.log("KUx = " + KUx);
+            console.log("TMP = " + tmp);
             for(let i = 0; i < rowCount; i++) {
                 for(let j = 0; j < 1000; j++) {
+                    ctx.lineWidth = 5;
                     let step = arrL[i] / 1000;
                     ctx.beginPath();
-                    ctx.arcTo(x, 250 - arrUx[i][j]*KUx, x+1, 250 - arrUx[i][j]*KUx+1, 1);
+                    //ctx.arcTo(x, 250 - KUx*arrUx[i][j], x, 250 - KUx*arrUx[i][j]+0.1, 1);
+                    ctx.moveTo(x, 250- arrUx[i][j]*KUx);
+                    ctx.lineTo(x+1, 250 - arrUx[i][j]*KUx+0.1);
                     ctx.stroke();
                     x+=step*coefficientL;
                 }
