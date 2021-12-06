@@ -1396,7 +1396,7 @@ function Processor() {
         ctx.clearRect(0, 0, canvas3.width, canvas3.height);
         ctx.lineWidth = 2;
         txt.font = "35px Arial"
-        txt.fillText("Эпюра Sigma", 900, 33);
+        txt.fillText("Эпюра σ", 900, 33);
         ctx.strokeRect(150, 50, 1600, canvas3.height-50); //рисуем прямоугольник
         let lengthL=0;
         for (let i = 0; i < arrL.length; i++) {
@@ -1490,7 +1490,10 @@ function AddItem() {
         select.add(option);
     }
     let d1 = document.getElementById('chooseL');
-    d1.insertAdjacentHTML('beforeend', '<input id="info" placeholder="Введите длину">');
+    d1.insertAdjacentHTML('beforeend', '<input style="margin-left: 43.5%" id="info" placeholder="Введите длину">');
+    d1.insertAdjacentHTML('beforebegin', '<br>');
+    // let d2 = document.getElementById('br');
+    // d2.insertAdjacentHTML('beforeend', '<br>');
 
     function onChange(evt) {
         let flag = false;
@@ -1587,6 +1590,7 @@ function AddItem() {
             feeachkawinxblin = evt.target.value;
         }
         if(evt.target.value === ''){
+            //evt.target.style.color = '#f00';
             evt.target.value = 0;
         }
         feeachkawinxblin = evt.target.value;
@@ -1627,8 +1631,8 @@ let count = 0;
             arrE[i] = bigArr[countE];
             countE+=4;
         }
-        alert(numberSt);
-        alert(feeachkawinxblin);
+        // alert(numberSt);
+        // alert(feeachkawinxblin);
         let nx = arrE[numberSt-1]*arrA[numberSt-1]/ arrL[numberSt-1] * (arrU[numberSt-1][1] - arrU[numberSt-1][0]) + (arrQ[numberSt-1]*arrL[numberSt-1]/2) * (1 - 2 * feeachkawinxblin/arrL[numberSt-1]);
         let ux = arrU[numberSt-1][0] + (feeachkawinxblin / arrL[numberSt-1]) * (arrU[numberSt-1][1] - arrU[numberSt-1][0]) + (arrQ[numberSt-1] * arrL[numberSt-1] * arrL[numberSt-1] * feeachkawinxblin * (1-feeachkawinxblin/arrL[numberSt-1]) / (2 * arrE[numberSt-1] * arrA[numberSt-1] * arrL[numberSt-1]));
         let sigma = nx/arrA[numberSt-1];
