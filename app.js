@@ -768,9 +768,10 @@ for(let i = 0; i < arrNx.length; i++) {
 }
 let arrUx = [];
 let Sigma = [];
-
+let arrU = []
 function Processor() {
     let amountNodes = document.getElementById('mytbl').rows.length ;
+    arrU = new Array(amountNodes-1);
     arrNx = new Array(amountNodes - 1);
     for(let i = 0; i < arrNx.length; i++) {
         arrNx[i] = new Array(2);
@@ -1050,7 +1051,7 @@ function Processor() {
     }
 
     let counterdelta = 1;
-    let arrU = new Array(amountNodes-1);
+
     for(let i = 0; i < arrU.length; i++) {
         arrU[i] = new Array(2);
     }
@@ -1503,7 +1504,6 @@ function AddItem() {
             arrL[i] = bigArr[countL];
             countL += 4;
         }
-        feeachkawinxblin = evt.target.value;
         // alert(select.value);
         // alert(arrL[select.value - 1]);
         if (temp > arrL[select.value - 1]) {
@@ -1512,6 +1512,7 @@ function AddItem() {
         }
         if (temp < 0) {
             evt.target.value = Math.abs(temp);
+            feeachkawinxblin = evt.target.value;
             alert("Кукусики")
         }
 
@@ -1583,7 +1584,9 @@ function AddItem() {
             let old = evt.target.value;
             let newstr = old.replace(',', '.');
             evt.target.value = newstr;
+            feeachkawinxblin = evt.target.value;
         }
+        feeachkawinxblin = evt.target.value;
     }
         const elems = document.getElementsByTagName("input");
         for (const elem of elems) {
@@ -1602,6 +1605,62 @@ function AddItem() {
     }
 
     function Calculation() {
+        let count = 0;
+        let rowCount = document.getElementById('mytbl').rows.length - 1;
+        let arrL = [];
+        let arrA = [];
+        let arrE = [];
+        let countL = 0;
+        let countA = 2;
+        let countE = 1;
+        for(let i = 0; i < rowCount; i++) {
+            arrL[i] = bigArr[countL];
+            countL+=4;
+            arrA[i] = bigArr[countA];
+            countA+=4;
+            arrE[i] = bigArr[countE];
+            countE+=4;
+        }
+        alert(numberSt);
+        alert(feeachkawinxblin);
+        let nx = arrE[numberSt-1]*arrA[numberSt-1]/ arrL[numberSt-1] * (arrU[numberSt-1][1] - arrU[numberSt-1][0]) + (arrQ[numberSt-1]*arrL[numberSt-1]/2) * (1 - 2 * feeachkawinxblin/arrL[numberSt-1]);
+        let ux = arrU[numberSt-1][0] + (feeachkawinxblin / arrL[numberSt-1]) * (arrU[numberSt-1][1] - arrU[numberSt-1][0]) + (arrQ[numberSt-1] * arrL[numberSt-1] * arrL[numberSt-1] * feeachkawinxblin * (1-feeachkawinxblin/arrL[numberSt-1]) / (2 * arrE[numberSt-1] * arrA[numberSt-1] * arrL[numberSt-1]));
+        let sigma = nx/arrA[numberSt-1];
+        let table = document.createElement('table');
+        let thead = document.createElement('thead');
+        let tbody = document.createElement('tbody');
+        table.appendChild(thead);
+        table.appendChild(tbody);
+        document.getElementById('calculate').appendChild(table);
+        let row_1 = document.createElement('tr');
+        let heading_1 = document.createElement('th');
+        heading_1.innerHTML = "Номер стержня";
+        let heading_2 = document.createElement('th');
+        heading_2.innerHTML = "Nx";
+        let heading_3 = document.createElement('th');
+        heading_3.innerHTML = "Ux";
+        let heading_4 = document.createElement('th');
+        heading_4.innerHTML = "σ";
 
+        row_1.appendChild(heading_1);
+        row_1.appendChild(heading_2);
+        row_1.appendChild(heading_3);
+        row_1.appendChild(heading_4);
+        thead.appendChild(row_1);
+        let row_2 = document.createElement('tr');
+        let row_2_data_1 = document.createElement('td');
+        row_2_data_1.innerHTML = "*" + numberSt + "*";
+        let row_2_data_2 = document.createElement('td');
+        row_2_data_2.innerHTML = nx.toFixed(2).toString();
+        let row_2_data_3 = document.createElement('td');
+        let row_2_data_4 = document.createElement('td');
+        row_2_data_3.innerHTML = ux.toFixed(2).toString();
+        row_2_data_4.innerHTML = sigma.toFixed(2).toString();
+
+        row_2.appendChild(row_2_data_1);
+        row_2.appendChild(row_2_data_2);
+        row_2.appendChild(row_2_data_3);
+        row_2.appendChild(row_2_data_4);
+        tbody.appendChild(row_2);
     }
 
