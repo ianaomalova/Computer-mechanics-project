@@ -1495,7 +1495,7 @@ function AddItem() {
         let flag = false;
         let alfR = ["а", "А", "Б", "в", "В", "г", "Г", "д", "Д", "е", "Е", "ё", "Ë", "ж", "Ж", "з", "З", "и", "И", "й", "Й", "к", "К", "л", "Л", "м", "М", "н", "Н", "о", "О", "п", "П", "р", "Р", "с", "С", "т", "Т", "у", "У", "ф", "Ф", "х", "Х", "ц", "Ц", "ч", "Ч", "ш", "Ш", "щ", "Щ", "ы", "Ы", "ь", "Ь", "ъ", "Ъ", "э", "Э", "ю", "я", "Я"];
         let alrE = ["a", "A", "b", "B", "c", "C", "d", "D", "f", "F", "E", "g", "G", "h", "H", "i", "I", "j", "J", "k", "K", "l", "L", "m", "M", "n", "N", "o", "O", "p", "P", "q", "Q", "r", "R", "s", "S", "t", "T", "u", "U", "v", "V", "w", "W", "x", "X", "y", "Y", "z", "Z"];
-        let symbols = ["?", "!", "[", "]", "{", "}", "\\", "/", "@", "#", "$", "%", "ˆ", "&", "*", "(", ")", "=", "+", "_"];
+        let symbols = ["?", "!", "[", "]", "{", "}", "\\", "/", "@", "#", "$", "%", "ˆ", "&", "*", "(", ")", "=", "+", "_", '-'];
         let temp = evt.target.value;
         temp = parseFloat(temp)
         let countL = 0;
@@ -1506,12 +1506,12 @@ function AddItem() {
         feeachkawinxblin = evt.target.value;
         // alert(select.value);
         // alert(arrL[select.value - 1]);
-        if (feeachkawinxblin > arrL[select.value - 1]) {
+        if (temp > arrL[select.value - 1]) {
             evt.target.value = 0;
             alert("Введено значение больше допустимого. Кусь")
         }
-        if (feeachkawinxblin < 0) {
-            evt.target.value = 0;
+        if (temp < 0) {
+            evt.target.value = Math.abs(temp);
             alert("Кукусики")
         }
 
@@ -1520,7 +1520,7 @@ function AddItem() {
                 if (Number.isNaN(temp)) {
                     evt.target.value = 0;
                 } else {
-                    evt.target.value = temp;
+
                 }
                 if(count11 === 0) {
                     count11++;
@@ -1551,7 +1551,7 @@ function AddItem() {
                 if (Number.isNaN(temp)) {
                     evt.target.value = 0;
                 } else {
-                    evt.target.value = temp;
+
                 }
                 if (count22 === 0) {
                     count22++;
@@ -1568,7 +1568,7 @@ function AddItem() {
                 if (Number.isNaN(temp)) {
                     evt.target.value = 0;
                 } else {
-                    evt.target.value = temp;
+
                 }
                 if(count33 === 0) {
                     count33++;
