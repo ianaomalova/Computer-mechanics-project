@@ -1586,6 +1586,9 @@ function AddItem() {
             evt.target.value = newstr;
             feeachkawinxblin = evt.target.value;
         }
+        if(evt.target.value === ''){
+            evt.target.value = 0;
+        }
         feeachkawinxblin = evt.target.value;
     }
         const elems = document.getElementsByTagName("input");
@@ -1604,8 +1607,11 @@ function AddItem() {
         //alert(feeachkawinxblin);
     }
 
+let count = 0;
     function Calculation() {
-        let count = 0;
+        if(numberSt === 0) {
+            numberSt = 1;
+        }
         let rowCount = document.getElementById('mytbl').rows.length - 1;
         let arrL = [];
         let arrA = [];
@@ -1626,41 +1632,45 @@ function AddItem() {
         let nx = arrE[numberSt-1]*arrA[numberSt-1]/ arrL[numberSt-1] * (arrU[numberSt-1][1] - arrU[numberSt-1][0]) + (arrQ[numberSt-1]*arrL[numberSt-1]/2) * (1 - 2 * feeachkawinxblin/arrL[numberSt-1]);
         let ux = arrU[numberSt-1][0] + (feeachkawinxblin / arrL[numberSt-1]) * (arrU[numberSt-1][1] - arrU[numberSt-1][0]) + (arrQ[numberSt-1] * arrL[numberSt-1] * arrL[numberSt-1] * feeachkawinxblin * (1-feeachkawinxblin/arrL[numberSt-1]) / (2 * arrE[numberSt-1] * arrA[numberSt-1] * arrL[numberSt-1]));
         let sigma = nx/arrA[numberSt-1];
-        let table = document.createElement('table');
-        let thead = document.createElement('thead');
-        let tbody = document.createElement('tbody');
-        table.appendChild(thead);
-        table.appendChild(tbody);
-        document.getElementById('calculate').appendChild(table);
-        let row_1 = document.createElement('tr');
-        let heading_1 = document.createElement('th');
-        heading_1.innerHTML = "Номер стержня";
-        let heading_2 = document.createElement('th');
-        heading_2.innerHTML = "Nx";
-        let heading_3 = document.createElement('th');
-        heading_3.innerHTML = "Ux";
-        let heading_4 = document.createElement('th');
-        heading_4.innerHTML = "σ";
+        // let table = document.createElement('table');
+        // let thead = document.createElement('thead');
+        // let tbody = document.createElement('tbody');
+        // table.appendChild(thead);
+        // table.appendChild(tbody);
+        // document.getElementById('calculate').appendChild(table);
+        // let row_1 = document.createElement('tr');
+        // let heading_1 = document.createElement('th');
+        // heading_1.innerHTML = "Номер стержня";
+        // let heading_2 = document.createElement('th');
+        // heading_2.innerHTML = "Nx";
+        // let heading_3 = document.createElement('th');
+        // heading_3.innerHTML = "Ux";
+        // let heading_4 = document.createElement('th');
+        // heading_4.innerHTML = "σ";
 
-        row_1.appendChild(heading_1);
-        row_1.appendChild(heading_2);
-        row_1.appendChild(heading_3);
-        row_1.appendChild(heading_4);
-        thead.appendChild(row_1);
-        let row_2 = document.createElement('tr');
-        let row_2_data_1 = document.createElement('td');
-        row_2_data_1.innerHTML = "*" + numberSt + "*";
-        let row_2_data_2 = document.createElement('td');
-        row_2_data_2.innerHTML = nx.toFixed(2).toString();
-        let row_2_data_3 = document.createElement('td');
-        let row_2_data_4 = document.createElement('td');
-        row_2_data_3.innerHTML = ux.toFixed(2).toString();
-        row_2_data_4.innerHTML = sigma.toFixed(2).toString();
+        // row_1.appendChild(heading_1);
+        // row_1.appendChild(heading_2);
+        // row_1.appendChild(heading_3);
+        // row_1.appendChild(heading_4);
+        // thead.appendChild(row_1);
+        let st = document.getElementById('numberSt');
+        let nxx = document.getElementById('nxx');
+        let uxx = document.getElementById('uxx');
+        let sigma2 = document.getElementById('sgm');
+        // let row_2 = document.createElement('tr');
+        // let row_2_data_1 = document.createElement('td');
+        st.innerHTML = "*" + numberSt + "*";
+        // let row_2_data_2 = document.createElement('td');
+        nxx.innerHTML = nx.toFixed(2).toString();
+        // let row_2_data_3 = document.createElement('td');
+        // let row_2_data_4 = document.createElement('td');
+        uxx.innerHTML = ux.toFixed(2).toString();
+        sigma2.innerHTML = sigma.toFixed(2).toString();
 
-        row_2.appendChild(row_2_data_1);
-        row_2.appendChild(row_2_data_2);
-        row_2.appendChild(row_2_data_3);
-        row_2.appendChild(row_2_data_4);
-        tbody.appendChild(row_2);
+        // row_2.appendChild(row_2_data_1);
+        // row_2.appendChild(row_2_data_2);
+        // row_2.appendChild(row_2_data_3);
+        // row_2.appendChild(row_2_data_4);
+        // tbody.appendChild(row_2);
     }
 
