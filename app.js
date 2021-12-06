@@ -1475,47 +1475,128 @@ function Processor() {
     }
 }
 let feeachkawinxblin = 0;
+let count22 = 0;
+let count11 = 0;
+let count33 = 0;
 function AddItem() {
     let rowCount = document.getElementById('mytbl').rows.length - 1;
     let arrL = [];
     let select = document.getElementById("chooseSt");
-    for(let i = 0; i < rowCount; i++) {
+    for (let i = 0; i < rowCount; i++) {
         let option = document.createElement('option');
-        option.value = (i+1).toString();
+        option.value = (i + 1).toString();
         option.text = option.value;
         select.add(option);
     }
     let d1 = document.getElementById('chooseL');
     d1.insertAdjacentHTML('beforeend', '<input id="info" placeholder="Введите длину">');
+
     function onChange(evt) {
+        let flag = false;
+        let alfR = ["а", "А", "Б", "в", "В", "г", "Г", "д", "Д", "е", "Е", "ё", "Ë", "ж", "Ж", "з", "З", "и", "И", "й", "Й", "к", "К", "л", "Л", "м", "М", "н", "Н", "о", "О", "п", "П", "р", "Р", "с", "С", "т", "Т", "у", "У", "ф", "Ф", "х", "Х", "ц", "Ц", "ч", "Ч", "ш", "Ш", "щ", "Щ", "ы", "Ы", "ь", "Ь", "ъ", "Ъ", "э", "Э", "ю", "я", "Я"];
+        let alrE = ["a", "A", "b", "B", "c", "C", "d", "D", "f", "F", "E", "g", "G", "h", "H", "i", "I", "j", "J", "k", "K", "l", "L", "m", "M", "n", "N", "o", "O", "p", "P", "q", "Q", "r", "R", "s", "S", "t", "T", "u", "U", "v", "V", "w", "W", "x", "X", "y", "Y", "z", "Z"];
+        let symbols = ["?", "!", "[", "]", "{", "}", "\\", "/", "@", "#", "$", "%", "ˆ", "&", "*", "(", ")", "=", "+", "_"];
+        let temp = evt.target.value;
+        temp = parseFloat(temp)
         let countL = 0;
-        for(let i = 0; i < rowCount; i++) {
+        for (let i = 0; i < rowCount; i++) {
             arrL[i] = bigArr[countL];
-            countL+=4;
+            countL += 4;
         }
         feeachkawinxblin = evt.target.value;
         // alert(select.value);
         // alert(arrL[select.value - 1]);
-        if(feeachkawinxblin > arrL[select.value - 1]) {
+        if (feeachkawinxblin > arrL[select.value - 1]) {
+            evt.target.value = 0;
             alert("Введено значение больше допустимого. Кусь")
         }
-        if(feeachkawinxblin < 0) {
+        if (feeachkawinxblin < 0) {
+            evt.target.value = 0;
             alert("Кукусики")
         }
-    }
-    const elems = document.getElementsByTagName("input");
-    for (const elem of elems) {
-        elem.addEventListener("change", onChange);
-    }
-}
-let numberSt = 0;
-function Count() {
-    //alert("куку")
-    let select = document.getElementById("chooseSt");
-    numberSt = select.value;
-    //alert(select.value);
-    //alert(feeachkawinxblin);
-}
-function Calculation() {
 
-}
+        for (let i = 0; i < alfR.length; i++) {
+            if (evt.target.value.includes(alfR[i])) {
+                if (Number.isNaN(temp)) {
+                    evt.target.value = 0;
+                } else {
+                    evt.target.value = temp;
+                }
+                if(count11 === 0) {
+                    count11++;
+                    window.open("https://vk.com/wall-42800749_714106");
+                }
+                else  {
+                    alert("Десять маленьких утят\n" +
+                        "Ночью все ложатся спать:\n" +
+                        "Раз — утенок самый смелый,\n" +
+                        "Два — немножко неумелый,\n" +
+                        "Три — утенок был хитрец,\n" +
+                        "А четыре — удалец!\n" +
+                        "Пять — обжорой оказался!\n" +
+                        "Шесть — грязнулею остался!\n" +
+                        "Семь — утенок был пройдохой!\n" +
+                        "Восемь — всю дорогу охал!\n" +
+                        "Девять — лег скорей в кровать,\n" +
+                        "А десятый, самый важный, —\n" +
+                        "Он тебя за руку хвать!");
+
+                    window.open("https://vk.com/wall-206143282_1609");
+                }
+                break;
+            }
+        }
+        for (let i = 0; i < alrE.length; i++) {
+            if (evt.target.value.includes(alrE[i])) {
+                if (Number.isNaN(temp)) {
+                    evt.target.value = 0;
+                } else {
+                    evt.target.value = temp;
+                }
+                if (count22 === 0) {
+                    count22++;
+                    window.open("https://vk.com/wall-206143282_1406")
+                } else {
+                    alert("Больше уток богу уток");
+                    window.open("https://vk.com/wall-40567493_108172")
+                }
+                break;
+            }
+        }
+        for(let i = 0; i < symbols.length; i++) {
+            if(evt.target.value.includes(symbols[i])) {
+                if (Number.isNaN(temp)) {
+                    evt.target.value = 0;
+                } else {
+                    evt.target.value = temp;
+                }
+                if(count33 === 0) {
+                    count33++;
+                    window.open("https://vk.com/wall-206143282_771");
+                }
+                else {
+                    alert("Опять безобразничаете")
+                }
+            }
+        }
+    }
+        const elems = document.getElementsByTagName("input");
+        for (const elem of elems) {
+            elem.addEventListener("change", onChange);
+        }
+    }
+
+    let numberSt = 0;
+
+    function Count() {
+        //alert("куку")
+        let select = document.getElementById("chooseSt");
+        numberSt = select.value;
+        //alert(select.value);
+        //alert(feeachkawinxblin);
+    }
+
+    function Calculation() {
+
+    }
+
