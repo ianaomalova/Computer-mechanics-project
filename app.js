@@ -1579,6 +1579,11 @@ function AddItem() {
                 }
             }
         }
+        if(evt.target.value.includes(',')) {
+            let old = evt.target.value;
+            let newstr = old.replace(',', '.');
+            evt.target.value = newstr;
+        }
     }
         const elems = document.getElementsByTagName("input");
         for (const elem of elems) {
