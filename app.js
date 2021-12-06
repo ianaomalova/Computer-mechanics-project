@@ -1531,19 +1531,7 @@ function AddItem() {
                     window.open("https://vk.com/wall-42800749_714106");
                 }
                 else  {
-                    alert("Десять маленьких утят\n" +
-                        "Ночью все ложатся спать:\n" +
-                        "Раз — утенок самый смелый,\n" +
-                        "Два — немножко неумелый,\n" +
-                        "Три — утенок был хитрец,\n" +
-                        "А четыре — удалец!\n" +
-                        "Пять — обжорой оказался!\n" +
-                        "Шесть — грязнулею остался!\n" +
-                        "Семь — утенок был пройдохой!\n" +
-                        "Восемь — всю дорогу охал!\n" +
-                        "Девять — лег скорей в кровать,\n" +
-                        "А десятый, самый важный, —\n" +
-                        "Он тебя за руку хвать!");
+                    alert("ы");
 
                     window.open("https://vk.com/wall-206143282_1609");
                 }
@@ -1601,7 +1589,7 @@ function AddItem() {
         }
     }
 
-    let numberSt = 0;
+    let numberSt = 1;
 
     function Count() {
         //alert("куку")
@@ -1620,9 +1608,11 @@ let count = 0;
         let arrL = [];
         let arrA = [];
         let arrE = [];
+        let arrS = [];
         let countL = 0;
         let countA = 2;
         let countE = 1;
+        let countS = 3;
         for(let i = 0; i < rowCount; i++) {
             arrL[i] = bigArr[countL];
             countL+=4;
@@ -1630,6 +1620,8 @@ let count = 0;
             countA+=4;
             arrE[i] = bigArr[countE];
             countE+=4;
+            arrS[i] = bigArr[countS];
+            countS+=4;
         }
         // alert(numberSt);
         // alert(feeachkawinxblin);
@@ -1670,6 +1662,11 @@ let count = 0;
         // let row_2_data_4 = document.createElement('td');
         uxx.innerHTML = ux.toFixed(2).toString();
         sigma2.innerHTML = sigma.toFixed(2).toString();
+        if(arrS[numberSt-1] < sigma) {
+            document.getElementById('sgm').style.backgroundColor = "#FF0000";
+            document.getElementById("sgm").style.color = "#FFFFFF";
+            //document.getElementById('sgm').rows[1].cells[1].style.backgroundColor = "#FF0000";
+        }
 
         // row_2.appendChild(row_2_data_1);
         // row_2.appendChild(row_2_data_2);
@@ -1677,4 +1674,76 @@ let count = 0;
         // row_2.appendChild(row_2_data_4);
         // tbody.appendChild(row_2);
     }
+    // let stp = 0;
+    // function AddItem2() {
+    //     let rowCount = document.getElementById('mytbl').rows.length - 1;
+    //     let arrL = [];
+    //     let countL = 0;
+    //     for (let i = 0; i < rowCount; i++) {
+    //         arrL[i] = bigArr[countL];
+    //         countL += 4;
+    //     }
+    //     let d2 = document.getElementById('step');
+    //     d2.insertAdjacentHTML('beforeend', '<input style="margin-left: 43.5%" id="step" placeholder="Введите шаг">')
+    //     d2.insertAdjacentHTML('beforebegin', '<br>');
+    //
+    //     function onChange(evt) {
+    //         stp = evt.target.value;
+    //         if(stp > arrL[numberSt-1]) {
+    //             alert("Ужас");
+    //             stp = arrL[numberSt-1]/2;
+    //             evt.target.value = stp;
+    //         }
+    //     }
+    //     const elems = document.getElementsByTagName("input");
+    //     for (const elem of elems) {
+    //         elem.addEventListener("change", onChange);
+    //     }
+    // }
+    // function Calculation2() {
+    //     let count = 1;
+    //     if(numberSt === 0) {
+    //         numberSt = 1;
+    //     }
+    //     let rowCount = document.getElementById('mytbl').rows.length - 1;
+    //     let arrL = [];
+    //     let arrA = [];
+    //     let arrE = [];
+    //     let countL = 0;
+    //     let countA = 2;
+    //     let countE = 1;
+    //     for(let i = 0; i < rowCount; i++) {
+    //         arrL[i] = bigArr[countL];
+    //         countL+=4;
+    //         arrA[i] = bigArr[countA];
+    //         countA+=4;
+    //         arrE[i] = bigArr[countE];
+    //         countE+=4;
+    //     }
+    //
+    //
+    //     // alert(stp);
+    //     // alert(arrL[numberSt-1]);
+    //     let start = 0;
+    //     do {
+    //         start +=Number.parseFloat(stp);
+    //         count++;
+    //         console.log("START = " + start);
+    //         console.log("COUNT = " + count);
+    //     } while (start <= arrL[numberSt-1])
+    //     if(start > arrL[numberSt-1]) {
+    //         count--;
+    //     }
+    //     const $tbl = document.getElementById("blablabla");
+    //     $tbl.insertAdjacentHTML("beforeend", "<tr id='help'></tr>");
+    //     const $tbody = document.getElementById("blabla");
+    //     $tbody.insertAdjacentHTML("beforeend", '<tr id="tr1">')
+    //     var $tr = document.getElementById("tr1");
+    //     $tr.insertAdjacentHTML("afterend", "<td><text></text></td>")
+    //     $tr.insertAdjacentHTML("afterend", "<td><text></text></td>")
+    //     $tr.insertAdjacentHTML("afterend", "<td><text></text></td>")
+    //     $tr.insertAdjacentHTML("afterend", "<td><text></text></td>")
+    //     $tr.insertAdjacentHTML("afterend", "<td><text></text></td>")
+    //     $tr.insertAdjacentHTML("afterend", "<td><text></text></td>")
+    // }
 
