@@ -1932,5 +1932,16 @@ let count = 0;
                 tbody.rows[i].cells[4].style.color = "#FFFFFF";
             }
         }
+        var tbl = document.getElementById('tbll');
+        let r = tbl.rows.length-1;
+        while(tbl.rows[r].cells[3].innerHTML === '') {
+            tbl.deleteRow(r);
+             r--;
+        }
+        r = tbl.rows.length-1;
+        while(r >= arrStep.length) {
+            tbl.deleteRow(r);
+            r--;
+        }
     }
 
