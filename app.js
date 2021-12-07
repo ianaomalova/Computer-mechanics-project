@@ -21,7 +21,7 @@ function AddRow() {
         //document.querySelector(".result").innerHTML = evt.target.value;
         let alfR = ["а", "А", "Б", "в", "В", "г", "Г", "д", "Д", "е", "Е", "ё", "Ë", "ж", "Ж", "з", "З", "и", "И", "й", "Й", "к", "К", "л", "Л", "м", "М", "н", "Н", "о", "О", "п", "П", "р", "Р", "с", "С", "т", "Т", "у", "У", "ф", "Ф", "х", "Х", "ц", "Ц", "ч", "Ч", "ш", "Ш", "щ", "Щ", "ы", "Ы", "ь", "Ь", "ъ", "Ъ", "э", "Э", "ю", "я", "Я"];
         let alrE = ["a", "A", "b", "B", "c", "C", "d", "D", "f", "F", "E", "g", "G", "h", "H", "i", "I", "j", "J", "k", "K", "l", "L", "m", "M", "n", "N", "o", "O", "p", "P", "q", "Q", "r", "R", "s", "S", "t", "T", "u", "U", "v", "V", "w", "W", "x", "X", "y", "Y", "z", "Z"];
-        let symbols = ["?", "!", "[", "]", "{", "}", "\\", "/", "@", "#", "$", "%", "ˆ", "&", "*", "(",")", "=", "+", "_"];
+        let symbols = ["?", "!", "[", "]", "{", "}", "\\", "/", "@", "#", "$", "%", "ˆ", "&", "*", "(",")", "=", "+", "_", "\""];
         console.log(evt.target.value);
         let temp = evt.target.value;
         temp = parseFloat(temp)
@@ -45,10 +45,10 @@ function AddRow() {
                     alert("Первое предупреждение)")
                 }
                 if(bum === 2) {
-                    alert("Еще немного и прилетит уткой...")
+                    alert("Владислав Александрович, еще немного и прилетит уткой)")
                 }
                 if(bum === 3) {
-                    alert("Владислав Александрович, предупреждение то последнее..")
+                    alert("А я предупреждала..")
                     window.open("https://yt3.ggpht.com/ytc/AKedOLQtJaOkG3StST9k1mfCcE5sVs2vShXmFsje3xQHng=s900-c-k-c0x00ffffff-no-rj");
                 }
             }
@@ -68,10 +68,10 @@ function AddRow() {
                     alert("Первое предупреждение)")
                 }
                 if(bum === 2) {
-                    alert("Еще немного и прилетит уткой...")
+                    alert("Владислав Александрович, еще немного и прилетит уткой)")
                 }
                 if(bum === 3) {
-                    alert("Владислав Александрович, предупреждение то последнее..")
+                    alert("А я предупреждала..")
                     window.open("https://yt3.ggpht.com/ytc/AKedOLQtJaOkG3StST9k1mfCcE5sVs2vShXmFsje3xQHng=s900-c-k-c0x00ffffff-no-rj");
                 }
                 break;
@@ -92,10 +92,10 @@ function AddRow() {
                     alert("Первое предупреждение)")
                 }
                 if(bum === 2) {
-                    alert("Еще немного и прилетит уткой...")
+                    alert("Владислав Александрович, еще немного и прилетит уткой)")
                 }
                 if(bum === 3) {
-                    alert("И кстати, Владислав Александрович, предупреждение то последнее..")
+                    alert("А я предупреждала..")
                     window.open("https://yt3.ggpht.com/ytc/AKedOLQtJaOkG3StST9k1mfCcE5sVs2vShXmFsje3xQHng=s900-c-k-c0x00ffffff-no-rj");
                 }
                 break;
@@ -111,15 +111,15 @@ function AddRow() {
                 else {
                     evt.target.value = temp;
                 }
-                alert("Булка")
+                alert("Где-то раздалось недовольное кря")
                 if(bum === 1) {
                     alert("Первое предупреждение)")
                 }
                 if(bum === 2) {
-                    alert("Еще немного и прилетит уткой...")
+                    alert("Владислав Александрович, еще немного и прилетит уткой)")
                 }
                 if(bum === 3) {
-                    alert("Владислав Александрович, предупреждение то последнее..")
+                    alert("А я предупреждала..")
                     window.open("https://yt3.ggpht.com/ytc/AKedOLQtJaOkG3StST9k1mfCcE5sVs2vShXmFsje3xQHng=s900-c-k-c0x00ffffff-no-rj");
                 }
                 break;
@@ -140,14 +140,14 @@ function AddRow() {
                 alert("Первое предупреждение)")
             }
             if(bum === 2) {
-                alert("Еще немного и прилетит уткой...")
+                alert("Владислав Александрович, еще немного и прилетит уткой)")
             }
             if(bum === 3) {
-                alert("Владислав Александрович, предупреждение то последнее..")
+                alert("А я предупреждала..")
                 window.open("https://yt3.ggpht.com/ytc/AKedOLQtJaOkG3StST9k1mfCcE5sVs2vShXmFsje3xQHng=s900-c-k-c0x00ffffff-no-rj");
             }
         }
-        if (document.getElementsByTagName("input")[0].value == 75 & document.getElementsByTagName("input")[1].value == 82 & document.getElementsByTagName("input")[2].value == 89 & document.getElementsByTagName("input")[3].value == 65) {
+        if (document.getElementsByTagName("input")[0].value == 75 & document.getElementsByTagName("input")[1].value == 82 & document.getElementsByTagName("input")[2].value == 89 & document.getElementsByTagName("input")[3].value == 65 && document.getElementById("maintabl").rows.length === 1) {
            window.open("https://drive.google.com/drive/folders/19ldrGhQwII9ooc4DltkRkA01IeawXHCj");
        }
         if(evt.target.value === '') {
@@ -167,99 +167,6 @@ function AddRow() {
     }
 
 }
-
-// function addRow1(id){
-//     let tbody = document.getElementById(id).getElementsByTagName("TBODY")[0];
-//     let row = document.createElement("TR")
-//     let td0 = document.createElement("TD")
-//     td0.appendChild(document.createTextNode(''))
-//     let td1 = document.createElement("TD")
-//     td1.appendChild(document.createElement("input"))
-//     td1.setAttribute("type", "number");
-//     let td2 = document.createElement("TD")
-//     td2.appendChild (document.createElement("input"))
-//     let td3 = document.createElement("TD")
-//     td3.appendChild (document.createElement("input"))
-//     let td4 = document.createElement("TD")
-//     td4.appendChild (document.createElement("input"))
-//     row.appendChild(td0);
-//     row.appendChild(td1);
-//     row.appendChild(td2);
-//     row.appendChild(td3);
-//     row.appendChild(td4);
-//     tbody.appendChild(row);
-//     td1.onchange = function () {
-//         //console.log(counter)
-//         let temp = document.getElementsByTagName("input")[counter].value;
-//         //console.log(temp)
-//         //console.log(document.getElementsByTagName("input")[window.counter].value)
-//         temp = parseFloat(temp)
-//         //console.log(temp)
-//         let out = counter;
-//         counter++;
-//         if(isNumber(temp)) {
-//             bigArr[out] = temp;
-//             console.log(bigArr[out])
-//         }
-//         else {
-//
-//         }
-//     }
-//
-//     td2.onchange = function () {
-//         //console.log(counter)
-//         let temp = document.getElementsByTagName("input")[counter].value;
-//         //console.log(temp)
-//         //console.log(document.getElementsByTagName("input")[window.counter].value)
-//         temp = parseFloat(temp)
-//         //console.log(temp)
-//         let out = counter;
-//         counter++;
-//         if(isNumber(temp)) {
-//             bigArr[out] = temp;
-//             console.log(bigArr[out])
-//         }
-//         else {
-//
-//         }
-//     }
-//     td3.onchange = function () {
-//         //console.log(counter)
-//         let temp = document.getElementsByTagName("input")[counter].value;
-//         //console.log(temp)
-//         //console.log(document.getElementsByTagName("input")[window.counter].value)
-//         temp = parseFloat(temp)
-//         //console.log(temp)
-//         let out = counter;
-//         counter++;
-//         if(isNumber(temp)) {
-//             bigArr[out] = temp;
-//             console.log(bigArr[out])
-//         }
-//         else {
-//
-//         }
-//     }
-//     td4.onchange = function () {
-//         //console.log(counter)
-//         let temp = document.getElementsByTagName("input")[counter].value;
-//         //console.log(temp)
-//         //console.log(document.getElementsByTagName("input")[window.counter].value)
-//         //console.log(temp)
-//         temp = parseFloat(temp)
-//         let out = counter;
-//         counter++;
-//         if(isNumber(temp)) {
-//             bigArr[out] = temp;
-//             console.log(bigArr[out])
-//         }
-//         else {
-//
-//         }
-//     }
-//     //saveElement();
-// }
-
 
 function inputForces() {
     let rowCount = document.getElementById('mytbl').rows.length - 1;
@@ -285,7 +192,7 @@ function inputForces() {
         let flag = false;
         let alfR = ["а", "А", "Б", "б", "ю", "в", "В", "г", "Г", "д", "Д", "е", "Е", "ё", "Ë", "ж", "Ж", "з", "З", "и", "И", "й", "Й", "к", "К", "л", "Л", "м", "М", "н", "Н", "о", "О", "п", "П", "р", "Р", "с", "С", "т", "Т", "у", "У", "ф", "Ф", "х", "Х", "ц", "Ц", "ч", "Ч", "ш", "Ш", "щ", "Щ", "ы", "Ы", "ь", "Ь", "ъ", "Ъ", "э", "Э", "ю", "я", "Я"];
         let alrE = ["a", "A", "b", "B", "c", "C", "d", "D", "f", "F", "E", "g", "G", "h", "H", "i", "I", "j", "J", "k", "K", "l", "L", "m", "M", "n", "N", "o", "O", "p", "P", "q", "Q", "r", "R", "s", "S", "t", "T", "u", "U", "v", "V", "w", "W", "x", "X", "y", "Y", "z", "Z"];
-        let symbols = ["?", "!", "[", "]", "{", "}", "\\", "/", "@", "#", "$", "%", "ˆ", "&", "*", "(",")", "=", "+", "_"];
+        let symbols = ["?", "!", "[", "]", "{", "}", "\\", "/", "@", "#", "$", "%", "ˆ", "&", "*", "(",")", "=", "+", "_", "\""];
         let temp = evt.target.value;
         temp = parseFloat(temp)
         for(let i = 0; i < alfR.length; i++) {
@@ -312,7 +219,7 @@ function inputForces() {
                 else {
                     evt.target.value = temp;
                 }
-                alert("Кусь Кусь Кусь!");
+                alert("Кусь!");
                 break;
             }
         }
@@ -350,32 +257,6 @@ function inputForces() {
     }
 }
 
-
-// function createTable(id, id2) {
-//     let rowCount = document.getElementById('mytbl').rows.length - 1;
-//     let nodeCount = rowCount + 1;
-//     let tbody = document.getElementById(id).getElementsByTagName("TBODY")[0];
-//     let tbody2 = document.getElementById(id2).getElementsByTagName("TBODY")[0];
-//     for (let i = 0; i < rowCount; i++) {
-//         let row = document.createElement("TR")
-//         let td0 = document.createElement("TD")
-//         td0.appendChild(document.createTextNode(''))
-//         let td1 = document.createElement("TD")
-//         td1.appendChild(document.createElement("input"))
-//         row.appendChild(td0);
-//         row.appendChild(td1);
-//         tbody.appendChild(row);
-//     }
-//     for (let i = 0; i < nodeCount; i++) {
-//         let row = document.createElement("TR")
-//         let td0 = document.createElement("TD")
-//         td0.appendChild(document.createTextNode(''))
-//         let td1 = document.createElement("TD")
-//         td1.appendChild(document.createElement("input"))
-//         row.appendChild(td0);
-//         row.appendChild(td1);
-//         tbody2.appendChild(row);
-//     }//}
 function saveToArray() {
     bigArr = []
     arrQ = []
@@ -708,9 +589,9 @@ function draw1() {
             // if (arrF[i + 1] !== 0) {
             //     arrows2.drawImage(img6, X, temp - 25, 55, 50);
             // }
-           Processor();
-        }
 
+        }
+        Processor();
         var img3 = document.getElementById('lr');
         var img4 = document.getElementById('rr');
         let temp = startY + polovina_pervogo;
@@ -757,6 +638,7 @@ function f1() {
 
 
 function printMemasik () {
+    alert("Суть программирования заключается в том, чтобы 7 часов смотреть в стену, а потом за час написать программу")
     window.open("https://sun9-22.userapi.com/impg/o2ZF3ATxPYVUa8Q2tgjf4lFBDhVYBLtSm21oAg/USxvXy_5CIY.jpg?size=828x1036&quality=96&sign=239cc13d64c135af5a0b68f861ef8ac2&type=album")
 }
 
@@ -1476,6 +1358,9 @@ function Processor() {
         }
 
     }
+    if(arrDelta[0] === 0 && arrDelta[1] === 12 && arrDelta[2] === 0) {
+        printMemasik();
+    }
 }
 let feeachkawinxblin = 0;
 let count22 = 0;
@@ -1503,7 +1388,7 @@ function Bup() {
     let arrL = [];
     let alfR = ["а", "А", "Б", "в", "В", "г", "Г", "д", "Д", "е", "Е", "ё", "Ë", "ж", "Ж", "з", "З", "и", "И", "й", "Й", "к", "К", "л", "Л", "м", "М", "н", "Н", "о", "О", "п", "П", "р", "Р", "с", "С", "т", "Т", "у", "У", "ф", "Ф", "х", "Х", "ц", "Ц", "ч", "Ч", "ш", "Ш", "щ", "Щ", "ы", "Ы", "ь", "Ь", "ъ", "Ъ", "э", "Э", "ю", "я", "Я"];
     let alrE = ["a", "A", "b", "B", "c", "C", "d", "D", "f", "F", "E", "g", "G", "h", "H", "i", "I", "j", "J", "k", "K", "l", "L", "m", "M", "n", "N", "o", "O", "p", "P", "q", "Q", "r", "R", "s", "S", "t", "T", "u", "U", "v", "V", "w", "W", "x", "X", "y", "Y", "z", "Z"];
-    let symbols = ["?", "!", "[", "]", "{", "}", "\\", "/", "@", "#", "$", "%", "ˆ", "&", "*", "(", ")", "=", "+", "_", '-'];
+    let symbols = ["?", "!", "[", "]", "{", "}", "\\", "/", "@", "#", "$", "%", "ˆ", "&", "*", "(", ")", "=", "+", "_", '-', "\""];
     let temp = document.getElementById("info").value;
     temp = parseFloat(temp);
     let countL = 0;
@@ -1525,6 +1410,7 @@ function Bup() {
         alert("Значение больше длины стержня. Кусь");
         document.getElementById("info").value = arrL[select.value-1];
         if(countY === 0) {
+            alert("Самое время для..")
             window.open("https://www.youtube.com/playlist?list=PLVtYY3Ujl33PMW8H1OAoafK_V48v9VIHt");
             countY++;
         }
@@ -1548,21 +1434,9 @@ function Bup() {
                 window.open("https://vk.com/wall-42800749_714106");
             }
             else if(count11 === 1)  {
-                alert("Десять маленьких утят\n" +
-                    "Ночью все ложатся спать:\n" +
-                    "Раз — утенок самый смелый,\n" +
-                    "Два — немножко неумелый,\n" +
-                    "Три — утенок был хитрец,\n" +
-                    "А четыре — удалец!\n" +
-                    "Пять — обжорой оказался!\n" +
-                    "Шесть — грязнулею остался!\n" +
-                    "Семь — утенок был пройдохой!\n" +
-                    "Восемь — всю дорогу охал!\n" +
-                    "Девять — лег скорей в кровать,\n" +
-                    "А десятый, самый важный, —\n" +
-                    "Он тебя за руку хвать!");
-
+                alert("Просто милая капибара и ути:)");
                 window.open("https://vk.com/wall-206143282_1609");
+                count11++;
             }
             else {
                 alert("Безобразие")
@@ -1588,6 +1462,7 @@ function Bup() {
                 count22++;
                 window.open("https://vk.com/wall-206143282_1406")
             } else if(count22 === 1){
+                count22++;
                 alert("Больше уток богу уток");
                 window.open("https://vk.com/wall-40567493_108172")
             }
@@ -1711,7 +1586,7 @@ let count = 0;
         let arrL = [];
         let alfR = ["а", "А", "Б", "в", "В", "г", "Г", "д", "Д", "е", "Е", "ё", "Ë", "ж", "Ж", "з", "З", "и", "И", "й", "Й", "к", "К", "л", "Л", "м", "М", "н", "Н", "о", "О", "п", "П", "р", "Р", "с", "С", "т", "Т", "у", "У", "ф", "Ф", "х", "Х", "ц", "Ц", "ч", "Ч", "ш", "Ш", "щ", "Щ", "ы", "Ы", "ь", "Ь", "ъ", "Ъ", "э", "Э", "ю", "я", "Я"];
         let alrE = ["a", "A", "b", "B", "c", "C", "d", "D", "f", "F", "E", "g", "G", "h", "H", "i", "I", "j", "J", "k", "K", "l", "L", "m", "M", "n", "N", "o", "O", "p", "P", "q", "Q", "r", "R", "s", "S", "t", "T", "u", "U", "v", "V", "w", "W", "x", "X", "y", "Y", "z", "Z"];
-        let symbols = ["?", "!", "[", "]", "{", "}", "\\", "/", "@", "#", "$", "%", "ˆ", "&", "*", "(", ")", "=", "+", "_", '-'];
+        let symbols = ["?", "!", "[", "]", "{", "}", "\\", "/", "@", "#", "$", "%", "ˆ", "&", "*", "(", ")", "=", "+", "_", '-', "\""];
         let temp = document.getElementById("stepp").value;
         temp = parseFloat(temp);
         let countL = 0;
@@ -1793,6 +1668,7 @@ let count = 0;
             alert("Утиный кусь")
         }
     }
+let maxIndex = 0;
     function Calculation2() {
         stp = document.getElementById('stepp').value;
         console.log(stp);
@@ -1924,16 +1800,16 @@ let count = 0;
         }
 
         let max = Number.MIN_SAFE_INTEGER;
-        let maxIndex = 0;
+
         for(let i = 0; i < arrStep.length; i++) {
-            if(tbody.rows[i].cells[4].value > max) {
+            if(parseFloat(tbody.rows[i].cells[4].innerHTML) > max) {
+                max = parseFloat(tbody.rows[i].cells[4].innerHTML);
                 maxIndex = i;
+                //alert(max);
             }
         }
         //alert(tbody.rows[0].cells[4].value);
         //alert(tbody.rows[0].cells[4].innerHTML);
-        tbody.rows[maxIndex].cells[4].style.backgroundColor = "#1E90FF";
-        tbody.rows[maxIndex].cells[4].style.color = "#FFFFFF";
         let sgm = arrS[numberSt-1];
         for(let i = 0; i < arrStep.length; i++) {
             if(parseFloat(tbody.rows[i].cells[4].innerHTML) > parseFloat(tbody.rows[i].cells[5].innerHTML) && i !== maxIndex) {
@@ -1947,6 +1823,8 @@ let count = 0;
                 tbody.rows[i].cells[4].style.color = "#000000";
             }
         }
+        tbody.rows[maxIndex].cells[4].style.backgroundColor = "#1E90FF";
+        tbody.rows[maxIndex].cells[4].style.color = "#FFFFFF";
         var tbl = document.getElementById('tbll');
         let r = tbl.rows.length-1;
         while(tbl.rows[r].cells[3].innerHTML === '') {
