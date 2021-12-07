@@ -1702,7 +1702,6 @@ let count = 0;
     function Calculation2() {
         stp = document.getElementById('stepp').value;
         console.log(stp);
-        let count = 1;
         if(numberSt === 0) {
             numberSt = 1;
         }
@@ -1710,9 +1709,11 @@ let count = 0;
         let arrL = [];
         let arrA = [];
         let arrE = [];
+        let arrS = [];
         let countL = 0;
         let countA = 2;
         let countE = 1;
+        let countS = 3;
         for(let i = 0; i < rowCount; i++) {
             arrL[i] = bigArr[countL];
             countL+=4;
@@ -1720,82 +1721,42 @@ let count = 0;
             countA+=4;
             arrE[i] = bigArr[countE];
             countE+=4;
+            arrS[i] = bigArr[countS];
+            countS+=4;
         }
 
 
         // alert(stp);
         // alert(arrL[numberSt-1]);
+
+        let count = 1;
+        //let start = 0;
+        let end = arrL[numberSt-1];
+        let step = parseFloat(stp);
+        let current_value = 0;
         let arrStep = [];
         let index = 0;
-        let start = 0;
-        do {
-            arrStep[index] = start;
+        while(true) {
+            arrStep[index] = current_value;
             index++;
-            start +=Number.parseFloat(stp);
-            count++;
-            console.log("START = " + start);
-            console.log("COUNT = " + count);
-        } while (start <= arrL[numberSt-1])
-        if(start > arrL[numberSt-1]) {
-            count--;
+            if(current_value + step <= end) {
+                current_value+=step;
+                count++;
+            }
+            else {
+                break;
+            }
         }
-        // var newElem=document.createElement("table");
-        //
-        // var newRow=newElem.insertRow(0);
-        // var newCell = newRow.insertCell(0);
-        // newCell.width="200";
-        // newCell.innerHTML="строка 1 столбец 1";
-        //
-        // var newCell = newRow.insertCell(1);
-        // newCell.width="400";
-        // newCell.innerHTML="строка 1 столбец 2";
-        //
-        // var newRow=newElem.insertRow(1);
-        // var newCell = newRow.insertCell(0);
-        // newCell.width="200";
-        // newCell.innerHTML="строка 2 столбец 1";
-        //
-        // var newCell = newRow.insertCell(1);
-        // newCell.width="400";
-        // newCell.innerHTML="строка 2 столбец 2";
-        //
-        // document.body.appendChild(newElem);
-        // const table = document.createElement('table');
-        // let tr = document.createElement('tr');
-        // for(let i = 0; i < 6; i++) {
-        //     tr.appendChild(document.createElement('th'));
-        // }
-        // table.appendChild(tr);
-        // table.rows[0].cells[0].innerHTML = '№';
-        // table.rows[0].cells[1].innerHTML = 'Step';
-        // table.rows[0].cells[2].innerHTML = 'Nx';
-        // table.rows[0].cells[3].innerHTML = 'Ux';
-        // table.rows[0].cells[4].innerHTML = 'Sigma';
-        // table.rows[0].cells[5].innerHTML = '[sigma]';
+        if(current_value !== end) {
+            count++;
+            arrStep[index] = end;
+        }
+        console.log( "Массив шагов")
+        for(let i = 0; i < arrStep.length; i++) {
+            console.log(arrStep[i]);
+        }
+
         let tbody = document.getElementById('tbll');
-        // let row = document.createElement("TR")
-        // let td0 = document.createElement("TH")
-        // td0.appendChild(document.createTextNode(''))
-        // let td1 = document.createElement("TH")
-        // td1.appendChild(document.createElement("text"))
-        // let td2 = document.createElement("TH")
-        // td2.appendChild (document.createElement("text"))
-        // let td3 = document.createElement("TH")
-        // td3.appendChild (document.createElement("text"))
-        // let td4 = document.createElement("TH")
-        // td4.appendChild (document.createElement("text"))
-        // let td5 = document.createElement("TH")
-        // td4.appendChild (document.createElement("text"))
-        // let td6 = document.createElement("TH")
-        // td4.appendChild (document.createElement("text"))
-        // row.appendChild(td0);
-        // row.appendChild(td1);
-        // row.appendChild(td2);
-        // row.appendChild(td3);
-        // row.appendChild(td4);
-        // row.appendChild(td5);
-        // row.appendChild(td6);
-        // tbody.appendChild(row);
         let row2;
         for(let i = 0; i < count; i++) {
         row2 = document.createElement("TR")
@@ -1810,13 +1771,80 @@ let count = 0;
         tbody.rows[1].cells[1].innerHTML = "2";
         let startRow = 0;
         let index2 = 0;
-        let counterRows = count;
+        let counterRows = arrStep.length;
         while(counterRows > 0) {
-            tbody.rows[startRow].cells[1].innerHTML = arrStep[index2].toFixed(1);
+            counterRows--;
+            tbody.rows[startRow].cells[1].innerHTML = arrStep[index2].toPrecision(3);
             index2++;
             startRow++;
+        }
+        counterRows = arrStep.length;
+        startRow = 0;
+        while(counterRows > 0) {
             counterRows--;
+            tbody.rows[startRow].cells[5].innerHTML = arrS[numberSt-1];
+            startRow++;
         }
 
+        let arrNX =[];
+        let arrUX = [];
+        let arrSIGMA = [];
+        for(let i = 0; i < arrStep.length; i++) {
+            arrNX[i] = arrE[numberSt-1]*arrA[numberSt-1]/ arrL[numberSt-1] * (arrU[numberSt-1][1] - arrU[numberSt-1][0]) + (arrQ[numberSt-1]*arrL[numberSt-1]/2) * (1 - 2 * arrStep[i]/arrL[numberSt-1]);
+        }
+        for(let i = 0; i < arrNX.length; i++) {
+            console.log("NX = " + arrNX[i]);
+        }
+        counterRows = arrStep.length;
+        startRow = 0;
+        index2 = 0;
+        while(counterRows > 0) {
+            counterRows--;
+            tbody.rows[startRow].cells[2].innerHTML = arrNX[index2].toFixed(2);
+            index2++;
+            startRow++;
+        }
+
+        for(let i = 0; i < arrStep.length; i++) {
+            arrUX[i] = arrU[numberSt-1][0] + (arrStep[i] / arrL[numberSt-1]) * (arrU[numberSt-1][1] - arrU[numberSt-1][0]) + (arrQ[numberSt-1] * arrL[numberSt-1] * arrL[numberSt-1] * arrStep[i] * (1-arrStep[i]/arrL[numberSt-1]) / (2 * arrE[numberSt-1] * arrA[numberSt-1] * arrL[numberSt-1]));
+        }
+        counterRows = arrStep.length;
+        startRow = 0;
+        index2 = 0;
+        while (counterRows > 0) {
+            counterRows--;
+            tbody.rows[startRow].cells[3].innerHTML = arrUX[index2].toFixed(2);
+            index2++;
+            startRow++;
+        }
+        for(let i = 0; i < arrStep.length; i++) {
+            arrSIGMA[i] = arrNX[i] / arrA[numberSt-1];
+        }
+        counterRows = arrStep.length;
+        startRow = 0;
+        index2 = 0;
+        while (counterRows > 0) {
+            counterRows--;
+            tbody.rows[startRow].cells[4].innerHTML = arrSIGMA[index2].toFixed(2);
+            index2++;
+            startRow++;
+        }
+
+        let max = Number.MIN_SAFE_INTEGER;
+        let maxIndex = 0;
+        for(let i = 0; i < arrStep.length; i++) {
+            if(tbody.rows[i].cells[4].value > max) {
+                maxIndex = i;
+            }
+        }
+        //alert(maxIndex);
+        tbody.rows[maxIndex].cells[4].style.backgroundColor = "#1E90FF";
+        tbody.rows[maxIndex].cells[4].style.color = "#FFFFFF";
+        // let sgm = arrS[numberSt-1];
+        // alert(tbody.rows[1].cells[4].value)
+        // alert(tbody.rows[1].cells[5].value);
+        // for(let i = 0; i < arrStep.length; i++) {
+        //
+        // }
     }
 
