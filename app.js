@@ -1725,8 +1725,12 @@ let count = 0;
 
         // alert(stp);
         // alert(arrL[numberSt-1]);
+        let arrStep = [];
+        let index = 0;
         let start = 0;
         do {
+            arrStep[index] = start;
+            index++;
             start +=Number.parseFloat(stp);
             count++;
             console.log("START = " + start);
@@ -1805,9 +1809,11 @@ let count = 0;
         tbody.rows[0].cells[1].innerHTML = "1";
         tbody.rows[1].cells[1].innerHTML = "2";
         let startRow = 0;
+        let index2 = 0;
         let counterRows = count;
         while(counterRows > 0) {
-            tbody.rows[startRow].cells[1].innerHTML = start.toFixed(1);
+            tbody.rows[startRow].cells[1].innerHTML = arrStep[index2].toFixed(1);
+            index2++;
             startRow++;
             counterRows--;
         }
