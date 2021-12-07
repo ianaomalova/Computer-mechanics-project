@@ -1931,6 +1931,11 @@ let count = 0;
                 tbody.rows[i].cells[4].style.backgroundColor = "#FF0000";
                 tbody.rows[i].cells[4].style.color = "#FFFFFF";
             }
+            if(parseFloat(tbody.rows[i].cells[4].innerHTML) < parseFloat(tbody.rows[i].cells[5].innerHTML) && i !== maxIndex) {
+                //alert(parseFloat(tbody.rows[0].cells[4].innerHTML))
+                tbody.rows[i].cells[4].style.backgroundColor = "#7FFF00";
+                tbody.rows[i].cells[4].style.color = "#000000";
+            }
         }
         var tbl = document.getElementById('tbll');
         let r = tbl.rows.length-1;
