@@ -1512,7 +1512,12 @@ function Bup() {
         countL += 4;
     }
     if(temp < 0) {
-        document.getElementById("info").value = Math.abs(document.getElementById("info").value);
+        if(Math.abs(document.getElementById("info").value) > arrL[select.value-1]) {
+            document.getElementById("info").value = arrL[select.value-1]/2;
+        }
+        else {
+            document.getElementById("info").value = Math.abs(document.getElementById("info").value);
+        }
         alert("Кря")
             //alert("суицид тоже выход")
     }
@@ -1715,7 +1720,12 @@ let count = 0;
             countL += 4;
         }
         if(temp < 0) {
-            document.getElementById("stepp").value = Math.abs(document.getElementById("stepp").value);
+            if(Math.abs(document.getElementById("stepp").value) > arrL[select.value-1]) {
+                document.getElementById("stepp").value = arrL[select.value-1]/2;
+            }
+            else {
+                document.getElementById("stepp").value = Math.abs(document.getElementById("stepp").value);
+            }
             alert("Утя")
         }
         if(document.getElementById("stepp").value > arrL[select.value-1]) {
