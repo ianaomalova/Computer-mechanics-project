@@ -1695,9 +1695,93 @@ let count = 0;
             countL += 4;
         }
         let d2 = document.getElementById('step');
-        d2.insertAdjacentHTML('beforeend', '<input style="margin-left: 43.5%" id="stepp" placeholder="Введите шаг">')
+        d2.insertAdjacentHTML('beforeend', '<input onchange="Bup2()" style="margin-left: 43.5%" id="stepp" placeholder="Введите шаг">')
         d2.insertAdjacentHTML('beforebegin', '<br>');
 
+    }
+    function Bup2() {
+        let rowCount = document.getElementById('mytbl').rows.length - 1;
+        let flag = false;
+        let select = document.getElementById("chooseSt");
+        let arrL = [];
+        let alfR = ["а", "А", "Б", "в", "В", "г", "Г", "д", "Д", "е", "Е", "ё", "Ë", "ж", "Ж", "з", "З", "и", "И", "й", "Й", "к", "К", "л", "Л", "м", "М", "н", "Н", "о", "О", "п", "П", "р", "Р", "с", "С", "т", "Т", "у", "У", "ф", "Ф", "х", "Х", "ц", "Ц", "ч", "Ч", "ш", "Ш", "щ", "Щ", "ы", "Ы", "ь", "Ь", "ъ", "Ъ", "э", "Э", "ю", "я", "Я"];
+        let alrE = ["a", "A", "b", "B", "c", "C", "d", "D", "f", "F", "E", "g", "G", "h", "H", "i", "I", "j", "J", "k", "K", "l", "L", "m", "M", "n", "N", "o", "O", "p", "P", "q", "Q", "r", "R", "s", "S", "t", "T", "u", "U", "v", "V", "w", "W", "x", "X", "y", "Y", "z", "Z"];
+        let symbols = ["?", "!", "[", "]", "{", "}", "\\", "/", "@", "#", "$", "%", "ˆ", "&", "*", "(", ")", "=", "+", "_", '-'];
+        let temp = document.getElementById("stepp").value;
+        temp = parseFloat(temp);
+        let countL = 0;
+        for (let i = 0; i < rowCount; i++) {
+            arrL[i] = bigArr[countL];
+            countL += 4;
+        }
+        if(temp < 0) {
+            document.getElementById("stepp").value = Math.abs(document.getElementById("stepp").value);
+            alert("Утя")
+        }
+        if(document.getElementById("stepp").value > arrL[select.value-1]) {
+            document.getElementById("stepp").value = arrL[select.value-1]/2;
+            alert("Значение больше длины стержня. Кусь");
+        }
+        for (let i = 0; i < alfR.length; i++) {
+            if (document.getElementById("stepp").value.includes(alfR[i])) {
+                if (Number.isNaN(temp)) {
+                     alert("Кусь:)")
+                    document.getElementById("stepp").value = arrL[select.value-1]/2;
+                } else {
+                    if(temp > arrL[select.value-1]) {
+                        alert("Кусь:)");
+                        document.getElementById("stepp").value = arrL[select.value-1]/2;
+                    }
+                    else {
+                        document.getElementById("stepp").value = temp;
+                    }
+                }
+                break;
+            }
+        }
+        for (let i = 0; i < alrE.length; i++) {
+            if (document.getElementById("stepp").value.includes(alrE[i])) {
+                if (Number.isNaN(temp)) {
+                    alert("Недовольное кусь")
+                    document.getElementById("stepp").value = arrL[select.value-1]/2;
+                }
+                else {
+                    if(temp > arrL[select.value-1]) {
+                        alert("Много кусей");
+                        document.getElementById("stepp").value = arrL[select.value-1]/2;
+                    }
+                    else {
+                        document.getElementById("stepp").value = temp;
+                    }
+                }
+                break;
+            }
+        }
+        for(let i = 0; i < symbols.length; i++) {
+            if(document.getElementById("stepp").value.includes(symbols[i])) {
+                if (Number.isNaN(temp)) {
+                    alert("кусь кусь кусь")
+                    document.getElementById("stepp").value = arrL[select.value-1]/2;
+                } else {
+                    if(temp > arrL[select.value-1]) {
+                        alert("Ничего такого. Просто кусь");
+                        document.getElementById("stepp").value = arrL[select.value-1]/2;
+                    }
+                    else {
+                        document.getElementById("stepp").value = temp;
+                    }
+                }
+            }
+        }
+        if(document.getElementById("stepp").value.includes(',')) {
+            let old = document.getElementById("stepp").value;
+            let newstr = old.replace(',', '.');
+            document.getElementById("stepp").value = newstr;
+        }
+        if(document.getElementById("stepp").value === ''){
+            document.getElementById("stepp").value = arrL[select.value-1]/2;
+            alert("Утиный кусь")
+        }
     }
     function Calculation2() {
         stp = document.getElementById('stepp').value;
@@ -1836,6 +1920,7 @@ let count = 0;
                 maxIndex = i;
             }
         }
+        //alert(tbody.rows[0].cells[4].value);
         //alert(tbody.rows[0].cells[4].innerHTML);
         tbody.rows[maxIndex].cells[4].style.backgroundColor = "#1E90FF";
         tbody.rows[maxIndex].cells[4].style.color = "#FFFFFF";
