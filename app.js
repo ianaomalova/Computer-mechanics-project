@@ -1685,76 +1685,132 @@ let count = 0;
             document.getElementById("sgm").style.color = "#000000";
         }
     }
-    // let stp = 0;
-    // function AddItem2() {
-    //     let rowCount = document.getElementById('mytbl').rows.length - 1;
-    //     let arrL = [];
-    //     let countL = 0;
-    //     for (let i = 0; i < rowCount; i++) {
-    //         arrL[i] = bigArr[countL];
-    //         countL += 4;
-    //     }
-    //     let d2 = document.getElementById('step');
-    //     d2.insertAdjacentHTML('beforeend', '<input style="margin-left: 43.5%" id="step" placeholder="Введите шаг">')
-    //     d2.insertAdjacentHTML('beforebegin', '<br>');
-    //
-    //     function onChange(evt) {
-    //         stp = evt.target.value;
-    //         if(stp > arrL[numberSt-1]) {
-    //             alert("Ужас");
-    //             stp = arrL[numberSt-1]/2;
-    //             evt.target.value = stp;
-    //         }
-    //     }
-    //     const elems = document.getElementsByTagName("input");
-    //     for (const elem of elems) {
-    //         elem.addEventListener("change", onChange);
-    //     }
-    // }
-    // function Calculation2() {
-    //     let count = 1;
-    //     if(numberSt === 0) {
-    //         numberSt = 1;
-    //     }
-    //     let rowCount = document.getElementById('mytbl').rows.length - 1;
-    //     let arrL = [];
-    //     let arrA = [];
-    //     let arrE = [];
-    //     let countL = 0;
-    //     let countA = 2;
-    //     let countE = 1;
-    //     for(let i = 0; i < rowCount; i++) {
-    //         arrL[i] = bigArr[countL];
-    //         countL+=4;
-    //         arrA[i] = bigArr[countA];
-    //         countA+=4;
-    //         arrE[i] = bigArr[countE];
-    //         countE+=4;
-    //     }
-    //
-    //
-    //     // alert(stp);
-    //     // alert(arrL[numberSt-1]);
-    //     let start = 0;
-    //     do {
-    //         start +=Number.parseFloat(stp);
-    //         count++;
-    //         console.log("START = " + start);
-    //         console.log("COUNT = " + count);
-    //     } while (start <= arrL[numberSt-1])
-    //     if(start > arrL[numberSt-1]) {
-    //         count--;
-    //     }
-    //     const $tbl = document.getElementById("blablabla");
-    //     $tbl.insertAdjacentHTML("beforeend", "<tr id='help'></tr>");
-    //     const $tbody = document.getElementById("blabla");
-    //     $tbody.insertAdjacentHTML("beforeend", '<tr id="tr1">')
-    //     var $tr = document.getElementById("tr1");
-    //     $tr.insertAdjacentHTML("afterend", "<td><text></text></td>")
-    //     $tr.insertAdjacentHTML("afterend", "<td><text></text></td>")
-    //     $tr.insertAdjacentHTML("afterend", "<td><text></text></td>")
-    //     $tr.insertAdjacentHTML("afterend", "<td><text></text></td>")
-    //     $tr.insertAdjacentHTML("afterend", "<td><text></text></td>")
-    //     $tr.insertAdjacentHTML("afterend", "<td><text></text></td>")
-    // }
+    let stp = 0;
+    function AddItem2() {
+        let rowCount = document.getElementById('mytbl').rows.length - 1;
+        let arrL = [];
+        let countL = 0;
+        for (let i = 0; i < rowCount; i++) {
+            arrL[i] = bigArr[countL];
+            countL += 4;
+        }
+        let d2 = document.getElementById('step');
+        d2.insertAdjacentHTML('beforeend', '<input style="margin-left: 43.5%" id="stepp" placeholder="Введите шаг">')
+        d2.insertAdjacentHTML('beforebegin', '<br>');
+
+    }
+    function Calculation2() {
+        stp = document.getElementById('stepp').value;
+        console.log(stp);
+        let count = 1;
+        if(numberSt === 0) {
+            numberSt = 1;
+        }
+        let rowCount = document.getElementById('mytbl').rows.length - 1;
+        let arrL = [];
+        let arrA = [];
+        let arrE = [];
+        let countL = 0;
+        let countA = 2;
+        let countE = 1;
+        for(let i = 0; i < rowCount; i++) {
+            arrL[i] = bigArr[countL];
+            countL+=4;
+            arrA[i] = bigArr[countA];
+            countA+=4;
+            arrE[i] = bigArr[countE];
+            countE+=4;
+        }
+
+
+        // alert(stp);
+        // alert(arrL[numberSt-1]);
+        let start = 0;
+        do {
+            start +=Number.parseFloat(stp);
+            count++;
+            console.log("START = " + start);
+            console.log("COUNT = " + count);
+        } while (start <= arrL[numberSt-1])
+        if(start > arrL[numberSt-1]) {
+            count--;
+        }
+        // var newElem=document.createElement("table");
+        //
+        // var newRow=newElem.insertRow(0);
+        // var newCell = newRow.insertCell(0);
+        // newCell.width="200";
+        // newCell.innerHTML="строка 1 столбец 1";
+        //
+        // var newCell = newRow.insertCell(1);
+        // newCell.width="400";
+        // newCell.innerHTML="строка 1 столбец 2";
+        //
+        // var newRow=newElem.insertRow(1);
+        // var newCell = newRow.insertCell(0);
+        // newCell.width="200";
+        // newCell.innerHTML="строка 2 столбец 1";
+        //
+        // var newCell = newRow.insertCell(1);
+        // newCell.width="400";
+        // newCell.innerHTML="строка 2 столбец 2";
+        //
+        // document.body.appendChild(newElem);
+        // const table = document.createElement('table');
+        // let tr = document.createElement('tr');
+        // for(let i = 0; i < 6; i++) {
+        //     tr.appendChild(document.createElement('th'));
+        // }
+        // table.appendChild(tr);
+        // table.rows[0].cells[0].innerHTML = '№';
+        // table.rows[0].cells[1].innerHTML = 'Step';
+        // table.rows[0].cells[2].innerHTML = 'Nx';
+        // table.rows[0].cells[3].innerHTML = 'Ux';
+        // table.rows[0].cells[4].innerHTML = 'Sigma';
+        // table.rows[0].cells[5].innerHTML = '[sigma]';
+        let tbody = document.getElementById('tbll');
+        // let row = document.createElement("TR")
+        // let td0 = document.createElement("TH")
+        // td0.appendChild(document.createTextNode(''))
+        // let td1 = document.createElement("TH")
+        // td1.appendChild(document.createElement("text"))
+        // let td2 = document.createElement("TH")
+        // td2.appendChild (document.createElement("text"))
+        // let td3 = document.createElement("TH")
+        // td3.appendChild (document.createElement("text"))
+        // let td4 = document.createElement("TH")
+        // td4.appendChild (document.createElement("text"))
+        // let td5 = document.createElement("TH")
+        // td4.appendChild (document.createElement("text"))
+        // let td6 = document.createElement("TH")
+        // td4.appendChild (document.createElement("text"))
+        // row.appendChild(td0);
+        // row.appendChild(td1);
+        // row.appendChild(td2);
+        // row.appendChild(td3);
+        // row.appendChild(td4);
+        // row.appendChild(td5);
+        // row.appendChild(td6);
+        // tbody.appendChild(row);
+        let row2;
+        for(let i = 0; i < count; i++) {
+        row2 = document.createElement("TR")
+        for(let i = 0; i < 7; i++) {
+            let td = document.createElement('td');
+            //td.appendChild(document.createElement("text"))
+            row2.appendChild(td);
+            tbody.appendChild(row2);
+        }
+    }
+        tbody.rows[0].cells[1].innerHTML = "1";
+        tbody.rows[1].cells[1].innerHTML = "2";
+        let startRow = 0;
+        let counterRows = count;
+        while(counterRows > 0) {
+            tbody.rows[startRow].cells[1].innerHTML = start.toFixed(1);
+            startRow++;
+            counterRows--;
+        }
+
+    }
 
