@@ -312,7 +312,7 @@ function inputForces() {
                 else {
                     evt.target.value = temp;
                 }
-                alert("Кусь");
+                alert("Кусь Кусь Кусь!");
                 break;
             }
         }
@@ -326,7 +326,7 @@ function inputForces() {
                 else {
                     evt.target.value = temp;
                 }
-                alert("Кусь")
+                alert("Кууууууууууууусь")
                 break;
             }
         }
@@ -385,6 +385,7 @@ function saveToArray() {
     for (let i = 0; i < rowCount; i++) {
         count += 3;
     }
+
     for (let i = 0; i < count; i++) {
         bigArr[i] = parseFloat(document.getElementsByTagName("input")[i].value);
         if(isNaN(bigArr[i])) {
@@ -754,8 +755,9 @@ function f1() {
 
 }
 
+
 function printMemasik () {
-    document.write('<img src="https://sun9-22.userapi.com/impg/o2ZF3ATxPYVUa8Q2tgjf4lFBDhVYBLtSm21oAg/USxvXy_5CIY.jpg?size=828x1036&quality=96&sign=239cc13d64c135af5a0b68f861ef8ac2&type=album">');
+    window.open("https://sun9-22.userapi.com/impg/o2ZF3ATxPYVUa8Q2tgjf4lFBDhVYBLtSm21oAg/USxvXy_5CIY.jpg?size=828x1036&quality=96&sign=239cc13d64c135af5a0b68f861ef8ac2&type=album")
 }
 
 
@@ -1492,106 +1494,8 @@ function AddItem() {
     let d1 = document.getElementById('chooseL');
     d1.insertAdjacentHTML('beforeend', '<input style="margin-left: 43.5%" id="info" placeholder="Введите длину" onchange="Bup()">');
     d1.insertAdjacentHTML('beforebegin', '<br>');
-    // let d2 = document.getElementById('br');
-    // d2.insertAdjacentHTML('beforeend', '<br>');
-
-    // function onChange(evt) {
-    //     let flag = false;
-    //     let alfR = ["а", "А", "Б", "в", "В", "г", "Г", "д", "Д", "е", "Е", "ё", "Ë", "ж", "Ж", "з", "З", "и", "И", "й", "Й", "к", "К", "л", "Л", "м", "М", "н", "Н", "о", "О", "п", "П", "р", "Р", "с", "С", "т", "Т", "у", "У", "ф", "Ф", "х", "Х", "ц", "Ц", "ч", "Ч", "ш", "Ш", "щ", "Щ", "ы", "Ы", "ь", "Ь", "ъ", "Ъ", "э", "Э", "ю", "я", "Я"];
-    //     let alrE = ["a", "A", "b", "B", "c", "C", "d", "D", "f", "F", "E", "g", "G", "h", "H", "i", "I", "j", "J", "k", "K", "l", "L", "m", "M", "n", "N", "o", "O", "p", "P", "q", "Q", "r", "R", "s", "S", "t", "T", "u", "U", "v", "V", "w", "W", "x", "X", "y", "Y", "z", "Z"];
-    //     let symbols = ["?", "!", "[", "]", "{", "}", "\\", "/", "@", "#", "$", "%", "ˆ", "&", "*", "(", ")", "=", "+", "_", '-'];
-    //     let temp2 = evt.target.value;
-    //     temp2 = parseFloat(temp2)
-    //     let countL = 0;
-    //     for (let i = 0; i < rowCount; i++) {
-    //         arrL[i] = bigArr[countL];
-    //         countL += 4;
-    //     }
-    //     // alert(select.value);
-    //     // alert(arrL[select.value - 1]);
-    //
-    //     for (let i = 0; i < alfR.length; i++) {
-    //         if (evt.target.value.includes(alfR[i]) && flag === false) {
-    //             flag = true;
-    //             if (Number.isNaN(temp2)) {
-    //                 evt.target.value = 0;
-    //             } else {
-    //
-    //             }
-    //             if(count11 === 0) {
-    //                 count11++;
-    //                 window.open("https://vk.com/wall-42800749_714106");
-    //             }
-    //             else  {
-    //                 alert("ы");
-    //
-    //                 window.open("https://vk.com/wall-206143282_1609");
-    //             }
-    //             break;
-    //         }
-    //     }
-    //     for (let i = 0; i < alrE.length; i++) {
-    //         if (evt.target.value.includes(alrE[i]) && flag === false) {
-    //             flag = true;
-    //             if (Number.isNaN(temp2)) {
-    //                 evt.target.value = 0;
-    //             } else {
-    //
-    //             }
-    //             if (count22 === 0) {
-    //                 count22++;
-    //                 window.open("https://vk.com/wall-206143282_1406")
-    //             } else {
-    //                 alert("Больше уток богу уток");
-    //                 window.open("https://vk.com/wall-40567493_108172")
-    //             }
-    //             break;
-    //         }
-    //     }
-    //     for(let i = 0; i < symbols.length; i++) {
-    //         if(evt.target.value.includes(symbols[i]) && flag === false) {
-    //             flag = false;
-    //             if (Number.isNaN(temp2)) {
-    //                 evt.target.value = 0;
-    //             } else {
-    //
-    //             }
-    //             if(count33 === 0) {
-    //                 count33++;
-    //                 window.open("https://vk.com/wall-206143282_771");
-    //             }
-    //             else {
-    //                 alert("Опять безобразничаете")
-    //             }
-    //             break;
-    //         }
-    //     }
-    //     if(evt.target.value.includes(',')) {
-    //         let old = evt.target.value;
-    //         let newstr = old.replace(',', '.');
-    //         evt.target.value = newstr;
-    //         feeachkawinxblin = evt.target.value;
-    //     }
-    //     if(evt.target.value === ''){
-    //         //evt.target.style.color = '#f00';
-    //         evt.target.value = 0;
-    //     }
-    //     if (evt.target.value > arrL[select.value - 1]) {
-    //         evt.target.value = 0;
-    //         alert("Введено значение больше допустимого. Кусь")
-    //     }
-    //     if (evt.target.value < 0) {
-    //         evt.target.value = Math.abs(temp2);
-    //         feeachkawinxblin = evt.target.value;
-    //         alert("Кукусики")
-    //     }
-    //     feeachkawinxblin = evt.target.value;
-    //}
-    // const elems = document.getElementsByTagName("input");
-    // for (const elem of elems) {
-    //     elem.addEventListener("change", onChange);
-    // }
 }
+let countY = 0;
 function Bup() {
     let rowCount = document.getElementById('mytbl').rows.length - 1;
     let flag = false;
@@ -1609,11 +1513,16 @@ function Bup() {
     }
     if(temp < 0) {
         document.getElementById("info").value = Math.abs(document.getElementById("info").value);
+        alert("Кря")
             //alert("суицид тоже выход")
     }
     if(document.getElementById("info").value > arrL[select.value-1]) {
         alert("Значение больше длины стержня. Кусь");
         document.getElementById("info").value = arrL[select.value-1];
+        if(countY === 0) {
+            window.open("https://www.youtube.com/playlist?list=PLVtYY3Ujl33PMW8H1OAoafK_V48v9VIHt");
+            countY++;
+        }
     }
     for (let i = 0; i < alfR.length; i++) {
         if (document.getElementById("info").value.includes(alfR[i])) {
@@ -1630,9 +1539,10 @@ function Bup() {
             }
             if(count11 === 0) {
                 count11++;
+                alert("А буковки низя")
                 window.open("https://vk.com/wall-42800749_714106");
             }
-            else  {
+            else if(count11 === 1)  {
                 alert("Десять маленьких утят\n" +
                     "Ночью все ложатся спать:\n" +
                     "Раз — утенок самый смелый,\n" +
@@ -1648,6 +1558,9 @@ function Bup() {
                     "Он тебя за руку хвать!");
 
                 window.open("https://vk.com/wall-206143282_1609");
+            }
+            else {
+                alert("Безобразие")
             }
             break;
         }
@@ -1669,9 +1582,12 @@ function Bup() {
             if (count22 === 0) {
                 count22++;
                 window.open("https://vk.com/wall-206143282_1406")
-            } else {
+            } else if(count22 === 1){
                 alert("Больше уток богу уток");
                 window.open("https://vk.com/wall-40567493_108172")
+            }
+            else {
+                alert("Пусть будет мяу");
             }
             break;
         }
@@ -1706,6 +1622,7 @@ function Bup() {
     }
     if(document.getElementById("info").value === ''){
         document.getElementById("info").value = 0;
+        alert("Кряяяяяяя")
     }
     feeachkawinxblin = document.getElementById("info").value;
 }
@@ -1763,8 +1680,10 @@ let count = 0;
             document.getElementById('sgm').style.backgroundColor = "#FF0000";
             document.getElementById("sgm").style.color = "#FFFFFF";
         }
-
-
+        else {
+            document.getElementById('sgm').style.backgroundColor = "#7FFF00";
+            document.getElementById("sgm").style.color = "#000000";
+        }
     }
     // let stp = 0;
     // function AddItem2() {
