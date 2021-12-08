@@ -1579,6 +1579,7 @@ let count = 0;
         d2.insertAdjacentHTML('beforebegin', '<br>');
 
     }
+    let kukusiki = 0;
     function Bup2() {
         let rowCount = document.getElementById('mytbl').rows.length - 1;
         let flag = false;
@@ -1602,6 +1603,10 @@ let count = 0;
                 document.getElementById("stepp").value = Math.abs(document.getElementById("stepp").value);
             }
             alert("Утя")
+            if(kukusiki === 0) {
+                window.open("https://vk.com/wall-112211940_137982");
+                kukusiki++;
+            }
         }
         if(document.getElementById("stepp").value > arrL[select.value-1]) {
             document.getElementById("stepp").value = arrL[select.value-1]/2;
