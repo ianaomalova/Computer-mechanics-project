@@ -1823,7 +1823,6 @@ let maxIndex = 0;
         let sgm = arrS[numberSt-1];
         for(let i = 0; i < arrStep.length; i++) {
             if(Math.abs(parseFloat(tbody.rows[i].cells[4].innerHTML)) > parseFloat(tbody.rows[i].cells[5].innerHTML) && i !== maxIndex) {
-                alert(Math.abs(parseFloat(tbody.rows[i].cells[4].innerHTML)));
                 //alert(parseFloat(tbody.rows[0].cells[4].innerHTML))
                 tbody.rows[i].cells[4].style.backgroundColor = "#FF0000";
                 tbody.rows[i].cells[4].style.color = "#FFFFFF";
