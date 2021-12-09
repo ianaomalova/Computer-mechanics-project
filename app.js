@@ -954,7 +954,7 @@ function Processor() {
     console.log("ДЕЛЬТЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫ")
     for(let i = 0; i < arrDelta.length; i++) {
         console.log(arrDelta[i]);
-        strDlt+=arrDelta[i].toFixed(2);
+        strDlt+=arrDelta[i].toFixed(5);
         strDlt+=';'
     }
     let strDlt2 = strDlt.slice(0, -1);
@@ -1037,7 +1037,7 @@ function Processor() {
     for(let i = 0; i < arrNx.length; i++) {
         for(let j = 0; j < 2; j++) {
             console.log(arrNx[i][j]);
-            strNx+=arrNx[i][j].toFixed(2);
+            strNx+=arrNx[i][j].toFixed(5);
             strNx+= ';';
         }
     }
@@ -1060,7 +1060,7 @@ function Processor() {
     for(let i = 0; i < Sigma.length; i++) {
         for(let j = 0; j < 2; j++) {
             console.log(Sigma[i][j]);
-            strSgm+=Sigma[i][j].toFixed(2);
+            strSgm+=Sigma[i][j].toFixed(5);
             strSgm+= ';';
         }
     }
@@ -1604,8 +1604,9 @@ let count = 0;
             }
             alert("Утя")
             if(kukusiki === 0) {
-                window.open("https://vk.com/wall-112211940_137982");
                 kukusiki++;
+                window.open("https://vk.com/wall-112211940_137982");
+                window.open("https://vk.com/wall-42800749_715573");
             }
         }
         if(document.getElementById("stepp").value > arrL[select.value-1]) {
@@ -1774,7 +1775,7 @@ let maxIndex = 0;
         index2 = 0;
         while(counterRows > 0) {
             counterRows--;
-            tbody.rows[startRow].cells[2].innerHTML = arrNX[index2].toFixed(2);
+            tbody.rows[startRow].cells[2].innerHTML = arrNX[index2].toFixed(3);
             index2++;
             startRow++;
         }
@@ -1787,7 +1788,7 @@ let maxIndex = 0;
         index2 = 0;
         while (counterRows > 0) {
             counterRows--;
-            tbody.rows[startRow].cells[3].innerHTML = arrUX[index2].toFixed(2);
+            tbody.rows[startRow].cells[3].innerHTML = arrUX[index2].toFixed(3);
             index2++;
             startRow++;
         }
@@ -1799,7 +1800,7 @@ let maxIndex = 0;
         index2 = 0;
         while (counterRows > 0) {
             counterRows--;
-            tbody.rows[startRow].cells[4].innerHTML = arrSIGMA[index2].toFixed(2);
+            tbody.rows[startRow].cells[4].innerHTML = arrSIGMA[index2].toFixed(3);
             index2++;
             startRow++;
         }
@@ -1822,7 +1823,7 @@ let maxIndex = 0;
                 tbody.rows[i].cells[4].style.backgroundColor = "#FF0000";
                 tbody.rows[i].cells[4].style.color = "#FFFFFF";
             }
-            if(parseFloat(tbody.rows[i].cells[4].innerHTML) < parseFloat(tbody.rows[i].cells[5].innerHTML) && i !== maxIndex) {
+            if(parseFloat(tbody.rows[i].cells[4].innerHTML) <= parseFloat(tbody.rows[i].cells[5].innerHTML) && i !== maxIndex) {
                 //alert(parseFloat(tbody.rows[0].cells[4].innerHTML))
                 tbody.rows[i].cells[4].style.backgroundColor = "#7FFF00";
                 tbody.rows[i].cells[4].style.color = "#000000";
