@@ -617,8 +617,9 @@ function draw1() {
 
 function f1() {
     saveToArray();
-    let text = document.getElementById("coockies");
-    const $feechkaWinxBlin = document.getElementById("coockies").value;
+    let amount = document.getElementById('mytbl').rows.length -1 ;
+    //let text = document.getElementById("coockies");
+    //const $feechkaWinxBlin = document.getElementById("coockies").value;
     var bA = JSON.stringify(bigArr)
     $.cookie('bigArr', bA, { expires: 7 });
     var q = JSON.stringify(arrQ)
@@ -628,12 +629,11 @@ function f1() {
     var data1=JSON.parse($.cookie("bigArr"))
     var data2=JSON.parse($.cookie("arrQ"))
     var data3=JSON.parse($.cookie("arrF"))
-    $.cookie($feechkaWinxBlin, bA, { expires: 7 });
+    //$.cookie($feechkaWinxBlin, bA, { expires: 7 });
     //alert(document.cookie)
     // alert(data1)
     // alert(data2)
     // alert(data3)
-
 }
 
 
