@@ -1377,7 +1377,7 @@ function AddItem() {
         select.add(option);
     }
     let d1 = document.getElementById('chooseL');
-    d1.insertAdjacentHTML('beforeend', '<input style="margin-left: 43.5%" id="info" placeholder="Введите длину" onchange="Bup()">');
+    d1.insertAdjacentHTML('beforeend', '<input id="info" placeholder="Введите длину" onchange="Bup()">');
     d1.insertAdjacentHTML('beforebegin', '<br>');
 }
 let countY = 0;
@@ -1575,7 +1575,7 @@ let count = 0;
             countL += 4;
         }
         let d2 = document.getElementById('step');
-        d2.insertAdjacentHTML('beforeend', '<input onchange="Bup2()" style="margin-left: 43.5%" id="stepp" placeholder="Введите шаг">')
+        d2.insertAdjacentHTML('beforeend', '<input onchange="Bup2()" id="stepp" placeholder="Введите шаг">')
         d2.insertAdjacentHTML('beforebegin', '<br>');
 
     }
