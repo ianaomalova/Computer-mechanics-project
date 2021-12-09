@@ -1595,6 +1595,10 @@ let count = 0;
             arrL[i] = bigArr[countL];
             countL += 4;
         }
+        if(temp === 0) {
+            alert(")")
+            document.getElementById("stepp").value = arrL[select.value-1]/2;
+        }
         if(temp < 0) {
             if(Math.abs(document.getElementById("stepp").value) > arrL[select.value-1]) {
                 document.getElementById("stepp").value = arrL[select.value-1]/2;
