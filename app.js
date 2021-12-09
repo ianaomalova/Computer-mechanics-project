@@ -1556,7 +1556,7 @@ let count = 0;
         // let row_2_data_4 = document.createElement('td');
         uxx.innerHTML = ux.toFixed(2).toString();
         sigma2.innerHTML = sigma.toFixed(2).toString();
-        if(arrS[numberSt-1] < sigma) {
+        if(arrS[numberSt-1] < Math.abs(sigma)) {
             document.getElementById('sgm').style.backgroundColor = "#FF0000";
             document.getElementById("sgm").style.color = "#FFFFFF";
         }
@@ -1822,12 +1822,13 @@ let maxIndex = 0;
         //alert(tbody.rows[0].cells[4].innerHTML);
         let sgm = arrS[numberSt-1];
         for(let i = 0; i < arrStep.length; i++) {
-            if(parseFloat(tbody.rows[i].cells[4].innerHTML) > parseFloat(tbody.rows[i].cells[5].innerHTML) && i !== maxIndex) {
+            if(Math.abs(parseFloat(tbody.rows[i].cells[4].innerHTML)) > parseFloat(tbody.rows[i].cells[5].innerHTML) && i !== maxIndex) {
+                alert(Math.abs(parseFloat(tbody.rows[i].cells[4].innerHTML)));
                 //alert(parseFloat(tbody.rows[0].cells[4].innerHTML))
                 tbody.rows[i].cells[4].style.backgroundColor = "#FF0000";
                 tbody.rows[i].cells[4].style.color = "#FFFFFF";
             }
-            if(parseFloat(tbody.rows[i].cells[4].innerHTML) <= parseFloat(tbody.rows[i].cells[5].innerHTML) && i !== maxIndex) {
+            if(Math.abs(parseFloat(tbody.rows[i].cells[4].innerHTML)) <= parseFloat(tbody.rows[i].cells[5].innerHTML) && i !== maxIndex) {
                 //alert(parseFloat(tbody.rows[0].cells[4].innerHTML))
                 tbody.rows[i].cells[4].style.backgroundColor = "#7FFF00";
                 tbody.rows[i].cells[4].style.color = "#000000";
