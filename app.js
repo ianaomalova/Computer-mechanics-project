@@ -1215,7 +1215,7 @@ function Processor() {
             console.log("MAX= " + max);
             console.log("MIN= " + min);
             let sizeChart = Math.abs(max) + Math.abs(min);
-            let KUx = 150 / sizeChart;
+            let KUx = 140 / sizeChart;
             let txt = canvas2.getContext('2d');
             let ctx = canvas2.getContext('2d');
             ctx.clearRect(0, 0, canvas2.width, canvas2.height);
