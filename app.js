@@ -148,8 +148,8 @@ function AddRow() {
             }
         }
         if (document.getElementsByTagName("input")[0].value == 75 & document.getElementsByTagName("input")[1].value == 82 & document.getElementsByTagName("input")[2].value == 89 & document.getElementsByTagName("input")[3].value == 65 && document.getElementById("maintabl").rows.length === 1) {
-           window.open("https://drive.google.com/drive/folders/19ldrGhQwII9ooc4DltkRkA01IeawXHCj");
-       }
+            window.open("https://drive.google.com/drive/folders/19ldrGhQwII9ooc4DltkRkA01IeawXHCj");
+        }
         if(evt.target.value === '') {
             evt.target.value = 1;
             alert("Кря")
@@ -294,12 +294,15 @@ function saveToArray() {
     }
 }
 function printArray() {
+    console.log("Стержни")
     for(let i = 0; i < bigArr.length; i++) {
         console.log(bigArr[i]);
     }
+    console.log("Кушки")
     for(let i = 0; i < arrQ.length; i++) {
         console.log(arrQ[i]);
     }
+    console.log("Эфки")
     for(let i = 0; i < arrF.length; i++) {
         console.log(arrF[i])
     }
@@ -894,7 +897,7 @@ function Processor() {
         for (let i = 0; i < newMatrixA.length; i++) {
             tmp = newMatrixA[i][i];
             for (let j = newMatrixA.length; j >= i; j--)
-            newMatrixA[i][j] /= tmp;
+                newMatrixA[i][j] /= tmp;
             for (let j = i + 1; j < newMatrixA.length; j++) {
                 tmp = newMatrixA[j][i];
                 for (k = newMatrixA.length; k >= i; k--)
@@ -998,7 +1001,7 @@ function Processor() {
     console.log("окей гугл как не выпилиться онлайн без смс и регистрации")
     for(let i = 0; i < arrUx.length; i++) {
         for(let j = 0; j < 1000; j++) {
-            console.log("Ux= " + i + j + " " + arrUx[i][j]);
+            //console.log("Ux= " + i + j + " " + arrUx[i][j]);
         }
     }
     console.log("трам пам пам")
@@ -1030,13 +1033,13 @@ function Processor() {
     console.log("В ЛЕСУ РОДИЛАСЬ ЕЛОЧКА")
     for(let i = 0; i < NxChanges.length; i++) {
         for(let j = 0; j < stp; j++) {
-            console.log("NxChanges = " + i + j + " " + NxChanges[i][j]);
+            //console.log("NxChanges = " + i + j + " " + NxChanges[i][j]);
         }
     }
     console.log("КОНЕЦ ЕЛОЧКИ")
     for(let i = 0; i < arrNx.length; i++) {
         for(let j = 0; j < 2; j++) {
-            console.log(arrNx[i][j]);
+            //console.log(arrNx[i][j]);
             strNx+=arrNx[i][j].toFixed(5);
             strNx+= ';';
         }
@@ -1054,7 +1057,7 @@ function Processor() {
     }
     for(let i = 0; i < SigmaChanges.length; i++) {
         for(let j = 0; j < SigmaChanges[i].length; j++) {
-            console.log("Sigma= " + i + j + " " + SigmaChanges[i][j]);
+            //console.log("Sigma= " + i + j + " " + SigmaChanges[i][j]);
         }
     }
     for(let i = 0; i < Sigma.length; i++) {
@@ -1263,12 +1266,12 @@ function Processor() {
             for(let i = 0; i < rowCount; i++) {
                 for(let j = 0; j < stp; j++) {
                     let step = arrL[i] / stp;
-                        ctx.lineWidth = 2;
-                        ctx.beginPath();
-                        ctx.moveTo(x, 250 - KUx * UxChanges[i][j]);
-                        ctx.lineTo(x, 250);
-                        ctx.stroke();
-                        x+=step*coefficientL;
+                    ctx.lineWidth = 2;
+                    ctx.beginPath();
+                    ctx.moveTo(x, 250 - KUx * UxChanges[i][j]);
+                    ctx.lineTo(x, 250);
+                    ctx.stroke();
+                    x+=step*coefficientL;
                 }
             }
         }
@@ -1404,7 +1407,7 @@ function Bup() {
             document.getElementById("info").value = Math.abs(document.getElementById("info").value);
         }
         alert("Кря")
-            //alert("суицид тоже выход")
+        //alert("суицид тоже выход")
     }
     if(document.getElementById("info").value > arrL[select.value-1]) {
         alert("Значение больше длины стержня. Кусь");
@@ -1507,238 +1510,238 @@ function Bup() {
     feeachkawinxblin = document.getElementById("info").value;
 }
 
-    let numberSt = 1;
+let numberSt = 1;
 
-    function Count() {
-        let select = document.getElementById("chooseSt");
-        numberSt = select.value;
-    }
+function Count() {
+    let select = document.getElementById("chooseSt");
+    numberSt = select.value;
+}
 
 let count = 0;
-    function Calculation() {
-        if(numberSt === 0) {
-            numberSt = 1;
-        }
-        let rowCount = document.getElementById('mytbl').rows.length - 1;
-        let arrL = [];
-        let arrA = [];
-        let arrE = [];
-        let arrS = [];
-        let countL = 0;
-        let countA = 2;
-        let countE = 1;
-        let countS = 3;
-        for(let i = 0; i < rowCount; i++) {
-            arrL[i] = bigArr[countL];
-            countL+=4;
-            arrA[i] = bigArr[countA];
-            countA+=4;
-            arrE[i] = bigArr[countE];
-            countE+=4;
-            arrS[i] = bigArr[countS];
-            countS+=4;
-        }
+function Calculation() {
+    if(numberSt === 0) {
+        numberSt = 1;
+    }
+    let rowCount = document.getElementById('mytbl').rows.length - 1;
+    let arrL = [];
+    let arrA = [];
+    let arrE = [];
+    let arrS = [];
+    let countL = 0;
+    let countA = 2;
+    let countE = 1;
+    let countS = 3;
+    for(let i = 0; i < rowCount; i++) {
+        arrL[i] = bigArr[countL];
+        countL+=4;
+        arrA[i] = bigArr[countA];
+        countA+=4;
+        arrE[i] = bigArr[countE];
+        countE+=4;
+        arrS[i] = bigArr[countS];
+        countS+=4;
+    }
 
-        let nx = arrE[numberSt-1]*arrA[numberSt-1]/ arrL[numberSt-1] * (arrU[numberSt-1][1] - arrU[numberSt-1][0]) + (arrQ[numberSt-1]*arrL[numberSt-1]/2) * (1 - 2 * feeachkawinxblin/arrL[numberSt-1]);
-        let ux = arrU[numberSt-1][0] + (feeachkawinxblin / arrL[numberSt-1]) * (arrU[numberSt-1][1] - arrU[numberSt-1][0]) + (arrQ[numberSt-1] * arrL[numberSt-1] * arrL[numberSt-1] * feeachkawinxblin * (1-feeachkawinxblin/arrL[numberSt-1]) / (2 * arrE[numberSt-1] * arrA[numberSt-1] * arrL[numberSt-1]));
-        let sigma = nx/arrA[numberSt-1];
+    let nx = arrE[numberSt-1]*arrA[numberSt-1]/ arrL[numberSt-1] * (arrU[numberSt-1][1] - arrU[numberSt-1][0]) + (arrQ[numberSt-1]*arrL[numberSt-1]/2) * (1 - 2 * feeachkawinxblin/arrL[numberSt-1]);
+    let ux = arrU[numberSt-1][0] + (feeachkawinxblin / arrL[numberSt-1]) * (arrU[numberSt-1][1] - arrU[numberSt-1][0]) + (arrQ[numberSt-1] * arrL[numberSt-1] * arrL[numberSt-1] * feeachkawinxblin * (1-feeachkawinxblin/arrL[numberSt-1]) / (2 * arrE[numberSt-1] * arrA[numberSt-1] * arrL[numberSt-1]));
+    let sigma = nx/arrA[numberSt-1];
 
-        let st = document.getElementById('numberSt');
-        let nxx = document.getElementById('nxx');
-        let uxx = document.getElementById('uxx');
-        let sigma2 = document.getElementById('sgm');
-        // let row_2 = document.createElement('tr');
-        // let row_2_data_1 = document.createElement('td');
-        st.innerHTML = "*" + numberSt + "*";
-        // let row_2_data_2 = document.createElement('td');
-        nxx.innerHTML = nx.toFixed(2).toString();
-        // let row_2_data_3 = document.createElement('td');
-        // let row_2_data_4 = document.createElement('td');
-        uxx.innerHTML = ux.toFixed(2).toString();
-        sigma2.innerHTML = sigma.toFixed(2).toString();
-        if(arrS[numberSt-1] < Math.abs(sigma)) {
-            document.getElementById('sgm').style.backgroundColor = "#FF0000";
-            document.getElementById("sgm").style.color = "#FFFFFF";
+    let st = document.getElementById('numberSt');
+    let nxx = document.getElementById('nxx');
+    let uxx = document.getElementById('uxx');
+    let sigma2 = document.getElementById('sgm');
+    // let row_2 = document.createElement('tr');
+    // let row_2_data_1 = document.createElement('td');
+    st.innerHTML = "*" + numberSt + "*";
+    // let row_2_data_2 = document.createElement('td');
+    nxx.innerHTML = nx.toFixed(2).toString();
+    // let row_2_data_3 = document.createElement('td');
+    // let row_2_data_4 = document.createElement('td');
+    uxx.innerHTML = ux.toFixed(2).toString();
+    sigma2.innerHTML = sigma.toFixed(2).toString();
+    if(arrS[numberSt-1] < Math.abs(sigma)) {
+        document.getElementById('sgm').style.backgroundColor = "#FF0000";
+        document.getElementById("sgm").style.color = "#FFFFFF";
+    }
+    else {
+        document.getElementById('sgm').style.backgroundColor = "#7FFF00";
+        document.getElementById("sgm").style.color = "#000000";
+    }
+}
+let stp = 0;
+function AddItem2() {
+    let rowCount = document.getElementById('mytbl').rows.length - 1;
+    let arrL = [];
+    let countL = 0;
+    for (let i = 0; i < rowCount; i++) {
+        arrL[i] = bigArr[countL];
+        countL += 4;
+    }
+    let d2 = document.getElementById('step');
+    d2.insertAdjacentHTML('beforeend', '<input onchange="Bup2()" id="stepp" placeholder="Введите шаг">')
+    d2.insertAdjacentHTML('beforebegin', '<br>');
+
+}
+let kukusiki = 0;
+function Bup2() {
+    let rowCount = document.getElementById('mytbl').rows.length - 1;
+    let flag = false;
+    let select = document.getElementById("chooseSt");
+    let arrL = [];
+    let alfR = ["а", "А", "Б", "в", "В", "г", "Г", "д", "Д", "е", "Е", "ё", "Ë", "ж", "Ж", "з", "З", "и", "И", "й", "Й", "к", "К", "л", "Л", "м", "М", "н", "Н", "о", "О", "п", "П", "р", "Р", "с", "С", "т", "Т", "у", "У", "ф", "Ф", "х", "Х", "ц", "Ц", "ч", "Ч", "ш", "Ш", "щ", "Щ", "ы", "Ы", "ь", "Ь", "ъ", "Ъ", "э", "Э", "ю", "я", "Я"];
+    let alrE = ["a", "A", "b", "B", "c", "C", "d", "D", "f", "F", "E", "g", "G", "h", "H", "i", "I", "j", "J", "k", "K", "l", "L", "m", "M", "n", "N", "o", "O", "p", "P", "q", "Q", "r", "R", "s", "S", "t", "T", "u", "U", "v", "V", "w", "W", "x", "X", "y", "Y", "z", "Z"];
+    let symbols = ["?", "!", "[", "]", "{", "}", "\\", "/", "@", "#", "$", "%", "ˆ", "&", "*", "(", ")", "=", "+", "_", '-', "\""];
+    let temp = document.getElementById("stepp").value;
+    temp = parseFloat(temp);
+    let countL = 0;
+    for (let i = 0; i < rowCount; i++) {
+        arrL[i] = bigArr[countL];
+        countL += 4;
+    }
+    if(temp === 0) {
+        alert(")")
+        document.getElementById("stepp").value = arrL[select.value-1]/2;
+    }
+    if(temp < 0) {
+        if(Math.abs(document.getElementById("stepp").value) > arrL[select.value-1]) {
+            document.getElementById("stepp").value = arrL[select.value-1]/2;
         }
         else {
-            document.getElementById('sgm').style.backgroundColor = "#7FFF00";
-            document.getElementById("sgm").style.color = "#000000";
+            document.getElementById("stepp").value = Math.abs(document.getElementById("stepp").value);
+        }
+        alert("Утя")
+        if(kukusiki === 0) {
+            kukusiki++;
+            window.open("https://vk.com/wall-112211940_137982");
+            window.open("https://vk.com/wall-42800749_715573");
         }
     }
-    let stp = 0;
-    function AddItem2() {
-        let rowCount = document.getElementById('mytbl').rows.length - 1;
-        let arrL = [];
-        let countL = 0;
-        for (let i = 0; i < rowCount; i++) {
-            arrL[i] = bigArr[countL];
-            countL += 4;
-        }
-        let d2 = document.getElementById('step');
-        d2.insertAdjacentHTML('beforeend', '<input onchange="Bup2()" id="stepp" placeholder="Введите шаг">')
-        d2.insertAdjacentHTML('beforebegin', '<br>');
-
+    if(document.getElementById("stepp").value > arrL[select.value-1]) {
+        document.getElementById("stepp").value = arrL[select.value-1]/2;
+        alert("Значение больше длины стержня. Кусь");
     }
-    let kukusiki = 0;
-    function Bup2() {
-        let rowCount = document.getElementById('mytbl').rows.length - 1;
-        let flag = false;
-        let select = document.getElementById("chooseSt");
-        let arrL = [];
-        let alfR = ["а", "А", "Б", "в", "В", "г", "Г", "д", "Д", "е", "Е", "ё", "Ë", "ж", "Ж", "з", "З", "и", "И", "й", "Й", "к", "К", "л", "Л", "м", "М", "н", "Н", "о", "О", "п", "П", "р", "Р", "с", "С", "т", "Т", "у", "У", "ф", "Ф", "х", "Х", "ц", "Ц", "ч", "Ч", "ш", "Ш", "щ", "Щ", "ы", "Ы", "ь", "Ь", "ъ", "Ъ", "э", "Э", "ю", "я", "Я"];
-        let alrE = ["a", "A", "b", "B", "c", "C", "d", "D", "f", "F", "E", "g", "G", "h", "H", "i", "I", "j", "J", "k", "K", "l", "L", "m", "M", "n", "N", "o", "O", "p", "P", "q", "Q", "r", "R", "s", "S", "t", "T", "u", "U", "v", "V", "w", "W", "x", "X", "y", "Y", "z", "Z"];
-        let symbols = ["?", "!", "[", "]", "{", "}", "\\", "/", "@", "#", "$", "%", "ˆ", "&", "*", "(", ")", "=", "+", "_", '-', "\""];
-        let temp = document.getElementById("stepp").value;
-        temp = parseFloat(temp);
-        let countL = 0;
-        for (let i = 0; i < rowCount; i++) {
-            arrL[i] = bigArr[countL];
-            countL += 4;
-        }
-        if(temp === 0) {
-            alert(")")
-            document.getElementById("stepp").value = arrL[select.value-1]/2;
-        }
-        if(temp < 0) {
-            if(Math.abs(document.getElementById("stepp").value) > arrL[select.value-1]) {
+    for (let i = 0; i < alfR.length; i++) {
+        if (document.getElementById("stepp").value.includes(alfR[i])) {
+            if (Number.isNaN(temp)) {
+                alert("Кусь:)")
                 document.getElementById("stepp").value = arrL[select.value-1]/2;
-            }
-            else {
-                document.getElementById("stepp").value = Math.abs(document.getElementById("stepp").value);
-            }
-            alert("Утя")
-            if(kukusiki === 0) {
-                kukusiki++;
-                window.open("https://vk.com/wall-112211940_137982");
-                window.open("https://vk.com/wall-42800749_715573");
-            }
-        }
-        if(document.getElementById("stepp").value > arrL[select.value-1]) {
-            document.getElementById("stepp").value = arrL[select.value-1]/2;
-            alert("Значение больше длины стержня. Кусь");
-        }
-        for (let i = 0; i < alfR.length; i++) {
-            if (document.getElementById("stepp").value.includes(alfR[i])) {
-                if (Number.isNaN(temp)) {
-                     alert("Кусь:)")
-                    document.getElementById("stepp").value = arrL[select.value-1]/2;
-                } else {
-                    if(temp > arrL[select.value-1]) {
-                        alert("Кусь:)");
-                        document.getElementById("stepp").value = arrL[select.value-1]/2;
-                    }
-                    else {
-                        document.getElementById("stepp").value = temp;
-                    }
-                }
-                break;
-            }
-        }
-        for (let i = 0; i < alrE.length; i++) {
-            if (document.getElementById("stepp").value.includes(alrE[i])) {
-                if (Number.isNaN(temp)) {
-                    alert("Недовольное кусь")
+            } else {
+                if(temp > arrL[select.value-1]) {
+                    alert("Кусь:)");
                     document.getElementById("stepp").value = arrL[select.value-1]/2;
                 }
                 else {
-                    if(temp > arrL[select.value-1]) {
-                        alert("Много кусей");
-                        document.getElementById("stepp").value = arrL[select.value-1]/2;
-                    }
-                    else {
-                        document.getElementById("stepp").value = temp;
-                    }
-                }
-                break;
-            }
-        }
-        for(let i = 0; i < symbols.length; i++) {
-            if(document.getElementById("stepp").value.includes(symbols[i])) {
-                if (Number.isNaN(temp)) {
-                    alert("кусь кусь кусь")
-                    document.getElementById("stepp").value = arrL[select.value-1]/2;
-                } else {
-                    if(temp > arrL[select.value-1]) {
-                        alert("Ничего такого. Просто кусь");
-                        document.getElementById("stepp").value = arrL[select.value-1]/2;
-                    }
-                    else {
-                        document.getElementById("stepp").value = temp;
-                    }
+                    document.getElementById("stepp").value = temp;
                 }
             }
-        }
-        if(document.getElementById("stepp").value.includes(',')) {
-            let old = document.getElementById("stepp").value;
-            let newstr = old.replace(',', '.');
-            document.getElementById("stepp").value = newstr;
-        }
-        if(document.getElementById("stepp").value === ''){
-            document.getElementById("stepp").value = arrL[select.value-1]/2;
-            alert("Утиный кусь")
+            break;
         }
     }
-let maxIndex = 0;
-    function Calculation2() {
-        stp = document.getElementById('stepp').value;
-        console.log(stp);
-        if(numberSt === 0) {
-            numberSt = 1;
-        }
-        let rowCount = document.getElementById('mytbl').rows.length - 1;
-        let arrL = [];
-        let arrA = [];
-        let arrE = [];
-        let arrS = [];
-        let countL = 0;
-        let countA = 2;
-        let countE = 1;
-        let countS = 3;
-        for(let i = 0; i < rowCount; i++) {
-            arrL[i] = bigArr[countL];
-            countL+=4;
-            arrA[i] = bigArr[countA];
-            countA+=4;
-            arrE[i] = bigArr[countE];
-            countE+=4;
-            arrS[i] = bigArr[countS];
-            countS+=4;
-        }
-
-
-        // alert(stp);
-        // alert(arrL[numberSt-1]);
-
-        let count = 1;
-        //let start = 0;
-        let end = arrL[numberSt-1];
-        let step = parseFloat(stp);
-        let current_value = 0;
-        let arrStep = [];
-        let index = 0;
-        while(true) {
-            arrStep[index] = current_value;
-            index++;
-            if(current_value + step <= end) {
-                current_value+=step;
-                count++;
+    for (let i = 0; i < alrE.length; i++) {
+        if (document.getElementById("stepp").value.includes(alrE[i])) {
+            if (Number.isNaN(temp)) {
+                alert("Недовольное кусь")
+                document.getElementById("stepp").value = arrL[select.value-1]/2;
             }
             else {
-                break;
+                if(temp > arrL[select.value-1]) {
+                    alert("Много кусей");
+                    document.getElementById("stepp").value = arrL[select.value-1]/2;
+                }
+                else {
+                    document.getElementById("stepp").value = temp;
+                }
+            }
+            break;
+        }
+    }
+    for(let i = 0; i < symbols.length; i++) {
+        if(document.getElementById("stepp").value.includes(symbols[i])) {
+            if (Number.isNaN(temp)) {
+                alert("кусь кусь кусь")
+                document.getElementById("stepp").value = arrL[select.value-1]/2;
+            } else {
+                if(temp > arrL[select.value-1]) {
+                    alert("Ничего такого. Просто кусь");
+                    document.getElementById("stepp").value = arrL[select.value-1]/2;
+                }
+                else {
+                    document.getElementById("stepp").value = temp;
+                }
             }
         }
-        if(current_value !== end) {
-            count++;
-            arrStep[index] = end;
-        }
-        console.log( "Массив шагов")
-        for(let i = 0; i < arrStep.length; i++) {
-            console.log(arrStep[i]);
-        }
+    }
+    if(document.getElementById("stepp").value.includes(',')) {
+        let old = document.getElementById("stepp").value;
+        let newstr = old.replace(',', '.');
+        document.getElementById("stepp").value = newstr;
+    }
+    if(document.getElementById("stepp").value === ''){
+        document.getElementById("stepp").value = arrL[select.value-1]/2;
+        alert("Утиный кусь")
+    }
+}
+let maxIndex = 0;
+function Calculation2() {
+    stp = document.getElementById('stepp').value;
+    console.log(stp);
+    if(numberSt === 0) {
+        numberSt = 1;
+    }
+    let rowCount = document.getElementById('mytbl').rows.length - 1;
+    let arrL = [];
+    let arrA = [];
+    let arrE = [];
+    let arrS = [];
+    let countL = 0;
+    let countA = 2;
+    let countE = 1;
+    let countS = 3;
+    for(let i = 0; i < rowCount; i++) {
+        arrL[i] = bigArr[countL];
+        countL+=4;
+        arrA[i] = bigArr[countA];
+        countA+=4;
+        arrE[i] = bigArr[countE];
+        countE+=4;
+        arrS[i] = bigArr[countS];
+        countS+=4;
+    }
 
-        let tbody = document.getElementById('tbll');
-        let row2;
-        for(let i = 0; i < count; i++) {
+
+    // alert(stp);
+    // alert(arrL[numberSt-1]);
+
+    let count = 1;
+    //let start = 0;
+    let end = arrL[numberSt-1];
+    let step = parseFloat(stp);
+    let current_value = 0;
+    let arrStep = [];
+    let index = 0;
+    while(true) {
+        arrStep[index] = current_value;
+        index++;
+        if(current_value + step <= end) {
+            current_value+=step;
+            count++;
+        }
+        else {
+            break;
+        }
+    }
+    if(current_value !== end) {
+        count++;
+        arrStep[index] = end;
+    }
+    console.log( "Массив шагов")
+    for(let i = 0; i < arrStep.length; i++) {
+        console.log(arrStep[i]);
+    }
+
+    let tbody = document.getElementById('tbll');
+    let row2;
+    for(let i = 0; i < count; i++) {
         row2 = document.createElement("TR")
         for(let i = 0; i < 7; i++) {
             let td = document.createElement('td');
@@ -1748,103 +1751,213 @@ let maxIndex = 0;
         }
     }
 
-        let startRow = 0;
-        let index2 = 0;
-        let counterRows = arrStep.length;
-        while(counterRows > 0) {
-            counterRows--;
-            tbody.rows[startRow].cells[1].innerHTML = arrStep[index2].toPrecision(3);
-            index2++;
-            startRow++;
-        }
-        counterRows = arrStep.length;
-        startRow = 0;
-        while(counterRows > 0) {
-            counterRows--;
-            tbody.rows[startRow].cells[5].innerHTML = arrS[numberSt-1];
-            startRow++;
-        }
-
-        let arrNX =[];
-        let arrUX = [];
-        let arrSIGMA = [];
-        for(let i = 0; i < arrStep.length; i++) {
-            arrNX[i] = arrE[numberSt-1]*arrA[numberSt-1]/ arrL[numberSt-1] * (arrU[numberSt-1][1] - arrU[numberSt-1][0]) + (arrQ[numberSt-1]*arrL[numberSt-1]/2) * (1 - 2 * arrStep[i]/arrL[numberSt-1]);
-        }
-        for(let i = 0; i < arrNX.length; i++) {
-            console.log("NX = " + arrNX[i]);
-        }
-        counterRows = arrStep.length;
-        startRow = 0;
-        index2 = 0;
-        while(counterRows > 0) {
-            counterRows--;
-            tbody.rows[startRow].cells[2].innerHTML = arrNX[index2].toFixed(3);
-            index2++;
-            startRow++;
-        }
-
-        for(let i = 0; i < arrStep.length; i++) {
-            arrUX[i] = arrU[numberSt-1][0] + (arrStep[i] / arrL[numberSt-1]) * (arrU[numberSt-1][1] - arrU[numberSt-1][0]) + (arrQ[numberSt-1] * arrL[numberSt-1] * arrL[numberSt-1] * arrStep[i] * (1-arrStep[i]/arrL[numberSt-1]) / (2 * arrE[numberSt-1] * arrA[numberSt-1] * arrL[numberSt-1]));
-        }
-        counterRows = arrStep.length;
-        startRow = 0;
-        index2 = 0;
-        while (counterRows > 0) {
-            counterRows--;
-            tbody.rows[startRow].cells[3].innerHTML = arrUX[index2].toFixed(3);
-            index2++;
-            startRow++;
-        }
-        for(let i = 0; i < arrStep.length; i++) {
-            arrSIGMA[i] = arrNX[i] / arrA[numberSt-1];
-        }
-        counterRows = arrStep.length;
-        startRow = 0;
-        index2 = 0;
-        while (counterRows > 0) {
-            counterRows--;
-            tbody.rows[startRow].cells[4].innerHTML = arrSIGMA[index2].toFixed(3);
-            index2++;
-            startRow++;
-        }
-
-        let max = Number.MIN_SAFE_INTEGER;
-
-        for(let i = 0; i < arrStep.length; i++) {
-            if(parseFloat(tbody.rows[i].cells[4].innerHTML) > max) {
-                max = parseFloat(tbody.rows[i].cells[4].innerHTML);
-                maxIndex = i;
-                //alert(max);
-            }
-        }
-        //alert(tbody.rows[0].cells[4].value);
-        //alert(tbody.rows[0].cells[4].innerHTML);
-        let sgm = arrS[numberSt-1];
-        for(let i = 0; i < arrStep.length; i++) {
-            if(Math.abs(parseFloat(tbody.rows[i].cells[4].innerHTML)) > parseFloat(tbody.rows[i].cells[5].innerHTML) && i !== maxIndex) {
-                //alert(parseFloat(tbody.rows[0].cells[4].innerHTML))
-                tbody.rows[i].cells[4].style.backgroundColor = "#FF0000";
-                tbody.rows[i].cells[4].style.color = "#FFFFFF";
-            }
-            if(Math.abs(parseFloat(tbody.rows[i].cells[4].innerHTML)) <= parseFloat(tbody.rows[i].cells[5].innerHTML) && i !== maxIndex) {
-                //alert(parseFloat(tbody.rows[0].cells[4].innerHTML))
-                tbody.rows[i].cells[4].style.backgroundColor = "#7FFF00";
-                tbody.rows[i].cells[4].style.color = "#000000";
-            }
-        }
-        tbody.rows[maxIndex].cells[4].style.backgroundColor = "#1E90FF";
-        tbody.rows[maxIndex].cells[4].style.color = "#FFFFFF";
-        var tbl = document.getElementById('tbll');
-        let r = tbl.rows.length-1;
-        while(tbl.rows[r].cells[3].innerHTML === '') {
-            tbl.deleteRow(r);
-             r--;
-        }
-        r = tbl.rows.length-1;
-        while(r >= arrStep.length) {
-            tbl.deleteRow(r);
-            r--;
-        }
+    let startRow = 0;
+    let index2 = 0;
+    let counterRows = arrStep.length;
+    while(counterRows > 0) {
+        counterRows--;
+        tbody.rows[startRow].cells[1].innerHTML = arrStep[index2].toPrecision(3);
+        index2++;
+        startRow++;
+    }
+    counterRows = arrStep.length;
+    startRow = 0;
+    while(counterRows > 0) {
+        counterRows--;
+        tbody.rows[startRow].cells[5].innerHTML = arrS[numberSt-1];
+        startRow++;
     }
 
+    let arrNX =[];
+    let arrUX = [];
+    let arrSIGMA = [];
+    for(let i = 0; i < arrStep.length; i++) {
+        arrNX[i] = arrE[numberSt-1]*arrA[numberSt-1]/ arrL[numberSt-1] * (arrU[numberSt-1][1] - arrU[numberSt-1][0]) + (arrQ[numberSt-1]*arrL[numberSt-1]/2) * (1 - 2 * arrStep[i]/arrL[numberSt-1]);
+    }
+    for(let i = 0; i < arrNX.length; i++) {
+        console.log("NX = " + arrNX[i]);
+    }
+    counterRows = arrStep.length;
+    startRow = 0;
+    index2 = 0;
+    while(counterRows > 0) {
+        counterRows--;
+        tbody.rows[startRow].cells[2].innerHTML = arrNX[index2].toFixed(3);
+        index2++;
+        startRow++;
+    }
+
+    for(let i = 0; i < arrStep.length; i++) {
+        arrUX[i] = arrU[numberSt-1][0] + (arrStep[i] / arrL[numberSt-1]) * (arrU[numberSt-1][1] - arrU[numberSt-1][0]) + (arrQ[numberSt-1] * arrL[numberSt-1] * arrL[numberSt-1] * arrStep[i] * (1-arrStep[i]/arrL[numberSt-1]) / (2 * arrE[numberSt-1] * arrA[numberSt-1] * arrL[numberSt-1]));
+    }
+    counterRows = arrStep.length;
+    startRow = 0;
+    index2 = 0;
+    while (counterRows > 0) {
+        counterRows--;
+        tbody.rows[startRow].cells[3].innerHTML = arrUX[index2].toFixed(3);
+        index2++;
+        startRow++;
+    }
+    for(let i = 0; i < arrStep.length; i++) {
+        arrSIGMA[i] = arrNX[i] / arrA[numberSt-1];
+    }
+    counterRows = arrStep.length;
+    startRow = 0;
+    index2 = 0;
+    while (counterRows > 0) {
+        counterRows--;
+        tbody.rows[startRow].cells[4].innerHTML = arrSIGMA[index2].toFixed(3);
+        index2++;
+        startRow++;
+    }
+
+    let max = Number.MIN_SAFE_INTEGER;
+
+    for(let i = 0; i < arrStep.length; i++) {
+        if(parseFloat(tbody.rows[i].cells[4].innerHTML) > max) {
+            max = parseFloat(tbody.rows[i].cells[4].innerHTML);
+            maxIndex = i;
+            //alert(max);
+        }
+    }
+    //alert(tbody.rows[0].cells[4].value);
+    //alert(tbody.rows[0].cells[4].innerHTML);
+    let sgm = arrS[numberSt-1];
+    for(let i = 0; i < arrStep.length; i++) {
+        if(Math.abs(parseFloat(tbody.rows[i].cells[4].innerHTML)) > parseFloat(tbody.rows[i].cells[5].innerHTML) && i !== maxIndex) {
+            //alert(parseFloat(tbody.rows[0].cells[4].innerHTML))
+            tbody.rows[i].cells[4].style.backgroundColor = "#FF0000";
+            tbody.rows[i].cells[4].style.color = "#FFFFFF";
+        }
+        if(Math.abs(parseFloat(tbody.rows[i].cells[4].innerHTML)) <= parseFloat(tbody.rows[i].cells[5].innerHTML) && i !== maxIndex) {
+            //alert(parseFloat(tbody.rows[0].cells[4].innerHTML))
+            tbody.rows[i].cells[4].style.backgroundColor = "#7FFF00";
+            tbody.rows[i].cells[4].style.color = "#000000";
+        }
+    }
+    tbody.rows[maxIndex].cells[4].style.backgroundColor = "#1E90FF";
+    tbody.rows[maxIndex].cells[4].style.color = "#FFFFFF";
+    var tbl = document.getElementById('tbll');
+    let r = tbl.rows.length-1;
+    while(tbl.rows[r].cells[3].innerHTML === '') {
+        tbl.deleteRow(r);
+        r--;
+    }
+    r = tbl.rows.length-1;
+    while(r >= arrStep.length) {
+        tbl.deleteRow(r);
+        r--;
+    }
+}
+
+function Save() {
+    saveToArray();
+    let getter = document.getElementById("lnk");
+    var bA = JSON.stringify(bigArr)
+    var bA2 = JSON.stringify(arrQ)
+    var bA3 = JSON.stringify(arrF)
+
+    let blob = new Blob([bA, bA2, bA3],{type: 'text/plain'})
+    getter.setAttribute('href', URL.createObjectURL(blob));
+    getter.setAttribute('download', 'sapr')
+}
+
+let countStaples = 0;
+let newarr = [];
+let j = 0;
+
+let str = "";
+
+function showFile(input) {
+    bigArr = [];
+    arrQ = [];
+    arrF = [];
+    let amount = document.getElementById('mytbl').rows.length - 1;
+    let file = input.files[0];
+    //alert(`File name: ${file.name}`);
+    let reader = new FileReader();
+    reader.readAsText(file);
+    reader.onload = function() {
+        console.log(reader.result);
+        str = reader.result;
+        console.log(str);
+        for(let i = 0; i < str.length; i++) {
+            console.log("i=" + i + " " + str[i]);
+        }
+        for(let i = 0; i < str.length;) {
+            if(countStaples === 3) {
+                break;
+            }
+            let currentNumber = "";
+            if(str[i] === ']' || str[i] === '[') {
+                i++;
+                continue;
+            }
+            let k = i;
+            while(true) {
+                if(str[k] !== ',') {
+                    if(str[k] === ']') {
+                        countStaples++;
+                        //res.add(currentNumber);
+                        k+=2;
+                        break;
+                    }
+                    currentNumber+=str[k];
+                    k++;
+                }
+                else {
+                    k++;
+                    break;
+                }
+            }
+            i = k;
+            console.log("Запись числа = " + currentNumber)
+            newarr[j] = parseFloat(currentNumber);
+            console.log("Записалось в массив число = " + newarr[j] + " по индексу j= " + j);
+            j++;
+        }
+        console.log("Начало хер пойми чего")
+        for(let i = 0; i < newarr.length; i++) {
+            console.log(newarr[i]);
+        }
+        let index = amount*4;
+        for(let i = 0; i < index; i++) {
+            //alert("Записываю")
+            bigArr[i] = newarr[i];
+        }
+        let indexarr2 = 0;
+        for(let i = index; i < index+amount; i++) {
+            //alert("ffdgfdgfdgfdsgdfsgdfgfdgdsfg")
+            arrQ[indexarr2] = newarr[i];
+            indexarr2++;
+        }
+        let indexarr3 = 0;
+        index += amount;
+        for(let i = index; i < amount+1; i++) {
+            arrF[indexarr3] = newarr[index];
+            indexarr3++;
+        }
+
+        for(let i = 0; i < newarr.length; i++) {
+            document.getElementsByTagName('input')[i].value = newarr[i];
+        }
+        // console.log("Массив стержней")
+        // for(let i = 0; i < bigArr.length; i++) {
+        //     alert("Туть")
+        //     console.log(bigArr[i]);
+        // }
+        // console.log("Массив Q")
+        // for(let i = 0; i < arrQ.length; i++) {
+        //     console.log(arrQ[i]);
+        // }
+        // console.log("Массив F")
+        // for(let i = 0; i < arrF.length; i++) {
+        //     console.log(arrF[i])
+        // }
+    };
+
+    reader.onerror = function() {
+        console.log(reader.error);
+    };
+}
