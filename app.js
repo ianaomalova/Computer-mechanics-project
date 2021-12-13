@@ -269,6 +269,9 @@ function saveToArray() {
 
     for (let i = 0; i < count; i++) {
         bigArr[i] = parseFloat(document.getElementsByTagName("input")[i].value);
+        if(bigArr[i] < 0) {
+            bigArr[i] = Math.abs(bigArr[i]);
+        }
         if(isNaN(bigArr[i])) {
             bigArr[i] = 1;
         }
