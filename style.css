@@ -42,7 +42,8 @@ table tr td:first-child::before {
 }
 
 body {
-    background-image: url("https://image.freepik.com/free-vector/duck-seamless-pattern-background_42349-10.jpg");
+    background-image: url("duck-seamless-pattern-background_42349-10.webp");
+    /*background-image: url("https://image.freepik.com/free-vector/duck-seamless-pattern-background_42349-10.jpg");*/
 }
 .gradient-button {
     text-decoration: none;
@@ -88,7 +89,7 @@ body {
 
 #radiobtn {
     background-image: url("duck-seamless-pattern-background_42349-10.webp");
-    //background-image: url("https://image.freepik.com/free-vector/duck-seamless-pattern-background_42349-10.jpg");
+    /*background-image: url("https://image.freepik.com/free-vector/duck-seamless-pattern-background_42349-10.jpg");*/
 }
 
 /*hr {*/
