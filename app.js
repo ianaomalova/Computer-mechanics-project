@@ -1885,6 +1885,29 @@ function showFile(input) {
         console.log(reader.result);
         str = reader.result;
         console.log(str);
+        let countItem = 0;
+        let ind = 1;
+
+        while(true) {
+            if(str[ind] !== ']') {
+                if(str[ind] !== ',') {
+                    countItem++;
+                    ind++;
+                }
+                else {
+                    ind++;
+                }
+            }
+            else {
+                break;
+            }
+        }
+        amount = countItem / 4;
+        //alert(countItem);
+        for(let i = 0; i < amount; i++) {
+            AddRow();
+        }
+        inputForces();
         for(let i = 0; i < str.length; i++) {
             console.log("i=" + i + " " + str[i]);
         }
