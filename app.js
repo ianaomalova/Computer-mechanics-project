@@ -1860,8 +1860,14 @@ function Save() {
     var bA = JSON.stringify(bigArr)
     var bA2 = JSON.stringify(arrQ)
     var bA3 = JSON.stringify(arrF)
-
-    let blob = new Blob([bA, bA2, bA3],{type: 'text/plain'})
+    var rad=document.getElementsByName('r1');
+    for (var i=0;i<rad.length; i++) {
+        if (rad[i].checked) {
+            choose = i;
+            //alert('Выбран '+i+' radiobutton');
+        }
+    }
+    let blob = new Blob([bA, bA2, bA3, choose.toString()],{type: 'text/plain'})
     getter.setAttribute('href', URL.createObjectURL(blob));
     getter.setAttribute('download', 'sapr')
 }
@@ -1960,6 +1966,10 @@ function showFile(input) {
         for(let i = 0; i < newarr.length; i++) {
             document.getElementsByTagName('input')[i].value = newarr[i];
         }
+        let last = str.slice(-1);
+        choose = last;
+        var rad=document.getElementsByName('r1');
+        rad[choose].checked = true;
         // console.log("Массив стержней")
         // for(let i = 0; i < bigArr.length; i++) {
         //     alert("Туть")
