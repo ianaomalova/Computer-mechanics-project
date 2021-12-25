@@ -7,6 +7,9 @@ let bum = 0;
 let bum3 = 0;
 let bum2 = 0;
 var counter2 = 1; //счетчик строк
+var data1 = [];
+var data2 = [];
+var data3 = [];
 function AddRow() {
     const $tbl = document.getElementById("maintabl");
     const mytable = document.getElementById('mytbl');
@@ -188,6 +191,18 @@ function DeleteRow() {
     amountForcesF.deleteRow(lastRowF);
 }
 
+function Getter() {
+    // alert("ало")
+    // alert(data2[0])
+    const $tb = document.getElementById("tb2");
+    let countfortb2 = document.getElementById('mytbl').rows.length - 1;
+    countfortb2*=4;
+    for(let i = 0; i < data2.length; i++) {
+        document.getElementsByTagName('input')[countfortb2].value = data2[i];
+        countfortb2++;
+        //alert(data2[i].toString())
+    }
+}
 function inputForces() {
     let rowCount = document.getElementById('mytbl').rows.length - 1;
     counter2 = rowCount+1;
@@ -206,6 +221,7 @@ function inputForces() {
         $access1.insertAdjacentHTML("beforeend", "<td><text></text></td>")
         $access1.insertAdjacentHTML("beforeend", "<td><input value=0 step=any></td>")
         counter2++;
+        //alert(data2.length);
     }
     for (let i = 0; i < nodeCount; i++) {
         $tb2.insertAdjacentHTML("beforeend", "<tr></tr>");
@@ -215,6 +231,26 @@ function inputForces() {
         counter2++;
     }
 
+
+    let countfortb2 = document.getElementById('mytbl').rows.length - 1;
+    if(data2.length !== 0) {
+        countfortb2*=4;
+        for(let i = 0; i < data2.length; i++) {
+            document.getElementsByTagName('input')[countfortb2].value = data2[i];
+            countfortb2++;
+            //alert(data2[i].toString())
+        }
+    }
+    let tmp = document.getElementById('mytbl').rows.length - 1;
+    tmp *=4;
+    countfortb2 = document.getElementById('tb2').rows.length + tmp;
+    if(data3.length !== 0) {
+        //let countfottb3 = document.getElementById('tb2').rows.length;
+        for(let i = 0; i < data3.length; i++) {
+            document.getElementsByTagName('input')[countfortb2].value = data3[i];
+            countfortb2++;
+        }
+    }
     function onChange(evt) {
         let flag = false;
         let alfR = ["а", "А", "Б", "б", "ю", "в", "В", "г", "Г", "д", "Д", "е", "Е", "ё", "Ë", "ж", "Ж", "з", "З", "и", "И", "й", "Й", "к", "К", "л", "Л", "м", "М", "н", "Н", "о", "О", "п", "П", "р", "Р", "с", "С", "т", "Т", "у", "У", "ф", "Ф", "х", "Х", "ц", "Ц", "ч", "Ч", "ш", "Ш", "щ", "Щ", "ы", "Ы", "ь", "Ь", "ъ", "Ъ", "э", "Э", "ю", "я", "Я"];
@@ -276,6 +312,7 @@ function inputForces() {
         if(bum2 === 3) {
             window.open("https://drive.google.com/drive/folders/13UTZfPWXSPKrxk5hhLvxCBr44Cyimzhc");
         }
+
     }
 
     const elems = document.getElementsByTagName("input");
@@ -648,20 +685,21 @@ function draw1() {
 
 }
 
+
 function f1() {
     saveToArray();
     let amount = document.getElementById('mytbl').rows.length -1 ;
     //let text = document.getElementById("coockies");
     //const $feechkaWinxBlin = document.getElementById("coockies").value;
     var bA = JSON.stringify(bigArr)
-    $.cookie('bigArr', bA, { expires: 7 });
+    $.cookie('bigArr', bA);
     var q = JSON.stringify(arrQ)
     $.cookie('arrQ', q);
     var f = JSON.stringify(arrF)
     $.cookie('arrF', f);
-    var data1=JSON.parse($.cookie("bigArr"))
-    var data2=JSON.parse($.cookie("arrQ"))
-    var data3=JSON.parse($.cookie("arrF"))
+    data1=JSON.parse($.cookie("bigArr"))
+    data2=JSON.parse($.cookie("arrQ"))
+    data3=JSON.parse($.cookie("arrF"))
     //$.cookie($feechkaWinxBlin, bA, { expires: 7 });
     //alert(document.cookie)
     // alert(data1)
