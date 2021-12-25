@@ -1,21 +1,25 @@
 var bigArr = [];
 var arrQ = []
 var arrF = []
+var arrQCoockies = [];
+var arrFCoockies = [];
 let bum = 0;
 let bum3 = 0;
 let bum2 = 0;
 var counter2 = 1; //счетчик строк
-
 function AddRow() {
     const $tbl = document.getElementById("maintabl");
+    const mytable = document.getElementById('mytbl');
+    //alert(mytable.rows.length);
+    //let r = tbl.rows.length-1;
     $tbl.insertAdjacentHTML("beforeend", "<tr></tr>");
-    var $access = document.getElementsByTagName("tr")[counter2];
+    var $access = document.getElementsByTagName("tr")[mytable.rows.length-1];
     $access.insertAdjacentHTML("beforeend", "<td><text></text></td>")
     $access.insertAdjacentHTML("beforeend", "<td><input value=1 min='0' step=any></td>")
     $access.insertAdjacentHTML("beforeend", "<td><input value=1 min='0' step=any></td>")
     $access.insertAdjacentHTML("beforeend", "<td><input value=1 min='0' step=any></td>")
     $access.insertAdjacentHTML("beforeend", "<td><input value=1 min='0' step=any></td>")
-    counter2++;
+    //counter2++;
     function onChange(evt) {
         let flag = false;
         //document.querySelector(".result").innerHTML = evt.target.value;
@@ -167,12 +171,35 @@ function AddRow() {
     }
 
 }
+function DeleteRow() {
+    const mainTable = document.getElementById('mytbl');
+    let lastRow = mainTable.rows.length - 1;
+    if(lastRow !== 0) {
+        mainTable.deleteRow(lastRow);
+    }
+    else {
+        alert("Хочется простого человеческого сдать теорвер")
+    }
+    const amountForcesQ = document.getElementById('tb2');
+    const amountForcesF = document.getElementById('tb3');
+    let lastRowQ = amountForcesQ.rows.length-1;
+    let lastRowF = amountForcesF.rows.length-1;
+    amountForcesQ.deleteRow(lastRowQ);
+    amountForcesF.deleteRow(lastRowF);
+}
 
 function inputForces() {
     let rowCount = document.getElementById('mytbl').rows.length - 1;
+    counter2 = rowCount+1;
     let nodeCount = rowCount + 1;
     const $tb = document.getElementById("tb2");
     const $tb2 = document.getElementById("tb3");
+    while ($tb.rows.length >= 1) {
+        $tb.deleteRow($tb.rows.length-1);
+    }
+    while ($tb2.rows.length >= 1) {
+        $tb2.deleteRow($tb2.rows.length-1);
+    }
     for (let i = 0; i < rowCount; i++) {
         $tb.insertAdjacentHTML("beforeend", "<tr></tr>");
         var $access1 = document.getElementsByTagName("tr")[counter2 + 1];
@@ -1888,6 +1915,7 @@ function showFile(input) {
     let reader = new FileReader();
     reader.readAsText(file);
     reader.onload = function() {
+        //alert(reader.result);
         console.log(reader.result);
         str = reader.result;
         console.log(str);
@@ -1902,6 +1930,7 @@ function showFile(input) {
         }
         amount = countItem / 4;
         //alert(countItem);
+        //ClearTables();
         for(let i = 0; i < amount; i++) {
             AddRow();
         }
@@ -1944,16 +1973,20 @@ function showFile(input) {
         console.log("Начало хер пойми чего")
         for(let i = 0; i < newarr.length; i++) {
             console.log(newarr[i]);
+            //alert(newarr[i]);
         }
         let index = amount*4;
         for(let i = 0; i < index; i++) {
             //alert("Записываю")
             bigArr[i] = newarr[i];
+            //alert(bigArr[i]);
         }
+        console.log("Считывание файла и запись в массивы!!!")
         let indexarr2 = 0;
         for(let i = index; i < index+amount; i++) {
             //alert("ffdgfdgfdgfdsgdfsgdfgfdgdsfg")
             arrQ[indexarr2] = newarr[i];
+            //console.log("i = " + i + " indexarr2 = " + indexarr2 + " значение = " + newarr[i] + " " + arrQ[indexarr2]);
             indexarr2++;
         }
         let indexarr3 = 0;
@@ -1965,6 +1998,7 @@ function showFile(input) {
 
         for(let i = 0; i < newarr.length; i++) {
             document.getElementsByTagName('input')[i].value = newarr[i];
+            console.log("i = " + i + " input= " + document.getElementsByTagName("input")[i].value);
         }
         let last = str.slice(-1);
         choose = last;
