@@ -348,8 +348,72 @@ function Input() {
     $access2.insertAdjacentHTML("beforeend", "<td><text></text></td>")
     $access2.insertAdjacentHTML("beforeend", "<td><input  value=0 step=any></td>")
     var div = document.getElementById('tb2');
-
+    var div2 = document.getElementById('tb3');
     div.addEventListener('change', function(event) {
+        var target = event.target.value;
+        //alert(target); //выведет 'p' - абзац
+        let flag = false;
+        let alfR = ["а", "А", "Б", "б", "ю", "в", "В", "г", "Г", "д", "Д", "е", "Е", "ё", "Ë", "ж", "Ж", "з", "З", "и", "И", "й", "Й", "к", "К", "л", "Л", "м", "М", "н", "Н", "о", "О", "п", "П", "р", "Р", "с", "С", "т", "Т", "у", "У", "ф", "Ф", "х", "Х", "ц", "Ц", "ч", "Ч", "ш", "Ш", "щ", "Щ", "ы", "Ы", "ь", "Ь", "ъ", "Ъ", "э", "Э", "ю", "я", "Я"];
+        let alrE = ["a", "A", "b", "B", "c", "C", "d", "D", "f", "F", "E", "g", "G", "h", "H", "i", "I", "j", "J", "k", "K", "l", "L", "m", "M", "n", "N", "o", "O", "p", "P", "q", "Q", "r", "R", "s", "S", "t", "T", "u", "U", "v", "V", "w", "W", "x", "X", "y", "Y", "z", "Z"];
+        let symbols = ["?", "!", "[", "]", "{", "}", "\\", "/", "@", "#", "$", "%", "ˆ", "&", "*", "(",")", "=", "+", "_", "\""];
+        let temp = event.target.value;
+        temp = parseFloat(temp)
+        for(let i = 0; i < alfR.length; i++) {
+            if(event.target.value.includes(alfR[i]) && flag === false) {
+                bum2++;
+                flag = true;
+                if(Number.isNaN(temp)) {
+                    event.target.value = 1;
+                }
+                else {
+                    event.target.value = temp;
+                }
+                alert("Кусь");
+                break;
+            }
+        }
+        for(let i = 0; i < alrE.length; i++) {
+            if(event.target.value.includes(alrE[i]) && flag === false) {
+                bum2++;
+                flag = true;
+                if(Number.isNaN(temp)) {
+                    event.target.value = 1;
+                }
+                else {
+                    event.target.value = temp;
+                }
+                alert("Кусь!");
+                break;
+            }
+        }
+        for(let i = 0; i < symbols.length; i++) {
+            if(event.target.value.includes(symbols[i]) && flag === false) {
+                bum2++;
+                flag = true;
+                if(Number.isNaN(temp)) {
+                    event.target.value = 1;
+                }
+                else {
+                    event.target.value = temp;
+                }
+                alert("Кууууууууууууусь")
+                break;
+            }
+        }
+        if(event.target.value.includes(',')) {
+            let old = event.target.value;
+            let newstr = old.replace(',', '.');
+            event.target.value = newstr;
+        }
+        if(event.target.value === '') {
+            event.target.value = 0;
+            alert("Кря")
+        }
+        if(bum2 === 3) {
+            window.open("https://drive.google.com/drive/folders/13UTZfPWXSPKrxk5hhLvxCBr44Cyimzhc");
+        }
+    });
+    div2.addEventListener('change', function(event) {
         var target = event.target.value;
         //alert(target); //выведет 'p' - абзац
         let flag = false;
