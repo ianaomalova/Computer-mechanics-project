@@ -31,8 +31,8 @@
 </div>
 
 <div align="center">
-    <a id="addrow" href="javascript://" onclick="AddRow()" class="gradient-button">Добавить🛩стержень</a>
-    <a href="javascript://" onclick="DeleteRow()" class="gradient-button">Удалить🛩стержень</a>
+    <a id="addrow" href="javascript://" onclick="AddRow()" class="gradient-button">🛩Добавить стержень</a>
+    <a href="javascript://" onclick="DeleteRow()" class="gradient-button">Удалить стержень 🛩</a>
 </div>
 <br>
 <br>
@@ -46,10 +46,14 @@
 </div>
 
 <br>
+<div align="center">
+<!--    <input title="Выбрать файл" id="sss" type="file" onchange="showFile(this)">-->
+</div>
 
 <!--<a style="float: right" href="#" onclick="draw1()" ><img style="border-radius: 50%" src="https://sun9-11.userapi.com/impg/N88B3oEP-q1AVFyI5JgyHSLMvy7et1LLKk_t1Q/YHTCQ0V1bmI.jpg?size=2162x2160&quality=96&sign=91aea2d51aaf404e2b4f71d2eb44eea8&type=album" alt="Утка" width="210px" height="210px"></a>-->
 <div align="center">
-    <a href="javascript://" onclick="inputForces()" class="gradient-button">Ввести нагрузки</a>
+    <a href="javascript://" onclick="inputForces()" class="gradient-button">🛩Ввести нагрузки</a>
+    <a href="javascript://" class="gradient-button" onclick="f1()">Сохранить нагрузки🛩</a>
     <p style="color: mediumblue; padding-bottom: 10px; font-size: 25px; font-style: oblique" >Распределенные нагрузки</p>
     <table id="table2" class="qw" style="margin: 10px auto">
         <thead>
@@ -63,7 +67,6 @@
         </tbody>
     </table>
 </div>
-
 <!--<a href="#" style="float: right;" onclick="createTable('table2', 'table3')" class="gradient-button">Создать таблицы</a>-->
 <br>
 <br>
@@ -83,10 +86,15 @@
     </tbody>
 </table>
 </div>
-<div align="center">
-    <a href="javascript://" class="gradient-button" onclick="f1()">🍪Сохранить нагрузки🍪</a>
+<br>
+<br>
+<div class="input__wrapper" align="center">
+    <input name="file" type="file" id="sss" class="input input__file" onchange="showFile(this)">
+    <label for="sss" class="input__file-button">
+        <span class="input__file-icon-wrapper"><img class="input__file-icon" src="save2.png" alt="Выбрать файл" width="25"></span>
+        <span class="input__file-button-text">Выбрать файл</span>
+    </label>
 </div>
-
 <!--<button onclick="createTable('table2', 'table3')">Создать таблицы</button>-->
 <!--<a href="#" onclick="createTable('table2', 'table3')" class="gradient-button">Создать таблицы</a>-->
 <br>
@@ -122,12 +130,8 @@
 <!--        <button style="margin-top: 10px" class="button" type="submit">Выбрать</button>-->
 <!--    </div>-->
 <!--</form>-->
-<div id="link" align="center">
-    <a class="gradient-button" id="lnk" onclick="Save()">SAVE</a>
-</div>
-<div align="center">
-    <input id="sss" type="file" onchange="showFile(this)">
-</div>
+
+
 
 <div id="radio" align="center">
     <input class="rd" name="r1" type="radio" value="5"> Грабля слева
@@ -137,23 +141,23 @@
     <input class="rd" name="r1" type="radio" value="53"> Обе граблины
     <br>
 </div>
+<div id="link" align="center">
+    <a class="gradient-button" id="lnk" onclick="Save()">&#128190; Сохранить в файл &#128190;</a>
+</div>
 <div align="center">
 <a title="Нажмите для отрисовки" href="#heh" class="gradient-button" onclick="fun1()"><img style="box-shadow:5px 5px 10px #2B1015" width="250px" height="130px" src="утенок.jpg"></a>
 </div>
-<br>
-<hr>
+
 <pre id="log">
 </pre>
 
 <script src="app.js"></script>
 <!--<button onclick="f1()">Печеньки</button>-->
 <!--<a href="#" style="margin-left: 30%; float: left" onclick="f1()"> <img style="border-radius: 50%; width: 80px; height: 85px" src="песеньки.png"></a>-->
-
-<br>
-
+<hr id="heh">
 <!--<a style="float: right; margin-right: 30%" href="#" onclick="printMemasik()"> <img width="90px" height="75px" src="imgonline-com-ua-Transparent-backgr-LagC94Eddpb.png"></a>-->
 <br>
-<hr id="heh">
+
 <br>
 <br>
 <!--<a href="#" class="gradient-button" style="margin-left: 47%" onclick="Processor()">Расчет</a>-->
@@ -252,7 +256,7 @@
 </div>
 
 <div align="center">
-    <a href="javascript://" class="gradient-button" onclick="Calculation2()">Вывести результат</a>
+    <a href="#resultTable" class="gradient-button" onclick="Calculation2()">Вывести результат</a>
 </div>
 
 <br>
@@ -260,7 +264,7 @@
 
 </div>
 <div align="center">
-<p style="color: mediumblue; padding-bottom: 10px; font-size: 25px; font-style: oblique" >Расчетная таблица</p>
+<p id="resultTable" style="color: mediumblue; padding-bottom: 10px; font-size: 25px; font-style: oblique" >Расчетная таблица</p>
 <table style="margin: 10px auto">
     <thead>
     <tr>
