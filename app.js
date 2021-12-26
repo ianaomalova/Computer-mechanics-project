@@ -18,28 +18,181 @@ function AddRow() {
     $tbl.insertAdjacentHTML("beforeend", "<tr></tr>");
     var $access = document.getElementsByTagName("tr")[mytable.rows.length-1];
     $access.insertAdjacentHTML("beforeend", "<td><text></text></td>")
-    $access.insertAdjacentHTML("beforeend", "<td><input value=1 min='0' step=any></td>")
-    $access.insertAdjacentHTML("beforeend", "<td><input value=1 min='0' step=any></td>")
-    $access.insertAdjacentHTML("beforeend", "<td><input value=1 min='0' step=any></td>")
-    $access.insertAdjacentHTML("beforeend", "<td><input value=1 min='0' step=any></td>")
+    $access.insertAdjacentHTML("beforeend", "<td><input  value=1 min='0' step=any></td>")
+    $access.insertAdjacentHTML("beforeend", "<td><input  value=1 min='0' step=any></td>")
+    $access.insertAdjacentHTML("beforeend", "<td><input  value=1 min='0' step=any></td>")
+    $access.insertAdjacentHTML("beforeend", "<td><input  value=1 min='0' step=any></td>")
     Input();
     //counter2++;
-    function onChange(evt) {
+    // function onChange(evt) {
+    //     let flag = false;
+    //     //document.querySelector(".result").innerHTML = evt.target.value;
+    //     let alfR = ["а", "А", "Б", "в", "В", "г", "Г", "д", "Д", "е", "Е", "ё", "Ë", "ж", "Ж", "з", "З", "и", "И", "й", "Й", "к", "К", "л", "Л", "м", "М", "н", "Н", "о", "О", "п", "П", "р", "Р", "с", "С", "т", "Т", "у", "У", "ф", "Ф", "х", "Х", "ц", "Ц", "ч", "Ч", "ш", "Ш", "щ", "Щ", "ы", "Ы", "ь", "Ь", "ъ", "Ъ", "э", "Э", "ю", "я", "Я"];
+    //     let alrE = ["a", "A", "b", "B", "c", "C", "d", "D", "f", "F", "E", "g", "G", "h", "H", "i", "I", "j", "J", "k", "K", "l", "L", "m", "M", "n", "N", "o", "O", "p", "P", "q", "Q", "r", "R", "s", "S", "t", "T", "u", "U", "v", "V", "w", "W", "x", "X", "y", "Y", "z", "Z"];
+    //     let symbols = ["?", "!", "[", "]", "{", "}", "\\", "/", "@", "#", "$", "%", "ˆ", "&", "*", "(",")", "=", "+", "_", "\""];
+    //     console.log(evt.target.value);
+    //     let temp = evt.target.value;
+    //     temp = parseFloat(temp)
+    //     if(evt.target.value.includes('б') || evt.target.value.includes('ю')) {
+    //         flag = true;
+    //         if(Number.isNaN(temp)) {
+    //             evt.target.value = 1;
+    //         }
+    //         else {
+    //             evt.target.value = temp;
+    //         }
+    //         if (bum3 === 0) {
+    //             alert("Попався!")
+    //             bum3++;
+    //             window.open("https://sun9-21.userapi.com/impg/B0Vf8RJJvU1-9iI8oMcvzXs72l346GFCLi18hg/iqXFANivWV4.jpg?size=1620x2160&quality=96&sign=ec6e6ef7627812ae5a623ba85cf5da0d&type=album");
+    //         }
+    //         else {
+    //             alert("Рррр")
+    //             bum++;
+    //             if(bum === 1) {
+    //                 alert("Первое предупреждение)")
+    //             }
+    //             if(bum === 2) {
+    //                 alert("Владислав Александрович, еще немного и прилетит уткой)")
+    //             }
+    //             if(bum === 3) {
+    //                 alert("А я предупреждала..")
+    //                 window.open("https://yt3.ggpht.com/ytc/AKedOLQtJaOkG3StST9k1mfCcE5sVs2vShXmFsje3xQHng=s900-c-k-c0x00ffffff-no-rj");
+    //             }
+    //         }
+    //     }
+    //     for(let i = 0; i < alfR.length; i++) {
+    //         if(evt.target.value.includes(alfR[i]) && flag === false) {
+    //             flag = true;
+    //             if(Number.isNaN(temp)) {
+    //                 evt.target.value = 1;
+    //             }
+    //             else {
+    //                 evt.target.value = temp;
+    //             }
+    //             bum++;
+    //             alert("Безобразие)");
+    //             if(bum === 1) {
+    //                 alert("Первое предупреждение)")
+    //             }
+    //             if(bum === 2) {
+    //                 alert("Владислав Александрович, еще немного и прилетит уткой)")
+    //             }
+    //             if(bum === 3) {
+    //                 alert("А я предупреждала..")
+    //                 window.open("https://yt3.ggpht.com/ytc/AKedOLQtJaOkG3StST9k1mfCcE5sVs2vShXmFsje3xQHng=s900-c-k-c0x00ffffff-no-rj");
+    //             }
+    //             break;
+    //         }
+    //     }
+    //     for(let j = 0; j < alrE.length; j++) {
+    //         if(evt.target.value.includes(alrE[j]) && flag === false) {
+    //             bum++;
+    //             flag = true;
+    //             if(Number.isNaN(temp)) {
+    //                 evt.target.value = 1;
+    //             }
+    //             else {
+    //                 evt.target.value = temp;
+    //             }
+    //             alert("Недовольное утиное кряканье")
+    //             if(bum === 1) {
+    //                 alert("Первое предупреждение)")
+    //             }
+    //             if(bum === 2) {
+    //                 alert("Владислав Александрович, еще немного и прилетит уткой)")
+    //             }
+    //             if(bum === 3) {
+    //                 alert("А я предупреждала..")
+    //                 window.open("https://yt3.ggpht.com/ytc/AKedOLQtJaOkG3StST9k1mfCcE5sVs2vShXmFsje3xQHng=s900-c-k-c0x00ffffff-no-rj");
+    //             }
+    //             break;
+    //         }
+    //     }
+    //     for(let i = 0; i < symbols.length; i++) {
+    //         if(evt.target.value.includes(symbols[i]) && flag === false) {
+    //             bum++;
+    //             flag = true;
+    //             if(Number.isNaN(temp)) {
+    //                 evt.target.value = 1;
+    //             }
+    //             else {
+    //                 evt.target.value = temp;
+    //             }
+    //             alert("Где-то раздалось недовольное кря")
+    //             if(bum === 1) {
+    //                 alert("Первое предупреждение)")
+    //             }
+    //             if(bum === 2) {
+    //                 alert("Владислав Александрович, еще немного и прилетит уткой)")
+    //             }
+    //             if(bum === 3) {
+    //                 alert("А я предупреждала..")
+    //                 window.open("https://yt3.ggpht.com/ytc/AKedOLQtJaOkG3StST9k1mfCcE5sVs2vShXmFsje3xQHng=s900-c-k-c0x00ffffff-no-rj");
+    //             }
+    //             break;
+    //         }
+    //     }
+    //     if(evt.target.value.includes(',')) {
+    //         let old = evt.target.value;
+    //         let newstr = old.replace(',', '.');
+    //         evt.target.value = newstr;
+    //     }
+    //     console.log(temp)
+    //     if(temp < 0) {
+    //         bum++;
+    //         alert("Нехорошо так делать:)")
+    //         let newtmp = Math.abs(temp);
+    //         evt.target.value = newtmp;
+    //         if(bum === 1) {
+    //             alert("Первое предупреждение)")
+    //         }
+    //         if(bum === 2) {
+    //             alert("Владислав Александрович, еще немного и прилетит уткой)")
+    //         }
+    //         if(bum === 3) {
+    //             alert("А я предупреждала..")
+    //             window.open("https://yt3.ggpht.com/ytc/AKedOLQtJaOkG3StST9k1mfCcE5sVs2vShXmFsje3xQHng=s900-c-k-c0x00ffffff-no-rj");
+    //         }
+    //     }
+    //     if (document.getElementsByTagName("input")[0].value == 75 & document.getElementsByTagName("input")[1].value == 82 & document.getElementsByTagName("input")[2].value == 89 & document.getElementsByTagName("input")[3].value == 65 && document.getElementById("maintabl").rows.length === 1) {
+    //         window.open("https://drive.google.com/drive/folders/19ldrGhQwII9ooc4DltkRkA01IeawXHCj");
+    //     }
+    //     if(evt.target.value === '') {
+    //         evt.target.value = 1;
+    //         alert("Кря")
+    //     }
+    //     if(evt.target.value === '0') {
+    //         evt.target.value = 1;
+    //         alert("Низя так")
+    //     }
+
+   // }
+
+    // const elems = document.getElementsByTagName("input");
+    // for (const elem of elems) {
+    //     elem.addEventListener("change", onChange);
+    // }
+
+    var tb = document.getElementById("mytbl");
+    tb.addEventListener('change', function(event) {
+        var target = event.target.value;
+        //alert(target); //выведет 'p' - абзац
         let flag = false;
         //document.querySelector(".result").innerHTML = evt.target.value;
         let alfR = ["а", "А", "Б", "в", "В", "г", "Г", "д", "Д", "е", "Е", "ё", "Ë", "ж", "Ж", "з", "З", "и", "И", "й", "Й", "к", "К", "л", "Л", "м", "М", "н", "Н", "о", "О", "п", "П", "р", "Р", "с", "С", "т", "Т", "у", "У", "ф", "Ф", "х", "Х", "ц", "Ц", "ч", "Ч", "ш", "Ш", "щ", "Щ", "ы", "Ы", "ь", "Ь", "ъ", "Ъ", "э", "Э", "ю", "я", "Я"];
         let alrE = ["a", "A", "b", "B", "c", "C", "d", "D", "f", "F", "E", "g", "G", "h", "H", "i", "I", "j", "J", "k", "K", "l", "L", "m", "M", "n", "N", "o", "O", "p", "P", "q", "Q", "r", "R", "s", "S", "t", "T", "u", "U", "v", "V", "w", "W", "x", "X", "y", "Y", "z", "Z"];
         let symbols = ["?", "!", "[", "]", "{", "}", "\\", "/", "@", "#", "$", "%", "ˆ", "&", "*", "(",")", "=", "+", "_", "\""];
-        console.log(evt.target.value);
-        let temp = evt.target.value;
+        console.log(event.target.value);
+        let temp = event.target.value;
         temp = parseFloat(temp)
-        if(evt.target.value.includes('б') || evt.target.value.includes('ю')) {
+        if(event.target.value.includes('б') || event.target.value.includes('ю')) {
             flag = true;
             if(Number.isNaN(temp)) {
-                evt.target.value = 1;
+                event.target.value = 1;
             }
             else {
-                evt.target.value = temp;
+                event.target.value = temp;
             }
             if (bum3 === 0) {
                 alert("Попався!")
@@ -62,13 +215,13 @@ function AddRow() {
             }
         }
         for(let i = 0; i < alfR.length; i++) {
-            if(evt.target.value.includes(alfR[i]) && flag === false) {
+            if(event.target.value.includes(alfR[i]) && flag === false) {
                 flag = true;
                 if(Number.isNaN(temp)) {
-                    evt.target.value = 1;
+                    event.target.value = 1;
                 }
                 else {
-                    evt.target.value = temp;
+                    event.target.value = temp;
                 }
                 bum++;
                 alert("Безобразие)");
@@ -86,14 +239,14 @@ function AddRow() {
             }
         }
         for(let j = 0; j < alrE.length; j++) {
-            if(evt.target.value.includes(alrE[j]) && flag === false) {
+            if(event.target.value.includes(alrE[j]) && flag === false) {
                 bum++;
                 flag = true;
                 if(Number.isNaN(temp)) {
-                    evt.target.value = 1;
+                    event.target.value = 1;
                 }
                 else {
-                    evt.target.value = temp;
+                    event.target.value = temp;
                 }
                 alert("Недовольное утиное кряканье")
                 if(bum === 1) {
@@ -110,14 +263,14 @@ function AddRow() {
             }
         }
         for(let i = 0; i < symbols.length; i++) {
-            if(evt.target.value.includes(symbols[i]) && flag === false) {
+            if(event.target.value.includes(symbols[i]) && flag === false) {
                 bum++;
                 flag = true;
                 if(Number.isNaN(temp)) {
-                    evt.target.value = 1;
+                    event.target.value = 1;
                 }
                 else {
-                    evt.target.value = temp;
+                    event.target.value = temp;
                 }
                 alert("Где-то раздалось недовольное кря")
                 if(bum === 1) {
@@ -133,17 +286,17 @@ function AddRow() {
                 break;
             }
         }
-        if(evt.target.value.includes(',')) {
-            let old = evt.target.value;
+        if(event.target.value.includes(',')) {
+            let old = event.target.value;
             let newstr = old.replace(',', '.');
-            evt.target.value = newstr;
+            event.target.value = newstr;
         }
         console.log(temp)
         if(temp < 0) {
             bum++;
             alert("Нехорошо так делать:)")
             let newtmp = Math.abs(temp);
-            evt.target.value = newtmp;
+            event.target.value = newtmp;
             if(bum === 1) {
                 alert("Первое предупреждение)")
             }
@@ -158,23 +311,17 @@ function AddRow() {
         if (document.getElementsByTagName("input")[0].value == 75 & document.getElementsByTagName("input")[1].value == 82 & document.getElementsByTagName("input")[2].value == 89 & document.getElementsByTagName("input")[3].value == 65 && document.getElementById("maintabl").rows.length === 1) {
             window.open("https://drive.google.com/drive/folders/19ldrGhQwII9ooc4DltkRkA01IeawXHCj");
         }
-        if(evt.target.value === '') {
-            evt.target.value = 1;
+        if(event.target.value === '') {
+            event.target.value = 1;
             alert("Кря")
         }
-        if(evt.target.value === '0') {
-            evt.target.value = 1;
+        if(event.target.value === '0') {
+            event.target.value = 1;
             alert("Низя так")
         }
-
-    }
-
-    const elems = document.getElementsByTagName("input");
-    for (const elem of elems) {
-        elem.addEventListener("change", onChange);
-    }
-
+    });
 }
+
 
 function Input() {
     let trMain = document.getElementById('mytbl').rows.length;
@@ -189,82 +336,147 @@ function Input() {
     $tb.insertAdjacentHTML("beforeend", "<tr></tr>");
     var $access1 = document.getElementsByTagName("tr")[rowCountQ];
     $access1.insertAdjacentHTML("beforeend", "<td><text></text></td>")
-    $access1.insertAdjacentHTML("beforeend", "<td><input onclick='EventInputForces()' value=0 step=any></td>")
+    $access1.insertAdjacentHTML("beforeend", "<td><input  value=0 step=any></td>")
     $tb2.insertAdjacentHTML("beforeend", "<tr></tr>");
     var $access2 = document.getElementsByTagName("tr")[rowCountF];
     if(trMain === 2) {
         $tb2.insertAdjacentHTML("beforeend", "<tr></tr>");
         var $access22 = document.getElementsByTagName("tr")[rowCountF+1];
         $access22.insertAdjacentHTML("beforeend", "<td><text></text></td>")
-        $access22.insertAdjacentHTML("beforeend", "<td><input onclick='EventInputForces()' value=0 step=any></td>")
+        $access22.insertAdjacentHTML("beforeend", "<td><input  value=0 step=any></td>")
     }
     $access2.insertAdjacentHTML("beforeend", "<td><text></text></td>")
-    $access2.insertAdjacentHTML("beforeend", "<td><input onclick='EventInputForces()'  value=0 step=any></td>")
+    $access2.insertAdjacentHTML("beforeend", "<td><input  value=0 step=any></td>")
+    var div = document.getElementById('tb2');
 
+    div.addEventListener('change', function(event) {
+        var target = event.target.value;
+        //alert(target); //выведет 'p' - абзац
+        let flag = false;
+        let alfR = ["а", "А", "Б", "б", "ю", "в", "В", "г", "Г", "д", "Д", "е", "Е", "ё", "Ë", "ж", "Ж", "з", "З", "и", "И", "й", "Й", "к", "К", "л", "Л", "м", "М", "н", "Н", "о", "О", "п", "П", "р", "Р", "с", "С", "т", "Т", "у", "У", "ф", "Ф", "х", "Х", "ц", "Ц", "ч", "Ч", "ш", "Ш", "щ", "Щ", "ы", "Ы", "ь", "Ь", "ъ", "Ъ", "э", "Э", "ю", "я", "Я"];
+        let alrE = ["a", "A", "b", "B", "c", "C", "d", "D", "f", "F", "E", "g", "G", "h", "H", "i", "I", "j", "J", "k", "K", "l", "L", "m", "M", "n", "N", "o", "O", "p", "P", "q", "Q", "r", "R", "s", "S", "t", "T", "u", "U", "v", "V", "w", "W", "x", "X", "y", "Y", "z", "Z"];
+        let symbols = ["?", "!", "[", "]", "{", "}", "\\", "/", "@", "#", "$", "%", "ˆ", "&", "*", "(",")", "=", "+", "_", "\""];
+        let temp = event.target.value;
+        temp = parseFloat(temp)
+        for(let i = 0; i < alfR.length; i++) {
+            if(event.target.value.includes(alfR[i]) && flag === false) {
+                bum2++;
+                flag = true;
+                if(Number.isNaN(temp)) {
+                    event.target.value = 1;
+                }
+                else {
+                    event.target.value = temp;
+                }
+                alert("Кусь");
+                break;
+            }
+        }
+        for(let i = 0; i < alrE.length; i++) {
+            if(event.target.value.includes(alrE[i]) && flag === false) {
+                bum2++;
+                flag = true;
+                if(Number.isNaN(temp)) {
+                    event.target.value = 1;
+                }
+                else {
+                    event.target.value = temp;
+                }
+                alert("Кусь!");
+                break;
+            }
+        }
+        for(let i = 0; i < symbols.length; i++) {
+            if(event.target.value.includes(symbols[i]) && flag === false) {
+                bum2++;
+                flag = true;
+                if(Number.isNaN(temp)) {
+                    event.target.value = 1;
+                }
+                else {
+                    event.target.value = temp;
+                }
+                alert("Кууууууууууууусь")
+                break;
+            }
+        }
+        if(event.target.value.includes(',')) {
+            let old = event.target.value;
+            let newstr = old.replace(',', '.');
+            event.target.value = newstr;
+        }
+        if(event.target.value === '') {
+            event.target.value = 0;
+            alert("Кря")
+        }
+        if(bum2 === 3) {
+            window.open("https://drive.google.com/drive/folders/13UTZfPWXSPKrxk5hhLvxCBr44Cyimzhc");
+        }
+    });
 }
 
-function EventInputForces() {
-    let flag = false;
-    let alfR = ["а", "А", "Б", "б", "ю", "в", "В", "г", "Г", "д", "Д", "е", "Е", "ё", "Ë", "ж", "Ж", "з", "З", "и", "И", "й", "Й", "к", "К", "л", "Л", "м", "М", "н", "Н", "о", "О", "п", "П", "р", "Р", "с", "С", "т", "Т", "у", "У", "ф", "Ф", "х", "Х", "ц", "Ц", "ч", "Ч", "ш", "Ш", "щ", "Щ", "ы", "Ы", "ь", "Ь", "ъ", "Ъ", "э", "Э", "ю", "я", "Я"];
-    let alrE = ["a", "A", "b", "B", "c", "C", "d", "D", "f", "F", "E", "g", "G", "h", "H", "i", "I", "j", "J", "k", "K", "l", "L", "m", "M", "n", "N", "o", "O", "p", "P", "q", "Q", "r", "R", "s", "S", "t", "T", "u", "U", "v", "V", "w", "W", "x", "X", "y", "Y", "z", "Z"];
-    let symbols = ["?", "!", "[", "]", "{", "}", "\\", "/", "@", "#", "$", "%", "ˆ", "&", "*", "(",")", "=", "+", "_", "\""];
-    let temp = evt.target.value;
-    temp = parseFloat(temp)
-    for(let i = 0; i < alfR.length; i++) {
-        if(evt.target.value.includes(alfR[i]) && flag === false) {
-            bum2++;
-            flag = true;
-            if(Number.isNaN(temp)) {
-                evt.target.value = 1;
-            }
-            else {
-                evt.target.value = temp;
-            }
-            alert("Кусь");
-            break;
-        }
-    }
-    for(let i = 0; i < alrE.length; i++) {
-        if(evt.target.value.includes(alrE[i]) && flag === false) {
-            bum2++;
-            flag = true;
-            if(Number.isNaN(temp)) {
-                evt.target.value = 1;
-            }
-            else {
-                evt.target.value = temp;
-            }
-            alert("Кусь!");
-            break;
-        }
-    }
-    for(let i = 0; i < symbols.length; i++) {
-        if(evt.target.value.includes(symbols[i]) && flag === false) {
-            bum2++;
-            flag = true;
-            if(Number.isNaN(temp)) {
-                evt.target.value = 1;
-            }
-            else {
-                evt.target.value = temp;
-            }
-            alert("Кууууууууууууусь")
-            break;
-        }
-    }
-    if(evt.target.value.includes(',')) {
-        let old = evt.target.value;
-        let newstr = old.replace(',', '.');
-        evt.target.value = newstr;
-    }
-    if(evt.target.value === '') {
-        evt.target.value = 0;
-        alert("Кря")
-    }
-    if(bum2 === 3) {
-        window.open("https://drive.google.com/drive/folders/13UTZfPWXSPKrxk5hhLvxCBr44Cyimzhc");
-    }
-}
+// function EventInputForces() {
+//     let flag = false;
+//     let alfR = ["а", "А", "Б", "б", "ю", "в", "В", "г", "Г", "д", "Д", "е", "Е", "ё", "Ë", "ж", "Ж", "з", "З", "и", "И", "й", "Й", "к", "К", "л", "Л", "м", "М", "н", "Н", "о", "О", "п", "П", "р", "Р", "с", "С", "т", "Т", "у", "У", "ф", "Ф", "х", "Х", "ц", "Ц", "ч", "Ч", "ш", "Ш", "щ", "Щ", "ы", "Ы", "ь", "Ь", "ъ", "Ъ", "э", "Э", "ю", "я", "Я"];
+//     let alrE = ["a", "A", "b", "B", "c", "C", "d", "D", "f", "F", "E", "g", "G", "h", "H", "i", "I", "j", "J", "k", "K", "l", "L", "m", "M", "n", "N", "o", "O", "p", "P", "q", "Q", "r", "R", "s", "S", "t", "T", "u", "U", "v", "V", "w", "W", "x", "X", "y", "Y", "z", "Z"];
+//     let symbols = ["?", "!", "[", "]", "{", "}", "\\", "/", "@", "#", "$", "%", "ˆ", "&", "*", "(",")", "=", "+", "_", "\""];
+//     let temp = evt.target.value;
+//     temp = parseFloat(temp)
+//     for(let i = 0; i < alfR.length; i++) {
+//         if(evt.target.value.includes(alfR[i]) && flag === false) {
+//             bum2++;
+//             flag = true;
+//             if(Number.isNaN(temp)) {
+//                 evt.target.value = 1;
+//             }
+//             else {
+//                 evt.target.value = temp;
+//             }
+//             alert("Кусь");
+//             break;
+//         }
+//     }
+//     for(let i = 0; i < alrE.length; i++) {
+//         if(evt.target.value.includes(alrE[i]) && flag === false) {
+//             bum2++;
+//             flag = true;
+//             if(Number.isNaN(temp)) {
+//                 evt.target.value = 1;
+//             }
+//             else {
+//                 evt.target.value = temp;
+//             }
+//             alert("Кусь!");
+//             break;
+//         }
+//     }
+//     for(let i = 0; i < symbols.length; i++) {
+//         if(evt.target.value.includes(symbols[i]) && flag === false) {
+//             bum2++;
+//             flag = true;
+//             if(Number.isNaN(temp)) {
+//                 evt.target.value = 1;
+//             }
+//             else {
+//                 evt.target.value = temp;
+//             }
+//             alert("Кууууууууууууусь")
+//             break;
+//         }
+//     }
+//     if(evt.target.value.includes(',')) {
+//         let old = evt.target.value;
+//         let newstr = old.replace(',', '.');
+//         evt.target.value = newstr;
+//     }
+//     if(evt.target.value === '') {
+//         evt.target.value = 0;
+//         alert("Кря")
+//     }
+//     if(bum2 === 3) {
+//         window.open("https://drive.google.com/drive/folders/13UTZfPWXSPKrxk5hhLvxCBr44Cyimzhc");
+//     }
+// }
 
 function DeleteRow() {
     const mainTable = document.getElementById('mytbl');
