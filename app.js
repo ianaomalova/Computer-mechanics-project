@@ -319,7 +319,9 @@ function AddRow() {
             event.target.value = 1;
             alert("Низя так")
         }
+        draw1();
     });
+    draw1();
 }
 
 
@@ -412,6 +414,7 @@ function Input() {
         if(bum2 === 3) {
             window.open("https://drive.google.com/drive/folders/13UTZfPWXSPKrxk5hhLvxCBr44Cyimzhc");
         }
+        draw1();
     });
     div2.addEventListener('change', function(event) {
         var target = event.target.value;
@@ -476,6 +479,7 @@ function Input() {
         if(bum2 === 3) {
             window.open("https://drive.google.com/drive/folders/13UTZfPWXSPKrxk5hhLvxCBr44Cyimzhc");
         }
+        draw1();
     });
 }
 
