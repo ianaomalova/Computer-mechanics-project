@@ -22,6 +22,7 @@ function AddRow() {
     $access.insertAdjacentHTML("beforeend", "<td><input value=1 min='0' step=any></td>")
     $access.insertAdjacentHTML("beforeend", "<td><input value=1 min='0' step=any></td>")
     $access.insertAdjacentHTML("beforeend", "<td><input value=1 min='0' step=any></td>")
+    Input();
     //counter2++;
     function onChange(evt) {
         let flag = false;
@@ -174,6 +175,97 @@ function AddRow() {
     }
 
 }
+
+function Input() {
+    let trMain = document.getElementById('mytbl').rows.length;
+    let rowCountQ = document.getElementById('tb2').rows.length;
+    let rowCountF = document.getElementById('tb3').rows.length;
+    let cnt = rowCountF;
+    rowCountQ+=trMain+1;
+    rowCountF+=rowCountQ + 2;
+    //alert(rowCountF);
+    const $tb = document.getElementById("tb2");
+    const $tb2 = document.getElementById("tb3");
+    $tb.insertAdjacentHTML("beforeend", "<tr></tr>");
+    var $access1 = document.getElementsByTagName("tr")[rowCountQ];
+    $access1.insertAdjacentHTML("beforeend", "<td><text></text></td>")
+    $access1.insertAdjacentHTML("beforeend", "<td><input onclick='EventInputForces()' value=0 step=any></td>")
+    $tb2.insertAdjacentHTML("beforeend", "<tr></tr>");
+    var $access2 = document.getElementsByTagName("tr")[rowCountF];
+    if(trMain === 2) {
+        $tb2.insertAdjacentHTML("beforeend", "<tr></tr>");
+        var $access22 = document.getElementsByTagName("tr")[rowCountF+1];
+        $access22.insertAdjacentHTML("beforeend", "<td><text></text></td>")
+        $access22.insertAdjacentHTML("beforeend", "<td><input onclick='EventInputForces()' value=0 step=any></td>")
+    }
+    $access2.insertAdjacentHTML("beforeend", "<td><text></text></td>")
+    $access2.insertAdjacentHTML("beforeend", "<td><input onclick='EventInputForces()'  value=0 step=any></td>")
+
+}
+
+function EventInputForces() {
+    let flag = false;
+    let alfR = ["а", "А", "Б", "б", "ю", "в", "В", "г", "Г", "д", "Д", "е", "Е", "ё", "Ë", "ж", "Ж", "з", "З", "и", "И", "й", "Й", "к", "К", "л", "Л", "м", "М", "н", "Н", "о", "О", "п", "П", "р", "Р", "с", "С", "т", "Т", "у", "У", "ф", "Ф", "х", "Х", "ц", "Ц", "ч", "Ч", "ш", "Ш", "щ", "Щ", "ы", "Ы", "ь", "Ь", "ъ", "Ъ", "э", "Э", "ю", "я", "Я"];
+    let alrE = ["a", "A", "b", "B", "c", "C", "d", "D", "f", "F", "E", "g", "G", "h", "H", "i", "I", "j", "J", "k", "K", "l", "L", "m", "M", "n", "N", "o", "O", "p", "P", "q", "Q", "r", "R", "s", "S", "t", "T", "u", "U", "v", "V", "w", "W", "x", "X", "y", "Y", "z", "Z"];
+    let symbols = ["?", "!", "[", "]", "{", "}", "\\", "/", "@", "#", "$", "%", "ˆ", "&", "*", "(",")", "=", "+", "_", "\""];
+    let temp = evt.target.value;
+    temp = parseFloat(temp)
+    for(let i = 0; i < alfR.length; i++) {
+        if(evt.target.value.includes(alfR[i]) && flag === false) {
+            bum2++;
+            flag = true;
+            if(Number.isNaN(temp)) {
+                evt.target.value = 1;
+            }
+            else {
+                evt.target.value = temp;
+            }
+            alert("Кусь");
+            break;
+        }
+    }
+    for(let i = 0; i < alrE.length; i++) {
+        if(evt.target.value.includes(alrE[i]) && flag === false) {
+            bum2++;
+            flag = true;
+            if(Number.isNaN(temp)) {
+                evt.target.value = 1;
+            }
+            else {
+                evt.target.value = temp;
+            }
+            alert("Кусь!");
+            break;
+        }
+    }
+    for(let i = 0; i < symbols.length; i++) {
+        if(evt.target.value.includes(symbols[i]) && flag === false) {
+            bum2++;
+            flag = true;
+            if(Number.isNaN(temp)) {
+                evt.target.value = 1;
+            }
+            else {
+                evt.target.value = temp;
+            }
+            alert("Кууууууууууууусь")
+            break;
+        }
+    }
+    if(evt.target.value.includes(',')) {
+        let old = evt.target.value;
+        let newstr = old.replace(',', '.');
+        evt.target.value = newstr;
+    }
+    if(evt.target.value === '') {
+        evt.target.value = 0;
+        alert("Кря")
+    }
+    if(bum2 === 3) {
+        window.open("https://drive.google.com/drive/folders/13UTZfPWXSPKrxk5hhLvxCBr44Cyimzhc");
+    }
+}
+
 function DeleteRow() {
     const mainTable = document.getElementById('mytbl');
     let lastRow = mainTable.rows.length - 1;
