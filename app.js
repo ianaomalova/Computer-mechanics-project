@@ -739,23 +739,25 @@ function fun1() {
 
 
 function draw1() {
+    let WidthCanvas = document.documentElement.clientWidth;
     saveToArray();
     printArray();
     //counter2 = document.getElementById('mytbl').rows.length - 1;
     let canvas = document.getElementById("ochko");
     if (canvas.getContext) {
         let ctx = canvas.getContext('2d');
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        canvas.width = WidthCanvas;
+        ctx.clearRect(0, 0, WidthCanvas, canvas.height);
         let cnv = canvas.getContext('2d');
-        cnv.clearRect(0, 0, canvas.width, canvas.height);
+        cnv.clearRect(0, 0, WidthCanvas, canvas.height);
         let cnv2 = canvas.getContext('2d');
-        cnv2.clearRect(0, 0, canvas.width, canvas.height);
+        cnv2.clearRect(0, 0, WidthCanvas, canvas.height);
         let arrows = canvas.getContext('2d')
-        arrows.clearRect(0, 0, canvas.width, canvas.height)
+        arrows.clearRect(0, 0, WidthCanvas, canvas.height)
         let arrows2 = canvas.getContext('2d')
-        arrows2.clearRect(0, 0, canvas.width, canvas.height)
+        arrows2.clearRect(0, 0, WidthCanvas, canvas.height)
         let txt = canvas.getContext("2d");
-        txt.clearRect(0, 0, canvas.width, canvas.height)
+        txt.clearRect(0, 0, WidthCanvas, canvas.height)
         const amountSterjney = document.getElementById('mytbl').rows.length - 1;
         let coefficientL = 0;
         let coefficientA = 0;
@@ -773,7 +775,7 @@ function draw1() {
         }
 
         coefficientA = 300 / lengthA;
-        coefficientL = 1600 / lengthL;
+        coefficientL = (WidthCanvas-250) / lengthL;
         let counter = 0;
         let counter2 = 2;
         let startX = 0;
@@ -1507,28 +1509,30 @@ function Processor() {
     //     console.log(arrUx[i]);
     // }
     // console.log(arrNx.length);
+    let WidthCanvas = document.documentElement.clientWidth;
     let canvas = document.getElementById("nx");
     // let rowCount = document.getElementById('mytbl').rows.length - 1;
     if (canvas.getContext) {
+        canvas.width = WidthCanvas;
         let ctx = canvas.getContext('2d');
         let txt = canvas.getContext('2d');
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.lineWidth = 2;
         txt.font = "35px Arial"
         txt.fillText("Эпюра Nx", 900, 33);
-        ctx.strokeRect(150, 50, 1600, canvas.height-50); //рисуем прямоугольник
+        ctx.strokeRect(150, 50, WidthCanvas-250, canvas.height-50); //рисуем прямоугольник
         let lengthL=0;
         for (let i = 0; i < arrL.length; i++) {
             lengthL += arrL[i];
         }
         console.log(lengthL);
-        let coefficientL = 1600 / lengthL;
+        let coefficientL = (WidthCanvas-250) / lengthL;
         console.log(coefficientL);
         let X = 150;
         ctx.lineWidth = 2;
         ctx.beginPath();
         ctx.moveTo(X, 250);
-        ctx.lineTo(1750, 250);
+        ctx.lineTo(WidthCanvas-100, 250);
         ctx.stroke();
         let maxNx = Number.MIN_SAFE_INTEGER;
         let minNx = Number.MAX_SAFE_INTEGER;
@@ -1616,6 +1620,7 @@ function Processor() {
         }
         let canvas2 = document.getElementById("ux");
         if (canvas2.getContext) {
+            canvas2.width = WidthCanvas;
             let max = Number.MIN_SAFE_INTEGER;
             let min = Number.MAX_SAFE_INTEGER;
             let ii = 0;
@@ -1642,18 +1647,18 @@ function Processor() {
             ctx.lineWidth = 2;
             txt.font = "35px Arial"
             txt.fillText("Эпюра Ux", 900, 33);
-            ctx.strokeRect(150, 50, 1600, canvas2.height-50); //рисуем прямоугольник
+            ctx.strokeRect(150, 50, WidthCanvas-250, canvas2.height-50); //рисуем прямоугольник
             let lengthL=0;
             for (let i = 0; i < arrL.length; i++) {
                 lengthL += arrL[i];
             }
-            let coefficientL = 1600 / lengthL;
+            let coefficientL = (WidthCanvas-250) / lengthL;
             console.log(coefficientL);
             let X = 150;
             ctx.lineWidth = 2;
             ctx.beginPath();
             ctx.moveTo(X, 250);
-            ctx.lineTo(1750, 250);
+            ctx.lineTo(WidthCanvas-100, 250);
             ctx.stroke();
             for(let i = 0; i < rowCount-1; i++) {
                 ctx.lineWidth = 3;
@@ -1695,23 +1700,24 @@ function Processor() {
     }
     let canvas3 = document.getElementById("sigma");
     if (canvas3.getContext) {
+        canvas3.width = WidthCanvas;
         let ctx = canvas3.getContext('2d');
         let txt = canvas3.getContext('2d');
         ctx.clearRect(0, 0, canvas3.width, canvas3.height);
         ctx.lineWidth = 2;
         txt.font = "35px Arial"
         txt.fillText("Эпюра σ", 900, 33);
-        ctx.strokeRect(150, 50, 1600, canvas3.height-50); //рисуем прямоугольник
+        ctx.strokeRect(150, 50, WidthCanvas-250, canvas3.height-50); //рисуем прямоугольник
         let lengthL=0;
         for (let i = 0; i < arrL.length; i++) {
             lengthL += arrL[i];
         }
-        let coefficientL = 1600 / lengthL;
+        let coefficientL = (WidthCanvas-250) / lengthL;
         let X = 150;
         ctx.lineWidth = 2;
         ctx.beginPath();
         ctx.moveTo(X, 250);
-        ctx.lineTo(1750, 250);
+        ctx.lineTo(WidthCanvas-100, 250);
         ctx.stroke();
         for(let i = 0; i < rowCount-1; i++) {
             ctx.lineWidth = 3;
