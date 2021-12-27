@@ -10,6 +10,7 @@ var counter2 = 1; //счетчик строк
 var data1 = [];
 var data2 = [];
 var data3 = [];
+let hochusdatteorver = false;
 function AddRow() {
     const $tbl = document.getElementById("maintabl");
     const mytable = document.getElementById('mytbl');
@@ -483,68 +484,7 @@ function Input() {
     });
 }
 
-// function EventInputForces() {
-//     let flag = false;
-//     let alfR = ["а", "А", "Б", "б", "ю", "в", "В", "г", "Г", "д", "Д", "е", "Е", "ё", "Ë", "ж", "Ж", "з", "З", "и", "И", "й", "Й", "к", "К", "л", "Л", "м", "М", "н", "Н", "о", "О", "п", "П", "р", "Р", "с", "С", "т", "Т", "у", "У", "ф", "Ф", "х", "Х", "ц", "Ц", "ч", "Ч", "ш", "Ш", "щ", "Щ", "ы", "Ы", "ь", "Ь", "ъ", "Ъ", "э", "Э", "ю", "я", "Я"];
-//     let alrE = ["a", "A", "b", "B", "c", "C", "d", "D", "f", "F", "E", "g", "G", "h", "H", "i", "I", "j", "J", "k", "K", "l", "L", "m", "M", "n", "N", "o", "O", "p", "P", "q", "Q", "r", "R", "s", "S", "t", "T", "u", "U", "v", "V", "w", "W", "x", "X", "y", "Y", "z", "Z"];
-//     let symbols = ["?", "!", "[", "]", "{", "}", "\\", "/", "@", "#", "$", "%", "ˆ", "&", "*", "(",")", "=", "+", "_", "\""];
-//     let temp = evt.target.value;
-//     temp = parseFloat(temp)
-//     for(let i = 0; i < alfR.length; i++) {
-//         if(evt.target.value.includes(alfR[i]) && flag === false) {
-//             bum2++;
-//             flag = true;
-//             if(Number.isNaN(temp)) {
-//                 evt.target.value = 1;
-//             }
-//             else {
-//                 evt.target.value = temp;
-//             }
-//             alert("Кусь");
-//             break;
-//         }
-//     }
-//     for(let i = 0; i < alrE.length; i++) {
-//         if(evt.target.value.includes(alrE[i]) && flag === false) {
-//             bum2++;
-//             flag = true;
-//             if(Number.isNaN(temp)) {
-//                 evt.target.value = 1;
-//             }
-//             else {
-//                 evt.target.value = temp;
-//             }
-//             alert("Кусь!");
-//             break;
-//         }
-//     }
-//     for(let i = 0; i < symbols.length; i++) {
-//         if(evt.target.value.includes(symbols[i]) && flag === false) {
-//             bum2++;
-//             flag = true;
-//             if(Number.isNaN(temp)) {
-//                 evt.target.value = 1;
-//             }
-//             else {
-//                 evt.target.value = temp;
-//             }
-//             alert("Кууууууууууууусь")
-//             break;
-//         }
-//     }
-//     if(evt.target.value.includes(',')) {
-//         let old = evt.target.value;
-//         let newstr = old.replace(',', '.');
-//         evt.target.value = newstr;
-//     }
-//     if(evt.target.value === '') {
-//         evt.target.value = 0;
-//         alert("Кря")
-//     }
-//     if(bum2 === 3) {
-//         window.open("https://drive.google.com/drive/folders/13UTZfPWXSPKrxk5hhLvxCBr44Cyimzhc");
-//     }
-// }
+
 
 function DeleteRow() {
     const mainTable = document.getElementById('mytbl');
@@ -561,18 +501,49 @@ function DeleteRow() {
     let lastRowF = amountForcesF.rows.length-1;
     amountForcesQ.deleteRow(lastRowQ);
     amountForcesF.deleteRow(lastRowF);
+    const mbody = document.getElementById('maintabl');
+    if(mainTable.rows.length === 1) {
+        //hochusdatteorver = true;
+       let tmp =  document.getElementById('tb3').rows.length-1;
+       amountForcesF.deleteRow(tmp);
+    }
 }
 
 function Getter() {
-    // alert("ало")
-    // alert(data2[0])
+    //alert("Внутри кнопки восстановить")
+    // if(hochusdatteorver) {
+    //     for(let i = 0; i < 4; i++) {
+    //         document.getElementsByTagName('input')[i].value = data1[i];
+    //     }
+    //     document.getElementsByTagName('input')[4].value = data2[0];
+    //     document.getElementsByTagName("input")[5].value = data3[0];
+    //     return;
+    // }
+    const $maintb = document.getElementById('mytbl');
     const $tb = document.getElementById("tb2");
+    const $tb2 = document.getElementById('tb3');
+    let countformain = 0;
+    for(let i = 0; i < data1.length; i++) {
+        document.getElementsByTagName('input')[countformain].value = data1[i];
+        countformain++;
+    }
+    alert($maintb.rows.length);
     let countfortb2 = document.getElementById('mytbl').rows.length - 1;
     countfortb2*=4;
     for(let i = 0; i < data2.length; i++) {
         document.getElementsByTagName('input')[countfortb2].value = data2[i];
         countfortb2++;
         //alert(data2[i].toString())
+    }
+
+    let input1 = document.getElementById('mytbl').rows.length-1;
+    input1*=4;
+    let input2 = document.getElementById('tb2').rows.length-1;
+    countfortb3 = input1 + input2+1;
+    //alert(countfortb3);
+    for(let i = 0; i < data3.length; i++) {
+        document.getElementsByTagName('input')[countfortb3].value = data3[i];
+        countfortb3++;
     }
 }
 function inputForces() {
