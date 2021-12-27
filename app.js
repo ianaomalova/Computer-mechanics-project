@@ -1782,7 +1782,12 @@ let feeachkawinxblin = 0;
 let count22 = 0;
 let count11 = 0;
 let count33 = 0;
+let countPunk1 = -1;
 function AddItem() {
+    countPunk1++;
+    if(countPunk1 > 0) {
+        return;
+    }
     let rowCount = document.getElementById('mytbl').rows.length - 1;
     let arrL = [];
     let select = document.getElementById("chooseSt");
@@ -1982,7 +1987,12 @@ function Calculation() {
     }
 }
 let stp = 0;
+let countPunk2 = -1;
 function AddItem2() {
+    countPunk2++;
+    if(countPunk2 > 0) {
+        return;
+    }
     let rowCount = document.getElementById('mytbl').rows.length - 1;
     let arrL = [];
     let countL = 0;
