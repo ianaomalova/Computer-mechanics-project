@@ -507,6 +507,7 @@ function DeleteRow() {
        let tmp =  document.getElementById('tb3').rows.length-1;
        amountForcesF.deleteRow(tmp);
     }
+    draw1();
 }
 
 function Getter() {
@@ -523,7 +524,7 @@ function Getter() {
     const $tb = document.getElementById("tb2");
     const $tb2 = document.getElementById('tb3');
     let countformain = 0;
-    for(let i = 0; i < data1.length; i++) {
+    for(let i = 0; i < document.getElementById('maintabl').rows.length*4; i++) {
         document.getElementsByTagName('input')[countformain].value = data1[i];
         countformain++;
     }
@@ -1422,6 +1423,7 @@ function Processor() {
         let step = arrL[i] / stp;
         for(let j = 0; j < stp; j++) {
             NxChanges[i][j] = arrE[i]*arrA[i]/ arrL[i] * (arrU[i][1] - arrU[i][0]) + (arrQ[i]*arrL[i]/2) * (1 - 2 * increment/arrL[i]);
+            console.log("Nx " + i+j + " " + NxChanges[i][j]);
             increment += step;
         }
     }
