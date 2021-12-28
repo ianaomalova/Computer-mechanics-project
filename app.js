@@ -525,12 +525,15 @@ function Getter() {
     const $tb2 = document.getElementById('tb3');
     let countformain = 0;
     for(let i = 0; i < document.getElementById('maintabl').rows.length*4; i++) {
-        let size = data1.length;
-        document.getElementsByTagName('input')[countformain].value = data1[i];
-        countformain++;
-        if(i+1 === size) {
-            break;
+        if(data1.length !== 0) {
+            let size = data1.length;
+            document.getElementsByTagName('input')[countformain].value = data1[i];
+            countformain++;
+            if(i+1 === size) {
+                break;
+            }
         }
+
     }
     //alert($maintb.rows.length);
     let countfortb2 = document.getElementById('mytbl').rows.length - 1;
