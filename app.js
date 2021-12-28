@@ -2253,11 +2253,17 @@ function Calculation2() {
 
     for(let i = 0; i < arrStep.length; i++) {
         if(Math.abs(parseFloat(tbody.rows[i].cells[4].innerHTML)) > max) {
-            max = parseFloat(tbody.rows[i].cells[4].innerHTML);
+            max = Math.abs(parseFloat(tbody.rows[i].cells[4].innerHTML));
             maxIndex = i;
             //alert(max);
         }
     }
+    // for(let i = 0; i< arrStep.length; i++) {
+    //     let temp = Math.abs(parseFloat(tbody.rows[i].cells[4].innerHTML);
+    //     if(temp > max) {
+    //         max =
+    //     }
+    // }
     //alert(tbody.rows[0].cells[4].value);
     //alert(tbody.rows[0].cells[4].innerHTML);
     let sgm = arrS[numberSt-1];
