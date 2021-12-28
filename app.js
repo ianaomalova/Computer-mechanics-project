@@ -550,6 +550,7 @@ function Getter() {
         document.getElementsByTagName('input')[countfortb3].value = data3[i];
         countfortb3++;
     }
+    draw1();
 }
 function inputForces() {
     let rowCount = document.getElementById('mytbl').rows.length - 1;
@@ -725,6 +726,7 @@ function printArray() {
 
 
 let choose = 2;
+document.getElementsByName('r1')[2].checked = true;
 function fun1() {
     //alert("Внутри функи=ции 12321321")
     var rad=document.getElementsByName('r1');
@@ -943,7 +945,9 @@ function draw1() {
                         }
                     }
                     if(amountSterjney-1 === maxH) {
-                        txt.fillText("F="+ arrF[amountSterjney-1], x, yForTextF);
+                        if(arrF[amountSterjney-1] !== 0) {
+                            txt.fillText("F="+ arrF[amountSterjney-1], x, yForTextF);
+                        }
                     }
                 }
                     //тут будет код если мы находимся в средних стержня
@@ -2033,7 +2037,7 @@ function Bup2() {
     }
     if(temp === 0) {
         alert(")")
-        document.getElementById("stepp").value = arrL[select.value-1]/2;
+        return;
     }
     if(temp < 0) {
         if(Math.abs(document.getElementById("stepp").value) > arrL[select.value-1]) {
@@ -2248,7 +2252,7 @@ function Calculation2() {
     let max = Number.MIN_SAFE_INTEGER;
 
     for(let i = 0; i < arrStep.length; i++) {
-        if(parseFloat(tbody.rows[i].cells[4].innerHTML) > max) {
+        if(Math.abs(parseFloat(tbody.rows[i].cells[4].innerHTML)) > max) {
             max = parseFloat(tbody.rows[i].cells[4].innerHTML);
             maxIndex = i;
             //alert(max);

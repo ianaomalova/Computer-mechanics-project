@@ -43,7 +43,19 @@
 </div>
 <div align="center">
     <script>
-        document.write("🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹")
+        let widthScreen1 = document.documentElement.clientWidth;
+        let amount1 = widthScreen1/15; // получаем влезаемое кол-во смайликов
+        let emoji1 = "🔹";
+        let soutemoji1 = "";
+        for(let i = 0; i < amount1; i++) {
+            emoji1+="🔹";
+        }
+        //alert(amount);
+        //alert(emoji.length);
+        soutemoji1 = emoji1.slice(0, amount1-2);
+        //alert(soutemoji.length);
+        document.write(soutemoji1);
+        //document.write("🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹")
     </script>
 </div>
 
@@ -72,7 +84,7 @@
 <!--<a href="#" style="float: right;" onclick="createTable('table2', 'table3')" class="gradient-button">Создать таблицы</a>-->
 <br>
 <br>
-<hr>
+<hr style="color: #4830F0">
 <br>
 <div align="center">
 <p style="color: mediumblue; padding-bottom: 10px; font-size: 25px; font-style: oblique" >Сосредоточенные нагрузки</p>
@@ -97,6 +109,7 @@
         <span class="input__file-button-text">Выбрать файл</span>
     </label>
 </div>
+
 <!--<button onclick="createTable('table2', 'table3')">Создать таблицы</button>-->
 <!--<a href="#" onclick="createTable('table2', 'table3')" class="gradient-button">Создать таблицы</a>-->
 <br>
@@ -106,7 +119,18 @@
 <br>
 <div align="center">
     <script>
-        document.write("🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹")
+        let widthScreen = document.documentElement.clientWidth;
+        let amount = widthScreen/15; // получаем влезаемое кол-во смайликов
+        let emoji = "🔹";
+        let soutemoji = "";
+        for(let i = 0; i < amount; i++) {
+            emoji+="🔹";
+        }
+        //alert(amount);
+        //alert(emoji.length);
+        soutemoji = emoji.slice(0, amount-1);
+        //alert(soutemoji.length);
+        document.write(soutemoji);
     </script>
 </div>
 <br>
@@ -143,6 +167,7 @@
     <input onclick="fun1()" class="rd" name="r1" type="radio" value="53"> Обе граблины
     <br>
 </div>
+
 <div id="link" align="center">
     <a class="gradient-button" id="lnk" onclick="Save()">&#128190; Сохранить в файл &#128190;</a>
 </div>
@@ -310,8 +335,22 @@
 <img id="arrF" src="LUPA.png" style="display: none">
 <img id="arrQL" src="PUPA_LEFT.png" style="display: none">
 <img id="arrFL" src="LUPA_LEFT.png" style="display: none">
+<div align="center">
 <script>
-    document.write("✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈")
+    let widthScreen3 = document.documentElement.clientWidth;
+    let amount3 = widthScreen3/15; // получаем влезаемое кол-во смайликов
+    let emoji3 = "✈";
+    let soutemoji3 = "";
+    for(let i = 0; i < amount3; i++) {
+        emoji3+="✈";
+    }
+    //alert(amount);
+    //alert(emoji.length);
+    soutemoji3 = emoji3.slice(0, amount3-2);
+    //alert(soutemoji.length);
+    document.write(soutemoji3);
+    //document.write("✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈✈")
 </script>
+</div>
 </body>
 </html>
