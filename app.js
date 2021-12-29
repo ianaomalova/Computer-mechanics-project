@@ -1526,7 +1526,7 @@ function Processor() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.lineWidth = 2;
         txt.font = "35px Arial"
-        txt.fillText("Эпюра Nx", 900, 33);
+        //txt.fillText("Эпюра Nx", 900, 33);
         ctx.strokeRect(150, 50, WidthCanvas-250, canvas.height-50); //рисуем прямоугольник
         let lengthL=0;
         for (let i = 0; i < arrL.length; i++) {
@@ -1653,7 +1653,7 @@ function Processor() {
             ctx.clearRect(0, 0, canvas2.width, canvas2.height);
             ctx.lineWidth = 2;
             txt.font = "35px Arial"
-            txt.fillText("Эпюра Ux", 900, 33);
+            //txt.fillText("Эпюра Ux", 900, 33);
             ctx.strokeRect(150, 50, WidthCanvas-250, canvas2.height-50); //рисуем прямоугольник
             let lengthL=0;
             for (let i = 0; i < arrL.length; i++) {
@@ -1713,7 +1713,7 @@ function Processor() {
         ctx.clearRect(0, 0, canvas3.width, canvas3.height);
         ctx.lineWidth = 2;
         txt.font = "35px Arial"
-        txt.fillText("Эпюра σ", 900, 33);
+        //txt.fillText("Эпюра σ", 900, 33);
         ctx.strokeRect(150, 50, WidthCanvas-250, canvas3.height-50); //рисуем прямоугольник
         let lengthL=0;
         for (let i = 0; i < arrL.length; i++) {
@@ -2040,7 +2040,7 @@ function Bup2() {
     }
     if(temp === 0) {
         alert(")")
-        return;
+        document.getElementById("stepp").value = arrL[select.value-1]/2;
     }
     if(temp < 0) {
         if(Math.abs(document.getElementById("stepp").value) > arrL[select.value-1]) {
@@ -2439,3 +2439,4 @@ function showFile(input) {
         console.log(reader.error);
     };
 }
+

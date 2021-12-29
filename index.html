@@ -11,8 +11,8 @@
 
 <body id="parentDiv">
 <!--<blockquote><p id="rules"><strong style="color: black">Проект</strong></p></blockquote>-->
-<p style="color: mediumblue; padding-bottom: 10px; padding-left: 42%; font-size: 35px; font-style: oblique" >Данные для стержней</p>
 <div  id="tbl" align="center">
+    <p style="color: mediumblue; padding-bottom: 5px; margin-bottom: 1px; font-size: 35px; font-style: oblique" ><a style="color: #4830F0" onclick="alert('Немного милоты:)')" target="_blank" href="https://www.pinterest.ru/pin/644366659193959333/">Данные</a> <a style="color: #4830F0" href="worship.png" onclick="alert('Как завещали древние мудрецы - \'нервы сдали, и ты сдашь\'')" target="_blank">для</a> <a id="krya" onclick="new Audio('kryakane-utki-27148.mp3').play()" style="color: #4830F0" target="_blank" href="https://drive.google.com/drive/folders/1S-furC8H2_dhQ5LcTE6INvYnf2x6pnyJ?usp=sharing">стержней</a> </p>
     <table id="mytbl" class="qw">
         <thead>
         <tr>
@@ -67,7 +67,7 @@
 <!--<a style="float: right" href="#" onclick="draw1()" ><img style="border-radius: 50%" src="https://sun9-11.userapi.com/impg/N88B3oEP-q1AVFyI5JgyHSLMvy7et1LLKk_t1Q/YHTCQ0V1bmI.jpg?size=2162x2160&quality=96&sign=91aea2d51aaf404e2b4f71d2eb44eea8&type=album" alt="Утка" width="210px" height="210px"></a>-->
 <div align="center">
 <!--    <a href="javascript://" onclick="inputForces()" class="gradient-button">🛩Ввести нагрузки</a>-->
-    <p  style="color: mediumblue; padding-bottom: 10px; font-size: 25px; font-style: oblique" >Распределенные нагрузки</p>
+    <p  style="color: mediumblue; padding-bottom: 5px; margin-bottom: 1px; font-size: 25px; font-style: oblique" >Распределенные нагрузки</p>
     <table id="table2" class="qw" style="margin: 10px auto">
         <thead>
         <tr>
@@ -87,7 +87,7 @@
 <hr style="color: #4830F0">
 <br>
 <div align="center">
-<p style="color: mediumblue; padding-bottom: 10px; font-size: 25px; font-style: oblique" >Сосредоточенные нагрузки</p>
+<p style="color: mediumblue; padding-bottom: 5px;margin-bottom: 1px; font-size: 25px; font-style: oblique" >Сосредоточенные нагрузки</p>
 <table id="table3" class="qw" style="margin: 10px auto">
     <thead>
     <tr>
@@ -135,29 +135,6 @@
 </div>
 <br>
 <br>
-<!--<a href="#" onclick="draw1()"style="margin-left: 800px"  class="gradient-button">Отрисовка</a>-->
-
-<!--<form id="choose_rake" action="#" method="POST" novalidate style="margin-left: 700px">-->
-<!--    <p style="color: blue; font-size: 26px;"><strong>Выберите тип заделок: </strong> </p>-->
-<!--    <div style="background-color: cornflowerblue" id="radiobtn">-->
-<!--        <input type="radio" id="left_rake"-->
-<!--               name="rake" value="left rake">-->
-<!--        <label style="font-size: 22px; color: black" for="left_rake">1 грабля слева</label>-->
-<!--        <br>-->
-<!--        <input type="radio" id="right_rake"-->
-<!--               name="rake" value="right rake">-->
-<!--        <label style="font-size: 22px; color: black" for="right_rake">1 грабля справа</label>-->
-<!--        <br>-->
-<!--        <input type="radio" id="two_rake"-->
-<!--               name="rake" value="both rake">-->
-<!--        <label style="font-size: 22px; color: black" for="two_rake">2 грабли</label>-->
-<!--    </div>-->
-<!--    <div>-->
-<!--        <button style="margin-top: 10px" class="button" type="submit">Выбрать</button>-->
-<!--    </div>-->
-<!--</form>-->
-
-
 
 <div id="radio" align="center">
     <input onclick="fun1()" class="rd" name="r1" type="radio" value="5"> Грабля слева
@@ -210,22 +187,24 @@
 <!--<button onclick="Processor()">Процессор</button>-->
 <div align="center">
     <canvas id="ochko" width="1900" height="600">
-
     </canvas>
 </div>
 
 <div align="center">
+    <p style="color: mediumblue; padding-bottom: 5px; margin-bottom: 1px; font-size: 35px; font-style: oblique">Эпюра Nx</p>
     <canvas id="nx" width="1900" height="400">
 
     </canvas>
 </div>
 <br>
 <div align="center">
+    <p style="color: mediumblue; padding-bottom: 1px; margin-bottom: 1px; font-size: 35px; font-style: oblique">Эпюра Ux</p>
     <canvas id="ux" width="1900" height="400">
 
     </canvas>
 </div>
 <div align="center">
+    <p style="color: mediumblue; padding-bottom: 5px; margin-bottom: 1px; font-size: 35px; font-style: oblique">Эпюра σ</p>
     <canvas id="sigma" width="1900" height="400">
 
     </canvas>
@@ -252,7 +231,7 @@
 <!--<button onclick="Calculation()">Вывести результат</button>-->
 <div align="center">
 <a href="javascript://" class="gradient-button" onclick="Calculation()">Вывести результат</a>
-<p id="K" style="color: mediumblue; padding-bottom: 10px; font-size: 25px; font-style: oblique" >Компоненты напряженно-деформированного состояния в заданном сечении конструкции</p>
+<p id="K" style="color: mediumblue; padding-bottom: 7px;margin-bottom: 1px; font-size: 25px; font-style: oblique" >Компоненты напряженно-деформированного состояния в заданном сечении конструкции</p>
 </div>
     <div id="calculate" align="center">
     <table style="margin: 10px auto">
@@ -291,7 +270,7 @@
 
 </div>
 <div align="center">
-<p id="resultTable" style="color: mediumblue; padding-bottom: 10px; font-size: 25px; font-style: oblique" >Расчетная таблица</p>
+<p id="resultTable" style="color: mediumblue; padding-bottom: 7px;margin-bottom: 1px; font-size: 25px; font-style: oblique" >Расчетная таблица</p>
 <table style="margin: 10px auto">
     <thead>
     <tr>
